@@ -776,7 +776,7 @@ en:
       all_contacts: "All contacts"
     stream_element:
       viewable_to_anyone: "This post is viewable to anyone on the web"
-      federated_account: "Remote users who you are not connected to can not currently receive your likes and comments"
+      connect_to_comment: "Connect to this user to comment on their post"
       currently_unavailable: 'commenting currently unavailable'
       via: "via %{link}"
       hide_and_mute: "Hide and Mute"
@@ -860,6 +860,8 @@ en:
     followed_tag:
       title: "#Followed Tags"
       contacts_title: "People who dig these tags"
+      add_a_tag: "Add a tag"
+      follow: "Follow"
 
     tags:
       title: "Posts tagged: %{tags}"
@@ -885,6 +887,7 @@ en:
       works_on_modern: "Works on all modern smartphones"
     edit:
       export_data: "Export Data"
+      photo_export_unavailable: "Photo exporting currently unavailable"
       close_account: "Close Account"
       change_language: "Change language"
       change_password: "Change password"
