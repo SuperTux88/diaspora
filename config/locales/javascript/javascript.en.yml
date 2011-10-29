@@ -54,7 +54,7 @@ en:
         show: "show all comments"
         hide: "hide comments"
       reshares:
-        duplicate: "You've already reshared that post!"
+        duplicate: "That good, huh?  You've already reshared that post!"
       aspect_navigation:
         select_all: "Select all"
         deselect_all: "Deselect all"
@@ -66,3 +66,5 @@ en:
         preparing_your_stream: "Preparing your personialized stream..."
       photo_uploader:
         looking_good: "OMG, you look awesome!"
+      tags:
+        wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
