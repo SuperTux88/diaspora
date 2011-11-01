@@ -6,7 +6,7 @@ class Notifier < ActionMailer::Base
   def self.admin(string, recipients, opts = {})
     mails = []
     recipients.each do |rec|
-      mail = single_admin(string, rec, opts)
+      mail = single_admin(string, rec, opts.dup)
       mails << mail
     end
     mails
@@ -15,11 +15,18 @@ class Notifier < ActionMailer::Base
   def single_admin(string, recipient, opts={})
     @receiver = recipient
     @string = string.html_safe
+    
+    if attach = opts.delete(:attachments)
+      attach.each{ |f|
+        attachments[f[:name]] = f[:file]
+      }
+    end
 
     default_opts = {:to => @receiver.email,
          :from => AppConfig[:smtp_sender_address],
          :subject => I18n.t('notifier.single_admin.subject'),  :host => AppConfig[:pod_uri].host}
     default_opts.merge!(opts)
+
 
 
     mail(default_opts)
