@@ -22,13 +22,21 @@ module Messagebus
      string.split('<')[0] 
     end
 
+    def from_header_parse(message)
+     AppConfig[:smtp_sender_address]
+     'no-reply@joindiaspora.com'
+    end
+
     private
 
     def deliver(message)
       # here we want  = {:fromEmail => message['from'].to_s}
-      @client.send_common_info = {:fromEmail => message.from.first, :customHeaders => {"sender"=> message['from'].to_s}}
+      #this is required due to weird bug in action mailer
+      from_header = from_header_parse(message)
+
+      @client.send_common_info = {:fromEmail => from_header, :customHeaders => {"sender"=> from_header}}
       message.to.each do |addressee|
-        m = {:toEmail => addressee, :subject => message.subject, :fromName => message_parse(message['from'].to_s)}
+        m = {:toEmail => addressee, :fromEmail => from_header, :subject => message.subject, :fromName => message_parse(from_header)}
         @things = []
 
         if message.multipart?
@@ -48,7 +56,7 @@ module Messagebus
         raise "message bus failures: #{e.message} #{@things.map{|x| x[:fromEmail]}.inspect}, #{message['from']}"
       end
       if status[:failureCount] && status[:failureCount] > 0
-        raise "Messagebus failure.  failureCount=#{failureCount}, message=#{message.inspect}"
+        raise "Messagebus failure.  failureCount=#{status[:failureCount]}, message=#{message.inspect}"
       end
     end
   end

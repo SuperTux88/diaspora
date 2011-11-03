@@ -71,6 +71,8 @@ gem 'ruby-oembed'
 gem 'resque', '1.10.0'
 gem 'resque-ensure-connected'
 gem 'resque-timeout', '1.0.0'
+gem 'resque-scheduler'
+gem 'resque-retry'
 gem 'SystemTimer', '1.2.1', :platforms => :ruby_18
 
 # reporting
@@ -107,7 +109,7 @@ gem 'faraday-stack'
 # web sockets
 
 gem 'em-synchrony', :platforms => :ruby_19
-gem 'em-websocket', :git => 'git://github.com/igrigorik/em-websocket', :ref => 'e278f5a1c4db60be7485'
+gem 'em-websocket'
 
 ### GROUPS ####
 
