@@ -9,11 +9,12 @@ module Jobs
     require File.join(Rails.root, 'app/models/notification')
 
     def self.perform(user_ids, object_klass, object_id, person_id)
-      users = User.where(:id => user_ids)
       object = object_klass.constantize.find_by_id(object_id)
+      users = object.participant_users
       person = Person.find_by_id(person_id)
-
-      users.each{|user| Notification.notify(user, object, person) }
+      users.each do |user|
+        Notification.notify(user, object, person)
+      end
     end
   end
 end
