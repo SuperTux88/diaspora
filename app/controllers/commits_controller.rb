@@ -4,8 +4,8 @@ class CommitsController < ApplicationController
     aspects = user.aspects
     
     begin
-      payload = JSON.parse(params[:payload])
-    
+      payload = JSON.parse(params[:payload]).deep_symbolize_keys
+
       message = "New push to #{payload[:repository][:name]}\n"
     
       payload[:commits].each do |commit|
