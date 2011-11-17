@@ -1,6 +1,6 @@
 class CommitsController < ApplicationController
   def receive
-    user = User.find(42)
+    user = User.find(43)
     aspects = user.aspects
     
     begin
