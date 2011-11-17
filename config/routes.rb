@@ -177,6 +177,7 @@ Diaspora::Application.routes.draw do
     end
   end
 
+  post 'github-receive' => "commits#receive"
 
   # Mobile site
 
