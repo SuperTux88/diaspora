@@ -1,38 +1,22 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
-  <style type="text/css">
-    body {
-			text-align: center;
-			background-color: rgb(252,252,252);
-			color: #444;
-			font-family: 'helvetica neue', 'helvetica', 'arial', sans-serif;
-			margin: 0; 
-			padding: 1em;
-		}
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>500: Internal server error</title>
 
-    header {
-			height: 100px;
-			background-color: #333;
-			position:relative;
-		}
+	<link href="/stylesheets/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+	<link href="/assets/default-datauri.css" media="all" rel="stylesheet" type="text/css">
 
-		#diaspora_logo {
-			position: relative;
-			margin-top: 50px;
-		}
-
-    h1 {
-			font-size: 100%;
-			color: #444;
-			line-height: 1.5em;
+	<style type="text/css">
+		/*<![CDATA[*/
+		body {
+			margin-top: 160px;
 		}
 
 		#satisfaction {
 			display:inline-block;
 			width: 800px;
-			margin-top: 50px;
+			margin-top: 10px;
 			background-color: #fff;
 
 			position: relative;
@@ -48,42 +32,68 @@
 
 			max-height: 300px;
 		}
+		/*]]>*/
 	</style>
 </head>
-
 <body>
-  <!-- This file lives in public/500.html -->
-  <header>
-		<img id="diaspora_logo" src="/images/logo_large.png"/>
-  </header>
+<header class="landing">
+	<div class="container" style="position:relative;">
+		<a href="/"><img alt="Logo_large" class="diaspora_header_logo" height="32px" src="/images/logo_large.png" width="321px"></a>
+		<div class="right">
+			<ul id="landing_nav">
+				<li><a href="http://twitter.com/joindiaspora">@joindiaspora</a></li>
+				<li><a href="https://github.com/diaspora/diaspora">github</a></li>
+				<li><a href="http://blog.joindiaspora.com/">Blog</a></li>
+			</ul>
+		</div>
+	</div>
+</header>
 
-	<h1>
-		500: Internal server error.
-	</h1>
-	<h3>
-		Our bad!  Want to tell us how you got here?
-	</h3>
-
-	<div id="satisfaction">
-		<script type="text/javascript" charset="utf-8">
-      if(window.location.hostname == 'joindiaspora.com'){
-			  var is_ssl = ("https:" == document.location.protocol);
-			  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
-			  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
-      }
-		</script>
-
-		<script type="text/javascript" charset="utf-8">
-      if(window.location.hostname == 'joindiaspora.com'){
-			  var feedback_widget_options = {};
-			  feedback_widget_options.display = "inline";  
-			  feedback_widget_options.company = "diaspora";
-			  feedback_widget_options.style = 'problem';
-        var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
-      }
-		</script>
-
+<div class="container">
+	<div id="grey_header">
+		<div class="row">
+			<h1>500: Internal server error</h1>
+		</div>
 	</div>
 
+	<div class="container" style="text-align: center;">
+		<div class="cat-image">
+			<a href="http://www.flickr.com/photos/musigny/407640972/" target="_blank"><img src="/images/cat_500.jpg"/></a>
+		</div>
+
+		<h1 style="margin: 25px 0;">We're sorry, but something went wrong (500)</h1>
+
+		<h4>Our bad! Want to tell us how you got here?</h4>
+
+		<div id="satisfaction">
+			<script type="text/javascript" charset="utf-8">
+				var is_ssl = ("https:" == document.location.protocol);
+				var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+				document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+			</script>
+
+			<script type="text/javascript" charset="utf-8">
+				var feedback_widget_options = {};
+				feedback_widget_options.display = "inline";  
+				feedback_widget_options.company = "diaspora";
+				feedback_widget_options.style = 'problem';
+				var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+			</script>
+		</div>
+	</div>
+</div>
+
+<footer style="border-top: none;">
+	<div class="container">
+		<ul id="footer_nav">
+		<li><a href="http://twitter.com/joindiaspora">@joindiaspora</a></li>
+		<li><a href="https://github.com/diaspora/diaspora">github</a></li>
+		<li><a href="http://blog.joindiaspora.com">Blog</a></li>
+		<li><a href="https://github.com/diaspora/diaspora/wiki/Changelog">What's new?</a></li>
+		</ul>
+		<img alt="Powered_by_diaspora" height="11px" src="/images/powered_by_diaspora.png" width="145px">
+	</div>
+</footer>
 </body>
 </html>
+
