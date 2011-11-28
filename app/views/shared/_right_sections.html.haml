@@ -76,16 +76,16 @@
   .content
     != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.explanation_link_text'), bookmarklet))
 
-  .section
-    .title
-      = image_tag('/images/icons/coffee.png')
-      %h5
-        = t('aspects.index.donate')
-    .content
-      %a{:href => "http://flattr.com/thing/442886/Diaspora-at-nerdpol-ch", :target=> "_blank"}
-        = image_tag '/images/flattr-badge-large.png'
-    - if AppConfig[:paypal_hosted_button_id].present?
-      = t('aspects.index.keep_us_running', :pod => URI.parse(AppConfig[:pod_url]).host)
-      %br
-      = render 'shared/donate'
+.section
+  .title
+    = image_tag('/images/icons/coffee.png')
+    %h5
+      = t('aspects.index.donate')
+  .content
+    %a{:href => "http://flattr.com/thing/442886/Diaspora-at-nerdpol-ch", :target=> "_blank"}
+      = image_tag '/images/flattr-badge-large.png'
+  - if AppConfig[:paypal_hosted_button_id].present?
+    = t('aspects.index.keep_us_running', :pod => URI.parse(AppConfig[:pod_url]).host)
+    %br
+    = render 'shared/donate'
 
