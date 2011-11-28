@@ -1,3 +1,5 @@
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=SuperTux88&url=https://github.com/SuperTux88/diaspora&title=Diaspora at nerdpol.ch&language=en_GB&tags=github&category=software)
+
 # Diaspora
 [![Build Status](https://secure.travis-ci.org/diaspora/diaspora.png)](http://travis-ci.org/diaspora/diaspora)
 
