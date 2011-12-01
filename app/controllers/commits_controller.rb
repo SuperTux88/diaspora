@@ -1,6 +1,6 @@
 class CommitsController < ApplicationController
   def receive
-    user = User.find(43)
+    user = User.find(511)
     aspects = user.aspects
     aspect_ids = aspects.map {|aspect| aspect.id }
         
