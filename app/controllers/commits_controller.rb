@@ -11,7 +11,7 @@ class CommitsController < ApplicationController
     
       payload[:commits].each do |commit|
         commit = commit.deep_symbolize_keys
-        message += "Commit: [#{commit[:message]}](#{commit[:url]}) by *#{commit[:author][:name]}*\n"
+        message += "Commit: [#{commit[:message].gsub(/\n/," ")}](#{commit[:url]}) by *#{commit[:author][:name]}*\n"
       end
       
       message += "##{payload[:repository][:name]}_push ##{payload[:repository][:name]}_#{payload[:ref].split("/").last}_push"    
