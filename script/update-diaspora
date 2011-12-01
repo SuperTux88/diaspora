@@ -5,6 +5,6 @@ set -e
 git checkout master
 git pull upstream master
 git push origin master
-git checkout nerdpol.ch
+git checkout nerdpol_ch
 git merge master
-git push origin nerdpol.ch
+git push origin nerdpol_ch
