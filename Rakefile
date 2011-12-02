@@ -9,6 +9,10 @@ require File.expand_path('../config/application', __FILE__)
 require 'rake'
 require 'resque/tasks'
 
+# ci_reporter
+require 'rubygems'
+require 'ci/reporter/rake/rspec'
+
 # for rake 0.9.0
 module Diaspora
   class Application
