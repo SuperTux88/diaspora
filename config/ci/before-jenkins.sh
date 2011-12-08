@@ -3,6 +3,8 @@
 cp config/ci/jenkins/application.yml config/application.yml
 cp config/ci/jenkins/database.yml config/database.yml
 
+rm log/test.log
+
 # install missing gems
 bundle install
 
