@@ -32,7 +32,7 @@ s.innerHTML="" +
 "document.getElementById('status_message_fake_text').value=vmessage;\n" + 
 "}\n" +  
 "function voicePostAddBanner(){\n" + 
-"var banner='[![voice](http://bit.ly/vivqi7)](http://bit.ly/vbzjvr)';\n" + 
+"var banner='[![voice](https://nerdpol.ch/misc/images/voice_input.png)](https://nerdpol.ch/misc/speech_to_text.html)';\n" + 
 "vmessage+='\\n'+banner;\n" + 
 "document.getElementById('status_message_text').setAttribute('value',vmessage);\n" + 
 "document.getElementById('status_message_fake_text').value=vmessage;\n" + 
