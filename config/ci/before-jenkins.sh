@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -e
+set -x
+
 cp config/ci/jenkins/application.yml config/application.yml
 cp config/ci/jenkins/database.yml config/database.yml
 

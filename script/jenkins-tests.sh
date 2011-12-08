@@ -2,6 +2,7 @@
 
 # ignore errors
 set +e
+set -x
 
 bundle exec rake ci:setup:rspec spec
 
