@@ -1,1 +1,0 @@
-script/jenkins-rspec.sh
