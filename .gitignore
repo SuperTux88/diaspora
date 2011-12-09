@@ -66,4 +66,6 @@ dump.rdb
 *.rbc
 
 # jenkins
-reports
+features/reports
+spec/reports
+spec/reports_fixtures

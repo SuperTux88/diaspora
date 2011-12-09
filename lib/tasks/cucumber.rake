@@ -20,7 +20,7 @@ begin
       t.profile = 'default'
       cucumber_opts = ""
       cucumber_opts << " -f pretty" unless ENV["TRAVIS"] || ENV["JENKINS"]
-      cucumber_opts << " --format junit --out reports/cucumber" if ENV["JENKINS"]
+      cucumber_opts << " --format junit --out features/reports" if ENV["JENKINS"]
       cucumber_opts << ((ENV["GROUP"] == "oauth") ? " --tags @oauth-group" : " --tags ~@oauth-group")
       t.cucumber_opts =  cucumber_opts
     end
