@@ -9,7 +9,7 @@ export JENKINS=true
 rm -rf reports/cucumber
 bundle exec rake cucumber
 
-export GROUP=oauth
-bundle exec rake cucumber
+#export GROUP=oauth
+#bundle exec rake cucumber
 
 exit 0
