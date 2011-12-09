@@ -4,8 +4,10 @@
 set +e
 set -x
 
-bundle exec rake ci:setup:rspec spec
+export CI_REPORTS=reports/fixtures
+bundle exec rake ci:setup:rspec generate_fixtures
 
-echo "specs finished"
+export CI_REPORTS=reports/specs
+bundle exec rake ci:setup:rspec spec
 
 exit 0
