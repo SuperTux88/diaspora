@@ -12,7 +12,7 @@ gem 'thin', '~> 1.3.1', :require => false
 gem 'devise', '~> 1.3.1'
 gem 'devise_invitable', '0.5.0'
 gem 'jwt', "0.1.3"
-gem 'oauth2-provider', '0.0.16'
+gem 'oauth2-provider', '0.0.19'
 
 gem 'omniauth', '1.0.1'
 gem 'omniauth-facebook'
@@ -27,8 +27,8 @@ gem 'cloudfiles', '1.4.10', :require => false
 
 # chef
 
-gem 'chef', '0.9.12', :require => false
-gem 'ohai', '0.5.8', :require => false
+gem 'chef', '~> 0.10.4', :require => false
+gem 'ohai', '~> 0.6.10', :require => false
 
 # configuration
 
@@ -37,7 +37,7 @@ gem 'settingslogic', '2.0.6'
 # database
 
 gem 'activerecord-import'
-gem 'foreigner', '0.9.1'
+gem 'foreigner', '~> 1.1.0'
 gem 'mysql2', '0.2.17' if ENV['DB'].nil? || ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
 gem 'pg' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
 gem 'sqlite3' if ENV['DB'] == 'all' || ENV['DB'] == 'sqlite'
@@ -54,7 +54,7 @@ gem 'jammit', '0.6.5'
 
 # JSON and API
 
-gem 'json', '1.4.6'
+gem 'json', '1.5.2'
 gem 'vanna', :git => 'git://github.com/MikeSofaer/vanna.git'
 
 # localization
@@ -116,7 +116,7 @@ gem 'em-websocket'
 ### GROUPS ####
 
 group :test, :development do
-  gem 'jasmine', '1.1.0.rc3'
+  gem 'jasmine', '~> 1.1.2'
 end
 
 group :test do
@@ -128,13 +128,13 @@ group :test do
                           #"0.1.0", #:path => '~/workspace/diaspora-client'
   gem 'factory_girl_rails'
   gem 'fixture_builder', '0.3.1'
-  gem 'fuubar', '0.0.5'
+  gem 'fuubar', '0.0.6'
   gem 'mongrel', :require => false, :platforms => :ruby_18
   gem 'rspec', '>= 2.0.0'
-  gem 'rspec-core', '2.6.0'
+  gem 'rspec-core', '~> 2.7.1'
   gem 'rspec-instafail', '>= 0.1.7', :require => false
   gem 'rspec-rails', '>= 2.0.0'
-  gem 'selenium-webdriver', '~> 2.14.0'
+  gem 'selenium-webdriver', '~> 2.15.0'
   gem 'webmock', :require => false
   gem 'sqlite3'
   gem 'mock_redis'
@@ -142,10 +142,10 @@ group :test do
 end
 
 group :development do
-  gem 'capistrano', '2.5.19', :require => false
+  gem 'capistrano', '~> 2.9.0', :require => false
   gem 'capistrano_colors', :require => false
   gem 'capistrano-ext', '1.2.1', :require => false
-  gem 'linecache', '0.43', :platforms => :mri_18
+  gem 'linecache', '0.46', :platforms => :mri_18
   gem 'parallel_tests'
   gem 'ruby-debug-base19', '0.11.23' if RUBY_VERSION.include? '1.9.1'
   gem 'ruby-debug19', :platforms => :ruby_19

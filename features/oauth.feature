@@ -26,6 +26,7 @@ Feature: oauth
     And I should have 1 user on Chubbies
 
   Scenario: Signing up as a user while someone else is logged into Diaspora
+    When I change the app_host to Diaspora
     Given a user with username "alice"
     When I sign in as "alice@alice.alice"
     Then I visit "/new" on Chubbies
@@ -55,6 +56,7 @@ Feature: oauth
     Given Chubbies is registered on my pod
     When I try to authorize Chubbies
     And I visit "/reset" on Chubbies
+    And I change the app_host to Diaspora
     And I go to the destroy user session page
 
     When I try to authorize Chubbies
@@ -70,6 +72,7 @@ Feature: oauth
 
     When I press "Authorize"
 
+    And I change the app_host to Diaspora
     And I am on the authorizations page
     Then I should see "Chubbies"
     And I should see "The best way to chub."
@@ -79,12 +82,14 @@ Feature: oauth
 
     When I press "Authorize"
 
+    And I change the app_host to Diaspora
     And I am on the authorizations page
     And I preemptively confirm the alert
     And I follow "Revoke Access"
     Then I visit "/account?id=1" on Chubbies
     Then I should see "Token invalid"
 
+  @wip
   Scenario: Re-registering a client if the client recognizes the diaspora pod but the diaspora pod has since been reset
     Given Chubbies is registered on my pod
     And I remove all traces of Chubbies on the pod
