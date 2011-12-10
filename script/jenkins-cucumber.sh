@@ -6,7 +6,7 @@ set -x
 
 export JENKINS=true
 
-rm -rf reports/cucumber
+rm -rf features/reports
 bundle exec rake cucumber
 
 #export GROUP=oauth
