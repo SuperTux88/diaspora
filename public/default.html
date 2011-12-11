@@ -1,152 +1,169 @@
-
 <!DOCTYPE html>
-<html dir='ltr' lang='en'>
-<head>
-<meta charset='utf-8'>
-<title>
-DIASPORA* ALPHA
-
-</title>
-<meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
-<meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
-<link href='/favicon.png' rel='shortcut icon'>
-<link href='/apple-touch-icon.png' rel='apple-touch-icon'>
-<!-- Social Media Icons are by Paul Robert Lloyd @ http://paulrobertlloyd.com/2009/06/social_media_icons -->
-<!-- bootstrap/blueprint switch -->
-<link href="/stylesheets/blueprint/screen.css?10fa7ba02" media="screen" rel="stylesheet" type="text/css" />
-<link href="/stylesheets/blueprint/print.css?10fa7ba02" media="print" rel="stylesheet" type="text/css" />
-<link href="/stylesheets/login.css?10fa7ba02" media="screen" rel="stylesheet" type="text/css" />
-<!--[if (!IE)|(gte IE 8)]><!-->
-<link href="/assets/default-datauri.css?10fa7ba02" media="all" rel="stylesheet" type="text/css" />
-<!--<![endif]-->
-<!--[if lte IE 7]>
-<link href="/assets/default-mhtml.css?10fa7ba02" media="all" rel="stylesheet" type="text/css" />
-<![endif]-->
-<meta name="csrf-param" content="authenticity_token"/>
-<meta name="csrf-token" content="XXjEhGE+k4oLf4ivsS0w4z49YCW8ZlmeqZuO6dAxVV0="/>
-<!--[if IE]>
-<script src="/javascripts/ie.js?10fa7ba02" type="text/javascript"></script>
-<![endif]-->
-<script src="/assets/jquery.js?10fa7ba02" type="text/javascript"></script>
-<script>
-  //<![CDATA[
-    !window.jQuery && document.write(unescape('%3Cscript src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"%3E%3C/script%3E'))
-  //]]>
-</script>
-
-<script>
-  //<![CDATA[
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-17207587-3']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  //]]>
-</script>
-
-<script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script></head>
-<body class=''>
-<header class='landing'>
-<div class='container' style='position:relative;'>
-<a href="/"><img alt="Logo_large" class="diaspora_header_logo" height="32px" src="/images/logo_large.png?10fa7ba02" width="321px" /></a>
-<div class='right'>
-<ul id='landing_nav'>
-<li><a href="http://twitter.com/joindiaspora">@joindiaspora</a></li>
-<li><a href="https://github.com/diaspora/diaspora">github</a></li>
-<li><a href="http://blog.joindiaspora.com/">blog</a></li>
-<li><a href="/users/sign_in" class="login">Login</a></li>
-</ul>
-</div>
-</div>
-
-</header>
-<div class='container' style=''>
-<div class='span-24 last' style=''>
-<div id='landing_content'>
-<div class='ilya'>
-<a href="http://blog.diasporafoundation.org/2011/11/16/ilya-zhitormirskiy-1989-2011.html" target="_blank"><img alt="Seed" src="https://db78ml4vyrxnw.cloudfront.net/seed.jpg" /></a>
-<div class='memory'>
-<h1>Ilya Zhitomirskiy</h1>
-<h2>1989-2011</h2>
-</div>
-<a href="http://www.flickr.com/photos/31878512@N06/5093998704/" class="attribution" target="blank">Thank you Neal Fowler for being part of the Commons</a>
-</div>
-</div>
-<style>
-  /*<![CDATA[*/
-    body{
-      background-color:#0A0000;
-      padding : 0;
-    }
-    .container {
-      width : 100%;
-    }
-    .span-24.last {
-      width : 100%;
-    }
-    #landing_content{
-      margin-top:-6px;
+<html>
+  <head>
+    <title>Diaspora: Getting Started</title>
+    <style type="text/css">
+      ol {
+        padding: 0;
       }
-    #landing_content  img {
-      width : 100%;
-    }
-    .ilya {
-      position : relative;
-    }
+      h1, h2, h3 {
+        letter-spacing: -1px;
+      }
+      h1 {
+        color: #111;
+        text-shadow: 2px 0 0 white;
+      }
 
-    .memory {
-      position: absolute;
-      top: 90px;
-      right : 90px;
-      text-align : right;
-    }
+      h2 {
+        color: #444;
+      }
 
-    #landing_content h1 {
-      font-weight: 200;
-      font-size: 38px;
-      color: #D5D5D5;
-      letter-spacing: 0.03em;
-    }
+      h3 {
+        color: #777;
+      }
 
-    #landing_content h2 {
-      font-weight: lighter;
-      font-size: 25px;
-      color: #D5D5D5;
-      letter-spacing: 0.05em;
-    }
+      #steps li{
+        display: inline-block;
+        width: 30%;
+        padding: 1%;
+        text-align: center;
+        vertical-align: top;
+      }
 
-    footer .container {
-      margin-top: 0;
-      border-top : none;
-    }
-    .attribution {
-      position : absolute;
-      bottom : 8px;
-      left : 8px;
-      color : #777;
-    }
-    .attribution:hover {
-      text-decoration : none;
-      color : #666;
-    }
-  /*]]>*/
-</style>
+      p{
+        font-family: 'helvetica';
+      }
+
+      #links {
+        margin: 0;
+        padding: 0;
+      }
+      #links .section {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        vertical-align: top;
+        width: 24%;
+        max-width: 24%;
+      }
+
+      code {
+        background-color: #D9FFA9;
+      }
+
+      #login-link {
+        float: right;
+        padding: 3px 5px;
+        background: #f0f0f0;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        font-weight: bold;
+      }
+
+      #login-link:hover{
+        text-decoration: none;
+        background-color: #fff;
+      }
+
+      #change-page {
+        color: #999;
+        text-align: center;
+        font-style: italic;
+      }
+
+      #change-page code {
+        background: none;
+      }
+
+      footer .container {
+        margin-top: 15px;
+      }
+
+      .helpful {
+        cursor: help;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div id="page">
+      <div id="contentr">
+        <div id="header" style="margin-bottom:24px;">
+          <a id="login-link" href="login">Log In</a>
+          <img src='images/logo_caps.png'/>
+        </div>
+
+        <div id="about" style='display:none;'>
+          <h3><a href="rails/info/properties" onclick="about(); return false;">About your pod&rsquo;s environment</a></h3>
+          <div id="about-content" style="display: none"></div>
+        </div>
+
+        <hr>
+        <div id="getting-started">
+          <h1>Welcome, friend.</h1>
+          <h3>nerdpol.ch Diaspora*</h3>
+
+          <hr>
+          <br>
+          <br>
+
+          <ol id="steps">
+            <li>
+              <h2>Deine Entscheidung</h2>
+              <img src='images/icons/cog.png'/>
+              <p>Diaspora l&auml;sst dich deine Kontakte in Gruppen einordnen, sogenannte Aspekte. Deine Fotos, Geschichten und Witze werden durch diese Aspekte nur mit den Menschen geteilt, f&uuml;r die sie gedacht sind - einzigartig bei Diaspora.</p>
+            </li>
+
+            <li>
+              <h2>Dein Eigentum</h2>
+              <img src='images/icons/pen_write.png'/>
+              <p>Deine Bilder geh&ouml;ren dir. Um sie zu teilen, musst du darauf nicht verzichten: Alles, was du auf Diaspora teilst, bleibt dein Eigentum - mit voller Kontrolle &uuml;ber die Verbreitung.</p>
+            </li>
+
+            <li>
+              <h2>Ganz einfach</h2>
+              <img src='images/icons/smiley_laughing.png'/>
+              <p>Diaspora macht das Teilen von Inhalten klar und einfach - dasselbe gilt f&uuml;r den Schutz deiner Privatsph&auml;re. Diaspora ist von sich aus privat, seitenweise Einstellungen f&uuml;r die Profilsicherheit sind nicht n&ouml;tig.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <hr>
+
+      <br>
+
+      <p>Zum Starten <a href="users/sign_up">hier registrieren</a>. Bereits registriert? <a href="users/sign_in">Hier anmelden</a>.</p>
+
+      <br>
+
+      <hr>
+
+      <br>
 
 
-</div>
-</div>
-<script type="text/javascript">if (!NREUMQ.f) { NREUMQ.f=function() {
-NREUMQ.push(["load",new Date().getTime()]);
-var e=document.createElement("script");
-e.type="text/javascript";e.async=true;e.src="https://d1ros97qkrwjf5.cloudfront.net/24/eum/rum-staging.js";
-document.body.appendChild(e);
-if(NREUMQ.a)NREUMQ.a();
-};
-NREUMQ.a=window.onload;window.onload=NREUMQ.f;
-};
-NREUMQ.push(["nrfj","beacon-1.newrelic.com","aca58d21b2",157961,"J1wMQ0cLDQpQQhsMCwlWTURdCxY=",0,25,new Date().getTime(),"","","","",""])</script></body>
+      <h3>Useful Resources</h3>
+      <ul id="links">
+        <ul class="section">
+          <li><strong><a href="http://github.com/diaspora/diaspora/" title="Git repository">Codebase</a></strong></li>
+          <li><strong><a href="http://github.com/diaspora/diaspora/wiki" title="Wiki on github">Documentation</a></strong></li>
+          <br>
+          <li><a href="http://bugs.joindiaspora.com/" title="Bug tracker">Find & Report bugs</a></li>
+        </ul>
+        <ul class="section">
+          <li><a href="http://webchat.freenode.net/?channels=diaspora" title="#diaspora">IRC - General</a></li>
+          <li><a href="http://webchat.freenode.net/?channels=diaspora-dev" title="#diaspora-dev">IRC - Development</a></li>
+        </ul>
+        <ul class="section">
+          <li><a href="http://groups.google.com/group/diaspora-discuss" title="General discussion mailing list">Discussion - General</a></li>
+          <li><a href="http://groups.google.com/group/diaspora-dev" title="Dev mailing list">Discussion - Development</a></li>
+        </ul>
+        <ul class="section">
+          <li><a href="http://getsatisfaction.com/diaspora/" title="Get Satisfaction">User Feedback</a></li>
+          <li><a href="http://guides.rubyonrails.org/">Learn more about Ruby On Rails!</a></li>
+        </ul>
+      </ul>
+    </div>
+  </body>
 </html>
