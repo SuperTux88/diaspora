@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>Diaspora: Getting Started</title>
+    <link href="/stylesheets/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="/assets/default-datauri.css" media="all" rel="stylesheet" type="text/css">
     <style type="text/css">
       ol {
         padding: 0;
@@ -20,6 +22,14 @@
 
       h3 {
         color: #777;
+      }
+
+      #page {
+        margin-top: 20px;
+      }
+
+      footer {
+         border-top: none;
       }
 
       #steps li{
@@ -87,19 +97,21 @@
   </head>
 
   <body>
+    <header class='landing'>
+    <div class='container' style='position:relative;'>
+    <a href="/"><img alt="Logo_large" class="diaspora_header_logo" height="32px" src="/images/logo_large.png?10fa7ba02" width="321px" /></a>
+    <div class='right'>
+    <ul id='landing_nav'>
+    <li><a href="http://twitter.com/joindiaspora">@joindiaspora</a></li>
+    <li><a href="https://github.com/diaspora/diaspora">github</a></li>
+    <li><a href="http://blog.joindiaspora.com/">blog</a></li>
+    <li><a href="/users/sign_in" class="login">Login</a></li>
+    </ul>
+    </div>
+    </div>
+    </header>
     <div id="page">
       <div id="contentr">
-        <div id="header" style="margin-bottom:24px;">
-          <a id="login-link" href="login">Log In</a>
-          <img src='images/logo_caps.png'/>
-        </div>
-
-        <div id="about" style='display:none;'>
-          <h3><a href="rails/info/properties" onclick="about(); return false;">About your pod&rsquo;s environment</a></h3>
-          <div id="about-content" style="display: none"></div>
-        </div>
-
-        <hr>
         <div id="getting-started">
           <h1>Welcome, friend.</h1>
           <h3>nerdpol.ch Diaspora*</h3>
