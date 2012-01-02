@@ -4,17 +4,22 @@
 
 
 
-id: 
-  javascripts: 
-    aspect_dropdown: 
+id:
+  javascripts:
+    aspect_dropdown:
       add_to_aspect: "Add to aspect"
-      toggle: 
+      toggle:
+        few: "In {{count}} aspects"
+        many: "In {{count}} aspects"
+        one: "In {{count}} aspect"
+        other: "In {{count}} aspects"
+        two: "In {{count}} aspects"
         zero: "Add to aspect"
-    getting_started: 
+    getting_started:
       preparing_your_stream: "Preparing your personialized stream..."
-    reshares: 
+    reshares:
       duplicate: "You've already reshared that post!"
-    timeago: 
+    timeago:
       day: sehari
       days: "%d hari"
       hour: "sekitar sejam"

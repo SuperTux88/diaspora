@@ -4,7 +4,7 @@
 
 
 
-fil: 
+fil:
   _applications: "Mga Applikasyon"
   _comments: "Mga Kumento"
   _contacts: "Mga Kakilala"
@@ -12,70 +12,70 @@ fil:
   _photos: "Mga Larawan"
   _services: "Mga Serbisyo"
   account: Pag-aari
-  activerecord: 
-    errors: 
-      models: 
-        contact: 
-          attributes: 
-            person_id: 
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
               taken: "maari lamang na walang kaparis."
-        person: 
-          attributes: 
-            diaspora_handle: 
+        person:
+          attributes:
+            diaspora_handle:
               taken: "ay mayroon ng nagmamay-ari."
-        request: 
-          attributes: 
-            from_id: 
+        request:
+          attributes:
+            from_id:
               taken: "ay kaparis na ng huling kahilingan."
-        reshare: 
-          attributes: 
-            root_guid: 
+        reshare:
+          attributes:
+            root_guid:
               taken: "Naipamahagi mo na ang poste!"
-        user: 
-          attributes: 
-            email: 
+        user:
+          attributes:
+            email:
               taken: "mayroon ng nagmamay-ari."
-            person: 
+            person:
               invalid: "ay hindi tama."
-            username: 
+            username:
               invalid: "ay hindi tama. Pinapahintulutan lamang namin ang mga letra ng alpabeto, numero, at salungguhit."
               taken: "ay mayroon ng nagmamay-ari."
   ago: "%{time} ang nakalipas"
   all_aspects: "Lahat ng aspeto"
-  application: 
-    helper: 
+  application:
+    helper:
       unknown_person: "hindi kilala"
-      video_title: 
+      video_title:
         unknown: "Hindi kilalang Titulo"
   are_you_sure: "Sigurado ka ba?"
-  aspect_memberships: 
-    destroy: 
+  aspect_memberships:
+    destroy:
       failure: "Aduy! Hindi masipa ang isa sa iyong tropa sa grupo"
       no_membership: "Hindi mahanap ang iyong tropa sa grupo"
       success: "Matagumpay na natanggal ang tropa sa iyong grupo"
-  aspects: 
-    add_to_aspect: 
+  aspects:
+    add_to_aspect:
       failure: "Failed to add contact to crew."
       success: "Successfully added contact to crew."
-    aspect_listings: 
+    aspect_listings:
       add_an_aspect: "+ Add a crew"
     contacts_not_visible: "Contacts in this crew will not be able to see each other."
     contacts_visible: "Contacts in this crew will be able to see each other."
-    create: 
+    create:
       failure: "Crew creation failed."
       success: "Your new crew %{name} was created"
-    edit: 
+    edit:
       aspect_list_is_not_visible: "crew list is hidden to others in crew"
       aspect_list_is_visible: "crew list is visible to others in crew"
       confirm_remove_aspect: "Are you sure you want to delete this crew?"
       make_aspect_list_visible: "make crew list visible?"
       remove_aspect: "Fire this crew"
     few: "%{count} crews"
-    helper: 
+    helper:
       are_you_sure: "Are you sure you want to delete this crew?"
       aspect_not_empty: "Crew not empty"
-    index: 
-      help: 
+    index:
+      help:
         here_to_help: "Diaspora community is here to help!"
         tag_bug: "#bug"
         tag_feature: "#feature"
@@ -84,129 +84,295 @@ fil:
       no_contacts: "No mateys"
       your_aspects: "Yer Crews"
     many: "%{count} crews"
-    new: 
+    new:
       name: Name
-    no_contacts_message: 
+    no_contacts_message:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
     one: "1 crew"
     other: "%{count} crews"
-    seed: 
+    seed:
       acquaintances: Landlubbers
       family: Kin
       friends: Mateys
       work: Shipmates
-  authorizations: 
-    index: 
+    two: "%{count} aspects"
+    zero: "no aspects"
+  authorizations:
+    index:
       no_applications: "Hindi ka pa nakapag-sumite ng applikasyon."
       revoke_access: "Bawiin ang Access"
-  contacts: 
-    index: 
+  comments:
+    few: "%{count} comments"
+    many: "%{count} comments"
+    one: "1 comment"
+    other: "%{count} comments"
+    two: "%{count} comments"
+    zero: "no comments"
+  contacts:
+    few: "%{count} contacts"
+    index:
       add_to_aspect: "Add contacts to %{name}"
       all_contacts: "All yer mateys"
       no_contacts: "No contacts."
       title: Mateys
       your_contacts: "Yer Mateys"
+    many: "%{count} contacts"
+    one: "1 contact"
+    other: "%{count} contacts"
+    two: "%{count} contacts"
     zero: "no contacts"
-  layouts: 
-    application: 
+  conversations:
+    helper:
+      new_messages:
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        two: "%{count} new messages"
+        zero: "No new messages"
+  layouts:
+    application:
       toggle: "toggle mobile site"
-    header: 
+    header:
       logout: "abandon ship"
       profile: profile
       settings: settings
+  likes:
+    likes:
+      people_dislike_this:
+        few: "%{count} dislikes"
+        many: "%{count} dislikes"
+        one: "%{count} dislike"
+        other: "%{count} dislikes"
+        two: "%{count} dislikes"
+        zero: "no dislikes"
+      people_like_this:
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        two: "%{count} likes"
+        zero: "no likes"
+      people_like_this_comment:
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        two: "%{count} likes"
+        zero: "no likes"
   limited: Limitado
-  notifications: 
-    helper: 
-      new_notifications: 
+  notifications:
+    also_commented:
+      few: "%{actors} also commented on %{post_author}'s %{post_link}."
+      many: "%{actors} also commented on %{post_author}'s %{post_link}."
+      one: "%{actors} also commented on %{post_author}'s %{post_link}."
+      other: "%{actors} also commented on %{post_author}'s %{post_link}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
+      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
+    also_commented_deleted:
+      few: "%{actors} commented on a deleted post."
+      many: "%{actors} commented on a deleted post."
+      one: "%{actors} commented on a deleted post."
+      other: "%{actors} commented on a deleted post."
+      two: "%{actors} commented on a deleted post."
+      zero: "%{actors} commented on a deleted post."
+    comment_on_post:
+      few: "%{actors} commented on your %{post_link}."
+      many: "%{actors} commented on your %{post_link}."
+      one: "%{actors} commented on your %{post_link}."
+      other: "%{actors} commented on your %{post_link}."
+      two: "%{actors} commented on your %{post_link}."
+      zero: "%{actors} commented on your %{post_link}."
+    helper:
+      new_notifications:
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
         one: "1 new notifications"
-    liked: 
+        other: "%{count} new notifications"
+        two: "%{count} new notifications"
+        zero: "No new notifications"
+    index:
+      and_others:
+        few: "and %{count} others"
+        many: "and %{count} others"
+        one: "and one more"
+        other: "and %{count} others"
+        two: "and %{count} others"
+        zero: "and nobody else"
+    liked:
       few: "%{actors} has just liked your %{post_link}."
       many: "%{actors} has just liked your %{post_link}."
       one: "%{actors} has just liked your %{post_link}."
       other: "%{actors} has just liked your %{post_link}."
       two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} has just liked your %{post_link}."
-    mentioned: 
+    liked_post_deleted:
+      few: "%{actors} liked your deleted post."
+      many: "%{actors} liked your deleted post."
+      one: "%{actors} liked your deleted post."
+      other: "%{actors} liked your deleted post."
+      two: "%{actors} liked your deleted post."
+      zero: "%{actors} liked your deleted post."
+    mentioned:
       few: "%{actors} has mentioned you in a %{post_link}."
       many: "%{actors} has mentioned you in a %{post_link}."
+      one: "%{actors} has mentioned you in a %{post_link}."
       other: "%{actors} has mentioned you in a %{post_link}."
       two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} has mentioned you in a %{post_link}."
-    reshared: 
+    mentioned_deleted:
+      few: "%{actors} mentioned you in a deleted post."
+      many: "%{actors} mentioned you in a deleted post."
+      one: "%{actors} mentioned you in a deleted post."
+      other: "%{actors} mentioned you in a deleted post."
+      two: "%{actors} mentioned you in a deleted post."
+      zero: "%{actors} mentioned you in a deleted post."
+    private_message:
+      few: "%{actors} sent you a message."
+      many: "%{actors} sent you a message."
+      one: "%{actors} sent you a message."
+      other: "%{actors} sent you a message."
+      two: "%{actors} sent you a message."
+      zero: "%{actors} sent you a message."
+    reshared:
       few: "%{actors} has reshared your %{post_link}."
       many: "%{actors} has reshared your %{post_link}."
+      one: "%{actors} has reshared your %{post_link}."
       other: "%{actors} has reshared your %{post_link}."
       two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} has reshared your %{post_link}."
-  notifier: 
-    confirm_email: 
+    reshared_post_deleted:
+      few: "%{actors} reshared your deleted post."
+      many: "%{actors} reshared your deleted post."
+      one: "%{actors} reshared your deleted post."
+      other: "%{actors} reshared your deleted post."
+      two: "%{actors} reshared your deleted post."
+      zero: "%{actors} reshared your deleted post."
+    started_sharing:
+      few: "%{actors} started sharing with you."
+      many: "%{actors} started sharing with you."
+      one: "%{actors} started sharing with you."
+      other: "%{actors} started sharing with you."
+      two: "%{actors} started sharing with you."
+      zero: "%{actors} started sharing with you."
+  notifier:
+    confirm_email:
       click_link: "To activate your new email address %{unconfirmed_email}, please click this link:"
-    liked: 
+    liked:
       liked: "%{name} just liked your post"
-    reshared: 
+    reshared:
       reshared: "%{name} just reshared your post"
-  people: 
-    add_contact_small: 
+  people:
+    add_contact_small:
       add_contact_from_tag: "magdagdag ng kakilala mula sa tag"
     few: "%{count} na tao"
-    helper: 
+    helper:
       people_on_pod_are_aware_of: " mga tao sa pod ay may kamalayan sa"
       results_for: " mga resulta para sa %{params}"
     many: "%{count} na tao"
-    person: 
+    one: "1 person"
+    other: "%{count} people"
+    person:
       add_contact: "magdagdag ng mga kakilala"
       already_connected: "Konektado ka na"
       pending_request: "Nakabinbin na kahilingan"
       thats_you: "Ikaw yan!"
-    profile_sidebar: 
+    profile_sidebar:
       born: "date o' birth"
-    sub_header: 
+    sub_header:
       add_some: "magdagdag ng ilan"
       edit: baguhin
       you_have_no_tags: "wala ka pang mga tag!"
     two: "%{count} na tao"
-  photos: 
-    new: 
+    zero: "no people"
+  photos:
+    new:
       new_photo: "New Portrait"
-  profiles: 
-    edit: 
+  profiles:
+    edit:
       your_birthday: "Ye day o' birth"
-  registrations: 
-    new: 
+  reactions:
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    one: "1 reaction"
+    other: "%{count} reactions"
+    two: "%{count} reactions"
+    zero: "0 reactions"
+  registrations:
+    new:
       create_my_account: "Create my account"
       sign_up_message: "Social Networking with a <3"
-  services: 
-    inviter: 
+  requests:
+    helper:
+      new_requests:
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        two: "%{count} new requests!"
+        zero: "no new requests"
+  reshares:
+    reshare:
+      reshare:
+        few: "%{count} reshares"
+        many: "%{count} reshares"
+        one: "1 reshare"
+        other: "%{count} reshares"
+        two: "%{count} reshares"
+        zero: Reshare
+  services:
+    inviter:
       click_link_to_accept_invitation: "Click this link to accept your invitation"
-  shared: 
-    aspect_dropdown: 
+  shared:
+    aspect_dropdown:
       add_to_aspect: "Add to aspect"
-      toggle: 
+      toggle:
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        two: "In %{count} aspects"
         zero: "Add to aspect"
-    publisher: 
-      new_user_prefill: 
+    publisher:
+      new_user_prefill:
         i_like: "I'm interested in %{tags}."
       share: Fire!
       whats_on_your_mind: "What be botherin' you?"
-    stream_element: 
+    stream_element:
       hide_and_mute: "Hide and Mute"
       shared_with: "Fired at: %{aspect_names}"
-  streams: 
-    mentions: 
+  status_messages:
+    too_long:
+      few: "please make your status messages less than %{count} characters"
+      many: "please make your status messages less than %{count} characters"
+      one: "please make your status messages less than %{count} character"
+      other: "please make your status messages less than %{count} characters"
+      two: "please make your status messages less than %{count} characters"
+      zero: "please make your status messages less than %{count} characters"
+  stream_helper:
+    show_comments:
+      few: "Show %{count} more comments"
+      many: "Show %{count} more comments"
+      one: "Show one more comment"
+      other: "Show %{count} more comments"
+      two: "Show two more comments"
+      zero: "No more comments"
+  streams:
+    mentions:
       title: "Your Mentions"
-    tags: 
+    tags:
       contacts_title: "People who dig these tags"
-  tag_followings: 
-    create: 
+  tag_followings:
+    create:
       failure: "Failed to follow: #%{name}"
       success: "Successfully following: #%{name}"
-    destroy: 
+    destroy:
       failure: "Failed to stop following: #%{name}"
       success: "Successfully stopped following: #%{name}"
-  users: 
-    getting_started: 
+  users:
+    getting_started:
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
-  webfinger: 
+  webfinger:
     fetch_failed: "hindi nakuha ang webfinger profile para sa %{profile_url}"
     hcard_fetch_failed: "nagkaroon ng problema sa pagkuha ng hcard ni %{account}"
     no_person_constructed: "Walang taong magagawa mula sa hcard na ito."
