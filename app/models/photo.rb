@@ -8,6 +8,20 @@ class Photo < ActiveRecord::Base
   include Diaspora::Commentable
   include Diaspora::Shareable
 
+  # NOTE API V1 to be extracted
+  acts_as_api
+  api_accessible :backbone do |t|
+    t.add :id
+    t.add :guid
+    t.add :created_at
+    t.add :author
+    t.add lambda { |photo|
+      { :small => photo.url(:thumb_small),
+        :medium => photo.url(:thumb_medium),
+        :large => photo.url(:scaled_full) }
+    }, :as => :sizes
+  end
+
   mount_uploader :processed_image, ProcessedImage
   mount_uploader :unprocessed_image, UnprocessedImage
 
@@ -25,7 +39,9 @@ class Photo < ActiveRecord::Base
   before_destroy :ensure_user_picture
   after_destroy :clear_empty_status_message
 
-  after_create :queue_processing_job
+  after_create do
+    queue_processing_job if self.author.local?
+  end
 
   after_save do
     self.status_message.update_photos_counter if status_message

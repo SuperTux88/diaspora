@@ -73,6 +73,13 @@ module ApplicationHelper
   end
 
   def popover_with_close_html(without_close_html)
-    without_close_html + "#{link_to(image_tag('deletelabel.png'), "#", :class => 'close')}"
+    without_close_html + link_to(image_tag('deletelabel.png'), "#", :class => 'close')
+  end
+
+  def jquery_include_tag
+    javascript_include_tag('//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js') +
+    content_tag(:script) do
+      "!window.jQuery && document.write(unescape(\"#{escape_javascript(include_javascripts(:jquery))}\"))".html_safe
+    end
   end
 end

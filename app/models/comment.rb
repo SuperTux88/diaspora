@@ -3,20 +3,28 @@
 #   the COPYRIGHT file.
 
 class Comment < ActiveRecord::Base
-  require File.join(Rails.root, 'lib/diaspora/web_socket')
   include ROXML
 
   include Diaspora::Webhooks
   include Diaspora::Guid
   include Diaspora::Relayable
 
-  include Diaspora::Socketable
   include Diaspora::Taggable
   include Diaspora::Likeable
 
   acts_as_taggable_on :tags
   extract_tags_from :text
   before_create :build_tags
+
+  # NOTE API V1 to be extracted
+  acts_as_api
+  api_accessible :backbone do |t|
+    t.add :id
+    t.add :guid
+    t.add :text
+    t.add :author
+    t.add :created_at
+  end
 
   xml_attr :text
   xml_attr :diaspora_handle
