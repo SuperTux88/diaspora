@@ -9,7 +9,7 @@ cp config/ci/jenkins/database.yml config/database.yml
 rm -f log/test.log
 
 # install missing gems
-bundle install
+bundle install --without heroku
 
 echo "Regenerating CSS files"
 bundle exec sass -q --update public/stylesheets/sass/:public/stylesheets/
