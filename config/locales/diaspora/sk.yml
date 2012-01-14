@@ -102,7 +102,7 @@ sk:
         content_2: "Dajte ho hocikomu  a bude vás môcť nájsť na Diaspore."
         heading: "ID na Diasporu"
       donate: Prispieť
-      handle_explanation: "Toto je vaše id na Diasporu. Môžete ju dať ostatným ľuďom ako e-mailovú adresu, aby sa s vami mohli spojiť."
+      handle_explanation: "Toto je vaše ID na Diasporu. Môžete ho dať ostatným ľuďom ako e-mailovú adresu, aby sa s vami mohli spojiť."
       help:
         do_you: "Povedzte:"
         email_feedback: "Napíšte nám svoj názor na %{link}, ak uprednostňujete tento spôsob"
@@ -576,6 +576,14 @@ sk:
       destroy: Odstrániť
       not_found: "Prepáčte, tento príspevok sa nepodarilo nájsť."
       permalink: "trvalý odkaz"
+      photos_by:
+        few: "%{count} fotiek, ktoré nahral(a) %{author}"
+        many: "%{count} fotiek, ktoré nahral(a) %{author}"
+        one: "Jedna fotka, ktorú nahral(a) %{author}"
+        other: "%{count} fotiek, ktoré nahral(a) %{author}"
+        two: "Dve fotky, ktoré nahral(a) %{author}"
+        zero: "Žiadne fotky, ktoré nahral(a) %{author}"
+      reshare_by: "Znova ukázal(a) príspevok %{author}"
   previous: Predchádzajúce
   privacy: "Ochrana súkromia"
   privacy_policy: "Ochrana osobných údajov"
@@ -806,7 +814,6 @@ sk:
     comment_stream:
       contacts_title: "Ľudia, ktorých príspevky ste okomentovali"
       title: "Okomentované príspevky"
-    commented_on: okomentované
     community_spotlight_stream: "V centre pozornosti komunity"
     followed_tag:
       add_a_tag: "Pridať značku"
@@ -824,11 +831,9 @@ sk:
     multi:
       contacts_title: "Ľudia na vašej nástenke"
       title: Nástenka
-    posted: odoslané
     public:
       contacts_title: "Autori najnovších príspevkov"
       title: "Verejná aktivita"
-    recently: "nedávno:"
     tags:
       contacts_title: "Ľudia, ktorí hľadajú tieto značky"
       tag_prefill_text: "%{tag_name} je... "
@@ -876,6 +881,8 @@ sk:
       wrong_password: "Zadané heslo sa nezhoduje  s vaším súčasným heslom."
     edit:
       also_commented: "...niekto okomentuje aj príspevok človeka vo vašich kontaktoch?"
+      auto_follow_aspect: "Kategória používateľov, ktorých sledujete automaticky:"
+      auto_follow_back: "Automaticky sledovať, ak niekto sleduje vás"
       change: Zmeniť
       change_email: "Zmeniť e-mail"
       change_language: "Zmeniť jazyk"
@@ -888,7 +895,7 @@ sk:
         make_diaspora_better: "Chceme, aby ste nám pomohli vylepšiť Diasporu, a tak by ste nám mali vypomôcť namiesto odchodu. Ak chcete odísť, chceme, aby ste vedeli, čo sa bude diať ďalej."
         mr_wiggles: "Pán Wiggles bude smutný, že odchádzate"
         no_turning_back: "Momentálne návrat neexistuje."
-        what_we_delete: "Zmažeme všetky vaše príspevky, údaje v profile tak skoro, ako je to v ľudských silách možné. Vaše komentáre budú kade-tade, ale budú priradené vašej adrese na Diaspore."
+        what_we_delete: "Zmažeme všetky vaše príspevky, údaje v profile tak skoro, ako je to v ľudských silách možné. Vaše komentáre budú kade-tade, ale budú priradené vášmu ID adrese na Diasporu."
       close_account_text: "Zrušiť účet"
       comment_on_post: "...niekto okomentuje váš príspevok?"
       current_password: "Súčasné heslo"
@@ -897,6 +904,7 @@ sk:
       edit_account: "Upraviť účet"
       email_awaiting_confirmation: "Poslali sme vám odkaz na aktiváciu %{unconfirmed_email}. Kým nekliknete na tento odkaz  a neaktivujete si novú adresu, budeme stále používať vašu pôvodnú adresu %{email}."
       export_data: "Exportovať dáta"
+      following: "Nastavenia sledovania"
       getting_started: "Nové nastavenia používateľa"
       liked: "...sa niekomu páči váš príspevok?"
       mentioned: "...vás spomenuli v príspevku?"
@@ -910,7 +918,7 @@ sk:
       started_sharing: "...sa niekto s vami o niečo podelí?"
       stream_preferences: "Nastavenia nástenky"
       your_email: "Váš e-mail"
-      your_handle: "Vaše id na Diasporu"
+      your_handle: "Vaše ID na Diasporu"
     getting_started:
       awesome_take_me_to_diaspora: "Super! Prejsť na Diasporu*"
       community_welcome: "Komunita Diaspory je šťastná, že ste na jej palube!"
@@ -937,6 +945,8 @@ sk:
       does_not_exist: "Používateľ %{username} neexistuje!"
     update:
       email_notifications_changed: "Nastavenia oznamov e-mailom sa zmenili"
+      follow_settings_changed: "Nastavenia sledovania sa zmenili"
+      follow_settings_not_changed: "Nastavenia sledovania sa nepodarilo zmeniť."
       language_changed: "Jazyk sa zmenil"
       language_not_changed: "Nepodarilo sa zmeniť jazyk"
       password_changed: "Heslo sa zmenilo. Teraz sa môžete prihlásiť so svojím novým heslom."

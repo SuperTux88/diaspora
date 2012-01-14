@@ -1,14 +1,17 @@
 [![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=SuperTux88&url=https://github.com/SuperTux88/diaspora&title=Diaspora at nerdpol.ch&language=en_GB&tags=github&category=software)
 
 # Diaspora
-[![Build Status](https://secure.travis-ci.org/diaspora/diaspora.png)](http://travis-ci.org/diaspora/diaspora)
-
-[![Dependency Status](https://gemnasium.com/diaspora/diaspora.png?travis)](https://gemnasium.com/diaspora/diaspora)
 
 The privacy aware, personally controlled, do-it-all, open source social
-network.
+network. [Diaspora Project](http://diasporaproject.org)
 
-[Diaspora Project](http://diasporaproject.org)
+************************
+Diaspora is currently going through a huge refactoring push, the code is changing fast!
+If you want to do something big, reach out on IRC or the mailing list first, so you can contribute effectively <3333
+************************
+
+[![Build Status](https://secure.travis-ci.org/diaspora/diaspora.png)](http://travis-ci.org/diaspora/diaspora)
+[![Dependency Status](https://gemnasium.com/diaspora/diaspora.png?travis)](https://gemnasium.com/diaspora/diaspora)
 
 **TL;DR**
 
@@ -40,7 +43,7 @@ Please report any bugs you see at [GitHub Issues](https://github.com/diaspora/di
 ## Contributing to Diaspora
 
 ###[An introduction to the source code](http://github.com/diaspora/diaspora/wiki/An-Introduction-to-the-Diaspora-Source)
-###[Issue tracker (bugs and features)](https://github.com/diaspora/diaspora/issues)
+###[Issue tracker (bugs)](https://github.com/diaspora/diaspora/issues) - Currently going through major cleanup
 ###[How to use git](http://github.com/diaspora/diaspora/wiki/Git-Workflow)
 
 Here are a few good places to start:

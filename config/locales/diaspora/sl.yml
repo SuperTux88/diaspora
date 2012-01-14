@@ -565,6 +565,13 @@ sl:
     show:
       destroy: Izbriši
       not_found: "Oprostite, te objave nismo mogli najti."
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: prejšnja
   privacy: Zasebnost
   privacy_policy: "Pravila o zasebnosti"
@@ -794,7 +801,6 @@ sl:
     comment_stream:
       contacts_title: "Ljudje, katerim ste komentirali objave"
       title: "Komentirane objave"
-    commented_on: "komentiral na"
     community_spotlight_stream: "Vsebina skupnosti"
     followed_tag:
       add_a_tag: "Dodaj oznako"
@@ -811,11 +817,9 @@ sl:
     multi:
       contacts_title: "Ljudje v vašem toku"
       title: Vir
-    posted: objavljeno
     public:
       contacts_title: "Zadnji objavljajoči"
       title: "Javna aktivnost"
-    recently: "v zadnjem času:"
     tags:
       contacts_title: "Ljudje, ki so izbrskali to oznako"
       tag_prefill_text: "Zadeva o %{tag_name} je... "

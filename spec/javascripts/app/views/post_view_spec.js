@@ -2,12 +2,12 @@ describe("app.views.Post", function(){
 
   describe("#render", function(){
     beforeEach(function(){
-      window.current_user = app.user({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+      loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
 
       Diaspora.I18n.loadLocale({stream : {
         reshares : {
           one : "<%= count %> reshare",
-          few : "<%= count %> reshares"
+          other : "<%= count %> reshares"
         }
       }})
 
@@ -15,6 +15,15 @@ describe("app.views.Post", function(){
 
       this.collection = new app.collections.Stream(posts);
       this.statusMessage = this.collection.models[0];
+      this.reshare = this.collection.models[1];
+    })
+
+    context("for a reshare", function(){
+      it("should display ReshareFeedback", function(){
+        spyOn(app.views, "ReshareFeedback").andReturn(stubView("these are special reshare actions"));
+        var view = new app.views.Post({model : this.reshare}).render();
+        expect(view.$(".feedback").text().trim()).toBe("these are special reshare actions");
+      })
     })
 
     it("displays a reshare count", function(){
@@ -72,6 +81,17 @@ describe("app.views.Post", function(){
         expect(view.$("h1:contains(parties)")).not.toExist();
         expect(view.$("a:contains('#parties')")).toExist();
       })
+
+      it("works on reshares", function(){
+        this.statusMessage.set({text: "I love #parties"})
+        var reshare = new app.models.Reshare(factory.post({
+          text : this.statusMessage.get("text"),
+          root : this.statusMessage
+        }))
+
+        var view = new app.views.Post({model : reshare}).render();
+        expect(view.$("a:contains('#parties')").attr('href')).toBe('/tags/parties')
+      })
     })
 
     context("changes mention markup to links", function(){
@@ -87,31 +107,71 @@ describe("app.views.Post", function(){
           diaspora_id : "bob@example.com",
           id : "666"
         })
+
+        this.statusMessage.set({mentioned_people : [this.alice, this.bob]})
+        this.statusMessage.set({text: "hey there @{Alice Smith; alice@example.com} and @{Bob Grimm; bob@example.com}"})
       })
 
       it("links to the mentioned person's page", function(){
-        this.statusMessage.set({mentioned_people : [this.alice]})
-        this.statusMessage.set({text: "sup, @{Alice Smith; alice@example.com}?"})
-
         var view = new app.views.Post({model : this.statusMessage}).render();
         expect(view.$("a:contains('Alice Smith')").attr('href')).toBe('/people/555')
       })
 
       it("matches all mentions", function(){
-        this.statusMessage.set({mentioned_people : [this.alice, this.bob]})
-        this.statusMessage.set({text: "hey there @{Alice Smith; alice@example.com} and @{Bob Grimm; bob@example.com}"})
-
         var view = new app.views.Post({model : this.statusMessage}).render();
         expect(view.$("a.mention").length).toBe(2)
+      })
+
+      it("works on reshares", function(){
+        var reshare = new app.models.Reshare(factory.post({
+          text : this.statusMessage.get("text"),
+          mentioned_people :  this.statusMessage.get("mentioned_people"),
+          root : this.statusMessage
+        }))
+
+        var view = new app.views.Post({model : reshare}).render();
+        expect(view.$("a.mention").length).toBe(2)
+      })
+    })
+
+    context("generates urls from plaintext", function(){
+      it("works", function(){
+        links = ["http://google.com",
+                 "https://joindiaspora.com",
+                 "http://www.yahooligans.com",
+                 "http://obama.com",
+                 "http://japan.co.jp"]
+
+        this.statusMessage.set({text : links.join(" ")})
+        var view = new app.views.Post({model : this.statusMessage}).render();
+
+        _.each(links, function(link) {
+          expect(view.$("a[href='" + link + "']").text()).toContain(link)
+        })
+      })
+
+      it("works with urls that use #! syntax (i'm looking at you, twitter)')", function(){
+        link = "http://twitter.com/#!/hashbangs?gross=true"
+        this.statusMessage.set({text : link})
+        var view = new app.views.Post({model : this.statusMessage}).render();
+
+        expect(view.$("a[href='" + link + "']").text()).toContain(link)
+      })
+
+      it("doesn't create link tags for links that are already in <a/> or <img/> tags", function(){
+        link = "http://google.com"
+
+        this.statusMessage.set({text : "![cats](http://google.com/cats)"})
+        var view = new app.views.Content({model : this.statusMessage})
+        expect(view.presenter().text).toNotContain('</a>')
       })
     })
 
     context("user not signed in", function(){
       it("does not provide a Feedback view", function(){
-        window.current_user = app.user(null);
-
+        logout()
         var view = new app.views.Post({model : this.statusMessage}).render();
-        expect(view.feedbackView).toBeNull();
+        expect(view.feedbackView()).toBeFalsy();
       })
     })
 

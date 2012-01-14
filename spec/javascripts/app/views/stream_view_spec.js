@@ -1,7 +1,6 @@
 describe("app.views.Stream", function(){
   beforeEach(function(){
-    // should be jasmine helper
-    window.current_user = app.user({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+    loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
 
     this.posts = $.parseJSON(spec.readFixture("multi_stream_json"))["posts"];
 
@@ -79,7 +78,7 @@ describe("app.views.Stream", function(){
       spyOn(this.view, "isLoading").andReturn(false)
 
       spyOn($.fn, "height").andReturn(0);
-      spyOn($.fn, "scrollTop").andReturn(-400);
+      spyOn($.fn, "scrollTop").andReturn(-500);
 
       this.view.infScroll();
       expect(this.view.collection.fetch).not.toHaveBeenCalled();
@@ -87,16 +86,26 @@ describe("app.views.Stream", function(){
   })
 
   describe("collectionFetched", function(){
+    context("unbinding scroll", function(){
+      beforeEach(function(){
+        spyOn($.fn, "unbind")
+      })
+
+      it("unbinds scroll if there are no more posts left to load", function(){
+        this.view.collectionFetched(this.collection, {posts : []})
+        expect($.fn.unbind).toHaveBeenCalled()
+      })
+
+      it("does not fetch new content when the user is fetching one post", function(){
+        this.view.collectionFetched(this.collection, {posts : {}})
+        expect($.fn.unbind).toHaveBeenCalled()
+      })
+    })
+
     it("sets this.allContentLoaded if there are no more posts left to load", function(){
       expect(this.view.allContentLoaded).toBe(false)
       this.view.collectionFetched(this.collection, {posts : []})
       expect(this.view.allContentLoaded).toBe(true)
-    })
-
-    it("unbinds scroll if there are no more posts left to load", function(){
-      spyOn($.fn, "unbind")
-      this.view.collectionFetched(this.collection, {posts : []})
-      expect($.fn.unbind).toHaveBeenCalled()
     })
 
     it("does not set this.allContentLoaded if there was a non-empty response from the server", function(){

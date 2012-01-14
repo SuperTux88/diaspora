@@ -8,11 +8,14 @@ zh-CN:
   javascripts:
     aspect_dropdown:
       add_to_aspect: 添加到视图
+      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle:
-        few: "在<%= count %>个视图中"
-        many: "在<%= count %>个视图中"
-        one: "在<%= count %>个视图中"
-        other: "在<%= count %>个视图中"
+        few: "在{{count}}个视图中"
+        many: "在{{count}}个视图中"
+        one: "在{{count}}个视图中"
+        other: "在{{count}}个视图中"
         two: "In <%= count %> aspects"
         zero: 添加到视图
     comments:
@@ -22,6 +25,7 @@ zh-CN:
     failed_to_like: 表示喜欢失败！
     failed_to_post_message: 发布消息失败！
     getting_started:
+      hey: "Hey, {{name}}!"
       preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll:
       no_more: 没有更多的内容了。
@@ -29,8 +33,32 @@ zh-CN:
       at_least_one_aspect: 发布时请选择至少一个情景
     reshares:
       duplicate: "You've already reshared that post!"
-    search_for: "搜索 <%= name %>"
+    search_for: "搜索 {{name}}"
     show_more: 查看更多
+    stream:
+      likes:
+        few: "<%= count %> Likes"
+        many: "<%= count %> Likes"
+        one: "<%= count %> Like"
+        other: "<%= count %> Likes"
+        two: "<%= count %> Likes"
+        zero: "<%= count %> Likes"
+      more_comments:
+        few: "Show <%= count %> more comments"
+        many: "Show <%= count %> more comments"
+        one: "Show <%= count %> more comment"
+        other: "Show <%= count %> more comments"
+        two: "Show <%= count %> more comments"
+        zero: "Show <%= count %> more comments"
+      reshares:
+        few: "<%= count %> Reshares"
+        many: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        other: "<%= count %> Reshares"
+        two: "<%= count %> Reshares"
+        zero: "<%= count %> Reshares"
+    tags:
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago:
       day: 1天
       days: "%d天"
@@ -47,6 +75,4 @@ zh-CN:
       years: "%d年"
     videos:
       unknown: 未知视频格式
-      watch: "在 <%= provider %> 上看观看视频"
-    web_sockets:
-      disconnected: websocket已关闭，内容不会再实时更新。
+      watch: "在 {{provider}} 上看观看视频"

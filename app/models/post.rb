@@ -36,7 +36,7 @@ class Post < ActiveRecord::Base
     t.add :user_like
     t.add :mentioned_people
     t.add lambda { |post|
-      if post.photos_count > 0
+      if post.respond_to?(:photos) && post.photos_count > 0
         post.photos
       else
         []
@@ -62,13 +62,8 @@ class Post < ActiveRecord::Base
     self.class.name
   end
 
-  def raw_message
-    ""
-  end
-
-  def mentioned_people
-    []
-  end
+  def raw_message; ""; end
+  def mentioned_people; []; end
 
   # gives the last three comments on the post
   def last_three_comments

@@ -9,11 +9,11 @@ class MultisController < ApplicationController
   respond_to :html, :json
 
   def index
-    @backbone = true
     stream_klass = Stream::Multi
 
     respond_with do |format|
       format.html{ default_stream_action(stream_klass) }
+      format.mobile{ default_stream_action(stream_klass) }
       format.json{ stream_json(stream_klass) }
     end
   end

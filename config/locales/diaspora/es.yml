@@ -575,6 +575,13 @@ es:
       destroy: Eliminar
       not_found: "Lo sentimos, no podemos encontrar ese comentario."
       permalink: "enlace permanente"
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: anterior
   privacy: Privacidad
   privacy_policy: "Política de Privacidad"
@@ -805,7 +812,6 @@ es:
     comment_stream:
       contacts_title: "Gente cuyas publicaciones comentaste"
       title: Comentado
-    commented_on: comentado
     community_spotlight_stream: "Comunidad Creativa"
     followed_tag:
       add_a_tag: "Añade una etiqueta"
@@ -823,11 +829,9 @@ es:
     multi:
       contacts_title: "Gente en tu Entrada"
       title: Entrada
-    posted: publicado
     public:
       contacts_title: "Publicadores recientes"
       title: "Actividad Pública"
-    recently: "recientemente:"
     tags:
       contacts_title: "Gente que sigue esta etiqueta"
       tag_prefill_text: "Sobre %{tag_name}..."

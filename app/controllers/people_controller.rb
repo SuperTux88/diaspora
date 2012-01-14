@@ -42,7 +42,7 @@ class PeopleController < ApplicationController
         #only do it if it is an email address
         if diaspora_id?(params[:q])
           people = Person.where(:diaspora_handle => params[:q].downcase)
-          webfinger(params[:q]) if people.empty?
+          Webfinger.in_background(params[:q]) if people.empty?
         else
           people = Person.search(params[:q], current_user)
         end
@@ -53,7 +53,7 @@ class PeopleController < ApplicationController
         #only do it if it is an email address
         if diaspora_id?(params[:q])
           people = Person.where(:diaspora_handle => params[:q])
-          webfinger(params[:q]) if people.empty?
+          Webfinger.in_background(params[:q]) if people.empty?
         else
           people = Person.search(params[:q], current_user)
         end
@@ -84,8 +84,6 @@ class PeopleController < ApplicationController
   end
 
   def show
-    @backbone = true
-
     @person = Person.find_from_id_or_username(params)
 
     if remote_profile_with_no_user_session?
@@ -125,21 +123,15 @@ class PeopleController < ApplicationController
       end
     end
 
-    if params[:only_posts]
-      respond_to do |format|
-        format.html{ render :partial => 'shared/stream', :locals => {:posts => @stream.stream_posts} }
-      end
-    else
-      respond_to do |format|
-        format.all { respond_with @person, :locals => {:post_type => :all} }
-        format.json{ render_for_api :backbone, :json => @stream.stream_posts, :root => :posts }
-      end
+    respond_to do |format|
+      format.all { respond_with @person, :locals => {:post_type => :all} }
+      format.json{ render_for_api :backbone, :json => @stream.stream_posts, :root => :posts }
     end
   end
 
   def retrieve_remote
     if params[:diaspora_handle]
-      webfinger(params[:diaspora_handle], :single_aspect_form => true)
+      Webfinger.in_background(params[:diaspora_handle], :single_aspect_form => true)
       render :nothing => true
     else
       render :nothing => true, :status => 422
@@ -176,9 +168,6 @@ class PeopleController < ApplicationController
   end
 
   private
-  def webfinger(account, opts = {})
-    Resque.enqueue(Jobs::SocketWebfinger, current_user.id, account, opts)
-  end
 
   def remote_profile_with_no_user_session?
     @person && @person.remote? && !user_signed_in?

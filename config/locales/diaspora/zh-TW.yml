@@ -577,6 +577,13 @@ zh-TW:
       destroy: 刪除
       not_found: "抱歉,找不到該則貼文."
       permalink: 靜態連結
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: 前面
   privacy: 隱私
   privacy_policy: 隱私方案
@@ -805,7 +812,6 @@ zh-TW:
     comment_stream:
       contacts_title: 你發表過意見的貼文作者
       title: 有意見的貼文
-    commented_on: 有意見的
     community_spotlight_stream: 社群焦點
     followed_tag:
       add_a_tag: 新增標籤
@@ -823,11 +829,9 @@ zh-TW:
     multi:
       contacts_title: 出現在流水帳中的人
       title: 流水帳
-    posted: 發表的
     public:
       contacts_title: 最新貼文者
       title: 公開活動
-    recently: "最近:"
     tags:
       contacts_title: 這個標籤的粉絲
       tag_prefill_text: "有關於 %{tag_name} 的事情是... "
@@ -881,6 +885,8 @@ zh-TW:
       change_email: 更改E-Mail
       change_language: 更改語言
       change_password: 更改密碼
+      close_account:
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       close_account_text: 關閉帳號
       comment_on_post: "...當有人對你的貼文發表意見時?"
       current_password: 目前密碼

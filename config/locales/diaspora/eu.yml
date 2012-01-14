@@ -557,6 +557,13 @@ eu:
     show:
       destroy: Ezabatu
       not_found: "Barkatu, baina ezin izan dugu mezu hori aurkitu."
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: aurrekoa
   profile: Profila
   profiles:
@@ -771,7 +778,6 @@ eu:
     aspects:
       title: "Zure Alderdiak"
     aspects_stream: Alderdiak
-    commented_on: iruzkindua
     community_spotlight_stream: "Komunitateko Nabarmenenak"
     followed_tag:
       add_a_tag: "Etiketa bat gehitu"
@@ -786,11 +792,9 @@ eu:
     multi:
       contacts_title: "Zure Kronologiako Jendea"
       title: Kronologia
-    posted: bidalia
     public:
       contacts_title: "MAutore Berrienak"
       title: "Ekintza Publikoak"
-    recently: "oraintsu:"
     tags:
       contacts_title: "Etiketa hau jarraitzen duen jendea"
       title: "Mezu etiketatuak: %{tags}"
@@ -835,6 +839,8 @@ eu:
       change_email: "Aldatu e-posta"
       change_language: "Hizkuntza aldatu"
       change_password: "Pasahitza aldatu"
+      close_account:
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       comment_on_post: "...norbaitek zure mezu bat iruzkintzen duenean?"
       current_password: "Pasahitz zaharra"
       download_photos: "nire argazkiak jaitsi"

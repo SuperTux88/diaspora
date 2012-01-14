@@ -28,12 +28,25 @@
         100% { -webkit-transform: rotate(360deg); }
       }
 
+      @-moz-keyframes fade-in {
+        0%   { opacity: 0; }
+        100% { opacity: 1; }
+      }
+
+      @-moz-keyframes spin {
+        0%   { -moz-transform: rotate(0deg); }
+        100% { -moz-transform: rotate(360deg); }
+      }
+
       .loaded {
         -webkit-animation: fade-in 0.16s linear;
+        -moz-animation: fade-in 0.16s linear;
       }
 
       .loader {
         -webkit-animation: spin 1s infinite ease-in-out,
+                           fade-in 0.2s ease-in;
+        -moz-animation: spin 1s infinite ease-in-out,
                            fade-in 0.2s ease-in;
       }
 
@@ -52,6 +65,17 @@
     - if rtl?
       = include_stylesheets :rtl, :media => 'all'
 
+    :javascript
+      // Support for older browsers
+      if(Array.isArray === undefined) {  
+        Array.isArray = function (arg) {  
+          return Object.prototype.toString.call(arg) == '[object Array]';  
+        };  
+      }
+      if ((window.history) && (window.history.pushState === undefined)) {
+        window.history.pushState = function() { };
+      }
+
     = csrf_meta_tag
     <!--[if IE]>
     = javascript_include_tag "/javascripts/ie.js"
@@ -67,7 +91,11 @@
     - if current_user
       :javascript
         app.user({
-          current_user: _.extend(#{current_user.person.as_api_response(:backbone).to_json}, {notifications_count : #{@notification_count}, unread_messages_count : #{@unread_message_count}})
+          current_user: _.extend(#{current_user.person.as_api_response(:backbone).to_json}, {
+            notifications_count : #{@notification_count},
+            unread_messages_count : #{@unread_message_count},
+            admin : #{current_user.admin?}
+          })
         });
 
     = yield(:head)
@@ -96,7 +124,7 @@
       %header
         = render 'layouts/header'
 
-    = render 'templates/templates'
+    = render 'layouts/templates'
 
     .container{:style=> "#{yield(:break_the_mold)}"}
       - if @aspsect == :getting_started || @page == :logged_out
