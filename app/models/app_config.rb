@@ -94,6 +94,10 @@ HELP
     File.exists?(File.join(Rails.root, "config", "app.yml")) || (File.exists?(File.join(Rails.root, "config", "app_config.yml")))
   end
 
+  def self.new_relic_app_name
+    self[:new_relic_app_name] || self[:pod_uri].host
+  end
+
   def self.normalize_pod_url
     unless self[:pod_url] =~ /^(https?:\/\/)/ # starts with http:// or https://
       self[:pod_url] = "http://#{self[:pod_url]}"
@@ -101,6 +105,10 @@ HELP
     unless self[:pod_url] =~ /\/$/ # ends with slash
       self[:pod_url] = "#{self[:pod_url]}/"
     end
+  end
+
+  def self.bare_pod_uri
+    self[:pod_uri].authority.gsub('www.', '')
   end
 
   def self.normalize_admins
