@@ -7,11 +7,11 @@ class CommitsController < ApplicationController
     begin
       payload = JSON.parse(params[:payload]).deep_symbolize_keys
 
-      message = "New push to **#{payload[:ref].split("/").last}** at [#{payload[:repository][:name].capitalize}](#{payload[:repository][:url]})\n"
+      message = "New push to **#{payload[:ref].split("/").last}** at [#{payload[:repository][:name].capitalize}](#{payload[:repository][:url]})\n\n"
     
       payload[:commits].each do |commit|
         commit = commit.deep_symbolize_keys
-        message += "Commit: [#{commit[:message].gsub(/\n/," ")}](#{commit[:url]}) by *#{commit[:author][:name]}*\n"
+        message += "Commit: [#{commit[:message].gsub(/\n/," ")}](#{commit[:url]}) by *#{commit[:author][:name]}*\n\n"
       end
       
       message += "##{payload[:repository][:name]}_push ##{payload[:repository][:name]}_#{payload[:ref].split("/").last}_push"    
