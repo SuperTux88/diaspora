@@ -84,8 +84,9 @@
   .content
     %a{:href => "http://flattr.com/thing/442886/Diaspora-at-nerdpol-ch", :target=> "_blank"}
       = image_tag '/images/flattr-badge-large.png'
-  - if AppConfig[:paypal_hosted_button_id].present?
-    = t('aspects.index.keep_us_running', :pod => URI.parse(AppConfig[:pod_url]).host)
-    %br
-    = render 'shared/donate'
+      %br
+    - if AppConfig[:paypal_hosted_button_id].present?
+      = t('aspects.index.keep_us_running', :pod => URI.parse(AppConfig[:pod_url]).host)
+      %br
+      = render 'shared/donate'
 
