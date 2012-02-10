@@ -34,6 +34,20 @@
 
 .section
   .title
+    = image_tag('/images/icons/mail.png')
+    %h5
+      = 'Contact'
+  .content
+    %a{:href => "https://nerdpol.ch/u/team"}
+      = image_tag('/images/nerdpol-profile-sidebar.png')
+    %br
+    = 'nerdpol.ch hat jetzt auch einen "Team"-Account. Da gibt es Infos rund um diesen Pod (Updates, usw.).'
+    %br
+    %a{:href => "https://nerdpol.ch/u/team"}
+      = 'team@nerdpol.ch'
+
+.section
+  .title
     = image_tag('/images/icons/question.png')
     %h5
       = t('aspects.index.help.need_help')
