@@ -6,6 +6,7 @@ app.views.Feedback = app.views.StreamObject.extend({
 
   events: {
     "click .like_action": "toggleLike",
+    "click .participate_action": "toggleFollow",
     "click .reshare_action": "resharePost"
   },
 
@@ -13,6 +14,11 @@ app.views.Feedback = app.views.StreamObject.extend({
     return _.extend(this.defaultPresenter(), {
       userCanReshare : this.userCanReshare()
     })
+  },
+
+  toggleFollow : function(evt) {
+    if(evt) { evt.preventDefault(); }
+    this.model.toggleFollow();
   },
 
   toggleLike: function(evt) {
@@ -37,8 +43,8 @@ app.views.Feedback = app.views.StreamObject.extend({
     var rootExists = (isReshare ? this.model.get("root") : true)
 
     var publicPost = this.model.get("public");
-    var userIsNotAuthor = this.model.get("author").diaspora_id != app.user().diaspora_id;
-    var userIsNotRootAuthor = rootExists && (isReshare ? this.model.get("root").author.diaspora_id != app.user().diaspora_id : true)
+    var userIsNotAuthor = this.model.get("author").diaspora_id != app.user().get("diaspora_id");
+    var userIsNotRootAuthor = rootExists && (isReshare ? this.model.get("root").author.diaspora_id != app.user().get("diaspora_id") : true)
 
     return publicPost && userIsNotAuthor && userIsNotRootAuthor;
   }
