@@ -51,7 +51,7 @@ id:
     tags:
       wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago:
-      day: sehari
+      day: "sehari"
       days: "%d hari"
       hour: "sekitar sejam"
       hours: "sekitar %d jam"
@@ -59,6 +59,8 @@ id:
       minutes: "%d menit"
       month: "sekitar sebulan"
       months: "%d tahun"
+      prefixAgo: ""
+      prefixFromNow: ""
       seconds: "kurang dari semenit"
       suffixAgo: "yang lalu"
       suffixFromNow: "dari sekarang"

@@ -82,8 +82,8 @@ de_formal:
       minutes: "%d Minuten"
       month: "etwa einem Monat"
       months: "%d Monaten"
-      prefixAgo: vor
-      prefixFromNow: in
+      prefixAgo: "vor"
+      prefixFromNow: "in"
       seconds: "wenigen Sekunden"
       suffixAgo: ""
       suffixFromNow: ""

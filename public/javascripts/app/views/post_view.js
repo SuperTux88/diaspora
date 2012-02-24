@@ -27,6 +27,7 @@ app.views.Post = app.views.StreamObject.extend({
     $(this.el).attr("id", this.model.get("guid"));
 
     this.model.bind('remove', this.remove, this);
+    this.model.bind('destroy', this.destroy, this);
 
     //subviews
     this.commentStreamView = new app.views.CommentStream({ model : this.model});
@@ -51,7 +52,7 @@ app.views.Post = app.views.StreamObject.extend({
 
   presenter : function() {
     return _.extend(this.defaultPresenter(), {
-      authorIsCurrentUser : this.authorIsCurrentUser(),
+      authorIsNotCurrentUser : this.authorIsNotCurrentUser(),
       showPost : this.showPost()
     })
   },
@@ -114,7 +115,17 @@ app.views.Post = app.views.StreamObject.extend({
     return this;
   },
 
-  authorIsCurrentUser : function() {
+  authorIsNotCurrentUser : function() {
     return this.model.get("author").id != (!!app.user() && app.user().id)
+  },
+
+  isOnShowPage : function() {
+    return (!this.model.collection) && (this.model.url() == document.location.pathname);
+  },
+
+  destroy : function() {
+    if (this.isOnShowPage()) {
+      document.location.replace(Backbone.history.options.root);
+    }
   }
 });

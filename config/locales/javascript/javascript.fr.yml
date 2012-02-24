@@ -28,7 +28,7 @@ fr:
       hide: "Cacher les commentaires"
       show: "Afficher tous les commentaires"
     confirm_dialog: "Êtes-vous sûr ?"
-    delete: Effacer
+    delete: "Effacer"
     failed_to_like: "Impossible d'aimer !"
     failed_to_post_message: "Impossible de partager le message !"
     getting_started:
@@ -37,18 +37,23 @@ fr:
       no_tags: "Hey, vous ne suivez aucun tag ! Continuer quand même ?"
       preparing_your_stream: "Préparation de votre flux personnalisé..."
     header:
-      admin: Administration
-      home: Accueil
+      admin: "Administration"
+      contacts: "Contacts"
+      home: "Accueil"
       log_out: "Se déconnecter"
       mark_all_as_read: "Tout marquer comme lu"
-      profile: Profil
+      messages: "Messages"
+      notifications: "Notifications"
+      profile: "Profil"
       recent_notifications: "Notifications récentes"
       search: "Trouver des personnes ou #tags"
-      settings: Paramètres
+      settings: "Paramètres"
       view_all: "Tout afficher"
-    ignore: Ignorer
+    ignore: "Ignorer"
     infinite_scroll:
       no_more: "Pas d'autres messages."
+    my_activity: "Mon activité"
+    my_stream: "Flux"
     photo_uploader:
       looking_good: "Impressionnant, vous avez un super look !"
     publisher:
@@ -60,9 +65,11 @@ fr:
     search_for: "Chercher <%= name %>"
     show_more: "Voir plus"
     stream:
-      comment: Commenter
-      hide: Masquer
-      like: J'aime
+      comment: "Commenter"
+      follow: "Suivre"
+      hide: "Masquer"
+      hide_nsfw_posts: "Masquer les messages #nsfw"
+      like: "J'aime"
       likes:
         few: "<%= count %> J'aime"
         many: "<%= count %> J'aime"
@@ -70,7 +77,7 @@ fr:
         other: "<%= count %> J'aime"
         two: "<%= count %> J'aime"
         zero: "<%= count %> J'aime"
-      limited: Limité
+      limited: "Limité"
       more_comments:
         few: "Montrer <%= count %> commentaires en plus"
         many: "Montrer <%= count %> commentaires en plus"
@@ -79,7 +86,8 @@ fr:
         two: "Montrer <%= count %> commentaires en plus"
         zero: "Montrer <%= count %> commentaires en plus"
       original_post_deleted: "Le message original a été effacé par son auteur."
-      reshare: Repartager
+      public: "Public"
+      reshare: "Repartager"
       reshares:
         few: "<%= count %> repartages"
         many: "<%= count %> repartages"
@@ -87,6 +95,9 @@ fr:
         other: "<%= count %> repartages"
         two: "<%= count %> Repartages"
         zero: "<%= count %> repartages"
+      show_nsfw_post: "Montrer le message"
+      show_nsfw_posts: "Tout montrer"
+      unfollow: "Ne pas suivre"
       unlike: "Je n'aime plus"
     tags:
       wasnt_that_interesting: "Ok, je suppose que #<%= tagName %> n'est pas la seule chose qui vous intéresse..."
@@ -100,10 +111,10 @@ fr:
       month: "environ un mois"
       months: "environ %d mois"
       prefixAgo: "il y a"
-      prefixFromNow: d'ici
+      prefixFromNow: "d'ici"
       seconds: "moins d'une minute"
       suffixAgo: ""
-      suffixFromNow: ""
+      suffixFromNow: "maintenant"
       year: "un an"
       years: "%d ans"
     videos:

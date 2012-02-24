@@ -6,10 +6,10 @@
 
 ga:
   _comments: "Nótaí tráchta"
-  _home: Abhaile
-  _photos: pictíurí
-  _services: Seirbhísí
-  account: Cúntas
+  _home: "Abhaile"
+  _photos: "pictíurí"
+  _services: "Seirbhísí"
+  account: "Cúntas"
   activerecord:
     errors:
       models:
@@ -45,7 +45,7 @@ ga:
     few: "%{count} aspects"
     helper:
       aspect_not_empty: "Níl an gné folamh"
-      remove: bhain
+      remove: "bhain"
     index:
       handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
       help:
@@ -61,7 +61,7 @@ ga:
       failure: "níor d'eirigh le %{inspect}"
       success: "Bogadh an duine chuig gné nua"
     new:
-      name: Name
+      name: "Name"
     no_contacts_message:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
     no_posts_message:
@@ -69,8 +69,8 @@ ga:
     one: "1 aspect"
     other: "%{count} aspects"
     seed:
-      family: Clann
-      work: Oibre
+      family: "Clann"
+      work: "Oibre"
     show:
       edit_aspect: "athraigh gné"
     two: "%{count} aspects"
@@ -83,7 +83,7 @@ ga:
     explanation: "%{link} from anywhere by bookmarking this link."
     explanation_link_text: "Post to Diaspora"
     heading: "Diaspora Bookmarklet"
-  cancel: Cealaigh
+  cancel: "Cealaigh"
   comments:
     few: "%{count} comments"
     many: "%{count} comments"
@@ -113,7 +113,7 @@ ga:
         other: "%{count} new messages"
         two: "%{count} new messages"
         zero: "no new messages"
-  delete: Scrios
+  delete: "Scrios"
   email: "Sheoladh ríomhphost"
   error_messages:
     helper:
@@ -124,14 +124,14 @@ ga:
   home:
     show:
       already_account: "cúntas agat cheanna féin?"
-      choice: Rogha
+      choice: "Rogha"
       choice_explanation: "Ligeann Diaspora duit do ceangailtí a sórtáil i grúpaí dar n-ainm gnéithe. Uathúil chui Diaspora, déanann gnéithe cinnte nach bhfuil do pictiúrí, scéalanna agus jócanna roinnte ach leis na daoine a bhfuil tú ag iarradh."
       learn_about_host: "Foghlaim chonas óstáil do friothálaí Diaspora féin."
       login_here: "logáil isteach anseo"
-      ownership: Úinéireacht
+      ownership: "Úinéireacht"
       ownership_explanation: "Tá tusa an úinéir do do phictíurí, agus ní ceart duit an ceart sin a thabhairt suas chun iad a roinnt. Coimeadann tuas úinéiracht de gach rud a roinntear a Diaspora, ag tabhart smacht duit ar chonas a roinntear é."
       share_what_you_want: "Roinnt cad atá tú ag iarraidh, le cé atá tú ag iarraidh."
-      simplicity: Simplíocht
+      simplicity: "Simplíocht"
       simplicity_explanation: "I diaspora tá roinnt glan agus éasca – agus téann seo do príomháideacha freisin. Príomháideach de ghná, níl Diaspora ag iarradh thú a dul tríd leathnaigh de socraigh chun choimead do próifíl sábháilte."
       tagline_first_half: "Roinnt cad atá tú ag iarraidh,"
       tagline_second_half: "le cé atá tú ag iarraidh."
@@ -146,7 +146,7 @@ ga:
       sent: "Tá cuiridh seola chuigh: "
     new:
       already_invited: "Cheanna féin tá cuireadh acu"
-      aspect: Gné
+      aspect: "Gné"
       comma_seperated_plz: "Is féidir leat cúpla sheola a cuir isteach má tá comma idir iad."
       if_they_accept_info: "má gleachann siad, beidh siad cuirthe leis an gné a sheol tú cuireadh ó."
       invite_someone_to_join: "Seol cuireadh go Diaspora chuig duine!"
@@ -159,12 +159,12 @@ ga:
       toggle: "toggle mobile site"
       whats_new: "cad atá nua?"
     header:
-      blog: blag
-      code: cod
+      blog: "blag"
+      code: "cod"
       login: "logáil isteach"
       logout: "logáil amach"
-      profile: profile
-      settings: settings
+      profile: "profile"
+      settings: "settings"
   likes:
     likes:
       people_dislike_this:
@@ -227,7 +227,7 @@ ga:
         other: "and %{count} others"
         two: "and %{count} others"
         zero: "and nobody else"
-      notifications: Fograí
+      notifications: "Fograí"
     liked:
       few: "%{actors} has just liked your %{post_link}."
       many: "%{actors} has just liked your %{post_link}."
@@ -256,7 +256,7 @@ ga:
       other: "%{actors} mentioned you in a deleted post."
       two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
-    post: póst
+    post: "póst"
     private_message:
       few: "%{actors} sent you a message."
       many: "%{actors} sent you a message."
@@ -300,8 +300,8 @@ ga:
     started_sharing:
       subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Gur raibh maith agat,"
-  or: nó
-  password: Pasfhocal
+  or: "nó"
+  password: "Pasfhocal"
   password_confirmation: "Deimhniú pasfhocal"
   people:
     aspect_list:
@@ -324,10 +324,10 @@ ga:
       pending_request: "iarratas ar feitheamh"
       thats_you: "sin tusa!"
     profile_sidebar:
-      bio: beathaisnéis
-      born: breithlá
+      bio: "beathaisnéis"
+      born: "breithlá"
       edit_my_profile: "Athraigh mo próifíl"
-      gender: inscne
+      gender: "inscne"
       in_aspects: "i gnéithe"
       remove_contact: "fhaíl ré le teagmháil"
       remove_from: "Fháil ré le %{name} ó %{aspect}?"
@@ -365,7 +365,7 @@ ga:
       view_all: "feach ar gach pictiúr %{name}"
     show:
       delete_photo: "Scrios Pictiúr"
-      edit: athraigh
+      edit: "athraigh"
       edit_delete_photo: "Athraigh tuarisc an pictiúr / scrios pictiúr"
       make_profile_photo: "Déan mar mo pictiúr prófíl"
       update_photo: "Nuashonraigh Pictiúr"
@@ -381,8 +381,8 @@ ga:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
-  previous: roimhhe
-  profile: Próifíl
+  previous: "roimhhe"
+  profile: "Próifíl"
   profiles:
     edit:
       your_tags: "You: in 5 #tags"
@@ -403,8 +403,8 @@ ga:
       edit: "Athraigh %{name}"
       leave_blank: "(fág bánán muna bhfuil tú ag iarraidh é a athrú)"
       password_to_confirm: "(táimid ag iarradh do pasfhocal reatha chun do aithrithe a deimhniú)"
-      unhappy: Míshásta?
-      update: Nuashonrú
+      unhappy: "Míshásta?"
+      update: "Nuashonrú"
     new:
       create_my_account: "Create my account"
       enter_email: "Iontráil seola ríomhphost"
@@ -414,7 +414,7 @@ ga:
       sign_up_message: "Social Networking with a <3"
   requests:
     create:
-      sending: Seoladh
+      sending: "Seoladh"
       sent: "Tá tú tar éis ceist a chur chun roint le %{name}. Feicfidh siad é an céad uair eile a síníonn siad isteach chuir Diaspora."
     destroy:
       error: "Pioc gné más é do thoill é!"
@@ -432,7 +432,7 @@ ga:
       existing: "Teagmháillí eiseadh"
       manage_within: "Bainistiú teagmháilí istigh"
     new_request_to_person:
-      sent: seolta!
+      sent: "seolta!"
   reshares:
     reshare:
       reshare:
@@ -441,7 +441,7 @@ ga:
         one: "1 Reshare"
         other: "%{count} Reshares"
         two: "%{count} reshares"
-        zero: Reshare
+        zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
       show_original: "Show Original"
@@ -459,11 +459,11 @@ ga:
       logged_in_as: "logáilte isteach mar"
     inviter:
       click_link_to_accept_invitation: "Click this link to accept your invitation"
-  settings: Socraithe
+  settings: "Socraithe"
   shared:
     add_contact:
       create_request: "Find by Diaspora handle"
-      diaspora_handle: diaspora@handle.org
+      diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Líon isteach ainm úsáideora:"
       know_email: "Is agat a seola ríomhphost? Ba cheart duit cuireadh a sheola chucu"
       your_diaspora_username_is: "Is é %{diaspora_handle} do ainm úsáideora"
@@ -481,7 +481,7 @@ ga:
       dont_have_now: "Níl aon cinn agat fós, ach tá níos mó le teacht!"
       invitations_left: "(%{count} fágtha)"
       invite_someone: "Seol cuireadh chuig duine"
-      invites: Cuireadh
+      invites: "Cuireadh"
       invites_closed: "Tá na cuireadh dúnta ar an phod Diaspora seo"
     notification:
       new: "%{type} nua ó %{from}"
@@ -497,8 +497,8 @@ ga:
       new_user_prefill:
         i_like: "I'm interested in %{tags}."
       post_a_message_to: "Chuir teachtaireach chuig %{aspect}"
-      posting: Póstáil...
-      share: Roinn
+      posting: "Póstáil..."
+      share: "Roinn"
       share_with: "Roinn le %{aspect}"
       whats_on_your_mind: "what's on your mind?"
     reshare:
@@ -550,7 +550,7 @@ ga:
       email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     edit:
       auto_follow_back: "Automatically follow back if a someone follows you"
-      change: Athraigh
+      change: "Athraigh"
       change_email: "Change E-Mail"
       change_language: "Athraigh Teanga"
       change_password: "Athraigh Pasfhocal"

@@ -6,12 +6,12 @@
 
 ur-PK:
   _applications: "ایپلی کیشنز"
-  _comments: تبصرے
-  _contacts: رابطے
+  _comments: "تبصرے"
+  _contacts: "رابطے"
   _home: "صفحہ اول"
-  _photos: تصاویر
-  _services: سہولیات
-  account: اکاؤنٹ
+  _photos: "تصاویر"
+  _services: "سہولیات"
+  account: "اکاؤنٹ"
   activerecord:
     errors:
       models:
@@ -79,13 +79,13 @@ ur-PK:
       make_aspect_list_visible: "کیا پہلو کی فہرست نظر آۓ؟"
       remove_aspect: "پہلو حذف کریں"
       rename: "نام تبدیل کریں"
-      update: تازہ
+      update: "تازہ"
       updating: "تازہ کیا جا رھا ہے"
     few: "%{count} پہلو"
     helper:
       are_you_sure: "کیا آپکو یقین ہے کہ آپ اس پہلو کو خذف کرنا چاہتے ہیں؟"
       aspect_not_empty: "پہلو خالی نہیں ہے"
-      remove: ہٹائیے
+      remove: "ہٹائیے"
     index:
       cubbies:
         explanation: "ڈایسپورا کی پہلی ایپلی کیشن ہے جو ابھی تعمیر کے مرحلے میں ہے۔ cubbi.es"
@@ -117,8 +117,8 @@ ur-PK:
       failure: "صحیح نہیں %{inspect}"
       success: "شخص نۓ رابطے میں منتقل ہو گیا"
     new:
-      create: بنایۓ
-      name: نام
+      create: "بنایۓ"
+      name: "نام"
     no_contacts_message:
       try_adding_some_more_contacts: "آب مزید رابطے تلاش (top) یا مدعو (right) کر سکتے ہیں۔"
       you_should_add_some_more_contacts: "آپ کو کچھ مزید رابطے شامل کرنا چاہیئں!"
@@ -128,9 +128,9 @@ ur-PK:
     other: "%{count} پہلو"
     seed:
       acquaintances: "جاننے والے"
-      family: خاندان
-      friends: دوست
-      work: کام
+      family: "خاندان"
+      friends: "دوست"
+      work: "کام"
     selected_contacts:
       manage_your_aspects: "اپنے پہلوؤں کا انتظام کریں۔"
       no_contacts: "ابھی تک یہاں آپکا کوئی رابطہ نہیں ہے۔"
@@ -146,24 +146,12 @@ ur-PK:
     index:
       no_applications: "آپ نے ابھی تک کسی بھی ایپلیکیشن کا اندرج نہیں کیا ہے۔"
       revoke_access: "رسائی منسوخ کیجیے"
-  back: واپس
-  comments:
-    few: "%{count} comments"
-    many: "%{count} comments"
-    one: "1 comment"
-    other: "%{count} comments"
-    two: "%{count} comments"
-    zero: "no comments"
+  back: "واپس"
   contacts:
     few: "%{count} contacts"
     index:
       add_to_aspect: "Add contacts to %{name}"
       no_contacts: "No contacts."
-    many: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    two: "%{count} contacts"
-    zero: "no contacts"
   conversations:
     helper:
       new_messages:
@@ -178,8 +166,8 @@ ur-PK:
       toggle: "toggle mobile site"
     header:
       logout: "log out"
-      profile: profile
-      settings: settings
+      profile: "profile"
+      settings: "settings"
   likes:
     likes:
       people_dislike_this:
@@ -304,13 +292,6 @@ ur-PK:
       liked: "%{name} just liked your post"
     reshared:
       reshared: "%{name} just reshared your post"
-  people:
-    few: "%{count} people"
-    many: "%{count} people"
-    one: "1 person"
-    other: "%{count} people"
-    two: "%{count} people"
-    zero: "no people"
   posts:
     show:
       photos_by:
@@ -348,7 +329,7 @@ ur-PK:
         one: "1 reshare"
         other: "%{count} reshares"
         two: "%{count} reshares"
-        zero: Reshare
+        zero: "Reshare"
   services:
     inviter:
       click_link_to_accept_invitation: "Click this link to accept your invitation"

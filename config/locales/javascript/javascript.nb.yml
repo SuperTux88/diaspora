@@ -82,10 +82,10 @@ nb:
       minutes: "%d minutter"
       month: "ca. en måned"
       months: "%d måneder"
-      prefixAgo: for
-      prefixFromNow: om
+      prefixAgo: "for"
+      prefixFromNow: "om"
       seconds: "under ett minutt"
-      suffixAgo: siden
+      suffixAgo: "siden"
       suffixFromNow: ""
       year: "ca. et år"
       years: "%d år"

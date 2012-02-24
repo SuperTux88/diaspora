@@ -775,17 +775,17 @@ form p.checkbox_select
 
     :display inline-block
 
-    :padding 0.3em
+    :padding .3em .3em 3px
     :cursor pointer
 
     img
       @include opacity(0.4)
-
+      :vertical-align bottom
       :display inline-block
       :margin 0
       :padding 0
       :margin
-        :bottom -3px
+        :bottom 1px
 
     &:hover
       :background
@@ -1743,6 +1743,9 @@ ul#press_logos
     :top 14px
     :padding
       :bottom 5px
+    :text-overflow ellipsis
+    :overflow hidden
+    :white-space nowrap
 
     a
       :color inherit
@@ -2731,6 +2734,9 @@ a.toggle_selector
     :bottom 10px
   h1,h3
     :color #fff
+    :text-overflow ellipsis
+    :overflow hidden
+    :white-space nowrap
   :background orange
   &:hover
     #gs-skip-x

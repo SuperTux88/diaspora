@@ -27,22 +27,22 @@ cs:
       hide: "skrýt komentáře"
       show: "zobrazit všechny komentáře"
     confirm_dialog: "Jste si jisti?"
-    delete: Odstranit
+    delete: "Odstranit"
     failed_to_like: "Oblíbení se nezdařilo!"
     failed_to_post_message: "Odeslání příspěvku se nezdařilo!"
     getting_started:
       hey: "Hey, {{name}}!"
       preparing_your_stream: "Preparing your personialized stream..."
     header:
-      contacts: Kontakty
+      contacts: "Kontakty"
       log_out: "Odhlásit se"
       mark_all_as_read: "Označit vše jako přečtené"
-      messages: Zprávy
-      notifications: Oznámení
-      profile: Profil
+      messages: "Zprávy"
+      notifications: "Oznámení"
+      profile: "Profil"
       recent_notifications: "Poslední oznámení"
       search: "Hledejte lidi nebo #štítky"
-      settings: Nastavení
+      settings: "Nastavení"
       view_all: "Zobrazit vše"
     infinite_scroll:
       no_more: "Žádné další příspěvky."
@@ -55,8 +55,8 @@ cs:
     search_for: "Hledat <%= name %>"
     show_more: "zobrazit více"
     stream:
-      comment: Okomentovat
-      hide: Skrýt
+      comment: "Okomentovat"
+      hide: "Skrýt"
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -64,7 +64,7 @@ cs:
         other: "<%= count %> Likes"
         two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
-      limited: Omezený
+      limited: "Omezený"
       more_comments:
         few: "Zobrazit <%= count %> dalších komentářů"
         many: "Zobrazit <%= count %> dalších komentářů"
@@ -73,7 +73,7 @@ cs:
         two: "Zobrazit <%= count %> další komentáře"
         zero: "Show <%= count %> more comments"
       original_post_deleted: "Původní zpráva byla odstraněna jejím autorem."
-      public: Veřejný
+      public: "Veřejný"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
@@ -86,13 +86,14 @@ cs:
     timeago:
       day: "1 dnem"
       days: "%d dny"
-      hour: hodinou
+      hour: "hodinou"
       hours: "%d hodinami"
-      minute: minutou
+      minute: "minutou"
       minutes: "%d minutami"
       month: "1 měsícem"
       months: "%d měsíci"
-      prefixAgo: před
+      prefixAgo: "před"
+      prefixFromNow: ""
       seconds: "méně než minutou"
       suffixAgo: ""
       suffixFromNow: ""

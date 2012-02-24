@@ -35,8 +35,8 @@ eo:
         displaying_correctly: "Email not displaying correctly? %{link} in your browser"
         finally: "Finfine - ĝi alvenis"
         friends_saying: "Kion viaj amikoj diras..."
-        get_connected: Konektiĝu
-        have_fun: Amuziĝu
+        get_connected: "Konektiĝu"
+        have_fun: "Amuziĝu"
         help_fund: "subteni Diaspora"
         here: "ĉi tie"
         ignore: "Se vi ne volas akcepti tiun inviton, bonvolu ignori ĉi tiun retpoŝton"
@@ -44,7 +44,7 @@ eo:
         love: "Amo,"
         made_by_people: "%{strong_diaspora} kreiĝis de homoj kiuj amas la interreton same kiel vi. %{jointeam}, aŭ %{helpfund}!"
         no_account_till: "Via konto ne kreiĝos ĝis vi iras al la supra ligilo kaj enskribiĝas."
-        or: aŭ
+        or: "aŭ"
         sign_up_now: "Enskribiĝi nun &rarr;"
         subject: "Vi invitiĝis aniĝi al DIASPORA*!"
         view_in: "Rigardi en"
@@ -81,12 +81,12 @@ eo:
         alpha_software: "Vi estas uzonta alfaprogramaron."
         bugs_and_feedback: "Memoru, vi trovos erarojn. Bonvolu uzi la „Feedback“ butonon dekstre por informi nin pri iuj ajn eraroj!  Ni tre rapide laboros, por ke ni riparu la erarojn, pri kiuj vi informis nin."
         bugs_and_feedback_mobile: "Memoru, vi trovos erarojn.  Bonvolu informi nin pri iuj ajn eraroj!  Ni tre rapide laboros, por ke ni riparu la erarojn, pri kiuj vi informis nin."
-        login: Kontonomo
+        login: "Kontonomo"
         modern_browsers: "nur funkcias per modernaj retumiloj"
-        password: Pasvorto
+        password: "Pasvorto"
         remember_me: "Memori min"
-        sign_in: Ensaluti
-        username: Uzantnomo
+        sign_in: "Ensaluti"
+        username: "Uzantnomo"
       signed_in: "Sukcese ensalutis."
       signed_out: "Sukcese elsalutis."
     shared:
@@ -94,8 +94,8 @@ eo:
         forgot_your_password: "Ĉu vi forgesis vian pasvorton?"
         receive_confirmation: "Ĉu vi ne ricevis instruojn por konfirmi?"
         receive_unlock: "Ĉu vi ne ricevis instruojn por malŝlosi?"
-        sign_in: Ensaluti
-        sign_up: Enskribiĝi
+        sign_in: "Ensaluti"
+        sign_up: "Enskribiĝi"
         sign_up_closed: "Nun ne estas libera registrado."
       mail_signup_form:
         sign_up_for_an_invite: "Petu inviton!"

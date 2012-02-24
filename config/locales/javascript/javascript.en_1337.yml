@@ -26,7 +26,7 @@ en_1337:
     comments:
       hide: "H1D3 5P4M5!"
       show: "5H0W 4LL 5P4M5!"
-    confirm_dialog: 5UR3?
+    confirm_dialog: "5UR3?"
     failed_to_like: "F41L3D 2 <3!"
     failed_to_post_message: "F41L3D 2 53ND 5P4M!"
     getting_started:
@@ -35,7 +35,7 @@ en_1337:
     header:
       search: "Find people or #tags"
     infinite_scroll:
-      no_more: EOF
+      no_more: "EOF"
     publisher:
       at_least_one_aspect: "Y0U MU57 70 PUBL15CH 47 L3457 1 4SP3C7"
       limited: "L1M173D - Y0UR 5P4M W1LL 0NLY B33 533N BY N00B5 U 4R3 5H4R1NG W17H!"
@@ -77,8 +77,10 @@ en_1337:
       minutes: "%d M1NU735"
       month: "4B0U7 4 M0N7H"
       months: "%d M0N7H5"
+      prefixAgo: ""
+      prefixFromNow: ""
       seconds: "L355 7H3N 4 M1NU73"
-      suffixAgo: 4G0
+      suffixAgo: "4G0"
       suffixFromNow: "FR0M N0W"
       year: "4B0U7 4 Y34R"
       years: "%d Y34R5"

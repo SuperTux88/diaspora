@@ -5,12 +5,12 @@
 
 
 pa:
-  _comments: ਟਿੱਪਣੀਆਂ
-  _contacts: ਸੰਪਰਕ
-  _home: ਘਰ
-  _photos: ਫੋਟੋ
-  _services: ਸਰਵਿਸਾਂ
-  account: ਅਕਾਊਂਟ
+  _comments: "ਟਿੱਪਣੀਆਂ"
+  _contacts: "ਸੰਪਰਕ"
+  _home: "ਘਰ"
+  _photos: "ਫੋਟੋ"
+  _services: "ਸਰਵਿਸਾਂ"
+  account: "ਅਕਾਊਂਟ"
   activerecord:
     errors:
       models:
@@ -28,10 +28,10 @@ pa:
   aspects:
     edit:
       make_aspect_list_visible: "make aspect list visible to others in aspect"
-      rename: ਨਾਂ-ਬਦਲੋ
+      rename: "ਨਾਂ-ਬਦਲੋ"
     few: "%{count} aspects"
     helper:
-      remove: ਹਟਾਓ
+      remove: "ਹਟਾਓ"
     index:
       handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
       help:
@@ -44,7 +44,7 @@ pa:
       no_tags: "No tags"
     many: "%{count} aspects"
     new:
-      name: Name
+      name: "Name"
     no_contacts_message:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
     no_posts_message:
@@ -52,11 +52,11 @@ pa:
     one: "1 aspect"
     other: "%{count} aspects"
     seed:
-      family: ਪਰਿਵਾਰ
-      work: ਕੰਮ
+      family: "ਪਰਿਵਾਰ"
+      work: "ਕੰਮ"
     two: "%{count} aspects"
     zero: "no aspects"
-  back: ਪਿੱਛੇ
+  back: "ਪਿੱਛੇ"
   bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
     explanation_link_text: "Post to Diaspora"
@@ -66,22 +66,13 @@ pa:
     few: "%{count} comments"
     many: "%{count} comments"
     new_comment:
-      comment: ਟਿੱਪਣੀ
+      comment: "ਟਿੱਪਣੀ"
       commenting: "ਟਿੱਪਣੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ..."
-    one: "1 comment"
-    other: "%{count} comments"
-    two: "%{count} comments"
-    zero: "no comments"
   contacts:
     few: "%{count} contacts"
     index:
       add_to_aspect: "Add contacts to %{name}"
       no_contacts: "No contacts."
-    many: "%{count} contacts"
-    one: "1 ਸੰਪਰਕ"
-    other: "%{count} ਸੰਪਰਕ"
-    two: "%{count} contacts"
-    zero: "ਕੋਈ ਸੰਪਰਕ ਨਹੀਂ"
   conversations:
     helper:
       new_messages:
@@ -91,8 +82,8 @@ pa:
         other: "%{count} new messages"
         two: "%{count} new messages"
         zero: "no new messages"
-  delete: ਹਟਾਓ
-  email: ਈਮੇਲ
+  delete: "ਹਟਾਓ"
+  email: "ਈਮੇਲ"
   find_people: "Find people"
   home:
     show:
@@ -106,12 +97,12 @@ pa:
       toggle: "toggle mobile site"
       whats_new: "ਨਵਾਂ ਕੀ ਹੈ?"
     header:
-      blog: ਬਲੌਗ
-      code: ਕੋਡ
-      login: ਲਾਗਇਨ
-      logout: ਲਾਗਆਉਟ
-      profile: profile
-      settings: settings
+      blog: "ਬਲੌਗ"
+      code: "ਕੋਡ"
+      login: "ਲਾਗਇਨ"
+      logout: "ਲਾਗਆਉਟ"
+      profile: "profile"
+      settings: "settings"
   likes:
     likes:
       people_dislike_this:
@@ -135,8 +126,8 @@ pa:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
-  more: ਹੋਰ
-  next: ਅੱਗੇ
+  more: "ਹੋਰ"
+  next: "ਅੱਗੇ"
   notifications:
     also_commented:
       few: "%{actors} also commented on %{post_author}'s %{post_link}."
@@ -203,7 +194,7 @@ pa:
       other: "%{actors} mentioned you in a deleted post."
       two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
-    post: ਪੋਸਟ
+    post: "ਪੋਸਟ"
     private_message:
       few: "%{actors} sent you a message."
       many: "%{actors} sent you a message."
@@ -244,8 +235,8 @@ pa:
     started_sharing:
       subject: "%{name} has started sharing with you on Diaspora*"
   ok: "ਠੀਕ ਹੈ"
-  or: ਜਾਂ
-  password: ਪਾਸਵਰਡ
+  or: "ਜਾਂ"
+  password: "ਪਾਸਵਰਡ"
   password_confirmation: "ਪਾਸਵਰਡ ਪੁਸ਼ਟੀ"
   people:
     few: "%{count} people"
@@ -261,8 +252,6 @@ pa:
       thats_you: "thats you!"
     show:
       not_connected: "You are not sharing with %{name}"
-    two: "%{count} people"
-    zero: "no people"
   posts:
     show:
       photos_by:
@@ -272,7 +261,7 @@ pa:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
-  previous: ਪਿੱਛੇ
+  previous: "ਪਿੱਛੇ"
   profiles:
     edit:
       your_tags: "You: in 5 #tags"
@@ -289,7 +278,7 @@ pa:
       cancel_my_account: "ਮੇਰਾ ਅਕਾਊਂਟ ਰੱਦ ਕਰੋ"
       edit: "%{name} ਸੋਧ"
       unhappy: "ਖੁਸ਼ ਨਹੀਂ?"
-      update: ਅੱਪਡੇਟ
+      update: "ਅੱਪਡੇਟ"
     new:
       create_my_account: "Create my account"
       enter_email: "ਈਮੇਲ ਦਿਓ"
@@ -309,7 +298,7 @@ pa:
         two: "%{count} new requests!"
         zero: "no new requests"
     new_request_to_person:
-      sent: ਭੇਜਿਆ!
+      sent: "ਭੇਜਿਆ!"
   reshares:
     reshare:
       reshare:
@@ -318,11 +307,11 @@ pa:
         one: "1 Reshare"
         other: "%{count} Reshares"
         two: "%{count} reshares"
-        zero: Reshare
+        zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
       show_original: "Show Original"
-  search: ਖੋਜ
+  search: "ਖੋਜ"
   services:
     index:
       connect_to_facebook: "ਫੇਸਬੁੱਕ ਨਾਲ ਕੁਨੈਕਟ ਕਰੋ"
@@ -333,12 +322,12 @@ pa:
     inviter:
       click_link_to_accept_invitation: "Click this link to accept your invitation"
     remote_friend:
-      invite: ਸੱਦਾ
-      resend: ਮੁੜ-ਭੇਜੋ
+      invite: "ਸੱਦਾ"
+      resend: "ਮੁੜ-ਭੇਜੋ"
   shared:
     add_contact:
       create_request: "Find by Diaspora handle"
-      diaspora_handle: diaspora@handle.org
+      diaspora_handle: "diaspora@handle.org"
     aspect_dropdown:
       add_to_aspect: "Add to aspect"
       toggle:
@@ -356,7 +345,7 @@ pa:
     public_explain:
       title: "You are about to post a public message!"
     publisher:
-      all: ਸਭ
+      all: "ਸਭ"
       all_contacts: "ਸਭ ਸੰਪਰਕਾਂ ਨਾਲ"
       make_public: "ਪਬਲਿਕ ਬਣਾਓ"
       new_user_prefill:
