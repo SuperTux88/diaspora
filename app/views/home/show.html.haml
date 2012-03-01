@@ -9,12 +9,5 @@
 - begin
   = render :partial => 'home/show'
 - rescue
-  :css
-    header{
-      display:none;
-    }
-    body{
-      margin-top: 20px;
-    }
   :erb
     <%= File.open(File.join(Rails.root, 'public/default.html')).read %>
