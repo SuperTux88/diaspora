@@ -8,6 +8,8 @@ cp config/ci/jenkins/database.yml config/database.yml
 
 rm -f log/test.log
 
+gem install bundler
+
 # install missing gems
 bundle install --without development production heroku
 
