@@ -115,7 +115,7 @@ GEM
     childprocess (0.3.1)
       ffi (~> 1.0.6)
     chronic (0.6.7)
-    ci_reporter (1.6.5)
+    ci_reporter (1.7.0)
       builder (>= 2.1.2)
     client_side_validations (3.1.4)
     columnize (0.3.6)
