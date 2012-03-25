@@ -40,6 +40,14 @@ pl:
             username:
               invalid: "jest nieprawidłowe. Dozwolone są tylko litery, cyfry i podkreślniki."
               taken: "jest już zajęta."
+  admins:
+    admin_bar:
+      correlations: "Współzależności"
+      pages: "Strony"
+      pod_stats: "Statystyki dla Podu"
+      resque_overview: "Przegląd resque"
+      user_search: "Wyszukiwanie użytkowników"
+      weekly_user_stats: "Tygodniowe statystyki użytkownika"
   ago: "%{time} temu"
   all_aspects: "Wszystkie aspekty"
   application:
@@ -313,7 +321,7 @@ pl:
       if_they_accept_info: "Jeśli wybrana osoba przyjmie zaproszenie, zostanie dodana do aspektów, do których ją zapros@{m:iłeś|f:iłaś|n:zono}."
       invite_someone_to_join: "Zaproś kogoś do Diaspory!"
       language: "Język"
-      paste_link: "lub przekaż to łącze!"
+      paste_link: "Udostępnij to łącze znajomym, aby zaprosić ich do Diaspory* lub wyślij je do nich przez e-mail."
       personal_message: "Dodatkowa wiadomość"
       resend: "Wyślij ponownie"
       send_an_invitation: "Wyślij zaproszenie"

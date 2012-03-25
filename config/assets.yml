@@ -21,7 +21,6 @@ javascripts:
     - public/javascripts/vendor/jquery.autoresize.js
     - public/javascripts/vendor/jquery-ui-1.8.9.custom.min.js
     - public/javascripts/vendor/jquery.charcount.js
-    - public/javascripts/vendor/jquery.expander.js
     - public/javascripts/vendor/jquery.placeholder.js
     - public/javascripts/vendor/timeago.js
     - public/javascripts/vendor/facebox.js
@@ -39,18 +38,19 @@ javascripts:
     - public/javascripts/vendor/backbone.js
     - public/javascripts/vendor/handlebars-1.0.0.beta.6.js
     - public/javascripts/vendor/markdown/*
+    - public/javascripts/vendor/punycode.js
     - public/javascripts/app/app.js
     - public/javascripts/app/helpers/*
     - public/javascripts/app/router.js
     - public/javascripts/app/views.js
-    - public/javascripts/app/models/post.js 
+    - public/javascripts/app/models/post.js
     - public/javascripts/app/models/*
     - public/javascripts/app/pages/*
     - public/javascripts/app/collections/*
     - public/javascripts/app/views/stream_object_view.js
     - public/javascripts/app/views/content_view.js
     - public/javascripts/app/views/*.js
-    - public/javascripts/app/views/**/*.js 
+    - public/javascripts/app/views/**/*.js
 
     - public/javascripts/diaspora.js
     - public/javascripts/helpers/*.js

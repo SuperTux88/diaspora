@@ -304,11 +304,15 @@ es:
       already_invited: "La siguiente persona no ha aceptado tu invitación:"
       aspect: "Aspecto"
       check_out_diaspora: "¡Échale un ojo a Diaspora!"
+      codes_left:
+        one: "%{count} invitación restante con este código"
+        other: "%{count} invitaciones restantes con este código"
+        zero: "No quedan invitaciones con este código"
       comma_seperated_plz: "Puedes escribir múltiples direcciones de email separadas por comas."
       if_they_accept_info: "Si acepta, se añadirá al aspecto seleccionado."
       invite_someone_to_join: "¡Invita a alguien a unirse a Diaspora*!"
       language: "Idioma"
-      paste_link: "¡Comparte este enlace con tus amigos para invitarles a Diáspora*, o envíales directamente el enlace por correo electrónico!"
+      paste_link: "¡Comparte este enlace con tus amigos para invitarles a Diáspora*, o envíaselo directamente por correo electrónico!"
       personal_message: "Mensaje personal"
       resend: "Reenviar"
       send_an_invitation: "Enviar una invitación"
@@ -399,6 +403,7 @@ es:
         two: "y a %{count} más"
         zero: "y nadie más"
       mark_all_as_read: "Marcar todo como leído"
+      mark_unread: "Marcar como no leído"
       notifications: "Notificaciones"
     liked:
       few: "A %{actors} les gustó tu %{post_link}."
@@ -472,7 +477,7 @@ es:
       message: |-
           ¡Hola!
 
-          ¡Has sido invitado a unirte a Diaspora*!
+          ¡Ha sido invitado a unirse a Diaspora*!
 
           Marque el enlace para empezar
 
@@ -483,7 +488,6 @@ es:
           Saludos,
 
           ¡El generador de correo automático de Diaspora*!
-            
     invited_you: "%{name} le ha invitado a Diaspora*"
     liked:
       liked: "A %{name} le gustó tu publicación"

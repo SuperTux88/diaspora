@@ -40,6 +40,14 @@ hu:
             username:
               invalid: "érvénytelen. Csak betűk, számok és aláhúzás használható."
               taken: "már foglalt."
+  admins:
+    admin_bar:
+      correlations: "Viszonyok"
+      pages: "Oldalak"
+      pod_stats: "Kiszolgáló statisztika"
+      resque_overview: "Resque áttekintés"
+      user_search: "Felhasználó keresés"
+      weekly_user_stats: "Heti statisztika"
   ago: "ezelőtt"
   all_aspects: "Összes csoport"
   application:
@@ -117,7 +125,7 @@ hu:
         tag_question: "kérdés"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Közösségi leckék, módszerek, hírek"
       introduce_yourself: "Ez a te Hírfolyamod. Kezdd is el gyorsan egy bemutatkozással!"
-      keep_us_running: "Hogy gyors maradjon ez a pod (%{pod}), kérlek adományozz pénzt."
+      keep_us_running: "Hogy közös örömünkre gyors maradjon ez a kiszolgáló (%{pod}), adományozz havonta némi kávéra valót a szervereknek ;)"
       new_here:
         follow: "Kövesd az %{link} címkét és üdvözöld az új Diaspora* felhasználókat!"
         learn_more: "Tudj meg többet"
@@ -402,6 +410,7 @@ hu:
         two: "és %{count} másik"
         zero: "és senki más"
       mark_all_as_read: "Mind megjelölése olvasottként"
+      mark_unread: "olvasatlannak jelöl"
       notifications: "Értesítések"
     liked:
       few: "%{actors} kedveli a %{post_link}edet."
@@ -881,7 +890,7 @@ hu:
       title: "Publikus tevékenység"
     tags:
       contacts_title: "Emberek, akik ezeket a címkéket követik"
-      tag_prefill_text: "Mi újság erről: %{tag_name} ?"
+      tag_prefill_text: "%{tag_name} témával kapcsolatban csak annyit, hogy... "
       title: "Bejegyzés megjelölve: %{tags}"
   tag_followings:
     create:
@@ -932,7 +941,7 @@ hu:
       change_email: "Email megváltoztatása"
       change_language: "Nyelv megváltoztatása"
       change_password: "Jelszó módosítása"
-      character_minimum_expl: "legalább hat karakterből kell állnia"
+      character_minimum_expl: "legalább hat karakter legyen"
       close_account:
         dont_go: "Hé, kérlek ne menj!"
         if_you_want_this: "Ha tényleg ezt akarod, írd be a jelszavad és kattints a \"Fiók bezárása\" gombra."
@@ -945,7 +954,7 @@ hu:
       close_account_text: "Fiók bezárása"
       comment_on_post: "...valaki hozzászólt egy bejegyzésedhez?"
       current_password: "Jelenlegi jelszó"
-      current_password_expl: "az, amelyikkel az imént bejelentkeztél"
+      current_password_expl: "amelyikkel bejelentkezel..."
       download_photos: "Képeim letöltése"
       download_xml: "Saját XML letöltése"
       edit_account: "Fiók szerkesztése"
