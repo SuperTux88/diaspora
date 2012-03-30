@@ -71,3 +71,7 @@ dump.rdb
 features/reports
 spec/reports
 spec/reports_fixtures
+
+# Ignore precompiled assets
+# Heroku or Capistrano can and should regenerate them on every deploy
+public/assets
