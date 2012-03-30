@@ -14,7 +14,7 @@ gem install bundler
 bundle install --without development production heroku
 
 echo "Regenerating CSS files"
-bundle exec sass -q --update public/stylesheets/sass/:public/stylesheets/
+bundle exec rake assets:precompile
 
 bundle exec rake db:drop
 bundle exec rake db:create
