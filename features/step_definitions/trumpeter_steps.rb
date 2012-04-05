@@ -109,7 +109,7 @@ Then /^I should see "([^"]*)" in the framer preview$/ do |post_text|
 end
 
 When /^I select the mood "([^"]*)"$/ do |mood|
-  select mood, :from => 'template'
+  click_link mood
 end
 
 Then /^the post's mood should (?:still |)be "([^"]*)"$/ do |mood|
@@ -133,4 +133,8 @@ end
 
 When /^the frame's body should be "([^"]*)"$/ do |body_text|
   find("section.body").text.should == body_text
+end
+
+Then /^the first post should mention "([^"]*)"$/ do |user_name|
+  pending
 end

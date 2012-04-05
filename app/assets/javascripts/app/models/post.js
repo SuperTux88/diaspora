@@ -91,15 +91,29 @@ app.models.Post = Backbone.Model.extend({
     }});
   },
 
+  comment : function (text) {
+
+    var self = this
+      , postComments = this.comments;
+
+    postComments.create({"text": text}, {
+      url : postComments.url(),
+      wait:true, // added a wait for the time being.  0.5.3 was not optimistic, but 0.9.2 is.
+      error:function () {
+        alert(Diaspora.I18n.t("failed_to_post_message"));
+      }
+    });
+  },
+
   headline : function() {
     var headline = this.get("text").trim()
-      , newlineIdx = headline.lastIndexOf("\n")
+      , newlineIdx = headline.indexOf("\n")
     return (newlineIdx > 0 ) ? headline.substr(0, newlineIdx) : headline
   },
 
   body : function(){
     var body = this.get("text").trim()
-      , newlineIdx = body.lastIndexOf("\n")
+      , newlineIdx = body.indexOf("\n")
     return (newlineIdx > 0 ) ? body.substr(newlineIdx+1, body.length) : ""
   }
 }, {
@@ -108,7 +122,8 @@ app.models.Post = Backbone.Model.extend({
   frameMoods : [
     "Day",
     "Night",
-    "Wallpaper"
+    "Wallpaper",
+    "Newspaper"
   ],
 
   legacyTemplateNames : [

@@ -48,6 +48,8 @@ module ApplicationHelper
       buf << [ javascript_include_tag('jquery') ]
     end
     buf << [ javascript_include_tag('jquery_ujs') ]
+    buf << [ javascript_tag("jQuery.ajaxSetup({'cache': false});") ]
+    buf << [ javascript_tag("$.fx.off = true;") ] if Rails.env.test?
     buf.join("\n").html_safe
   end
 end

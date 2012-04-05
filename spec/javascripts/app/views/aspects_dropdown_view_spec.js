@@ -1,12 +1,12 @@
 describe("app.views.AspectsDropdown", function(){
   beforeEach(function(){
-    loginAs(factory.user({
+    loginAs({
       aspects : [
         { id : 3, name : "sauce" },
         { id : 5, name : "conf" },
         { id : 7, name : "lovers" }
       ]
-    }))
+    })
 
     this.view = new app.views.AspectsDropdown
   })

@@ -9,8 +9,14 @@ echo "Start Xvfb"
 sh -e /etc/init.d/xvfb start
 
 # Regenerate css files
-echo "Regenerating CSS files"
-bundle exec sass -q --update public/stylesheets/sass/:public/stylesheets/
+#echo "Regenerating CSS files"
+#bundle exec sass -q --update public/stylesheets/sass/:public/stylesheets/
+
+# setup swapfile
+echo "creating a swapfile"
+sudo dd if=/dev/zero of=swapfile bs=1M count=64
+sudo mkswap swapfile
+sudo swapon swapfile
 
 # Create a database.yml for the right database
 echo "Setting up database.yml for $DB"
