@@ -167,7 +167,8 @@ en:
       friends: "Friends"
     index:
       donate: "Donate"
-      keep_us_running: "Keep %{pod} running fast and buy servers their coffee fix with a monthly donation!"
+      keep_pod_running: "Keep %{pod} running fast and buy servers their coffee fix with a monthly donation!"
+      keep_diaspora_running: "Keep Diaspora development fast with a monthly donation!"
       no_tags: "+ Find a tag to follow"
       unfollow_tag: "Stop following #%{tag}"
       handle_explanation: "This is your Diaspora ID. Like an email address, you can give this to people to reach you."
@@ -551,7 +552,6 @@ en:
         Click this link to get started
         
         %{invite_url}
-        <%= invite_code_url(@invitation_code)%>
         
         
         Love,
@@ -938,6 +938,10 @@ en:
     index:
       revoke_access: "Revoke Access"
       no_applications: "You haven't registered any applications yet."
+    new:
+      cubbies_will: "Cubbies will be able to post photos on your behalf"
+      autorize: "Authorize"
+      'no': "No"
 
   streams:
     community_spotlight_stream: "Community Spotlight"

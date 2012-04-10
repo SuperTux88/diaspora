@@ -101,7 +101,10 @@
       = image_tag('branding/flattr-badge-large.png')
       %br
     - if AppConfig[:paypal_hosted_button_id].present?
-      = t('aspects.index.keep_us_running', :pod => URI.parse(AppConfig[:pod_url]).host)
+      = t('aspects.index.keep_pod_running', :pod => URI.parse(AppConfig[:pod_url]).host)
       %br
-      = render 'shared/donate'
-
+      = render 'shared/donatepod'
+    - else
+      = t('aspects.index.keep_diaspora_running')
+      %br
+      = render 'shared/donatediaspora'
