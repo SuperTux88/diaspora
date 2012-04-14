@@ -1,12 +1,8 @@
 module PublishingCukeHelpers
   def make_post(text)
-    @@last_post_time ||= Time.now
-    Timecop.travel @@last_post_time += 1.minute do
-      fill_in 'status_message_fake_text', :with => text
-      click_button :submit
-      wait_for_ajax_to_finish
-    end
-    Timecop.return
+    fill_in 'status_message_fake_text', :with => text
+    click_button :submit
+    wait_for_ajax_to_finish
   end
 
   def click_and_post(text)
@@ -91,7 +87,7 @@ module PublishingCukeHelpers
     find(elem).click
   end
 
-  def wait_for_ajax_to_finish(wait_time=15)
+  def wait_for_ajax_to_finish(wait_time=30)
     wait_until(wait_time) do
       evaluate_script("$.active") == 0
     end
