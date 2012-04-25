@@ -12,9 +12,12 @@ app.Router = Backbone.Router.extend({
     "commented": "stream",
     "liked": "stream",
     "mentions": "stream",
-    "people/:id": "stream",
+
+    "people/:id?ex=true": "newProfile",
+    "people/:id": "profile",
+    "u/:name": "profile",
+
     "people/:id/photos": "photos",
-    "u/:name": "stream",
     "followed_tags": "stream",
     "tags/:name": "stream",
 
@@ -24,36 +27,54 @@ app.Router = Backbone.Router.extend({
     "framer": "framer"
   },
 
-  stream : function() {
-    app.stream = new app.models.Stream();
-    app.page = new app.views.Stream({model : app.stream});
-    app.publisher = app.publisher || new app.views.Publisher({collection : app.stream.posts});
 
-    var streamFacesView = new app.views.StreamFaces({collection : app.stream.posts});
+  newProfile : function(personId) {
+    this.renderPage(new app.pages.Profile({ personId : personId }));
+  },
+
+  composer : function(){
+    this.renderPage(new app.pages.Composer());
+  },
+
+  framer : function(){
+    this.renderPage(new app.pages.Framer());
+  },
+
+  singlePost : function(id) {
+    this.renderPage(new app.pages.PostViewer({ id: id }));
+  },
+
+  profile : function(page) {
+    this.stream()
+  },
+
+  stream : function(page) {
+    app.stream = new app.models.Stream();
+    app.stream.fetch();
+    app.page = new app.views.Stream({model : app.stream});
+    app.publisher = app.publisher || new app.views.Publisher({collection : app.stream.items});
+
+    var streamFacesView = new app.views.StreamFaces({collection : app.stream.items});
 
     $("#main_stream").html(app.page.render().el);
     $('#selected_aspect_contacts .content').html(streamFacesView.render().el);
   },
 
   photos : function() {
-    app.photos = new app.models.Photos();
+    app.photos = new app.models.Stream([], {collection: app.collections.Photos});
     app.page = new app.views.Photos({model : app.photos});
+
+
     $("#main_stream").html(app.page.render().el);
   },
 
-  composer : function(){
-    var page = new app.pages.Composer();
-    $("#container").html(page.render().el)
+  isExperimental : function(query) {
+   return query.search("ex=true") != -1
   },
 
-  framer : function(){
-    var page = new app.pages.Framer();
-    $("#container").html(page.render().el)
-  },
-
-  singlePost : function(id) {
-    var page = new app.pages.PostViewer({ id: id });
-    $("#container").html(page.el);
-   }
+  renderPage : function(page){
+    app.page = page
+    $("#container").html(app.page.render().el)
+  }
 });
 

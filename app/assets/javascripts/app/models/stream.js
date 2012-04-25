@@ -1,48 +1,43 @@
 //= require ../collections/posts
+//= require ../collections/photos
 app.models.Stream = Backbone.Collection.extend({
-  initialize : function(){
-    this.posts = new app.collections.Posts([], this.postOptions());
+  initialize : function(models, options){
+    var collection = app.collections.Posts;
+    if( options && options.collection ) collection = options.collection;
+    this.items = new collection([], this.collectionOptions());
   },
 
-  postOptions :function(){
+  collectionOptions :function(){
       var order = this.sortOrder();
       return {
-          comparator : function(post) { return -post[order](); }
+          comparator : function(item) { return -item[order](); }
       }
   },
 
   url : function(){
-    return _.any(this.posts.models) ? this.timeFilteredPath() : this.basePath()
+    return _.any(this.items.models) ? this.timeFilteredPath() : this.basePath()
   },
 
-  _fetching : false,
-
   fetch: function() {
-    if(this._fetching) { return false; }
-    var self = this
-
-    // we're fetching the collection... there is probably a better way to do this
-    self._fetching = true;
-
-    this.posts
-      .fetch({
+    if(this.isFetching()){ return false }
+    var url = this.url()
+    this.deferred = this.items.fetch({
         add : true,
-        url : self.url()
-      })
-      .done(
-        function(resp){
-          // we're done fetching... there is probably a better way to handle this
-          self._fetching = false;
+        url : url
+    }).done(_.bind(this.triggerFetchedEvents, this))
+  },
 
-          self.trigger("fetched", self);
+  isFetching : function(){
+    return this.deferred && this.deferred.state() == "pending"
+  },
 
-          // all loaded?
-          if(resp.posts && (resp.posts.author || resp.posts.length == 0)) {
-            self.trigger("allPostsLoaded", self);
-          }
-        }
-      )
-    return this;
+  triggerFetchedEvents : function(resp){
+    this.trigger("fetched", this);
+    // all loaded?
+    var respItems = this.items.parse(resp);
+    if(respItems && (respItems.author || respItems.length == 0)) {
+      this.trigger("allItemsLoaded", this);
+    }
   },
 
   basePath : function(){
@@ -54,7 +49,7 @@ app.models.Stream = Backbone.Collection.extend({
   },
 
   maxTime: function(){
-    var lastPost = _.last(this.posts.models);
+    var lastPost = _.last(this.items.models);
     return lastPost[this.sortOrder()]()
   },
 
@@ -63,6 +58,20 @@ app.models.Stream = Backbone.Collection.extend({
   },
 
   add : function(models){
-    this.posts.add(models)
+    this.items.add(models)
+  },
+
+  preloadOrFetch : function(){ //hai, plz test me THNX
+    this.preload()
+    if(this.items.length == 0) {
+      this.fetch()
+    }
+  },
+
+  preload : function(){
+    var preloadJson = window.preLoadContent && JSON.parse(window.preLoadContent)
+    delete window.preLoadContent // always do this just to be safe in preventing dirty state across navigates
+
+    if(preloadJson) { this.items.reset(preloadJson) }
   }
 });

@@ -21,7 +21,8 @@ app.views.Base = Backbone.View.extend({
   },
 
   defaultPresenter : function(){
-    var modelJson = this.model ? _.clone(this.model.attributes) : {}
+    var modelJson = this.model && this.model.attributes ? _.clone(this.model.attributes) : {}
+
     return _.extend(modelJson, {
       current_user : app.currentUser.attributes,
       loggedIn : app.currentUser.authenticated()
@@ -40,8 +41,11 @@ app.views.Base = Backbone.View.extend({
   renderTemplate : function(){
     var presenter = _.isFunction(this.presenter) ? this.presenter() : this.presenter
     this.template = JST[this.templateName]
-    if(!this.template) {console.log("no template for " + this.templateName) }
-    $(this.el)
+    if(!this.template) {
+      console.log(this.templateName ? ("no template for " + this.templateName) : "no templateName specified")
+    }
+
+    this.$el
       .html(this.template(presenter))
       .attr("data-template", _.last(this.templateName.split("/")));
     this.postRenderTemplate();
@@ -69,3 +73,70 @@ app.views.Base = Backbone.View.extend({
     $(".tooltip").remove();
   }
 });
+
+// Mixin to render a collection that fetches more via infinite scroll, for a view that has no template.
+//  Requires:
+//    a stream model, bound as this.stream
+//    a stream's posts, bound as this.collection
+//    a postClass to be declared
+//    a #paginate div in the layout
+//    a call to setupInfiniteScroll
+
+app.views.infiniteScrollMixin = {
+  setupInfiniteScroll : function() {
+    this.postViews = this.postViews || []
+
+    this.bind("loadMore", this.fetchAndshowLoader, this)
+    this.stream.bind("fetched", this.hideLoader, this)
+    this.stream.bind("allItemsLoaded", this.unbindInfScroll, this)
+
+    this.collection.bind("add", this.addPostView, this);
+
+    var throttledScroll = _.throttle(_.bind(this.infScroll, this), 200);
+    $(window).scroll(throttledScroll);
+  },
+
+  postRenderTemplate : function() {
+    if(this.stream.isFetching()) { this.showLoader() }
+  },
+
+  createPostView : function(post){
+    var postView = new this.postClass({ model: post });
+    this.postViews.push(postView)
+    return postView
+  },
+
+  addPostView : function(post) {
+    var placeInStream = (this.collection.at(0).id == post.id) ? "prepend" : "append";
+    this.$el[placeInStream](this.createPostView(post).render().el);
+  },
+
+  unbindInfScroll : function() {
+    $(window).unbind("scroll");
+  },
+
+  fetchAndshowLoader : function(){
+    if(this.stream.isFetching()) { return false }
+    this.stream.fetch()
+    this.showLoader()
+  },
+
+  showLoader: function(){
+    $("#paginate .loader").removeClass("hidden")
+  },
+
+  hideLoader: function() {
+      $("#paginate .loader").addClass("hidden")
+  },
+
+  infScroll : function() {
+    var $window = $(window)
+      , distFromTop = $window.height() + $window.scrollTop()
+      , distFromBottom = $(document).height() - distFromTop
+      , bufferPx = 500;
+
+    if(distFromBottom < bufferPx) {
+      this.trigger("loadMore")
+    }
+  }
+};

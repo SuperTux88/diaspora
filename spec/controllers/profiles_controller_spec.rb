@@ -10,6 +10,13 @@ describe ProfilesController do
     sign_in :user, @user
   end
 
+  describe '#show' do
+    it "returns the user as json" do
+      get :show, :id => @user.person.guid, :format => :json
+      JSON.parse(response.body).should == JSON.parse(@user.person.as_api_response(:backbone).to_json)
+    end
+  end
+
   describe '#edit' do 
     it 'succeeds' do
       get :edit

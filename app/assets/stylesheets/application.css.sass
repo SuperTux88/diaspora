@@ -1,5 +1,6 @@
 @import 'ui.css.sass'
 @import '_mixins.css.scss'
+@import 'new_styles/_spinner'
 
 /* ====== media ====== */
 .media
@@ -597,18 +598,6 @@ form.new_comment
         :right 2em
       h4
         :font-weight bold
-
-#paginate, #infscr-loading
-  :display block
-
-  :margin
-    :top 10px
-
-  :padding 8px 0
-  :text-align center
-  :width 100%
-  img
-    :border none
 
 #photo_container
   :text
@@ -1856,14 +1845,10 @@ ul#press_logos
       .thumb
         :position relative
         :cursor pointer
+        @include video-overlay()
 
-        .video-overlay
-          :background image-url('video-overlay.png') no-repeat center center
-          :position absolute
-          :top 0
-          :left 0
-          :right 0
-          :bottom 0
+
+
 
 .conversation_participants
   :z-index 3

@@ -1,9 +1,19 @@
 @import "_new_mixins";
 
+/* new link color */
+a { color : rgb(42,156,235) !important; }
+
 /* bootstrap extentions */
 .icon-red   { background-image: image_url("img/glyphicons-halflings-red.png");   }
 .icon-green { background-image: image_url("img/glyphicons-halflings-green.png"); }
 .icon-blue  { background-image: image_url("img/glyphicons-halflings-blue.png");  }
+
+ @media (max-width: 770px) { //why is 770 a magic number?
+    body {
+      padding: 0;
+    }
+  }
+
 
 .photoset {
   @include center(horizontal);
@@ -150,29 +160,40 @@
 
 article { //mood posts
   //default frame show styles
-  $big-text-size : 3em;
-  $medium-text-size : 2em;
-  $small-text-size: 1.5em;
+  $big-text-size : 2.5em;
+  $medium-text-size : 1.5em;
+  $small-text-size: 1em;
   width: 960px;
   margin: 0 auto;
+
+  img {
+    max-height: 70%;
+  }
 
   @include centered-frame();
   .container {
     padding: 70px 0;
+    max-width: 85%;
+  }
+
+  header {
+    padding : 0 100px;
   }
 
   header, header p{
   //big text
-  @include media-text();
+    @include media-text();
     font-size: $big-text-size;
+    line-height: 1.5em;
   }
 
   section.body{
-    p { font-size: $small-text-size;}
+    p { font-size: $small-text-size; }
 
     &.short_body{
       p{
         font-size: $medium-text-size;
+        margin-top: .5em;
       }
     }
   }
@@ -180,6 +201,12 @@ article { //mood posts
   &.night{
     background-color : $night-background-color;
     color : $night-text-color;
+
+    .photo-viewer {
+      img {
+        max-height: 80%;
+      }
+    }
   }
 
   &.newspaper {
@@ -188,7 +215,7 @@ article { //mood posts
     text-align: left;
 
     .container {
-      width: 600px;
+      max-width: 600px;
     }
 
     .photo_viewer {
@@ -199,7 +226,7 @@ article { //mood posts
 
     header {
       margin-bottom: 1em;
-      line-height: 1em;
+      line-height: 1.2em;
     }
 
     .body p {
@@ -212,6 +239,9 @@ article { //mood posts
 
   &.wallpaper{
     color : #fff;
+    header {
+      margin: 0 7%;
+    }
   }
 
   &.multi-photo {
@@ -225,7 +255,7 @@ article { //mood posts
       vertical-align: middle;
 
       padding: 20px;
-      height: 400px;
+      max-height: 400px;
       width: 300px;
     }
 
@@ -373,8 +403,8 @@ div[data-template=flow] {
   .service-selector {
     float: left;
     margin-left: 100px;
-
   }
+
 
   .dropdown-menu {
     bottom : 0;
@@ -400,3 +430,18 @@ div[data-template=flow] {
   }
 }
 
+// this is about the service toggle icons, there is a jasmine test that tests this in service_selector spec
+// if you change this, check toggling the new publisher service broadcasts is still sensible
+// the checkbox should be hidden, and in the off state the service icons should be lighter
+// when the service icons are clicked they should be lighter, and toggle the hidden checkbox.
+.magic-service-selector {
+  label { display : inline;}
+
+  input:not(:checked) + label {
+    @include opacity(0.4);
+  }
+
+  input {
+    display : none;
+  }
+}

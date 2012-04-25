@@ -20,30 +20,32 @@ With Diaspora you can:
 
 Documentation is available on our [wiki](https://github.com/diaspora/diaspora/wiki)
 
+[Pull Request Guidelines](https://github.com/diaspora/diaspora/wiki/Pull-Request-Guidelines)
+
+Before submitting code, feel free to sign our [Contributor License Agreement](https://github.com/diaspora/diaspora/wiki/New-CLA--12-13-10) [Sign Here](https://spreadsheets.google.com/a/joindiaspora.com/spreadsheet/viewform?formkey=dFdRTnY0TGtfaklKQXZNUndsMlJ2eGc6MQ)
+
 ## Quick Start:
 
 Here's how you can get a development environment up and running. You can check out system-specific guides [here](https://github.com/diaspora/diaspora/wiki/Installation-Guides).
 
-### Step 1: Clone the repo 
-```git clone git@github.com:diaspora/diaspora.git
+### Step 1: Download the script
+```
+  curl https://raw.github.com/diaspora/diaspora/master/script/install.sh | /bin/sh
 ```
 
-### Step 2: Navigate to your cloned repository
-```cd ../diaspora
+### Step 2: Follow the instructions
+
+
+### Step 3: Run the the development server
+```
+  rails s
 ```
 
-### Step 3: Install Bundler and gems (depending on [OS Vendor](https://github.com/diaspora/diaspora/wiki/Installation-Guides))
-```sudo gem install bundler && sudo bundle install
+then visit 'http://localhost:3000' in your browser.
+
+### Step 4: Run tests
 ```
-
-### Step 4: Edit database.yml, and rename application.yml.example to just application.yml 
-
-### Step 5: Create and migrate the database
-```rake db:create && rake db:migrate
-```
-
-### Step 6: Start the test server
-```rails s
+  rake
 ```
 
 ## Resources:

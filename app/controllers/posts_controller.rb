@@ -5,7 +5,9 @@
 require Rails.root.join("app", "presenters", "post_presenter")
 
 class PostsController < ApplicationController
-  before_filter :authenticate_user!, :except => :show
+  include PostsHelper
+  
+  before_filter :authenticate_user!, :except => [:show, :iframe, :oembed]
   before_filter :set_format_if_malformed_from_status_net, :only => :show
 
   layout 'post'
@@ -22,13 +24,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    key = params[:id].to_s.length <= 8 ? :id : :guid
-
-    if user_signed_in?
-      @post = current_user.find_visible_shareable_by_id(Post, params[:id], :key => key)
-    else
-      @post = Post.where(key => params[:id], :public => true).includes(:author, :comments => :author).first
-    end
+    @post = find_by_guid_or_id_with_current_user(params[:id])
 
     if @post
       # @commenting_disabled = can_not_comment_on_post?
@@ -39,10 +35,10 @@ class PostsController < ApplicationController
       end
 
       respond_to do |format|
+        format.html{render 'posts/show.html.haml'}
         format.xml{ render :xml => @post.to_diaspora_xml }
         format.mobile{render 'posts/show.mobile.haml', :layout => "application"}
         format.json{ render :json => PostPresenter.new(@post, current_user).to_json }
-        format.any{render 'posts/show.html.haml'}
       end
 
     else
@@ -50,6 +46,21 @@ class PostsController < ApplicationController
       Rails.logger.info(":event => :link_to_nonexistent_post, :ref => #{request.env['HTTP_REFERER']}, :user_id => #{user_id}, :post_id => #{params[:id]}")
       flash[:error] = I18n.t('posts.show.not_found')
       redirect_to :back
+    end
+  end
+
+  def iframe
+    render :text => post_iframe_url(params[:id]), :layout => false
+  end
+
+  def oembed
+    post_id = OEmbedPresenter.id_from_url(params.delete(:url))
+    post = find_by_guid_or_id_with_current_user(post_id) 
+    if post.present?
+      oembed = OEmbedPresenter.new(post, params.slice(:format, :maxheight, :minheight))
+      render :json => oembed
+    else
+      render :nothing => true, :status => 404
     end
   end
 
@@ -68,7 +79,26 @@ class PostsController < ApplicationController
     end
   end
 
+  def update
+    @post = current_user.posts.find(params[:id])
+    if @post
+      @post.favorite = !@post.favorite
+      @post.save
+      render :nothing => true, :status => 202
+    end
+  end
+
   private
+
+  def find_by_guid_or_id_with_current_user(id)
+    key = id.to_s.length <= 8 ? :id : :guid
+    if user_signed_in?
+      current_user.find_visible_shareable_by_id(Post, id, :key => key)
+    else
+      Post.where(key => id, :public => true).includes(:author, :comments => :author).first
+    end
+
+  end
 
   def set_format_if_malformed_from_status_net
    request.format = :html if request.format == 'application/html+xml'

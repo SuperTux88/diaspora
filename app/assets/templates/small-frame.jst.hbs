@@ -1,0 +1,36 @@
+<div class="content">
+
+    <span href="#" class="fav {{#if favorite}}faved{{/if}}"></span>
+
+    {{#if photos}}
+        <div class="image-container">
+            {{#each photos}}
+                <img src="{{sizes.large}}" style="height:{{../adjustedImageHeight}}px;" />
+            {{/each}}
+        </div>
+    {{/if}}
+
+    {{#if object_url}}
+        <div class="image-container">
+            <a href="{{object_url}}" class="stream-photo-link">
+                <img src="{{image_url}}" data-small-photo="{{image_url}}" data-full-photo="{{image_url}}" class="stream-photo" />
+            </a>
+        </div>
+    {{/if}}
+
+    <div class="embed-frame" />
+
+    {{#if text}}
+        <div class="text-content">
+            {{{text}}}
+        </div>
+        <div class="background-color"></div>
+    {{/if}}
+
+    <div class="info">
+        <i class="icon-heart"></i> {{likes_count}}
+        <i class="icon-retweet"></i> {{reshares_count}}
+        <i class="icon-comment"></i> {{comments_count}}
+    </div>
+</div>
+

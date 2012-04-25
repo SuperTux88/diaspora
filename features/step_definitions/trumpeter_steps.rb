@@ -122,7 +122,7 @@ When /^I select the mood "([^"]*)"$/ do |mood|
   click_link mood
 end
 
-Then /^the post's mood should (?:still |)be "([^"]*)"$/ do |mood|
+Then /^the post's (?:default |)mood should (?:still |)be "([^"]*)"$/ do |mood|
   assert_post_renders_with(mood)
 end
 
@@ -147,4 +147,12 @@ end
 
 Then /^the post should mention "([^"]*)"$/ do |user_name|
   within('#post-content') { find("a:contains('#{user_name}')").should be_present }
+end
+
+When /^I click the "([^"]*)" post$/ do |post_text|
+   find(".content:contains('#{post_text}')").click
+end
+
+Then /^"([^"]*)" should be the first canvas frame$/ do |post_text|
+  find(".canvas-frame:first").should have_content(post_text)
 end

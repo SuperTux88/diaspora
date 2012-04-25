@@ -47,19 +47,20 @@ Feature: Creating a new post
     And I upload a fixture picture with filename "button.gif"
 
     And I start the framing process
+    #defaults to the prettiest mood
+    Then the post's default mood should be "Wallpaper"
+    Then it should be a wallpaper frame with the background "button.gif"
     Then I should see "This is hella customized" in the framer preview
-  #### Will test the template picker being ported to JS ####
-  # Then the default mood for the post should be "Wallpaper"
-  # And I should see the image "button.gif" background
     When I select the mood "Day"
     Then the post's mood should be "Day"
     And "button.gif" should be in the post's picture viewer
     And I should see "This is hella customized" in the framer preview
 
     When I finalize my frame
-    And I go to "/stream"
-    Then "This is hella customized" should be post 1
-    And I click the show page link for "This is hella customized"
+    #on stream
+    Then "This is hella customized" should be the first canvas frame
+    When I click the "This is hella customized" post
+    #on show page
     And the post's mood should still be "Day"
 
   Scenario: The Wallpaper mood
