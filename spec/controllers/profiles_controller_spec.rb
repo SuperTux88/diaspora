@@ -13,7 +13,31 @@ describe ProfilesController do
   describe '#show' do
     it "returns the user as json" do
       get :show, :id => @user.person.guid, :format => :json
-      JSON.parse(response.body).should == JSON.parse(@user.person.as_api_response(:backbone).to_json)
+      JSON.parse(response.body).should include(JSON.parse(@user.person.as_api_response(:backbone).to_json))
+    end
+
+    it "returns the user's public information if a user is not logged in" do
+      sign_out :user
+      get :show, :id => @user.person.guid, :format => :json
+      JSON.parse(response.body).should include(JSON.parse(@user.person.as_api_response(:backbone).to_json))
+    end
+
+    it "returns the user's public information if a user is logged in and the visiting user is not receiving" do
+      sign_in :user, alice
+      get :show, :id => @user.person.guid, :format => :json
+      response.body.should_not match(/.location./)
+    end
+
+    it "returns the user's private information if a user is logged in and the visiting user is receiving" do
+      sign_in :user, bob
+      get :show, :id => @user.person.guid, :format => :json
+      response.body.should match(/.location./)
+    end
+
+    it "returns the user's private information if a user is logged in as herself" do
+      sign_in :user, eve
+      get :show, :id => @user.person.guid, :format => :json
+      response.body.should match(/.location./)
     end
   end
 

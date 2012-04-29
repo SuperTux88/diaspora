@@ -1,25 +1,3 @@
-$container-width : 1170;
-
-$margin-between-columns : 30;
-$column-width : 295 - $margin-between-columns;
-$raw-two-column-width : ($column-width * 2) + ($margin-between-columns * 2) ;
-$two-column-width : $raw-two-column-width - 30;  //simply subtract an arbitrary ammount :)
-
-$margin-between-rows : 20;
-
-$row-height : $column-width;
-$two-row-height : $raw-two-column-width - 20;
-
-/* colors : http://www.colourlovers.com/palette/2134203/Awezome_in_argyle */
-$cyan : rgb(8,204,249);
-$yellow : rgb(242,244,9);
-$green : rgb(29,235,134);
-$purple : rgb(220,23,166);
-$lime-green : rgb(143, 199,10);
-$orange : rgb(237, 165, 13);
-$red : rgb(246, 68, 60);
-$turquoise : rgb(8, 224, 173);
-$sand : rgb(245, 239, 237);
 
 @mixin wide() {
   width : $two-column-width + px;
@@ -29,7 +7,7 @@ $sand : rgb(245, 239, 237);
 
 body {
   background-color : #F6F6F6;
-  background-image : image_url('pattern.jpg')
+  background-image : image_url('pattern.png')
 }
 
 .canvas-frame {
@@ -46,7 +24,7 @@ body {
       @include box-shadow(0,1px,5px,rgba(0,0,0,0.5));
 
       .info {
-        bottom : 0;
+        top : 0;
       }
 
       cursor : pointer;
@@ -102,32 +80,86 @@ body {
     }
   }
 
-  .fav {
+  .controls{
     position : absolute;
     z-index : 100;
     top : 10px;
     right : 10px;
+
+    display : none;
+
+    .edit-mode & {
+      display : inline-block;
+    }
+
+    a, span {
+      display : inline-block;
+      background-size : 30px 30px;
+      height : 30px;
+      width : 30px;
+      text-decoration : none;
+    }
+
+    .delete {
+      background-image : image_url('buttons/delete.png');
+
+      &:hover {
+        background-image : image_url('buttons/delete_hover.png');
+      }
+    }
+
+    .fav {
+      background-image : image_url('buttons/star_not_faved.png');
+
+      &.faved, &:hover {
+        background-image : image_url('buttons/star_faved.png');
+      }
+    }
   }
 
   .info {
-    @include transition(bottom);
+    @include transition(top);
+    @include box-shadow(0,1px,3px,rgba(0,0,0,0.3));
     @include opacity(0.8);
-    @include box-shadow(0,-1px,3px,rgba(0,0,0,0.3));
 
     background-color : rgba(255,255,255,0.8);
+    border-bottom : 1px solid #fff;
 
     position : absolute;
-    bottom : -30px;
+    top : -30px;
     right : 0;
     text-align : center;
     width : 100%;
 
     z-index : 30;
 
-    padding : 5px;
-    padding-right : 8px;
+    padding : 5px 0;
     i {
       margin-left:  3px;
+    }
+
+    .avatar {
+      position : absolute;
+      top : 0;
+      left : 0;
+
+      height : 29px;
+      width : 29px;
+    }
+
+    .timestamp,
+    .permalink {
+      margin : 1px 7px;
+    }
+
+    .timestamp {
+      float : left;
+      margin-top : 2px;
+    }
+
+    .permalink {
+      cursor : pointer;
+      float : right;
     }
   }
 
@@ -140,20 +172,21 @@ body {
   }
 
   .text-content {
-    @include opacity(0.65);
-
     position : relative;
     z-index : 10;
     color : #000;
 
     text-shadow : 0 2px 0 rgba(#fff,0.6), 0 -1px 2px rgba(#555, 0.1);
-    font-weight : bold;
     font-size : 1.5em;
     line-height : 1.2em;
 
     img {
       max-width: 100%;
       width: 100%;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
     }
   }
 
@@ -174,7 +207,7 @@ body {
 
         margin : 0;
 
-        margin-top : 40%;
+        margin-top : 20%;
         height : 100%;
         width : 100%;
 
@@ -186,9 +219,14 @@ body {
         font-family : "Noteworthy", "Marker Felt", "Comic Sans";
         font-style : italic;
         text-align : center;
+        font-weight : bold;
         padding: 0 20px;
       }
     }
+  }
+
+  &.sticky-note .text-content {
+    color : #555;
   }
 
   &.cyan .background-color   { background-color : rgba($cyan, 0.2); }
@@ -204,10 +242,10 @@ body {
   &.blog-text {
     .text-content {
       padding : 10px;
-      @include opacity(0.9);
+      color : #222;
 
       p {
-        text-shadow : 0 1px 0 #ccc;
+        text-shadow : none;
 
         font-family : Palatino, Georgia, Times, serif;
         font-weight : normal;
@@ -218,20 +256,25 @@ body {
     }
   }
 
+  &:no-text {
+    img {
+      border : none;
+    }
+  }
+
   &.day:not(.sticky-note),
   &.has-text:not(.sticky-note):not(.wallpaper),
   &.night:not(.sticky-note),
   &.multi-photo:not(.sticky-note) {
+    img {
+      border-bottom : 1px solid #ddd;
+    }
+
     .text-content {
-      @include opacity(1);
       padding : 10px 20px;
       font-size : 14px;
       line-height : 18px;
       color : #444;
-
-      p:last-child {
-        margin-bottom: 0;
-      }
     }
   }
 
@@ -282,7 +325,6 @@ body {
       color: white;
       @include opacity(1);
       text-shadow : none;
-      font-weight: bold;
     }
   }
 }

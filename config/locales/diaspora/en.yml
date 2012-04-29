@@ -90,6 +90,17 @@ en:
       resque_overview: "Resque Overview"
     correlations:
       correlations_count: "Correlations with Sign In Count:"
+    user_search:
+      you_currently: "you currently have %{user_invitation} invites left %{link}"
+      add_invites: "add invites"
+      email_to: "Email to Invite"
+      users: 
+        zero: "%{count} users found"
+        one: "%{count} user found"
+        two: "%{count} users found"
+        few: "%{count} users found"
+        many: "%{count} users found"
+        other: "%{count} users found"
   application:
     helper:
       unknown_person: "unknown person"
@@ -986,13 +997,6 @@ en:
     activity:
       title: "My Activity"
   users:
-    logged_out:
-      signed_out: "You've signed out of Diaspora*"
-      go_mobile: "Now go mobile."
-      simply_visit: "Simply visit"
-      on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
-      works_on_modern: "Works on all modern smartphones"
-
     edit:
       export_data: "Export Data"
       photo_export_unavailable: "Photo exporting currently unavailable"

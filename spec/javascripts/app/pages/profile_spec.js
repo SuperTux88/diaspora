@@ -34,16 +34,22 @@ describe("app.pages.Profile", function(){
     });
 
     context("profile control pane", function(){
-      it("is shown", function() {
+      it("shows the edit and create buttons if it's your profile", function() {
         spyOn(this.page, "isOwnProfile").andReturn(true)
         this.page.render()
-        expect(this.page.$("#profile-controls .control").length).not.toBe(0)
+        expect(this.page.$("#profile-controls .control").length).toBe(2)
       })
 
-      it("is not shown", function() {
-        spyOn(this.page, "isOwnProfile").andReturn(false)
+      it("shows a follow button if showFollowButton returns true", function() {
+        spyOn(this.page, "showFollowButton").andReturn(true)
         this.page.render()
-        expect(this.page.$("#profile-controls .control").length).toBe(0)
+        expect(this.page.$("#follow-button").length).toBe(1)
+      })
+
+      it("doesn't show a follow button if showFollowButton returns false", function() {
+        spyOn(this.page, "showFollowButton").andReturn(false)
+        this.page.render()
+        expect(this.page.$("#follow-button").length).toBe(0)
       })
     })
 
@@ -51,14 +57,36 @@ describe("app.pages.Profile", function(){
       beforeEach(function(){
         spyOn(this.post, 'toggleFavorite')
         spyOn($.fn, "isotope")
-        this.page.$(".fav").click()
+        this.page.$(".content").click()
       })
 
       it("relayouts the page", function(){
         expect($.fn.isotope).toHaveBeenCalledWith("reLayout")
       })
+
       it("toggles the favorite status on the model", function(){
         expect(this.post.toggleFavorite).toHaveBeenCalled()
+      })
+    })
+
+    context("clicking delete", function(){
+      beforeEach(function () {
+        spyOn(window, "confirm").andReturn(true);
+        this.page.render()
+      })
+
+      it("kills the model", function(){
+        spyOn(this.post, "destroy")
+        this.page.$(".canvas-frame:first a.delete").click()
+        expect(this.post.destroy).toHaveBeenCalled()
+      })
+
+      it("removes the frame", function(){
+        spyOn($.fn, "remove").andCallThrough()
+        expect(this.page.$(".canvas-frame").length).toBe(1)
+        this.page.$(".canvas-frame:first a.delete").click()
+        waitsFor(function(){ return $.fn.remove.wasCalled })
+        runs(function(){ expect(this.page.$(".canvas-frame").length).toBe(0) })
       })
     })
   });
@@ -82,7 +110,7 @@ describe("app.pages.Profile", function(){
   describe("isOwnProfile", function(){
     beforeEach(function(){
       this.user = new app.models.User(factory.author())
-      this.page.model = this.user
+      this.page.personGUID = this.user.get("guid")
     })
 
     it("returns true if app.currentUser matches the current profile's user", function(){
@@ -91,8 +119,39 @@ describe("app.pages.Profile", function(){
     })
 
     it("returns false if app.currentUser does not match the current profile's user", function(){
-      app.currentUser = new app.models.User(factory.author({diaspora_id : "foo@foo.com"}))
+      app.currentUser = new app.models.User(factory.author({guid : "nope!"}))
       expect(this.page.isOwnProfile()).toBeFalsy()
+    })
+  })
+
+  describe("followingEnabled", function(){
+    /* for legacy beta testers */
+    it("returns false if following_count is zero", function(){
+      loginAs({following_count : 0})
+      expect(this.page.followingEnabled()).toBeFalsy()
+    })
+
+    it("returns false if the user is not signed in", function(){
+      logout()
+      expect(this.page.followingEnabled()).toBeFalsy()
+    })
+
+    it("returns false if following_count is zero", function(){
+      loginAs({following_count : 1})
+      expect(this.page.followingEnabled()).toBeTruthy()
+    })
+  })
+
+  describe("followingEnabled", function(){
+    /* for legacy beta testers */
+    it("returns false if following_count is zero", function(){
+      app.currentUser.set({following_count : 0})
+      expect(this.page.followingEnabled()).toBeFalsy()
+    })
+
+    it("returns false if following_count is zero", function(){
+      app.currentUser.set({following_count : 1})
+      expect(this.page.followingEnabled()).toBeTruthy()
     })
   })
 });

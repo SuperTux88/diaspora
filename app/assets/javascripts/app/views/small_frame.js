@@ -1,4 +1,6 @@
-app.views.SmallFrame = app.views.Base.extend({
+//= require "./post_view"
+
+app.views.SmallFrame = app.views.Post.extend({
 
   SINGLE_COLUMN_WIDTH : 265,
   DOUBLE_COLUMN_WIDTH : 560,
@@ -8,8 +10,9 @@ app.views.SmallFrame = app.views.Base.extend({
   templateName : "small-frame",
 
   events : {
-    "click .content" : "goToPost",
-    "click .fav" : "goToPost"
+    "click .content" : "favoritePost",
+    "click .delete" : "killPost",
+    "click .info" : "goToPost"
   },
 
   subviews : {
@@ -29,6 +32,7 @@ app.views.SmallFrame = app.views.Base.extend({
 
   initialize : function() {
     this.$el.addClass([this.dimensionsClass(), this.colorClass(), this.frameClass()].join(' '))
+    return this;
   },
 
   postRenderTemplate : function() {
@@ -79,7 +83,12 @@ app.views.SmallFrame = app.views.Base.extend({
   },
 
   favoritePost : function(evt) {
-    if(evt) { evt.stopImmediatePropagation(); evt.preventDefault() }
+    if(evt) {
+      /* follow links instead of faving the targeted post */
+      if($(evt.target).is('a')) { return }
+
+      evt.stopImmediatePropagation(); evt.preventDefault();
+    }
 
     var prevDimension = this.dimensionsClass();
     this.model.toggleFavorite();
@@ -93,8 +102,13 @@ app.views.SmallFrame = app.views.Base.extend({
     _.delay(function(){app.page.stream.trigger("reLayout")}, 500)
   },
 
-  goToPost : function() {
-    if(app.page.editMode) { this.favoritePost(); return false; }
+  killPost : function(){
+    this.destroyModel()
+    _.delay(function(){app.page.stream.trigger("reLayout")}, 0)
+  },
+
+  goToPost : function(evt) {
+    if(evt) { evt.stopImmediatePropagation(); }
     app.router.navigate(this.model.url(), true)
   }
 });
