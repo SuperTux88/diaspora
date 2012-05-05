@@ -1,5 +1,9 @@
 @import 'mixins';
+@import 'new_styles/new_mixins';
 @import 'new_styles/variables';
+
+/* custom animations */
+@import 'new_styles/animations';
 
 /* mainly for the post viewer & composer */
 @import 'new_styles/base';
@@ -17,5 +21,8 @@
 
 /* isotope */
 @import 'new_styles/isotope_transitions';
+
+/* login */
+@import 'new_styles/registration';
 
 @include video-overlay();

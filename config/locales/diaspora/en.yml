@@ -101,6 +101,8 @@ en:
         few: "%{count} users found"
         many: "%{count} users found"
         other: "%{count} users found"
+    stats:
+      go: go
   application:
     helper:
       unknown_person: "unknown person"
@@ -719,7 +721,7 @@ en:
 
       enter_email: "Enter an email"
       enter_username: "Pick a username (only letters, numbers, and underscores)"
-      enter_password: "Enter a password"
+      enter_password: "Enter a password (six character minimum)"
       enter_password_again: "Enter the same password as before"
     create:
       success: "You've joined Diaspora!"

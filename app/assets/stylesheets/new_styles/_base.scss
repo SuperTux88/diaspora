@@ -1,5 +1,3 @@
-@import "_new_mixins";
-
 /* new link color */
 a { color : rgb(42,156,235)  }
 
@@ -310,7 +308,6 @@ article { //mood posts
 
 .photo-fill {
   @include background-cover();
-  z-index : -5000; //so the framer controls don't get lost
   position: absolute;
   top: 0;
   left: 0;
