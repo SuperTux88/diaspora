@@ -3,11 +3,11 @@
 -#   the COPYRIGHT file.
 
 
-
 - content_for :page_title do
   NERDPOL.CH DIASPORA*
 - begin
   = render :partial => 'home/show'
+
 - rescue
   :erb
     <%= File.open(File.join(Rails.root, 'public/default.html')).read %>

@@ -42,7 +42,11 @@ class Reshare < Post
   end
 
   def photos
-    self.root ? root.photos : nil
+    self.root ? root.photos : []
+  end
+
+  def frame_name
+    self.root ? root.frame_name : nil
   end
 
   def receive(recipient, sender)
@@ -62,7 +66,7 @@ class Reshare < Post
   end
 
   def nsfw
-    root.nsfw
+    root.try(:nsfw)
   end
 
   private

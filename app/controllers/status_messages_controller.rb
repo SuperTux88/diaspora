@@ -39,6 +39,10 @@ class StatusMessagesController < ApplicationController
     end
   end
 
+  def new_bookmarklet
+    render :layout => nil
+  end
+
   def create
     params[:status_message][:aspect_ids] = [*params[:aspect_ids]]
     normalize_public_flag!
@@ -68,7 +72,7 @@ class StatusMessagesController < ApplicationController
       respond_to do |format|
         format.html { redirect_to :back }
         format.mobile { redirect_to stream_path }
-        format.json { render :json => @status_message.as_api_response(:backbone), :status => 201 }
+        format.json { render :json => PostPresenter.new(@status_message, current_user), :status => 201 }
       end
     else
       respond_to do |format|
