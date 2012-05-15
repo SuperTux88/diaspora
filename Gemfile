@@ -1,11 +1,14 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.4'
-gem 'rails_autolink'
-gem 'bundler', '~> 1.1.0'
+gem 'bundler', '> 1.1.0'
+ruby '1.9.2' if ENV['HEROKU']
+
+gem 'rails', '3.2.2'
+
 gem 'foreman', '0.41'
 gem 'whenever'
 
+gem 'rails_autolink'
 gem 'thin', '~> 1.3.1',    :require => false
 
 # cross-origin resource sharing
@@ -19,7 +22,7 @@ gem 'jwt'
 gem 'oauth2-provider', '0.0.19'
 gem 'remotipart', '~> 1.0'
 
-gem 'omniauth', '1.0.1'
+gem 'omniauth', '1.0.3'
 gem 'omniauth-facebook'
 gem 'omniauth-tumblr'
 gem 'omniauth-twitter'
@@ -35,7 +38,7 @@ gem 'newrelic_rpm'
 gem "rpm_contrib", "~> 2.1.7"
 
 group :production do # we don't install these on travis to speed up test runs
-  gem 'rails_admin', '~> 0.0.2'
+  gem 'rails_admin', '~> 0.0.3'
   gem 'rack-ssl', :require => 'rack/ssl'
   gem 'rack-rewrite', '~> 1.2.1', :require => false
   gem 'rack-piwik', :require => 'rack/piwik'
@@ -110,8 +113,8 @@ gem 'gon'
 # assets
 
 group :assets do
-  gem 'sass-rails', '3.1.4'
   gem 'bootstrap-sass', '~> 2.0.2'
+  gem 'sass-rails', '3.2.5'
 
   # Windows and OSX have an execjs compatible runtime built-in, Linux users should
   # install Node.js or use 'therubyracer'.
@@ -132,7 +135,7 @@ gem 'jquery-rails'
 # web
 
 gem 'faraday'
-gem 'faraday-stack'
+gem 'faraday_middleware'
 gem 'em-synchrony', '1.0.0', :platforms => :ruby_19
 
 
@@ -177,7 +180,7 @@ end
 
 group :development do
   gem 'heroku'
-  gem 'heroku_san', :platforms => :mri_19
+  gem 'heroku_san', :git => 'git://github.com/maxwell/heroku_san.git', :platforms => :mri_19
   gem 'capistrano', :require => false
   gem 'capistrano_colors', :require => false
   gem 'capistrano-ext', :require => false
@@ -185,8 +188,6 @@ group :development do
   gem 'parallel_tests', :require => false
   gem 'yard', :require => false
 
-  # rails 3.2 goodness
-  gem 'active_reload'
 
   # for tracing AR object instantiation and memory usage per request
   gem 'oink'
