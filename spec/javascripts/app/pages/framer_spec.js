@@ -9,6 +9,16 @@ describe("app.pages.Framer", function(){
     expect(this.page.postView().model).toBe(app.frame)
   });
 
+  describe("navigation on save", function(){
+    it("navigates to the current user's profile page", function(){
+      spyOn(app.router, "navigate")
+      this.page.model.trigger("sync")
+      expect(app.router.navigate).toHaveBeenCalled()
+    })
+
+    // want a spec here for the bookmarklet case
+  })
+
   describe("rendering", function(){
     beforeEach(function(){
       this.page.render();
@@ -20,17 +30,10 @@ describe("app.pages.Framer", function(){
       expect(app.frame.save).toHaveBeenCalled();
     });
 
-    it("navigates on save", function(){
-      spyOn(app.router, "navigate")
-      this.page.model.trigger("sync")
-      expect(app.router.navigate).toHaveBeenCalled()
-    })
-
-    it("makes and renders a new post view when the template is changed", function(){
-      expect(app.frame.get("frame_name")).not.toBe("Night") //pre conditions, yo
+    it("makes and renders a new smallFrame when the template is changed", function(){
+      expect(app.frame.get("frame_name")).not.toBe("night") //pre conditions, yo
       this.page.$("a.mood[data-mood=Night]").click()
       expect(app.frame.get("frame_name")).toBe("Night")
-      expect(this.page.$("article")).toHaveClass("night")
     })
   });
 });
