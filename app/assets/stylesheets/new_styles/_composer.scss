@@ -39,6 +39,7 @@
   legend {
     color : #fff;
     text-align : left;
+    border : none;
   }
 
   textarea#post_text{
@@ -51,7 +52,15 @@
     max-height: 68px;
 
     .aspect-selector {
-      float: left;
+      display : inline-block;
+
+      .aspects_dropdown {
+        display : inline-block;
+      }
+
+      form {
+        margin: 0
+      }
 
       i, input {
         display: none;
@@ -65,6 +74,13 @@
       }
 
       label {
+        margin : 0;
+        padding : 5px 0;
+
+        &:hover {
+          background-color : #eee;
+        }
+
         span:not(.caret) {
           padding-left: 21px;
         }
@@ -72,31 +88,45 @@
     }
 
     .service-selector {
-      float: left;
       margin-left: 100px;
+      display : inline-block;
     }
 
     .dropdown-menu {
       text-align: left;
     }
 
-    a.mood {
-      @include border-radius();
-      margin-right: 11px;
-      padding: 7px;
-      color: #999;
-      font-size: 14px;
-      line-height: 2em;
+    .template-picker {
+      margin-bottom : 1em;
 
-      &#selected_mood {
-        background-color: #222;
+      input {
+        display : none;
       }
 
-      &:hover {
+      label {
+        @include transition(background-color);
+        @include border-radius();
+
+        cursor : pointer;
+
+        display: inline;
+        margin-right: 11px;
+        padding: 7px;
+        color: #999;
+        font-size: 14px;
+        line-height: 2em;
+
+        &:hover {
+          background-color: #222;
+          text-decoration: none;
+        }
+      }
+
+      input:checked + label {
         background-color: #222;
-        text-decoration: none;
       }
     }
+
   }
 
   // this is about the service toggle icons, there is a jasmine test that tests this in service_selector spec
@@ -104,6 +134,8 @@
   // the checkbox should be hidden, and in the off state the service icons should be lighter
   // when the service icons are clicked they should be lighter, and toggle the hidden checkbox.
   .magic-service-selector {
+    margin : 0;
+
     label { display : inline; }
 
     img {
@@ -130,6 +162,21 @@
       display : none;
     }
   }
+}
+
+input[type="image"] {
+  height : 70px;
+  width : 70px;
+
+  &:active {
+    -webkit-transform : scale(0.95);
+       -moz-transform : scale(0.95);
+        -ms-transform : scale(0.95);
+  }
+}
+
+#controls-wrapper {
+  text-align : center;
 }
 
 .new_photo .photo{

@@ -29,11 +29,11 @@ def select_from_dropdown(option_text, dropdown)
 end
 
 def go_to_framer
-  click_button "Next"
+  find(".next").click()
 end
 
 def finalize_frame
-  click_button "done"
+  find(".done").click()
 end
 
 def assert_post_renders_with(mood)
@@ -118,7 +118,7 @@ Then /^I should see "([^"]*)" in the framer preview$/ do |post_text|
 end
 
 When /^I select the mood "([^"]*)"$/ do |mood|
-  click_link mood
+  find("label:contains('#{mood}')").click
 end
 
 Then /^the post's (?:default |)mood should (?:still |)be "([^"]*)"$/ do |mood|
@@ -168,5 +168,5 @@ Then /^"([^"]*)" should be the first canvas frame$/ do |post_text|
 end
 
 When /^I go back to the composer$/ do
-  click_button "Back"
+  find(".back").click()
 end

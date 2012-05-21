@@ -7,13 +7,11 @@ app.pages.Composer = app.views.Base.extend({
   },
 
   events : {
-    "click button.next" : "navigateNext"
+    "click .next" : "navigateNext"
   },
 
   formAttrs : {
-    "textarea#text_with_markup" : "text",
-    "input.aspect_ids" : "aspect_ids[]",
-    "input.services" : "services[]"
+    "textarea#text_with_markup" : "text"
   },
 
   initialize : function(){
@@ -24,7 +22,9 @@ app.pages.Composer = app.views.Base.extend({
 
   unbind : function(){
     this.model.off()
-    this.model.photos.off()
+    if(this.model.photos) {
+      this.model.photos.off()
+    }
   },
 
   navigateNext : function(){
@@ -45,34 +45,13 @@ app.pages.Composer = app.views.Base.extend({
   },
 
   setModelAttributes : function(overrides){
-    var form = this.$el;
-    this.model.set(_.inject(this.formAttrs, setValueFromField, {}))
+    this.setFormAttrs()
     this.model.photos = this.postForm.pictureForm.photos
     this.model.set({"photos": this.model.photos.toJSON() })
     this.model.set(overrides)
-
-
-    function setValueFromField(memo, attribute, selector){
-      if(attribute.slice("-2") === "[]") {
-        memo[attribute.slice(0, attribute.length - 2)] = _.pluck(form.find(selector).serializeArray(), "value")
-      } else {
-        memo[attribute] = form.find(selector).val();
-      }
-      return memo
-    }
   }
 });
 
 app.views.ComposerControls = app.views.Base.extend({
-  templateName : 'composer-controls',
-
-  subviews : {
-    ".aspect-selector" : "aspectsDropdown",
-    ".service-selector" : "servicesSelector"
-  },
-
-  initialize : function() {
-    this.aspectsDropdown = new app.views.AspectsDropdown({model : this.model});
-    this.servicesSelector = new app.views.ServicesSelector({model : this.model});
-  }
+  templateName : 'composer-controls'
 })
