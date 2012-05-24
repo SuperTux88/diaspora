@@ -21,7 +21,6 @@ begin
       cucumber_opts = ""
       cucumber_opts << " -f pretty" 
       cucumber_opts << " --format junit --out features/reports" if ENV["JENKINS"]
-      cucumber_opts << ((ENV["GROUP"] == "oauth") ? " --tags @oauth-group" : " --tags ~@oauth-group")
       t.cucumber_opts =  cucumber_opts
     end
 

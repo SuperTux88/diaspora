@@ -246,6 +246,7 @@ en:
         tag_feature: "feature"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
         email_feedback: "%{link} your feedback, if you prefer"
+        email_link: "Email"
       cubbies:
         heading: "Connect to Cubbi.es"
         explanation: "Cubbi.es is the first Diaspora application under development."
@@ -863,7 +864,7 @@ en:
       publishing_to: "publishing to: "
       discard_post: "Discard post"
       new_user_prefill:
-        newhere: "NewHere"
+        newhere: "newhere"
         hello: "Hey everyone, I'm #%{new_user_tag}. "
         i_like: "I'm interested in %{tags}. "
         invited_by: "Thanks for the invite, "

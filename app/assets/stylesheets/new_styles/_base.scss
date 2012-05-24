@@ -1,5 +1,11 @@
+html,
 body {
-  background-image : image_url("pattern.png");
+  /* hack to ensure fixed elements at height: 100%; are in relation to the window */
+  max-height : 100%;
+}
+
+body {
+  background-image : image_url("texture/light-bg.png");
   padding : none;
 
   &.lock {
@@ -8,45 +14,12 @@ body {
 }
 
 /* new link color */
-a { color : rgb(42,156,235)  }
+$link-blue : rgb(42,156,235);
+a { color : $link-blue  }
 
 /* bootstrap extentions */
 .icon-red   { background-image: image_url("img/glyphicons-halflings-red.png");   }
 .icon-blue  { background-image: image_url("img/glyphicons-halflings-blue.png");  }
-
-.rich-media {
-  background-color: $night-background-color;
-
-  p {
-    @include media-text();
-    color: #999;
-
-    a {
-      font-weight: normal;
-      font-size: smaller;
-    }
-  }
-
-  iframe {
-    @include box-shadow(0, 3px, 15px, #000);
-
-    width: 857px;
-    height: 480px;
-    max-width: 100%;
-    max-height: 100%;
-  }
-}
-
-.rich-media-container {
-  display: table;
-  height: 100%;
-  width: 100%;
-}
-
-.rich-media-container2 {
-  display: table-cell;
-  vertical-align: middle;
-}
 
 .avatar {
   &.micro {
@@ -115,8 +88,16 @@ a { color : rgb(42,156,235)  }
   height: 100%;
   width: 100%;
 
-  img {
+  img,
+  iframe {
     @include photo-shadow();
+  }
+
+  iframe {
+    width: 857px;
+    height: 480px;
+    max-width: 100%;
+    max-height: 100%;
   }
 }
 
@@ -298,6 +279,30 @@ $bring-dark-accent-forward-color: #DDD;
       @include opacity(0.75);
       text-decoration : none;
     }
+  }
+}
+
+#header {
+  position : fixed;
+  top : 0;
+  width : 100%;
+  padding : 15px;
+  z-index : 30;
+
+  -webkit-box-shadow : inset 0 -10px 10px -8px rgba(0,0,0,0.8);
+  -moz-box-shadow : inset 0 -10px 10px -8px rgba(0,0,0,0.8);
+
+  border-bottom : 1px solid #333;
+
+  color : #fff;
+  background : {
+    color : #333;
+    size : cover;
+    attachment : fixed;
+  }
+
+  h1 {
+    @include opacity(0.4);
   }
 }
 

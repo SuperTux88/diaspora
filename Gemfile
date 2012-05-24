@@ -7,10 +7,8 @@ gem 'rails', '3.2.2'
 
 gem 'foreman', '0.41'
 
-gem 'whenever' #why is this in the bundle
-
+gem 'thin', '~> 1.3.1',    :require => false
 gem 'rails_autolink'
-gem 'thin', '~> 1.3.1',    :require => false #why is this here?
 
 # cross-origin resource sharing
 
@@ -39,9 +37,10 @@ gem "rpm_contrib", "~> 2.1.7"
 
 group :production do # we don't install these on travis to speed up test runs
   gem 'rails_admin', '~> 0.0.3'
+  gem 'fastercsv', '1.5.4', :require => false
   gem 'rack-ssl', :require => 'rack/ssl'
   gem 'rack-rewrite', '~> 1.2.1', :require => false
-  gem 'rack-piwik', :require => 'rack/piwik'
+  gem 'rack-piwik', :require => 'rack/piwik', :require => false
 end
 
 # configuration
@@ -64,7 +63,6 @@ gem 'sqlite3' if ENV['DB'] == 'all' || ENV['DB'] == 'sqlite'
 
 gem 'carrierwave', '0.6.2'
 gem 'fog'
-gem 'fastercsv', '1.5.4', :require => false
 gem 'mini_magick', '3.4'
 
 # JSON and API
@@ -92,7 +90,7 @@ gem 'SystemTimer', '1.2.3', :platforms => :ruby_18
 
 # tags
 
-gem 'acts-as-taggable-on', '~> 2.2.2'
+gem 'acts-as-taggable-on', :git => "git://github.com/mbleigh/acts-as-taggable-on.git"
 
 # URIs and HTTP
 
@@ -158,8 +156,6 @@ group :test do
   gem 'selenium-webdriver', '2.22.0.rc1'
 
   gem 'webmock', '~> 1.7', :require => false
-  gem 'sqlite3'
-  gem 'mock_redis'
   gem 'ci_reporter'
 
   gem 'spork', '~> 1.0rc2'
@@ -167,8 +163,6 @@ group :test do
   gem 'guard-spork'
   gem 'guard-cucumber'
 
-
-  gem 'mongrel', :require => false, :platforms => :ruby_18 #why
 end
 
 group :test, :development do
@@ -183,9 +177,7 @@ group :development do
   gem 'capistrano_colors', :require => false
   gem 'capistrano-ext', :require => false
   gem 'linecache', '0.46', :platforms => :mri_18
-  gem 'parallel_tests', :require => false
   gem 'yard', :require => false
-
 
   # for tracing AR object instantiation and memory usage per request
   gem 'oink'

@@ -19,6 +19,8 @@
   background-color : rgba(0,0,0,0.8);
   z-index : 200;
 
+  text-align : left;
+
   position : absolute;
   left : 0;
   top : 0;
@@ -36,15 +38,79 @@
     margin-top: 5px;
   }
 
-  legend {
-    color : #fff;
-    text-align : left;
-    border : none;
+  textarea#post_text{
+    height: 100px;
+    padding : 10px;
   }
 
-  textarea#post_text{
-    height: 200px;
-    padding : 10px;
+  .template-picker {
+    float : left;
+    margin-left : 20px;
+
+    input {
+      display : none;
+    }
+
+    label {
+      @include transition(background-color);
+      @include border-radius();
+
+      display : inline-block;
+
+      cursor : pointer;
+
+      margin-right: 11px;
+      padding: 7px;
+      color: #999;
+      font-size: 14px;
+      line-height: 2em;
+
+      &:hover {
+        img {
+          border : 4px solid rgba(255,255,255,1);
+        }
+      }
+
+      .template-name {
+        text-align : center;
+        text-transform : uppercase;
+      }
+
+      img {
+        @include border-radius(5px);
+        @include transition(border);
+
+        border : 4px solid transparent;
+        background-color : #ddd;
+
+        height : 54px;
+        width : 54px;
+      }
+    }
+
+    input:checked + label {
+      .template-name {
+        color : $link-blue;
+      }
+
+      img {
+        border : 4px solid $link-blue;
+      }
+    }
+  }
+
+  .preview {
+    .content {
+      cursor : auto;
+
+      &:active {
+        -webkit-transform : none;
+      }
+
+      .info {
+        display : none;
+      }
+    }
   }
 
   .flow-controls {
@@ -88,45 +154,12 @@
     }
 
     .service-selector {
-      margin-left: 100px;
       display : inline-block;
     }
 
     .dropdown-menu {
       text-align: left;
     }
-
-    .template-picker {
-      margin-bottom : 1em;
-
-      input {
-        display : none;
-      }
-
-      label {
-        @include transition(background-color);
-        @include border-radius();
-
-        cursor : pointer;
-
-        display: inline;
-        margin-right: 11px;
-        padding: 7px;
-        color: #999;
-        font-size: 14px;
-        line-height: 2em;
-
-        &:hover {
-          background-color: #222;
-          text-decoration: none;
-        }
-      }
-
-      input:checked + label {
-        background-color: #222;
-      }
-    }
-
   }
 
   // this is about the service toggle icons, there is a jasmine test that tests this in service_selector spec
@@ -140,10 +173,11 @@
 
     img {
       @include transition(opacity);
+      @include box-shadow(0,0,0,0);
 
       cursor : pointer;
-      height : 28px;
-      width : 28px;
+      height : 70px;
+      width : 54px;
     }
 
     input:not(:checked) + label {
@@ -175,14 +209,14 @@ input[type="image"] {
   }
 }
 
-#controls-wrapper {
+.flow-controls {
   text-align : center;
 }
 
 .new_photo .photo{
   display: inline;
-  max-width: 200px;
-  max-height: 75px;
+  max-width: 240px;
+  max-height: 240px;
   padding: 2px;
 }
 

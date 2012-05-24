@@ -1,4 +1,3 @@
-//= require ../views/small_frame
 //= require ../views/profile_info_view
 
 app.pages.Profile = app.views.Base.extend({
@@ -52,9 +51,7 @@ app.pages.Profile = app.views.Base.extend({
     var bio =  this.model.get("bio") || ''
 
     return _.extend(this.defaultPresenter(),
-      {text : this.model && app.helpers.textFormatter(bio, this.model),
-        showFollowButton : this.showFollowButton()
-      })
+      {text : this.model && app.helpers.textFormatter(bio, this.model) })
   },
 
   pulsateNewPostControl : function() {
@@ -116,13 +113,4 @@ app.pages.Profile = app.views.Base.extend({
     if(!confirm("Are you sure you want to log out?"))
       evt.preventDefault();
   },
-
-  followingEnabled : function() {
-    var user = app.currentUser
-    return user.get("following_count") != 0 && user.get("diaspora_id") !== undefined
-  },
-
-  showFollowButton : function() {
-    return this.followingEnabled() && !this.model.get("is_own_profile")
-  }
 });

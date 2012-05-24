@@ -8,10 +8,6 @@ describe("app.pages.Framer", function(){
     expect(this.model).toBe(app.frame) //uses global state of app.frame :/
   });
 
-  it("passes the model down to the post view", function(){
-    expect(this.page.postView().model).toBe(app.frame)
-  });
-
   describe("navigation on save", function(){
     it("navigates to the current user's profile page", function(){
       spyOn(app.router, "navigate")
@@ -30,11 +26,10 @@ describe("app.pages.Framer", function(){
       expect(this.model.setFrameName).toHaveBeenCalled()
     })
 
-    it("sets the frame_name of the model to 'Day' by default", function(){ //jasmine integration test, arguably unnecessary
-      expect(this.model.get("frame_name")).toBe("Day")
+    it("sets the frame_name of the model to 'Vanilla' by default", function(){ //jasmine integration test, arguably unnecessary
+      expect(this.model.get("frame_name")).toBe("Vanilla")
     })
   })
-
 
   describe("rendering", function(){
     beforeEach(function(){
@@ -50,9 +45,9 @@ describe("app.pages.Framer", function(){
     describe("setting the model's attributes from the various form fields", function(){
       beforeEach(function(){
         this.page.$("input.mood").attr("checked", false) //radio button hax
-        expect(app.frame.get("frame_name")).not.toBe("Night")
+        expect(app.frame.get("frame_name")).not.toBe("Typist")
         this.page.$("input.aspect_ids").val("public")
-        this.page.$("input[value='Night']").attr("checked", "checked")
+        this.page.$("input[value='Typist']").attr("checked", "checked")
         this.page.$("input.services[value=facebook]").attr("checked", "checked")
         this.page.$("input.services[value=twitter]").attr("checked", "checked")
       })
@@ -60,13 +55,13 @@ describe("app.pages.Framer", function(){
       it("instantiates a post on form submit", function(){
         this.page.$("input").trigger("change") //runs setFormAttrs
         waitsFor(function(){
-          return  this.page.model.get("frame_name") == "Night"
+          return  this.page.model.get("frame_name") == "Typist"
         })
 
         runs(function(){
           expect(this.page.model.get("aspect_ids")).toEqual(["public"])
           expect(this.page.model.get("services")).toEqual(["facebook", "twitter"])
-          expect(this.page.model.get("frame_name")).toBe("Night")
+          expect(this.page.model.get("frame_name")).toBe("Typist")
         })
       })
     });
