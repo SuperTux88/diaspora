@@ -2,12 +2,16 @@ describe("app.pages.Profile", function(){
   beforeEach(function(){
     this.guid = 'abcdefg123'
     this.profile = factory.profile({personId: this.guid})
+    this.profile.deferred = new $.Deferred()
+    spyOn(app.collections.Posts.prototype, "fetch").andReturn(new $.Deferred)
     app.page = this.page = new app.pages.Profile({model : this.profile });
     this.stream = this.page.stream
+    this.profile.deferred.resolve()
   });
 
   it("fetches the profile of the user with the params from the router and assigns it as the model", function(){
     var profile = new factory.profile()
+    profile.deferred = $.Deferred()
     spyOn(app.models.Profile, 'findByGuid').andReturn(profile)
     var page =  new app.pages.Profile({personId : 'jarjabinkisthebest' })
     expect(app.models.Profile.findByGuid).toHaveBeenCalledWith('jarjabinkisthebest')
@@ -34,6 +38,7 @@ describe("app.pages.Profile", function(){
     context("with no posts", function(){
       beforeEach(function(){
         this.profile.set({"name" : "Alice Waters", person_id : "889"})
+        this.stream.deferred.resolve()
       })
 
       it("has a message that there are no posts", function(){
@@ -52,6 +57,7 @@ describe("app.pages.Profile", function(){
       beforeEach(function(){
         this.post = factory.post()
         this.stream.add(this.post)
+        this.stream.deferred.resolve()
         this.page.toggleEdit()
         expect(this.page.editMode).toBeTruthy()
         this.page.render()

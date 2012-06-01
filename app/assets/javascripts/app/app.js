@@ -1,8 +1,12 @@
 //= require_self
 //= require_tree ./helpers
+
 //= require ./router
 //= require ./models
+
 //= require ./views
+//= require ./views/infinite_stream_view
+
 //= require_tree ./models
 //= require_tree ./pages
 //= require_tree ./collections
@@ -67,6 +71,12 @@ var app = {
       delete window.preloads[prop] //prevent dirty state across navigates
 
       return(preload)
+  },
+
+  /* mixpanel wrapper function */
+  instrument : function(type, name, object, callback) {
+    if(!window.mixpanel) { return }
+    window.mixpanel[type](name, object, callback)
   }
 };
 

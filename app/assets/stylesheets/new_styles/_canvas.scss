@@ -271,6 +271,7 @@ color: white;
     }
   }
 
+  &.editable:not(.has-media),
   &.big-text {
     .text-content {
       display : table;
@@ -287,6 +288,11 @@ color: white;
         text-align : center;
       }
     }
+  }
+
+  &.editable:not(.has-media) p {
+    min-width : 225px;
+    min-height : 225px;
   }
 
   &.x2.big-text .text-content {
@@ -406,6 +412,9 @@ color: white;
 
 #stream-content {
   .stream-frame {
+    .stream-frame-wrapper {
+      position: relative; //interactions scroll spy gets confused about div height when there are images without this line.
+    }
     margin-bottom : 40px;
 
     .stream-frame-feedback {
@@ -413,6 +422,7 @@ color: white;
       margin-top : 8px;
     }
 
+    .photo-backdrop .text-content p,
     .status-with-photo-backdrop .text-content p {
       color: #111;
     }
@@ -429,6 +439,12 @@ color: white;
 
       .bd {
         margin-top : 11px;
+      }
+    }
+
+    .selected-frame {
+      .content {
+        border: 10px solid red;
       }
     }
   }

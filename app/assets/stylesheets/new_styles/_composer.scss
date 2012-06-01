@@ -17,6 +17,9 @@
 #framer {
   color : #fff;
   background-color : rgba(0,0,0,0.8);
+
+ background-image : image_url("texture/hatched-dark.png");
+
   z-index : 200;
 
   text-align : left;
@@ -38,6 +41,10 @@
     margin-top: 5px;
   }
 
+  input[disabled] {
+      background: inherit;
+  }
+
   textarea#post_text{
     height: 100px;
     padding : 10px;
@@ -45,11 +52,13 @@
 
   .template-picker {
     float : left;
-    margin-left : 20px;
+    margin-left : 10px;
+    margin-right : -100px; // prevent the picker from being bumped down under the frame.
 
     input {
       display : none;
     }
+
 
     label {
       @include transition(background-color);
@@ -100,6 +109,21 @@
   }
 
   .preview {
+    .canvas-frame {
+      margin-left : 0;
+
+      &:hover {
+        [contentEditable] {
+          @include box-shadow(0,0,5px,$link-blue);
+        }
+      }
+
+      [contentEditable]:focus {
+        @include box-shadow(0,0,0,rgba(0,0,0,0));
+        outline : none;
+      }
+    }
+
     .content {
       cursor : auto;
 

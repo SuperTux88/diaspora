@@ -1,14 +1,9 @@
-app.views.NewStream = app.views.InfScroll.extend({
-  initialize: function(){
-    this.stream = this.model
-    this.collection = this.stream.items
-    this.postClass = app.views.Post.StreamFrame
-    this.setupInfiniteScroll()
-  }
-});
-
 app.pages.Stream = app.views.Base.extend({
   templateName : "stream",
+
+  events : {
+    'activate .stream-frame-wrapper' : 'triggerInteractionLoad'
+  },
 
   subviews : {
     "#stream-content" : "streamView",
@@ -17,30 +12,62 @@ app.pages.Stream = app.views.Base.extend({
 
   initialize : function(){
     this.stream = this.model = new app.models.Stream()
-    this.stream.preloadOrFetch();
+    this.stream.preloadOrFetch()
 
-    this.streamView = new app.views.NewStream({ model : this.stream })
-    var interactions = this.interactionsView = new app.views.StreamInteractions()
+    this.streamView = new app.pages.Stream.InfiniteScrollView({ model : this.stream })
+    this.interactionsView = new app.views.StreamInteractions()
 
-    this.stream.on("frame:interacted", function(post){
-      interactions.setInteractions(post)
-    })
+    this.streamView.on('loadMore', this.updateUrlState, this);
+    this.stream.on("fetched", this.refreshScrollSpy, this)
+    this.stream.on("frame:interacted", this.selectFrame, this)
   },
 
   postRenderTemplate : function() {
     this.$("#header").css("background-image", "url(" + app.currentUser.get("wallpaper") + ")")
-    this.setUpHashChangeOnStreamLoad()
+   _.defer(function(){$('body').scrollspy({target : '.stream-frame-wrapper', offset : 205})})
   },
 
-  setUpHashChangeOnStreamLoad : function(){
-    var self = this;
-    this.streamView.on('loadMore', function(){
-      var post = this.stream.items.last();
-      self.navigateToPost(post)
-    });
+  selectFrame : function(post){
+    if(this.selectedPost == post) { return }
+    this.selectedPost = post
+    
+    this.$(".stream-frame-wrapper").removeClass("selected-frame")
+    this.$(".stream-frame-wrapper[data-id=" + this.selectedPost.id +"]").addClass("selected-frame")
+    this.interactionsView.setInteractions(this.selectedPost)
+  },
+
+  updateUrlState : function(){
+    var post = this.stream.items.last();
+    if(post){
+      this.navigateToPost(post)
+    }
   },
 
   navigateToPost : function(post){
     app.router.navigate(location.pathname + "?ex=true&max_time=" + post.createdAt(), {replace: true})
   },
+
+  triggerInteractionLoad : function(evt){
+    this._throttledInteractions = this._throttledInteractions || _.bind(_.throttle(function(id){
+      this.selectFrame(this.stream.items.get(id))
+    }, 500), this)
+
+    this._throttledInteractions($(evt.target).data("id"))
+  },
+
+  refreshScrollSpy : function(){
+    _.defer($('body').scrollspy('refresh'))
+  }
+},
+
+//static methods
+{
+  InfiniteScrollView : app.views.InfScroll.extend({
+    initialize: function(){
+      this.stream = this.model
+      this.collection = this.stream.items
+      this.postClass = app.views.Post.StreamFrame
+      this.setupInfiniteScroll()
+    }
+  })
 });

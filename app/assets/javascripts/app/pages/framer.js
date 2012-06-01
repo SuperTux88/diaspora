@@ -83,6 +83,8 @@ app.views.framerContent = app.views.Base.extend({
 });
 
 app.views.Post.EditableSmallFrame = app.views.Post.SmallFrame.extend({
+  className : "canvas-frame editable",
+
   events : {
     "keyup [contentEditable]" : "setFormAttrs"
   },
@@ -121,9 +123,28 @@ app.views.framerControls = app.views.Base.extend({
   },
 
   saveFrame : function(){
-    this.$('button').prop('disabled', 'disabled').addClass('disabled')
     this.setFormAttrs()
+    if(this.inValidFrame()) {
+      return false;
+    } 
+    this.$('input').prop('disabled', 'disabled')
     this.model.save()
+
+    this.trackPost()
+  },
+
+  trackPost : function() {
+    var model = this.model
+
+    app.instrument("track", "Posted", {
+      text : model.hasText(),
+      photos : model.hasPhotos(),
+      template : model.get("frame_name")
+    })
+  },
+
+  inValidFrame : function(){
+    return (this.model.get('text').trim().length == 0)  && (this.model.get('photos').length == 0)
   },
 
   editFrame : function(){

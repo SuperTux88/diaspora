@@ -21,6 +21,7 @@
 
     = og_site_name
     = chartbeat_head_block
+    = include_mixpanel
 
     %title
       = page_title yield(:page_title)
@@ -47,7 +48,6 @@
     = set_asset_host
     = translation_missing_warnings
     = current_user_atom_tag
-    = include_google_analytics
 
     - if @post.present?
       %link{:rel => 'alternate', :type => "application/json+oembed", :href => "#{oembed_url(:url => post_url(@post))}"}
@@ -65,3 +65,4 @@
 
 
     = include_chartbeat
+    = include_mixpanel_guid
