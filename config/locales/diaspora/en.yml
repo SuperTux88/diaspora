@@ -79,6 +79,8 @@ en:
     helper:
       invalid_fields: "Invalid Fields"
       correct_the_following_errors_and_try_again: "Correct the following errors and try again."
+    post_not_public: "The post you are trying to view is not public!"
+    login_try_again: "Please <a href='%{login_link}'>login</a> and try again."
 
   admins:
     admin_bar:
@@ -549,7 +551,7 @@ en:
 
   notifier:
     a_post_you_shared: "a post."
-    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
+    email_sent_by_diaspora: "This email was sent by %{pod_name}. If you'd like to stop getting emails like this,"
     click_here: "click here"
     hello: "Hello %{name}!"
     thanks: "Thanks,"

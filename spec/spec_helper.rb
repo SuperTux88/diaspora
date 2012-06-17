@@ -17,8 +17,8 @@ Spork.prefork do
 
   ENV["RAILS_ENV"] ||= 'test'
   require File.join(File.dirname(__FILE__), '..', 'config', 'environment') unless defined?(Rails)
-  require 'helper_methods'
-  require 'spec-doc'
+  require Rails.root.join('spec', 'helper_methods')
+  require Rails.root.join('spec', 'spec-doc')
   require 'rspec/rails'
   require 'webmock/rspec'
   require 'factory_girl'
@@ -65,7 +65,7 @@ Spork.prefork do
   end
 
   # Force fixture rebuild
-  FileUtils.rm_f(File.join(Rails.root, 'tmp', 'fixture_builder.yml'))
+  FileUtils.rm_f(Rails.root.join('tmp', 'fixture_builder.yml'))
 
   # Requires supporting files with custom matchers and macros, etc,
   # in ./support/ and its subdirectories.
@@ -78,6 +78,7 @@ Spork.prefork do
     config.include Devise::TestHelpers, :type => :controller
     config.mock_with :rspec
 
+    config.render_views
     config.use_transactional_fixtures = true
 
     config.before(:each) do
@@ -89,9 +90,7 @@ Spork.prefork do
       Postzord::Dispatcher::Private.any_instance.stub(:deliver_to_remote)
     end
 
-    config.before(:each, :type => :controller) do
-      self.class.render_views
-    end
+
 
     config.after(:all) do
       `rm -rf #{Rails.root}/tmp/uploads/*`

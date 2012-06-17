@@ -3,9 +3,9 @@ source 'http://rubygems.org'
 gem 'bundler', '> 1.1.0'
 ruby '1.9.3' if ENV['HEROKU']
 
-gem 'rails', '3.2.5'
+gem 'rails', '3.2.6'
 
-gem 'foreman', '0.41'
+gem 'foreman', '0.46'
 
 gem 'thin', '~> 1.3.1',    :require => false
 gem 'rails_autolink'
@@ -29,7 +29,7 @@ gem 'twitter', '2.0.2'
 
 # mail
 
-gem 'markerb', :git => 'git://github.com/plataformatec/markerb.git'
+gem 'markerb', :git => 'https://github.com/plataformatec/markerb.git'
 gem 'messagebus_ruby_api', '1.0.3'
 gem 'airbrake'
 gem 'newrelic_rpm'
@@ -37,7 +37,7 @@ gem "rpm_contrib", "~> 2.1.7"
 
 group :production do # we don't install these on travis to speed up test runs
   gem 'rails_admin', '~> 0.0.3'
-  gem 'fastercsv', '1.5.4', :require => false
+  gem 'fastercsv', '1.5.5', :require => false
   gem 'rack-ssl', :require => 'rack/ssl'
   gem 'rack-rewrite', '~> 1.2.1', :require => false
 
@@ -53,7 +53,7 @@ group :heroku do
   gem 'unicorn', '~> 4.3.0', :require => false
 end
 
-gem 'settingslogic', :git => 'git://github.com/binarylogic/settingslogic.git'
+gem 'settingslogic', :git => 'https://github.com/binarylogic/settingslogic.git'
 # database
 
 gem "activerecord-import", "~> 0.2.9"
@@ -81,8 +81,8 @@ gem 'rails-i18n'
 # parsing
 
 gem 'nokogiri', '1.5.2'
-gem 'redcarpet', "2.0.1"
-gem 'roxml', :git => 'git://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338aaef5b0'
+gem 'redcarpet', "2.1.1"
+gem 'roxml', :git => 'https://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338aaef5b0'
 gem 'ruby-oembed', '~> 0.8.7'
 
 # queue
@@ -93,7 +93,7 @@ gem 'SystemTimer', '1.2.3', :platforms => :ruby_18
 
 # tags
 
-gem 'acts-as-taggable-on', :git => "git://github.com/mbleigh/acts-as-taggable-on.git"
+gem 'acts-as-taggable-on', :git => "https://github.com/mbleigh/acts-as-taggable-on.git"
 
 # URIs and HTTP
 
@@ -138,7 +138,7 @@ gem 'faraday'
 gem 'faraday_middleware'
 
 
-gem 'jasmine', :git => 'git://github.com/pivotal/jasmine-gem.git'
+gem 'jasmine', :git => 'https://github.com/pivotal/jasmine-gem.git'
 ### GROUPS ####
 
 group :test do
@@ -152,11 +152,8 @@ group :test do
   gem 'factory_girl_rails', '1.7.0'
   gem 'fixture_builder', '0.3.3'
   gem 'fuubar', '>= 1.0'
-  gem 'rspec', '>= 2.0.0'
-  gem 'rspec-core', '~> 2.9.0'
   gem 'rspec-instafail', '>= 0.1.7', :require => false
-  gem "rspec-rails", "~> 2.9.0" 
-  gem 'selenium-webdriver', '2.22.0.rc1'
+  gem 'selenium-webdriver', '2.22.1'
 
   gem 'webmock', '~> 1.7', :require => false
   gem 'ci_reporter'
@@ -170,12 +167,13 @@ end
 
 group :test, :development do
   gem 'debugger', :platforms => :mri_19
+  gem "rspec-rails", "~> 2.10" 
   gem 'ruby-debug', :platforms => :mri_18
 end
 
 group :development do
   gem 'heroku'
-  gem 'heroku_san', '3.0.1', :platforms => :mri_19
+  gem 'heroku_san', '3.0.2', :platforms => :mri_19
   gem 'capistrano', :require => false
   gem 'capistrano_colors', :require => false
   gem 'capistrano-ext', :require => false
