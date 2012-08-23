@@ -16,7 +16,7 @@ nb:
       invalid: "Ugyldig e-postadresse eller passord."
       invalid_token: "Ugyldig aktiveringskode."
       locked: "Brukeren din er låst."
-      timeout: "Økta har løpt ut, logg inn igjen for å fortsette."
+      timeout: "Økten har løpt ut, logg inn igjen for å fortsette."
       unauthenticated: "Du må logge inn eller lage en bruker før du kan fortsette."
       unconfirmed: "Du må bekrefte brukeren din før du kan fortsette."
     invitations:
@@ -34,7 +34,9 @@ nb:
         arrived: "Det sosiale nettverket som du har ventet på har kommet. Med nytt utseende, bedre sikkerhet, og mer moro - %{strong_diaspora} er klar for å hjelpe deg dele og utforske nettet på en hel ny måte."
         be_yourself: "Vær deg selv"
         be_yourself_paragraph: "Nettet har gitt oss enestående nye måter for å uttrykke oss selv på. %{strong_diaspora} lar deg være deg selv og dele akkurat som du vil det, med eller uten ditt ekte navn."
+        cubbies: "Cubbi.es"
         displaying_correctly: "E-post vises ikke riktig? %{link} i din browser"
+        email_address: "questions@joindiaspora.com"
         email_us: "For generelle spørsmål eller hjelp med din Diaspora-konto, send oss en e-post på %{email}."
         finally: "Endelig - det er her"
         friends_saying: "Det vennene dine sier..."
@@ -52,9 +54,11 @@ nb:
         or: "eller"
         sign_up_now: "Registrer deg nå &rarr;"
         subject: "Du har blitt invitert til Diaspora!"
+        team_diaspora: "Team Diaspora"
         unsubscribe: "For å avregistrere deg klikk på %{link}."
         view_in: "Se i"
       inviter:
+        has_invited_you: "%{name}"
         have_invited_you: "%{names} har invitert deg til Diaspora"
       reset_password_instructions:
         change: "Endre passordet mitt"
@@ -111,6 +115,6 @@ nb:
       unlocked: "Brukeren din er nå låst opp, og du er logga in."
   errors:
     messages:
-      already_confirmed: "er allerede bekrefta"
+      already_confirmed: "er allerede bekreftet"
       not_found: "ble ikke funnet"
       not_locked: "er ikke låst"

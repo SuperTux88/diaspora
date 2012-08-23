@@ -485,7 +485,7 @@ ul.as-selections
     :height 30px
 
 .likes,
-.stream_element .reshare
+.stream_element div.reshare
   :font
     :size 12px
 
@@ -1349,6 +1349,11 @@ footer
       :display inline
       :margin
         :right 1em
+
+      &.separator
+        :margin-left -.35em
+        :margin-right .65em
+        @include opacity(.6)
 
       &:last-child
         :margin 0

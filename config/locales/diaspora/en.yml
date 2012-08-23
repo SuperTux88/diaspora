@@ -96,7 +96,7 @@ en:
       you_currently: "you currently have %{user_invitation} invites left %{link}"
       add_invites: "add invites"
       email_to: "Email to Invite"
-      users: 
+      users:
         zero: "%{count} users found"
         one: "%{count} user found"
         other: "%{count} users found"
@@ -356,7 +356,7 @@ en:
     excited: "%{name} is excited to see you here."
   invitations:
     create:
-      sent: "Invitations have been sent to: "
+      sent: "Invitations have been sent to: %{emails}"
       rejected: "The following email addresses had problems: "
       no_more: "You have no more invitations."
       already_sent: "You already invited this person."
@@ -406,6 +406,7 @@ en:
       public_feed: "Public Diaspora Feed for %{name}"
       your_aspects: "your aspects"
       back_to_top: "Back to top"
+      source_package: "download the source code package"
 
   likes:
     likes:
