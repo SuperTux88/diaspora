@@ -42,7 +42,7 @@ class ProfilesController < ApplicationController
     @profile_attrs[:nsfw] ||= false
 
     if params[:photo_id]
-      @profile_attrs[:photo] = Photo.where(:author_id => current_user.person.id, :id => params[:photo_id]).first
+      @profile_attrs[:photo] = Photo.where(:author_id => current_user.person_id, :id => params[:photo_id]).first
     end
 
     if current_user.update_profile(@profile_attrs)
@@ -61,30 +61,6 @@ class ProfilesController < ApplicationController
           redirect_to edit_profile_path
         end
       }
-    end
-  end
-
-  def upload_wallpaper_image
-    unless params[:photo].present?
-      respond_to do |format|
-        format.json { render :json => {"success" => false} }
-      end
-      return
-    end
-
-    if remotipart_submitted?
-      profile = current_user.person.profile
-
-      profile.wallpaper.store! params[:photo][:user_file]
-      if profile.save
-        respond_to do |format|
-          format.json { render :json => {"success" => true, "data" => {"wallpaper" => profile.wallpaper.url}} }
-        end
-      else
-        respond_to do |format|
-          format.json { render :json => {"success" => false} }
-        end
-      end
     end
   end
 

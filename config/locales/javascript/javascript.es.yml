@@ -14,11 +14,8 @@ es:
       started_sharing_with: "¡Has empezado a compartir con <%= name %>!"
       stopped_sharing_with: "Ya no compartes más con <%= name %>."
       toggle:
-        few: "En <%= count %> aspectos"
-        many: "En <%= count %> aspectos"
         one: "En <%= count %> aspecto"
         other: "En <%= count %> aspectos"
-        two: "En <%= count %> aspectos"
         zero: "Elige los aspectos"
     aspect_navigation:
       deselect_all: "Desmarcar todos"
@@ -30,7 +27,7 @@ es:
     confirm_dialog: "¿Estás seguro?"
     delete: "Eliminar"
     failed_to_like: "\"Me gusta\" no ha funcionado."
-    failed_to_post_message: "¡Fallo al publicar el mensaje!"
+    failed_to_post_message: "¡Error al publicar el mensaje!"
     getting_started:
       alright_ill_wait: "Está bien, esperaré."
       hey: "¡Hola, <%= name %>!"
@@ -51,6 +48,7 @@ es:
       settings: "Ajustes"
       view_all: "Ver todo"
     ignore: "Ignorar"
+    ignore_user: "¿Ignorar a este usuario?"
     infinite_scroll:
       no_more: "No hay más publicaciones."
     my_activity: "Mi Actividad"
@@ -109,7 +107,7 @@ es:
       prefixAgo: "Hace"
       prefixFromNow: "dentro de"
       seconds: "menos de 1 minuto"
-      suffixAgo: ""
+      suffixAgo: "hace"
       suffixFromNow: ""
       year: "un año aproximadamente"
       years: "%d años"

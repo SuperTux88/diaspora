@@ -38,6 +38,7 @@ nb:
       preparing_your_stream: "Preparing your personialized stream..."
     header:
       admin: "Admin"
+      close: "lukk"
       contacts: "Kontakter"
       home: "Hjem"
       log_out: "Logg ut"
@@ -71,29 +72,20 @@ nb:
       hide_nsfw_posts: "Gjem #nsfw-posts"
       like: "Liker"
       likes:
-        few: "<%= count %> Likes"
-        many: "<%= count %> Likes"
         one: "<%= count %> liker dette"
         other: "<%= count %> liker dette"
-        two: "<%= count %> Likes"
         zero: "<%= count %> liker dette"
       limited: "Begrenset"
       more_comments:
-        few: "Show <%= count %> more comments"
-        many: "Show <%= count %> more comments"
         one: "Vis <%= count %> kommentar til"
         other: "Vis <%= count %> komentarer til"
-        two: "Show <%= count %> more comments"
         zero: "Ikke flere kommentarer"
       original_post_deleted: "Den opprinnelige posten er slettet av forfatteren."
       public: "Offentlig"
       reshare: "Del"
       reshares:
-        few: "<%= count %> Reshares"
-        many: "<%= count %> Reshares"
         one: "<%= count %> deling"
         other: "<%= count %> delinger"
-        two: "<%= count %> Reshares"
         zero: "<%= count %> delinger"
       show_nsfw_post: "Vis innlegg"
       show_nsfw_posts: "Vis alle"
@@ -120,3 +112,8 @@ nb:
     videos:
       unknown: "Ukjent videotype"
       watch: "Se denne videoen på {{provider}}"
+    viewer:
+      comment: "Kommenter"
+      follow_post: "Følg post"
+      home: "HJEM"
+      stop_following_post: "Slutt å følge post"

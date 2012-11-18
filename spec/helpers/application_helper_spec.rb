@@ -7,7 +7,7 @@ require 'spec_helper'
 describe ApplicationHelper do
   before do
     @user = alice
-    @person = Factory(:person)
+    @person = FactoryGirl.create(:person)
   end
 
   describe "#contacts_link" do
@@ -18,7 +18,7 @@ describe ApplicationHelper do
     end
 
     it 'links to community spotlight' do
-      @current_user = Factory(:user)
+      @current_user = FactoryGirl.create(:user)
       contacts_link.should == community_spotlight_path
     end
 
@@ -30,16 +30,21 @@ describe ApplicationHelper do
 
   describe "#all_services_connected?" do
     before do
-      AppConfig[:configured_services] = [1, 2, 3]
+      @old_configured_services = AppConfig.configured_services
+      AppConfig.configured_services = [1, 2, 3]
 
       def current_user
         @current_user
       end
       @current_user = alice
     end
+    
+    after do
+      AppConfig.configured_services = @old_configured_services
+    end
 
     it 'returns true if all networks are connected' do
-      3.times { |t| @current_user.services << Factory.build(:service) }
+      3.times { |t| @current_user.services << FactoryGirl.build(:service) }
       all_services_connected?.should be_true
     end
 
@@ -52,7 +57,7 @@ describe ApplicationHelper do
   describe "#jquery_include_tag" do
     describe "with google cdn" do
       before do
-        AppConfig[:jquery_cdn] = true
+        AppConfig.privacy.jquery_cdn = true
       end
 
       it 'inclues jquery.js from google cdn' do
@@ -66,7 +71,7 @@ describe ApplicationHelper do
 
     describe "without google cdn" do
       before do
-        AppConfig[:jquery_cdn] = false
+        AppConfig.privacy.jquery_cdn = false
       end
 
       it 'includes jquery.js from asset pipeline' do
@@ -89,11 +94,11 @@ describe ApplicationHelper do
       pod_name.should  match /DIASPORA/i
     end
 
-    it 'displays the supplied AppConfig[:pod_name] if it is set' do
-      old_name = AppConfig[:pod_name]
-      AppConfig[:pod_name] = "Catspora"
+    it 'displays the supplied pod_name if it is set' do
+      old_name = AppConfig.settings.pod_name.get
+      AppConfig.settings.pod_name = "Catspora"
       pod_name.should == "Catspora"
-      AppConfig[:pod_name] = old_name
+      AppConfig.settings.pod_name = old_name
     end
   end
 end

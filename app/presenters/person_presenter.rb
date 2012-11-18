@@ -7,15 +7,14 @@ class PersonPresenter
   def as_json(options={})
     attrs = @person.as_api_response(:backbone).merge(
         {
-            :wallpaper => @person.profile.wallpaper.url,
             :is_own_profile => is_own_profile
         })
 
     if is_own_profile || person_is_following_current_user
       attrs.merge!({
-                      :location => @person.profile.location,
-                      :birthday => @person.profile.formatted_birthday,
-                      :bio => @person.profile.bio
+                      :location => @person.location,
+                      :birthday => @person.formatted_birthday,
+                      :bio => @person.bio
                   })
     end
 

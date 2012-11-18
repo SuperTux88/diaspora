@@ -70,7 +70,7 @@ class StatusMessage < Post
   def formatted_message(opts={})
     return self.raw_message unless self.raw_message
 
-    escaped_message = opts[:plain_text] ? self.raw_message: ERB::Util.h(self.raw_message)
+    escaped_message = opts[:plain_text] ? self.raw_message : ERB::Util.h(self.raw_message)
     mentioned_message = self.format_mentions(escaped_message, opts)
     Diaspora::Taggable.format_tags(mentioned_message, opts.merge(:no_escape => true))
   end
@@ -144,6 +144,10 @@ class StatusMessage < Post
 
   def comment_email_subject
     formatted_message(:plain_text => true)
+  end
+
+  def first_photo_url(*args)
+    photos.first.url(*args)
   end
 
   def text_and_photos_blank?

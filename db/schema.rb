@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120803143552) do
+ActiveRecord::Schema.define(:version => 20120909053122) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -107,6 +107,8 @@ ActiveRecord::Schema.define(:version => 20120803143552) do
     t.datetime "updated_at"
   end
 
+  add_index "conversations", ["author_id"], :name => "conversations_author_id_fk"
+
   create_table "invitation_codes", :force => true do |t|
     t.string   "token"
     t.integer  "user_id"
@@ -144,6 +146,7 @@ ActiveRecord::Schema.define(:version => 20120803143552) do
     t.string   "target_type",             :limit => 60,                   :null => false
   end
 
+  add_index "likes", ["author_id"], :name => "likes_author_id_fk"
   add_index "likes", ["guid"], :name => "index_likes_on_guid", :unique => true
   add_index "likes", ["target_id", "author_id", "target_type"], :name => "index_likes_on_target_id_and_author_id_and_target_type", :unique => true
   add_index "likes", ["target_id"], :name => "index_likes_on_post_id"
@@ -169,6 +172,7 @@ ActiveRecord::Schema.define(:version => 20120803143552) do
   end
 
   add_index "messages", ["author_id"], :name => "index_messages_on_author_id"
+  add_index "messages", ["conversation_id"], :name => "messages_conversation_id_fk"
 
   create_table "notification_actors", :force => true do |t|
     t.integer  "notification_id"
@@ -200,7 +204,7 @@ ActiveRecord::Schema.define(:version => 20120803143552) do
     t.text   "data",                 :null => false
   end
 
-  add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url"
+  add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url", :length => {"url"=>255}
 
   create_table "participations", :force => true do |t|
     t.string   "guid"
@@ -321,7 +325,6 @@ ActiveRecord::Schema.define(:version => 20120803143552) do
     t.string   "location"
     t.string   "full_name",        :limit => 70
     t.boolean  "nsfw",                            :default => false
-    t.string   "wallpaper"
   end
 
   add_index "profiles", ["full_name", "searchable"], :name => "index_profiles_on_full_name_and_searchable"
@@ -422,11 +425,10 @@ ActiveRecord::Schema.define(:version => 20120803143552) do
     t.boolean  "disable_mail",                                      :default => false, :null => false
     t.string   "language"
     t.string   "email",                                             :default => "",    :null => false
-    t.string   "encrypted_password",                 :limit => 128, :default => "",    :null => false
+    t.string   "encrypted_password",                                :default => "",    :null => false
     t.string   "invitation_token",                   :limit => 60
     t.datetime "invitation_sent_at"
     t.string   "reset_password_token"
-    t.string   "remember_token"
     t.datetime "remember_created_at"
     t.integer  "sign_in_count",                                     :default => 0
     t.datetime "current_sign_in_at"
@@ -448,13 +450,13 @@ ActiveRecord::Schema.define(:version => 20120803143552) do
     t.boolean  "auto_follow_back",                                  :default => false
     t.integer  "auto_follow_back_aspect_id"
     t.text     "hidden_shareables"
+    t.datetime "reset_password_sent_at"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email"
   add_index "users", ["invitation_service", "invitation_identifier"], :name => "index_users_on_invitation_service_and_invitation_identifier", :unique => true
   add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token"
-  add_index "users", ["remember_token"], :name => "index_users_on_remember_token", :unique => true
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
   add_foreign_key "aspect_memberships", "aspects", :name => "aspect_memberships_aspect_id_fk", :dependent => :delete

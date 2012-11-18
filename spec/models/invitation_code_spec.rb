@@ -2,17 +2,17 @@ require 'spec_helper'
 
 describe InvitationCode do
   it 'has a valid factory' do
-    Factory(:invitation_code).should be_valid
+    FactoryGirl.build(:invitation_code).should be_valid
   end
 
   it 'sets the count to a default value' do
-    code = Factory(:invitation_code)
+    code = FactoryGirl.create(:invitation_code)
     code.count.should > 0 
   end
 
   describe '#use!' do
     it 'decrements the count of the code' do
-      code = Factory(:invitation_code)
+      code = FactoryGirl.create(:invitation_code)
 
       expect{
         code.use!
@@ -20,24 +20,14 @@ describe InvitationCode do
     end
   end
 
-  describe '.beta?' do
-    it 'returns true if the invite code user is beta' do
-      code = Factory(:invitation_code)
-      Role.add_beta(code.user.person)
-      code.user.should be_beta
-      code.should be_beta
-    end
-  end
-
-
   describe '.default_inviter_or' do
     before do
-      @old_account = AppConfig[:admin_account]
-      AppConfig[:admin_account] = 'bob'
+      @old_account = AppConfig.admins.account.get
+      AppConfig.admins.account = 'bob'
     end
 
     after do
-      AppConfig[:admin_account] = @old_account
+      AppConfig.admins.account = @old_account
     end
 
     it 'grabs the set admin account for the pod...' do
@@ -45,7 +35,7 @@ describe InvitationCode do
     end
 
     it '..or the given user' do
-      AppConfig[:admin_account] = ''
+      AppConfig.admins.account = ''
       InvitationCode.default_inviter_or(alice).username.should == 'alice'
     end
   end

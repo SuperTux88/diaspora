@@ -14,7 +14,7 @@ describe PublicFetcher do
     # the guid of the person is "7445f9a0a6c28ebb"
     @fixture = File.open(Rails.root.join('spec', 'fixtures', 'public_posts.json')).read
     @fetcher = PublicFetcher.new
-    @person = Factory(:person, {:guid => "7445f9a0a6c28ebb",
+    @person = FactoryGirl.create(:person, {:guid => "7445f9a0a6c28ebb",
                                 :url => "https://remote-testpod.net",
                                 :diaspora_handle => "testuser@remote-testpod.net"})
 
@@ -76,6 +76,33 @@ describe PublicFetcher do
       @person.fetch_status.should_not eql(PublicFetcher::Status_Initial)
       @person.fetch_status.should eql(PublicFetcher::Status_Processed)
     end
+
+    context 'created post' do
+      before do
+        @data = JSON.parse(@fixture).select { |item| item['post_type'] == 'StatusMessage' }
+
+        #save posts to db
+        @fetcher.instance_eval {
+          process_posts
+        }
+      end
+      
+      it 'applies the date from JSON to the record' do
+        @data.each do |post|
+          date = ActiveSupport::TimeZone.new('UTC').parse(post['created_at'])
+
+          entry = StatusMessage.find_by_guid(post['guid'])
+          entry.created_at.should eql(date)
+        end
+      end
+
+      it 'copied the text correctly' do
+        @data.each do |post|
+          entry = StatusMessage.find_by_guid(post['guid'])
+          entry.raw_message.should eql(post['text'])
+        end
+      end
+    end
   end
 
   context "private methods" do
@@ -93,13 +120,13 @@ describe PublicFetcher do
 
       it 'returns false if the person is unfetchable' do
         public_fetcher.instance_eval {
-          @person = Factory(:person, {:fetch_status => PublicFetcher::Status_Unfetchable})
+          @person = FactoryGirl.create(:person, {:fetch_status => PublicFetcher::Status_Unfetchable})
           qualifies_for_fetching?
         }.should be_false
       end
 
       it 'returns false and sets the person unfetchable for a local account' do
-        user = Factory(:user)
+        user = FactoryGirl.create(:user)
         public_fetcher.instance_eval {
           @person = user.person
           qualifies_for_fetching?
@@ -108,7 +135,7 @@ describe PublicFetcher do
       end
 
       it 'returns false if the person is processing already (or has been processed)' do
-        person = Factory(:person)
+        person = FactoryGirl.create(:person)
         person.fetch_status = PublicFetcher::Status_Fetched
         person.save
         public_fetcher.instance_eval {
@@ -118,7 +145,7 @@ describe PublicFetcher do
       end
 
       it "returns true, if the user is remote and hasn't been fetched" do
-        person = Factory(:person, {:diaspora_handle => 'neo@theone.net'})
+        person = FactoryGirl.create(:person, {:diaspora_handle => 'neo@theone.net'})
         public_fetcher.instance_eval {
           @person = person
           qualifies_for_fetching?
@@ -155,7 +182,7 @@ describe PublicFetcher do
 
     describe '#check_existing' do
       it 'returns false if a post with the same guid exists' do
-        post = {'guid' => Factory(:status_message).guid}
+        post = {'guid' => FactoryGirl.create(:status_message).guid}
         public_fetcher.instance_eval { check_existing post }.should be_false
       end
 
@@ -166,7 +193,7 @@ describe PublicFetcher do
     end
 
     describe '#check_author' do
-      let!(:some_person) { Factory(:person) }
+      let!(:some_person) { FactoryGirl.create(:person) }
 
       before do
         person = some_person
