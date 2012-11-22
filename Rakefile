@@ -9,9 +9,18 @@ require File.expand_path('../config/application', __FILE__)
 require 'rake'
 require 'resque/tasks'
 
+class Object
+  def optional_require(feature)
+    begin
+      require feature
+    rescue LoadError
+    end
+  end
+end
+
 # ci_reporter
 require 'rubygems'
-require 'ci/reporter/rake/rspec'
+optional_require 'ci/reporter/rake/rspec'
 
 # for rake 0.9.0
 module Diaspora
