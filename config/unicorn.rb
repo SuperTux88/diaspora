@@ -4,7 +4,7 @@ rails_env = ENV['RAILS_ENV'] || 'development'
 #user  = 'diaspora'
 #group = 'diaspora'
 
-worker_processes 1
+worker_processes 4
 
 ## Load the app before spawning workers
 preload_app true

@@ -3,7 +3,7 @@
 set -e
 set -x
 
-cp config/ci/jenkins/application.yml config/application.yml
+cp config/ci/jenkins/diaspora.yml config/diaspora.yml
 cp config/ci/jenkins/database.yml config/database.yml
 
 rm -f log/test.log
