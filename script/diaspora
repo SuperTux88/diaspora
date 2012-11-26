@@ -1,0 +1,218 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:		diaspora
+# Required-Start:	$local_fs $remote_fs $all
+# Required-Stop:	$local_fs $remote_fs
+# Should-Start:		$network
+# Should-Stop:		$network
+# Default-Start:	2 3 4 5
+# Default-Stop:		0 1 6
+# Short-Description:	Diaspora server components
+# Description:		Starts the Diaspora server components
+### END INIT INFO
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+DIASPORA_DIR=/srv/diaspora
+if [[ "$DIASPORA_DIR" = /path/to/diapora/root ]]; then
+echo "Please configure this script for your diapora root"
+fi
+USERNAME="diaspora"
+if [[ "$USERNAME" = user ]]; then
+echo "Please configure this script for the correct user"
+fi
+
+if [[ "$USERNAME" != "$LOGNAME" ]]; then
+  echo "change user to $USERNAME"
+  chown $USERNAME:$USERNAME -R $DIASPORA_DIR
+  su - $USERNAME -c "$0 $1"
+  exit $?
+fi
+
+PID=/var/run/diaspora/diaspora.pid
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+cd $DIASPORA_DIR
+rvm --create use ruby-1.9.3-p194@diaspora
+
+. /lib/lsb/init-functions
+
+# Setup environment
+if [ -z "$RAILS_ENV" ]; then
+  RAILS_ENV=$(bundle exec ruby ./script/get_config.rb server.rails_environment)
+  export RAILS_ENV
+fi
+
+os=`uname -s`
+eval $(bundle exec ruby ./script/get_config.rb \
+  port=server.port \
+  db=server.db \
+  workers=server.resque_workers \
+  single_process_mode=environment.single_process_mode?
+  embed_resque_worker=server.embed_resque_worker
+)
+
+if [ -z "$DB" ]; then
+  DB=$db
+  export DB
+fi
+
+# Check if already running/port blocked
+function chk_service {
+  port=${1:?Missing port}
+  case $os in
+  *[Bb][Ss][Dd]*|Darwin)
+      ## checks ipv[46]
+      netstat -anL | awk '{print $2}' | grep "\.$1$"
+  ;;
+  *)
+      # Is someone listening on the ports already? (ipv4 only test ?)
+      netstat -nl | grep '[^:]:'$port'[ \t]'
+  ;;
+  esac
+}
+
+function get_resque_pid {
+  ps -o %p,%a -U $USERNAME | grep resque-1.23.0 | grep -v grep | cut -f1 -d,
+}
+
+function start_checks {
+  # Is someone listening on the ports already? (ipv4 only test ?)
+  services=$( chk_service $port )
+  if [ -n "$services" ]; then
+    echo "FATAL: Error: port $port is already in use. Exiting" >&2
+    echo "     $services"
+    exit 64
+  fi
+
+  # Force AGPL
+  if [ -w public -a ! -e  public/source.tar.gz ]; then
+    branch=$( git branch | awk '/^[*]/ {print $2}')
+    tar czf public/source.tar.gz  `git ls-tree -r $branch | awk '{print $4}'`
+  fi
+  if [ ! -e public/source.tar.gz ]; then
+    echo "FATAL: Error: Can't find, or even create, public/source.tar.gz. Exiting" >&2
+    exit 65
+  fi
+
+
+  # Check if database.yml exists
+  if [ ! -e 'config/database.yml' ]; then
+    echo 'FATAL: config/database.yml is missing! Copy over config/database.yml.example to config/database.yml and edit it properly!' >&2
+    exit 68
+  fi
+    
+  # Check if assets are precompiled
+  if [ "$RAILS_ENV" = 'production' ]; then
+    if [ ! -e 'public/assets/default.css' ]; then
+      echo "FATAL: You're running in production mode without having assets precompiled." >&2
+      echo "Now and after each update before you restart the application, run:" >&2
+      echo "bundle exec rake assets:precompile" >&2
+      exit 71
+    fi
+  fi
+}
+
+function start_resque {
+  if [ "$single_process_mode" = "false" && "$embed_resque_worker" =  "false" ]; then
+    echo -n "Resque ... "
+    echo "--- Starting: $(date)" >>log/resque.1.log &
+    QUEUE=* bundle exec rake resque:work --trace &>> log/resque.1.log &
+    echo "--- Starting: $(date)" >>log/resque.2.log &
+    QUEUE=* bundle exec rake resque:work --trace &>> log/resque.2.log &
+  fi
+}
+
+function stop_resque {
+  if [ `get_resque_pid | wc -l` > 0 ] ; then
+    echo -n "Reque ... "
+    get_resque_pid | while read line; do
+      kill $line
+    done
+  fi
+}
+
+function start_services {
+  echo -n "Starting: "
+
+  start_resque
+
+  echo "Unicorn ... "
+  bundle exec unicorn_rails -c config/unicorn.rb -D
+}
+
+function stop_services {
+  echo -n "Stopping Services: "
+  echo -n "Unicorn ... "
+  kill -QUIT `cat $PID`
+
+  stop_resque
+}
+
+function restart_services {
+  echo -n "Restart Services: "
+
+  echo -n "Stop "
+  stop_resque
+  sleep 2
+
+  service_status
+
+  echo -n "Start "
+  start_resque
+
+  echo -n "Unicorn ... "
+  kill -USR2 `cat $PID`
+}
+
+function service_status {
+  if status_of_proc -p log/diasoora.pid unicorn > /dev/null; then
+    echo "Unicorn is running"
+  else
+    echo "Unicorn is not running"
+  fi
+
+  echo `pidof redis-server` > log/redis.pid
+  if status_of_proc -p log/redis.pid redis > /dev/null; then
+    echo "Redis is running"
+  else
+    echo "Redis is not running"
+  fi
+
+  if [ `get_resque_pid | wc -l` -ne "0" ] ; then
+    echo "Resque is running"
+  else
+    echo "Resque is not running"
+  fi
+}
+
+case "$1" in
+  start)
+    start_checks
+    start_services
+    sleep 2
+    echo
+    service_status
+  ;;
+  stop)
+    stop_services
+    sleep 2
+    echo
+    service_status
+  ;;
+  restart)
+    restart_services
+    sleep 2
+    echo
+    service_status
+  ;;
+  status)
+    service_status
+  ;;
+  *)
+    echo "Usage: diaspora {start|stop|restart|status}"
+    exit 1
+  ;;
+esac
+
+exit 0
