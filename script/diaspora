@@ -33,7 +33,6 @@ PID=/var/run/diaspora/diaspora.pid
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 cd $DIASPORA_DIR
-rvm --create use ruby-1.9.3-p194@diaspora
 
 . /lib/lsb/init-functions
 
@@ -73,7 +72,7 @@ function chk_service {
 }
 
 function get_resque_pid {
-  ps -o %p,%a -U $USERNAME | grep resque-1.23.0 | grep -v grep | cut -f1 -d,
+  ps -o %p,%a -U $USERNAME | grep resque | grep -v grep | cut -f1 -d,
 }
 
 function start_checks {
@@ -103,7 +102,7 @@ function start_checks {
 }
 
 function start_resque {
-  if [ "$single_process_mode" = "false" && "$embed_resque_worker" =  "false" ]; then
+  if [ "$single_process_mode" != "true" ] && [ "$embed_resque_worker" != "true" ]; then
     echo -n "Resque ... "
     echo "--- Starting: $(date)" >>log/resque.1.log &
     QUEUE=* bundle exec rake resque:work --trace &>> log/resque.1.log &
@@ -144,9 +143,6 @@ function restart_services {
   echo -n "Stop "
   stop_resque
   sleep 2
-
-  service_status
-
   echo -n "Start "
   start_resque
 
@@ -155,7 +151,7 @@ function restart_services {
 }
 
 function service_status {
-  if status_of_proc -p log/diasoora.pid unicorn > /dev/null; then
+  if status_of_proc -p log/diaspora.pid unicorn_rails > /dev/null; then
     echo "Unicorn is running"
   else
     echo "Unicorn is not running"
