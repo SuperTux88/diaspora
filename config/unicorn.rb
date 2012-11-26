@@ -16,6 +16,7 @@ timeout 30
 
 pid '/var/run/diaspora/diaspora.pid'
 listen '/var/run/diaspora/diaspora.sock', :backlog => 2048
+listen 3000, :tcp_nopush => true
 
 # Ruby Enterprise Feature
 if GC.respond_to?(:copy_on_write_friendly=)
