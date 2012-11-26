@@ -26,7 +26,7 @@ Spork.prefork do
   # Capybara.default_wait_time = 30
 
   # While there are a lot of failures, wait less, avoiding travis timeout
-  Capybara.default_wait_time = 30
+  Capybara.default_wait_time = 10
 
   # If you set this to false, any error raised from within your app will bubble
   # up to your step definition and out to cucumber unless you catch it somewhere
@@ -93,15 +93,9 @@ Spork.each_run do
   end
 end
 
-Capybara.register_driver :selenium do |app|
-  http_client = Selenium::WebDriver::Remote::Http::Default.new
-  http_client.timeout = 100
-  Capybara::Selenium::Driver.new(app, :browser => :firefox, :http_client => http_client)
-end
-
 # give firefox more time to complete requests
 # http://ihswebdesign.com/knowledge-base/fixing-selenium-timeouterror/
-After("@selenium") do |scenario|
+After do |scenario|
   if scenario.exception.is_a? Timeout::Error
     # restart Selenium driver
     Capybara.send(:session_pool).delete_if { |key, value| key =~ /selenium/i }
