@@ -85,17 +85,6 @@ function start_checks {
     exit 64
   fi
 
-  # Force AGPL
-  if [ -w public -a ! -e  public/source.tar.gz ]; then
-    branch=$( git branch | awk '/^[*]/ {print $2}')
-    tar czf public/source.tar.gz  `git ls-tree -r $branch | awk '{print $4}'`
-  fi
-  if [ ! -e public/source.tar.gz ]; then
-    echo "FATAL: Error: Can't find, or even create, public/source.tar.gz. Exiting" >&2
-    exit 65
-  fi
-
-
   # Check if database.yml exists
   if [ ! -e 'config/database.yml' ]; then
     echo 'FATAL: config/database.yml is missing! Copy over config/database.yml.example to config/database.yml and edit it properly!' >&2
