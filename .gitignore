@@ -38,6 +38,7 @@ public/uploads/*
 public/assets/*
 public/source.tar*
 public/.well-known
+public/misc
 tmp/**/*
 tmp/*
 *.sqlite3
