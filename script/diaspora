@@ -104,10 +104,11 @@ function start_checks {
 function start_resque {
   if [ "$single_process_mode" != "true" ] && [ "$embed_resque_worker" != "true" ]; then
     echo -n "Resque ... "
-    echo "--- Starting: $(date)" >>log/resque.1.log &
-    QUEUE=* bundle exec rake resque:work --trace &>> log/resque.1.log &
-    echo "--- Starting: $(date)" >>log/resque.2.log &
-    QUEUE=* bundle exec rake resque:work --trace &>> log/resque.2.log &
+    for i in {1..4}
+    do
+      echo "--- Starting: $(date)" >>log/resque.$1.log &
+      QUEUE=* bundle exec rake resque:work --trace &>> log/resque.$1.log &
+    done
   fi
 }
 
