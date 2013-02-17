@@ -19,7 +19,6 @@ timeout 30
 
 pid '/var/run/diaspora/diaspora.pid'
 listen '/var/run/diaspora/diaspora.sock', :backlog => 2048
-listen 3000, :tcp_nopush => true
 
 if AppConfig.server.stderr_log.present?
   stderr_path AppConfig.server.stderr_log
