@@ -1,12 +1,5 @@
+<link href="/assets/application.css" media="screen" rel="stylesheet" type="text/css">
 <style type="text/css">
-    body {
-        background-color: white;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-size: 13px;
-        margin: 33px 0 0;
-        padding: 2em;
-    }
-
     ol {
         padding: 0;
     }
@@ -26,55 +19,6 @@
 
     h3 {
         color: #777;
-    }
-
-    header {
-        background-color: #282323;
-        background-image: url("/assets/header-bg.png");
-        border-bottom: 1px solid black;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
-        color: #CCCCCC;
-        height: 26px;
-        left: 0;
-        padding: 6px 0;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1001;
-    }
-
-    ul#landing_nav {
-        margin: 0;
-        padding: 0;
-        position: absolute;
-        right: 0;
-        top: 4px;
-    }
-
-    ul#landing_nav > li {
-        display: inline;
-        margin-right: 0.5em;
-        text-shadow: 0 1px 0 black;
-    }
-
-    ul#landing_nav > li:last-child {
-        margin-right: 0;
-    }
-
-    ul#landing_nav > li a {
-        color: #3F8FBA;
-    }
-
-    ul#landing_nav > li a.login {
-        background-color: black;
-        border-radius: 5px 5px 5px 5px;
-        border-top: 1px solid black;
-        box-shadow: 0 1px 1px #666666;
-        padding: 5px 8px;
-    }
-
-    ul#landing_nav > li a.login:hover {
-        background-color: #222222;
     }
 
     #page {
@@ -130,34 +74,8 @@
         width: 950px;
     }
 
-    footer .container {
-        margin-top: 15px;
-        border-top: 1px solid #DDDDDD;
-        padding: 0.5em 0 0;
-    }
-
     footer img {
         margin-top: 2px;
-    }
-
-    footer ul#footer_nav {
-        display: inline-block;
-        float: right;
-        margin: 0;
-        padding: 0;
-    }
-
-    footer ul#footer_nav > li {
-        display: inline;
-        margin-right: 1em;
-    }
-
-    footer ul#footer_nav > li:last-child {
-        margin: 0;
-    }
-
-    footer ul#footer_nav a {
-        color: #777777;
     }
 
     ul > li {
@@ -168,8 +86,10 @@
 <header>
     <div class="dark-header">
         <div class='container' style='position:relative;'>
-            <a href="/"><img alt="header-logo" height="32px" src="assets/branding/header-logo.png?1327285671"
-                             style="position:relative;" width="180px"/></a>
+			<a href="/">
+				<div alt="Logo_small" class="diaspora_header_logo branding-header-logo">
+				</div>
+			</a>
             <ul id='landing_nav'>
                 <li><a href="http://twitter.com/joindiaspora">@joindiaspora</a></li>
                 <li><a href="https://github.com/diaspora/diaspora">github</a></li>
