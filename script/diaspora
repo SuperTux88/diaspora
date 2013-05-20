@@ -46,9 +46,8 @@ os=`uname -s`
 eval $(bundle exec ruby ./script/get_config.rb \
   port=server.port \
   db=server.db \
-  workers=server.resque_workers \
   single_process_mode=environment.single_process_mode?
-  embed_resque_worker=server.embed_resque_worker
+  embed_sidekiq_worker=server.embed_sidekiq_worker
 )
 
 if [ -z "$DB" ]; then
@@ -71,8 +70,8 @@ function chk_service {
   esac
 }
 
-function get_resque_pid {
-  ps -o %p,%a -U $USERNAME | grep resque | grep -v grep | cut -f1 -d,
+function get_sidekiq_pid {
+  ps -o %p,%a -U $USERNAME | grep sidekiq | grep -v grep | cut -f1 -d,
 }
 
 function start_checks {
@@ -101,24 +100,18 @@ function start_checks {
   fi
 }
 
-function start_resque {
-  if [ "$single_process_mode" != "true" ] && [ "$embed_resque_worker" != "true" ]; then
-    echo -n "Resque ... "
-    echo "--- Starting: $(date)" >>log/resque.1.log &
-    QUEUE="socket_webfinger,photos,receive_local,dispatch,mail" bundle exec rake resque:work --trace &>> log/resque.1.log &
-    echo "--- Starting: $(date)" >>log/resque.2.log &
-    QUEUE="receive,receive_salmon,dispatch,http_service,http,delete_account" bundle exec rake resque:work --trace &>> log/resque.2.log &
-    echo "--- Starting: $(date)" >>log/resque.3.log &
-    QUEUE="receive,receive_salmon,dispatch,http_service,http,delete_account" bundle exec rake resque:work --trace &>> log/resque.3.log &
-    echo "--- Starting: $(date)" >>log/resque.4.log &
-    QUEUE="receive,receive_salmon,dispatch,http_service,http,delete_account" bundle exec rake resque:work --trace &>> log/resque.4.log &
+function start_sidekiq {
+  if [ "$single_process_mode" != "true" ] && [ "$embed_sidekiq_worker" != "true" ]; then
+    echo -n "Sidekiq ... "
+    echo "--- Starting: $(date)" >>log/sidekiq.bundle.log &
+    bundle exec sidekiq &>> log/sidekiq.log &
   fi
 }
 
-function stop_resque {
-  if [ `get_resque_pid | wc -l` > 0 ] ; then
-    echo -n "Reque ... "
-    get_resque_pid | while read line; do
+function stop_sidekiq {
+  if [ `get_sidekiq_pid | wc -l` > 0 ] ; then
+    echo -n "Sidekiq ... "
+    get_sidekiq_pid | while read line; do
       kill $line
     done
   fi
@@ -127,7 +120,7 @@ function stop_resque {
 function start_services {
   echo -n "Starting: "
 
-  start_resque
+  start_sidekiq
 
   echo "Unicorn ... "
   bundle exec unicorn_rails -c config/unicorn.rb -D
@@ -138,17 +131,17 @@ function stop_services {
   echo -n "Unicorn ... "
   kill -QUIT `cat $PID`
 
-  stop_resque
+  stop_sidekiq
 }
 
 function restart_services {
   echo -n "Restart Services: "
 
   echo -n "Stop "
-  stop_resque
+  stop_sidekiq
   sleep 2
   echo -n "Start "
-  start_resque
+  start_sidekiq
 
   echo -n "Unicorn ... "
   kill -USR2 `cat $PID`
@@ -168,10 +161,10 @@ function service_status {
     echo "Redis is not running"
   fi
 
-  if [ `get_resque_pid | wc -l` -ne "0" ] ; then
-    echo "Resque is running"
+  if [ `get_sidekiq_pid | wc -l` -ne "0" ] ; then
+    echo "Sidekiq is running"
   else
-    echo "Resque is not running"
+    echo "Sidekiq is not running"
   fi
 }
 
