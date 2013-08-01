@@ -673,7 +673,7 @@ de_formal:
         one: "Ein Foto von %{author}"
         other: "%{count} Fotos von %{author}"
         zero: "Kein Foto von %{author}"
-      reshare_by: "Weitergesagt von %{author}"
+      reshare_by: "Wiedergekäut von %{author}"
   previous: "Vorherige"
   privacy: "Privatsphäre"
   privacy_policy: "Datenschutzerklärung"
@@ -757,13 +757,13 @@ de_formal:
   reshares:
     comment_email_subject: "%{resharer}'s Version von %{author}'s Beitrag"
     create:
-      failure: "Ein Fehler trat beim Weitersagen dieses Beitrags auf."
+      failure: "Ein Fehler trat beim Wiederkäuen dieses Beitrags auf."
     reshare:
       deleted: "Originalbeitrag wurde vom Autor entfernt."
       reshare:
         one: "1 mal wiedergekäut"
         other: "%{count} mal wiedergekäut"
-        zero: "Weitersagen"
+        zero: "Wiederkäuen"
       reshare_confirmation: "%{author}'s Beitrag wiederkäuen?"
       reshare_original: "Original wiederkäuen"
       reshared_via: "wiedergekäut durch"
@@ -868,7 +868,7 @@ de_formal:
       upload_photos: "Fotos hochladen"
       whats_on_your_mind: "Woran denken Sie gerade?"
     reshare:
-      reshare: "Weitersagen"
+      reshare: "Wiederkäuen"
     stream_element:
       connect_to_comment: "Verbinden Sie sich mit diesem Benutzer, um seinen Beitrag zu kommentieren"
       currently_unavailable: "Kommentieren derzeit nicht verfügbar"

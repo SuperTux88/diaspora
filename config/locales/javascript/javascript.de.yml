@@ -108,7 +108,7 @@ de:
         zero: "Keine weiteren Kommentare"
       original_post_deleted: "Originalbeitrag wurde vom Autor entfernt."
       public: "Öffentlich"
-      reshare: "Weitersagen"
+      reshare: "Wiederkäuen"
       reshares:
         few: "<%= count %> mal wiedergekäut"
         many: "<%= count %> mal wiedergekäut"
@@ -150,7 +150,7 @@ de:
       follow_post: "Diesen Beitrag verfolgen"
       home: "START"
       like: "Gefällt mir"
-      reshare: "Weitersagen"
-      reshared: "Weitergesagt"
+      reshare: "Wiederkäuen"
+      reshared: "Wiedergekäut"
       stop_following_post: "Diesen Beitrag nicht mehr verfolgen"
       unlike: "Gefällt mir nicht mehr"
