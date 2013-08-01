@@ -30,7 +30,7 @@ de_formal:
         reshare:
           attributes:
             root_guid:
-              taken: "Sie haben diesen Beitrag bereits weitergesagt!"
+              taken: "Sie haben diesen Beitrag bereits wiedergekäut!"
         user:
           attributes:
             email:
@@ -497,19 +497,19 @@ de_formal:
       two: "%{actors} hat Ihnen eine Nachricht geschickt."
       zero: "%{actors} hat Ihnen eine Nachricht gesendet."
     reshared:
-      few: "%{actors} haben Ihren %{post_link} weitergesagt."
-      many: "%{actors} haben Ihren %{post_link} weitergesagt."
-      one: "%{actors} hat Ihren %{post_link} weitergesagt."
-      other: "%{actors} haben Ihren %{post_link} weitergesagt."
+      few: "%{actors} haben Ihren %{post_link} wiedergekäut."
+      many: "%{actors} haben Ihren %{post_link} wiedergekäut."
+      one: "%{actors} hat Ihren %{post_link} wiedergekäut."
+      other: "%{actors} haben Ihren %{post_link} wiedergekäut."
       two: "%{actors} hat Ihren %{post_link} weitergeleitet."
-      zero: "%{actors} haben Ihren %{post_link} weitergesagt."
+      zero: "%{actors} haben Ihren %{post_link} wiedergekäut."
     reshared_post_deleted:
-      few: "%{actors} haben Ihren gelöschten Beitrag weitergesagt."
-      many: "%{actors} haben Ihren gelöschten Beitrag weitergesagt."
-      one: "%{actors} hat Ihren gelöschten Beitrag weitergesagt."
-      other: "%{actors} Ihren deinen gelöschten Beitrag weitergesagt."
+      few: "%{actors} haben Ihren gelöschten Beitrag wiedergekäut."
+      many: "%{actors} haben Ihren gelöschten Beitrag wiedergekäut."
+      one: "%{actors} hat Ihren gelöschten Beitrag wiedergekäut."
+      other: "%{actors} Ihren deinen gelöschten Beitrag wiedergekäut."
       two: "%{actors} hat Ihren bereits gelöschten Beitrag weitergeleitet."
-      zero: "%{actors} haben Ihren gelöschten Beitrag weitergesagt."
+      zero: "%{actors} haben Ihren gelöschten Beitrag wiedergekäut."
     started_sharing:
       few: "%{actors} haben angefangen mit Ihnen zu teilen."
       many: "%{actors} haben angefangen mit Ihnen zu teilen."
@@ -553,7 +553,7 @@ de_formal:
     private_message:
       reply_to_or_view: "Antworten Sie oder sehen Sie sich diese Unterhaltung an >"
     reshared:
-      reshared: "%{name} hat Ihren Beitrag weitergesagt"
+      reshared: "%{name} hat Ihren Beitrag wiedergekäut"
       view_post: "Beitrag anzeigen >"
     single_admin:
       admin: "Ihr Diaspora Administrator"
@@ -761,12 +761,12 @@ de_formal:
     reshare:
       deleted: "Originalbeitrag wurde vom Autor entfernt."
       reshare:
-        one: "1 mal weitergesagt"
-        other: "%{count} mal weitergesagt"
+        one: "1 mal wiedergekäut"
+        other: "%{count} mal wiedergekäut"
         zero: "Weitersagen"
-      reshare_confirmation: "%{author}'s Beitrag weitersagen?"
-      reshare_original: "Original weitersagen"
-      reshared_via: "weitergesagt durch"
+      reshare_confirmation: "%{author}'s Beitrag wiederkäuen?"
+      reshare_original: "Original wiederkäuen"
+      reshared_via: "wiedergekäut durch"
       show_original: "Original anzeigen"
   search: "Suche"
   services:

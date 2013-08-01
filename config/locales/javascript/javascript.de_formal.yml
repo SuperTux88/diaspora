@@ -79,9 +79,9 @@ de_formal:
       near_from: "In der Nähe von <%= location %>"
       public: "Öffentlich - Ihr Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
     reshares:
-      duplicate: "Sie haben diesen Beitrag bereits weitergesagt!"
-      post: "<%= name %>s Beitrag weitersagen?"
-      successful: "Der Beitrag wurde erfolgreich weitergesagt!"
+      duplicate: "Sie haben diesen Beitrag bereits wiedergekäut!"
+      post: "<%= name %>s Beitrag wiederkäuen?"
+      successful: "Der Beitrag wurde erfolgreich wiedergekäut!"
     search_for: "Nach {{name}} suchen"
     show_more: "Mehr zeigen"
     stream:

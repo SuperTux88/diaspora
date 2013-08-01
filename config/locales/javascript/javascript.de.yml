@@ -78,9 +78,9 @@ de:
       near_from: "In der Nähe von <%= location %>"
       public: "Öffentlich - dein Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
     reshares:
-      duplicate: "Du hast diesen Beitrag bereits weitergesagt!"
-      post: "<%= name %>s Beitrag weitersagen?"
-      successful: "Der Beitrag wurde erfolgreich weitergesagt!"
+      duplicate: "Du hast diesen Beitrag bereits wiedergekäut!"
+      post: "<%= name %>s Beitrag wiederkäuen?"
+      successful: "Der Beitrag wurde erfolgreich wiedergekäut!"
     search_for: "Nach <%= name %> suchen"
     show_more: "Mehr zeigen"
     stream:
@@ -110,12 +110,12 @@ de:
       public: "Öffentlich"
       reshare: "Weitersagen"
       reshares:
-        few: "<%= count %> mal weitergesagt"
-        many: "<%= count %> mal weitergesagt"
-        one: "<%= count %> mal weitergesagt"
-        other: "<%= count %> mal weitergesagt"
-        two: "<%= count %> mal weitergesagt"
-        zero: "<%= count %> mal weitergesagt"
+        few: "<%= count %> mal wiedergekäut"
+        many: "<%= count %> mal wiedergekäut"
+        one: "<%= count %> mal wiedergekäut"
+        other: "<%= count %> mal wiedergekäut"
+        two: "<%= count %> mal wiedergekäut"
+        zero: "<%= count %> mal wiedergekäut"
       show_nsfw_post: "Beitrag anzeigen"
       show_nsfw_posts: "Alle zeigen"
       tags:
