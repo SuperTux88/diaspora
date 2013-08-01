@@ -79,7 +79,7 @@ de_moo:
       public: "Öffentlich - dein Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
     reshares:
       duplicate: "Du hast diesen Beitrag bereits wiedergekäut!"
-      post: "<%= name %>s Beitrag weitersagen?"
+      post: "<%= name %>s Beitrag wiederkäuen?"
       successful: "Der Beitrag wurde erfolgreich wiedergekäut!"
     search_for: "Nach <%= name %> suchen"
     show_more: "Mehr zeigen"
