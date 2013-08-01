@@ -1,0 +1,156 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+de_moo:
+  javascripts:
+    and: "und"
+    aspect_dropdown:
+      add_to_aspect: "Mitkuh hinzufügen"
+      all_aspects: "Alle Herden"
+      error: "Teilen mit <%= name %> nicht möglich. Ignorierst du sie/ihn?"
+      select_aspects: "Wähle Herden aus"
+      started_sharing_with: "Du hast angefangen, mit <%= name %> zu teilen!"
+      stopped_sharing_with: "Du hast aufgehört, mit <%= name %> zu teilen!"
+      toggle:
+        few: "In <%= count %> Herden"
+        many: "In <%= count %> Herden"
+        one: "In einer Herde"
+        other: "In <%= count %> Herden"
+        two: "In <%= count %> Herden"
+        zero: "Herde auswählen"
+    aspect_navigation:
+      add_an_aspect: "+ Herde hinzufügen"
+      deselect_all: "Auswahl aufheben"
+      no_aspects: "Keine Herde ausgewählt"
+      select_all: "Alle auswählen"
+    comma: ","
+    comments:
+      hide: "Kommentare verbergen"
+      show: "Alle Kommentare zeigen"
+    confirm_dialog: "Bist du dir sicher?"
+    conversation:
+      participants: "Teilnehmer"
+    delete: "Löschen"
+    edit: "Bearbeiten"
+    failed_to_like: "Gefällt mir fehlgeschlagen!"
+    failed_to_post_message: "Konnte Beitrag nicht senden!"
+    getting_started:
+      alright_ill_wait: "Alles klar, ich warte."
+      hey: "Hey, <%= name %>!"
+      no_tags: "Hey, du folgst noch keinen Tags! Trotzdem weitermachen?"
+      preparing_your_stream: "Deine persönlicher Weide wird zusammengestellt …"
+    header:
+      admin: "Admin"
+      close: "schließen"
+      contacts: "Mitkühe"
+      home: "Startseite"
+      log_out: "Abmelden"
+      mark_all_as_read: "Alle als gelesen markieren"
+      messages: "Nachrichten"
+      notifications: "Benachrichtigungen"
+      profile: "Profil"
+      recent_notifications: "Neuste Benachrichtigungen"
+      search: "Suchen"
+      settings: "Einstellungen"
+      view_all: "Alle anzeigen"
+    ignore: "Ignorieren"
+    ignore_user: "Kuh ignorieren?"
+    infinite_scroll:
+      no_more: "Keine weiteren Beiträge."
+      no_more_contacts: "Keine weiteren Mitkühe."
+    my_activity: "Meine Aktivitäten"
+    my_aspects: "Meine Herden"
+    my_stream: "Weide"
+    people:
+      not_found: "und niemand wurde gefunden..."
+    photo_uploader:
+      completed: "<%= file %> hochgeladen"
+      empty: "Die Datei {file} ist leer. Bitte treffen sie eine erneute Auswahl ohne diese Datei."
+      invalid_ext: "{file} hat eine ungültige Erweiterung. Nur {extensions} sind erlaubt."
+      looking_good: "OMG, du siehst toll aus!"
+      size_error: "{file} ist zu groß. Die maximale Dateigröße beträgt {sizeLimit}."
+    publisher:
+      at_least_one_aspect: "Du musst zumindest zu einer Herde posten"
+      limited: "Eingeschränkt - dein Beitrag wird nur Leuten sichtbar sein, mit denen du teilst"
+      near_from: "In der Nähe von <%= location %>"
+      public: "Öffentlich - dein Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
+    reshares:
+      duplicate: "Du hast diesen Beitrag bereits wiedergekäut!"
+      post: "<%= name %>s Beitrag weitersagen?"
+      successful: "Der Beitrag wurde erfolgreich wiedergekäut!"
+    search_for: "Nach <%= name %> suchen"
+    show_more: "Mehr zeigen"
+    stream:
+      comment: "Kommentar"
+      follow: "Folgen"
+      followed_tag:
+        add_a_tag: "Tag hinzufügen"
+        contacts_title: "Leute, die diese Tags mögen"
+        follow: "Folgen"
+        title: "#Tags, denen du folgst"
+      hide: "Ausblenden"
+      hide_nsfw_posts: "#nsfw-Posts verstecken"
+      like: "Gefällt mir"
+      likes:
+        few: "<%= count %> Kühen gefällt das"
+        many: "<%= count %> Kühen gefällt das"
+        one: " Einer Kuh gefällt das"
+        other: "<%= count %> Kühen gefällt das"
+        two: "<%= count %> Kühen gefällt das"
+        zero: "Keiner Sau gefällt das"
+      limited: "Begrenzt"
+      more_comments:
+        one: "Zeige einen weiteren Kommentar"
+        other: "Zeige <%= count %> weitere Kommentare"
+        zero: "Keine weiteren Kommentare"
+      original_post_deleted: "Originalbeitrag wurde vom Autor entfernt."
+      public: "Öffentlich"
+      reshare: "Wiederkäuen"
+      reshares:
+        few: "<%= count %> mal wiedergekäut"
+        many: "<%= count %> mal wiedergekäut"
+        one: "<%= count %> mal wiedergekäut"
+        other: "<%= count %> mal wiedergekäut"
+        two: "<%= count %> mal wiedergekäut"
+        zero: "<%= count %> mal wiedergekäut"
+      show_nsfw_post: "Beitrag anzeigen"
+      show_nsfw_posts: "Alle zeigen"
+      tags:
+        follow: "#<%= tag %> folgen"
+        following: "Du folgst #<%=tag%>"
+        stop_following: "Aufhören #<%= tag %> zu folgen"
+      unfollow: "Nicht mehr folgen"
+      unlike: "Gefällt mir nicht mehr"
+    tags:
+      wasnt_that_interesting: "OK, #<%= tagName %> war wohl doch nicht so interessant..."
+    timeago:
+      day: "einem Tag"
+      days: "%d Tagen"
+      hour: "etwa einer Stunde"
+      hours: "etwa %d Stunden"
+      minute: "etwa einer Minute"
+      minutes: "%d Minuten"
+      month: "etwa einem Monat"
+      months: "%d Monaten"
+      prefixAgo: "vor"
+      prefixFromNow: "in"
+      seconds: "weniger als eine Minute"
+      suffixAgo: ""
+      suffixFromNow: "ab jetzt"
+      year: "etwa einem Jahr"
+      years: "%d Jahren"
+    videos:
+      unknown: "Unbekanntes Videoformat"
+      watch: "Dieses Video auf {{provider}} ansehen"
+    viewer:
+      comment: "Kommentieren"
+      follow_post: "Diesen Beitrag verfolgen"
+      home: "START"
+      like: "Gefällt mir"
+      reshare: "Wiederkäuen"
+      reshared: "Wiedergekäut"
+      stop_following_post: "Diesen Beitrag nicht mehr verfolgen"
+      unlike: "Gefällt mir nicht mehr"

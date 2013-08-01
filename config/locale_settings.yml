@@ -12,6 +12,7 @@ available:
   da: "Dansk"
   de: "Deutsch"
   de_formal: "Deutsch (Sie)"
+  de_moo: "Deutsch (Muh)"
   el: "Ελληνικά"
   en: "English"
   en_1337: "3n6l15h (English 1337)"
@@ -107,6 +108,8 @@ fallbacks:
   ur-PK:
     - "ur"
   de_formal:
+    - "de"
+  de_moo:
     - "de"
   art_nvi:
     - "art-nvi"
