@@ -79,9 +79,9 @@ de_formal:
       near_from: "In der Nähe von <%= location %>"
       public: "Öffentlich - Ihr Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
     reshares:
-      duplicate: "Sie haben diesen Beitrag bereits wiedergekäut!"
-      post: "<%= name %>s Beitrag wiederkäuen?"
-      successful: "Der Beitrag wurde erfolgreich wiedergekäut!"
+      duplicate: "Sie haben diesen Beitrag bereits weitergesagt!"
+      post: "<%= name %>s Beitrag weitersagen?"
+      successful: "Der Beitrag wurde erfolgreich weitergesagt!"
     search_for: "Nach {{name}} suchen"
     show_more: "Mehr zeigen"
     stream:
@@ -106,7 +106,7 @@ de_formal:
         zero: "Keine weiteren Kommentare"
       original_post_deleted: "Originalbeitrag wurde vom Autor entfernt."
       public: "Öffentlich"
-      reshare: "Wiederkäuen"
+      reshare: "Weitersagen"
       reshares:
         one: "<%= count %> mal weitergeteilt"
         other: "<%= count %> mal weitergeteilt"
@@ -145,7 +145,7 @@ de_formal:
       follow_post: "Diesem Beitrag folgen"
       home: "Start"
       like: "Gefällt mir"
-      reshare: "Wiederkäuen"
-      reshared: "Wiedergekäut"
+      reshare: "Weitersagen"
+      reshared: "Weitergesagt"
       stop_following_post: "Diesem Beitrag nicht mehr folgen"
       unlike: "Gefällt mir nicht mehr"

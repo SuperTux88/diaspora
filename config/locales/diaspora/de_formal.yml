@@ -30,7 +30,7 @@ de_formal:
         reshare:
           attributes:
             root_guid:
-              taken: "Sie haben diesen Beitrag bereits wiedergekäut!"
+              taken: "Sie haben diesen Beitrag bereits weitergesagt!"
         user:
           attributes:
             email:
@@ -497,19 +497,19 @@ de_formal:
       two: "%{actors} hat Ihnen eine Nachricht geschickt."
       zero: "%{actors} hat Ihnen eine Nachricht gesendet."
     reshared:
-      few: "%{actors} haben Ihren %{post_link} wiedergekäut."
-      many: "%{actors} haben Ihren %{post_link} wiedergekäut."
-      one: "%{actors} hat Ihren %{post_link} wiedergekäut."
-      other: "%{actors} haben Ihren %{post_link} wiedergekäut."
+      few: "%{actors} haben Ihren %{post_link} weitergesagt."
+      many: "%{actors} haben Ihren %{post_link} weitergesagt."
+      one: "%{actors} hat Ihren %{post_link} weitergesagt."
+      other: "%{actors} haben Ihren %{post_link} weitergesagt."
       two: "%{actors} hat Ihren %{post_link} weitergeleitet."
-      zero: "%{actors} haben Ihren %{post_link} wiedergekäut."
+      zero: "%{actors} haben Ihren %{post_link} weitergesagt."
     reshared_post_deleted:
-      few: "%{actors} haben Ihren gelöschten Beitrag wiedergekäut."
-      many: "%{actors} haben Ihren gelöschten Beitrag wiedergekäut."
-      one: "%{actors} hat Ihren gelöschten Beitrag wiedergekäut."
-      other: "%{actors} Ihren deinen gelöschten Beitrag wiedergekäut."
+      few: "%{actors} haben Ihren gelöschten Beitrag weitergesagt."
+      many: "%{actors} haben Ihren gelöschten Beitrag weitergesagt."
+      one: "%{actors} hat Ihren gelöschten Beitrag weitergesagt."
+      other: "%{actors} Ihren deinen gelöschten Beitrag weitergesagt."
       two: "%{actors} hat Ihren bereits gelöschten Beitrag weitergeleitet."
-      zero: "%{actors} haben Ihren gelöschten Beitrag wiedergekäut."
+      zero: "%{actors} haben Ihren gelöschten Beitrag weitergesagt."
     started_sharing:
       few: "%{actors} haben angefangen mit Ihnen zu teilen."
       many: "%{actors} haben angefangen mit Ihnen zu teilen."
@@ -553,7 +553,7 @@ de_formal:
     private_message:
       reply_to_or_view: "Antworten Sie oder sehen Sie sich diese Unterhaltung an >"
     reshared:
-      reshared: "%{name} hat Ihren Beitrag wiedergekäut"
+      reshared: "%{name} hat Ihren Beitrag weitergesagt"
       view_post: "Beitrag anzeigen >"
     single_admin:
       admin: "Ihr Diaspora Administrator"
@@ -673,7 +673,7 @@ de_formal:
         one: "Ein Foto von %{author}"
         other: "%{count} Fotos von %{author}"
         zero: "Kein Foto von %{author}"
-      reshare_by: "Wiedergekäut von %{author}"
+      reshare_by: "Weitergesagt von %{author}"
   previous: "Vorherige"
   privacy: "Privatsphäre"
   privacy_policy: "Datenschutzerklärung"
@@ -757,16 +757,16 @@ de_formal:
   reshares:
     comment_email_subject: "%{resharer}'s Version von %{author}'s Beitrag"
     create:
-      failure: "Ein Fehler trat beim Wiederkäuen dieses Beitrags auf."
+      failure: "Ein Fehler trat beim Weitersagen dieses Beitrags auf."
     reshare:
       deleted: "Originalbeitrag wurde vom Autor entfernt."
       reshare:
-        one: "1 mal wiedergekäut"
-        other: "%{count} mal wiedergekäut"
-        zero: "Wiederkäuen"
-      reshare_confirmation: "%{author}'s Beitrag wiederkäuen?"
-      reshare_original: "Original wiederkäuen"
-      reshared_via: "wiedergekäut durch"
+        one: "1 mal weitergesagt"
+        other: "%{count} mal weitergesagt"
+        zero: "Weitersagen"
+      reshare_confirmation: "%{author}'s Beitrag weitersagen?"
+      reshare_original: "Original weitersagen"
+      reshared_via: "weitergesagt durch"
       show_original: "Original anzeigen"
   search: "Suche"
   services:
@@ -868,7 +868,7 @@ de_formal:
       upload_photos: "Fotos hochladen"
       whats_on_your_mind: "Woran denken Sie gerade?"
     reshare:
-      reshare: "Wiederkäuen"
+      reshare: "Weitersagen"
     stream_element:
       connect_to_comment: "Verbinden Sie sich mit diesem Benutzer, um seinen Beitrag zu kommentieren"
       currently_unavailable: "Kommentieren derzeit nicht verfügbar"
