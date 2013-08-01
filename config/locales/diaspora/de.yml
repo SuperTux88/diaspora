@@ -30,7 +30,7 @@ de:
         reshare:
           attributes:
             root_guid:
-              taken: "Ziemlich gut, was? Du hast diesen Beitrag bereits wiedergekäut!"
+              taken: "Ziemlich gut, was? Du hast diesen Beitrag bereits weitergesagt!"
         user:
           attributes:
             email:
@@ -497,19 +497,19 @@ de:
       two: "%{actors} hat dir eine Nachricht geschickt."
       zero: "%{actors} hat dir eine Nachricht gesendet."
     reshared:
-      few: "%{actors} haben deinen %{post_link} wiedergekäut."
-      many: "%{actors} haben deinen %{post_link} wiedergekäut."
-      one: "%{actors} hat deinen %{post_link} wiedergekäut."
-      other: "%{actors} haben deinen %{post_link} wiedergekäut."
+      few: "%{actors} haben deinen %{post_link} weitergesagt."
+      many: "%{actors} haben deinen %{post_link} weitergesagt."
+      one: "%{actors} hat deinen %{post_link} weitergesagt."
+      other: "%{actors} haben deinen %{post_link} weitergesagt."
       two: "%{actors} hat deinen %{post_link} weitergeleitet."
-      zero: "%{actors} haben deinen %{post_link} wiedergekäut."
+      zero: "%{actors} haben deinen %{post_link} weitergesagt."
     reshared_post_deleted:
-      few: "%{actors} haben deinen gelöschten Beitrag wiedergekäut."
-      many: "%{actors} haben deinen gelöschten Beitrag wiedergekäut."
-      one: "%{actors} hat deinen gelöschten Beitrag wiedergekäut."
-      other: "%{actors} haben deinen gelöschten Beitrag wiedergekäut."
+      few: "%{actors} haben deinen gelöschten Beitrag weitergesagt."
+      many: "%{actors} haben deinen gelöschten Beitrag weitergesagt."
+      one: "%{actors} hat deinen gelöschten Beitrag weitergesagt."
+      other: "%{actors} haben deinen gelöschten Beitrag weitergesagt."
       two: "%{actors} hat deinen bereits gelöschten Beitrag weitergeleitet."
-      zero: "%{actors} haben deinen gelöschten Beitrag wiedergekäut."
+      zero: "%{actors} haben deinen gelöschten Beitrag weitergesagt."
     started_sharing:
       few: "%{actors} haben angefangen mit dir zu teilen."
       many: "%{actors} haben angefangen mit dir zu teilen."
@@ -552,7 +552,7 @@ de:
     private_message:
       reply_to_or_view: "Antworte oder sieh dir diese Unterhaltung an >"
     reshared:
-      reshared: "%{name} hat deinen Beitrag wiedergekäut"
+      reshared: "%{name} hat deinen Beitrag weitergesagt"
       view_post: "Beitrag anzeigen >"
     single_admin:
       admin: "Dein Diaspora Administrator"
@@ -675,7 +675,7 @@ de:
         other: "%{count} Fotos von %{author}"
         two: "Zwei Fotos von %{author}"
         zero: "Keine Fotos von %{author}"
-      reshare_by: "Wiedergekäut von %{author}"
+      reshare_by: "Weitergesagt von %{author}"
   previous: "Vorherige"
   privacy: "Privatsphäre"
   privacy_policy: "Datenschutzrichtlinien"
@@ -762,19 +762,19 @@ de:
   reshares:
     comment_email_subject: "%{resharer}s Version von %{author}s Beitrag"
     create:
-      failure: "Ein Fehler trat beim Wiederkäuen dieses Beitrags auf."
+      failure: "Ein Fehler trat beim Weitersagen dieses Beitrags auf."
     reshare:
       deleted: "Originalbeitrag wurde vom Autor entfernt."
       reshare:
-        few: "%{count} mal wiedergekäut"
-        many: "%{count} mal wiedergekäut"
-        one: "Einmal wiedergekäut"
-        other: "%{count} mal wiedergekäut"
-        two: "%{count} mal wiedergekäut"
-        zero: "Wiederkäuen"
-      reshare_confirmation: "%{author}s Beitrag wiederkäuen?"
-      reshare_original: "Ursprünglichen Beitrag wiederkäuen"
-      reshared_via: "wiedergekäut durch"
+        few: "%{count} mal weitergesagt"
+        many: "%{count} mal weitergesagt"
+        one: "Einmal weitergesagt"
+        other: "%{count} mal weitergesagt"
+        two: "%{count} mal weitergesagt"
+        zero: "Weitersagen"
+      reshare_confirmation: "%{author}s Beitrag weitersagen?"
+      reshare_original: "Ursprünglichen Beitrag weitersagen"
+      reshared_via: "weitergesagt durch"
       show_original: "Original anzeigen"
   search: "Suche"
   services:
@@ -875,7 +875,7 @@ de:
       upload_photos: "Fotos hochladen"
       whats_on_your_mind: "Woran denkst du gerade?"
     reshare:
-      reshare: "Wiederkäuen"
+      reshare: "Weitersagen"
     stream_element:
       connect_to_comment: "Verbinde dich mit diesem Benutzer, um seinen Beitrag zu kommentieren"
       currently_unavailable: "Kommentieren derzeit nicht verfügbar"
