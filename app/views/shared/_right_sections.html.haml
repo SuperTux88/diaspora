@@ -24,20 +24,6 @@
 
 .section
   .title
-    .icons-mail
-    %h5.title-header
-      = 'Contact'
-  .content
-    %a{:href => "https://nerdpol.ch/u/team"}
-      = image_tag('branding/nerdpol-profile-sidebar.png')
-    %br
-    = 'nerdpol.ch hat jetzt auch einen "Team"-Account. Da gibt es Infos rund um diesen Pod (Updates, usw.).'
-    %br
-    %a{:href => "https://nerdpol.ch/u/team"}
-      = 'team@nerdpol.ch'
-
-.section
-  .title
     .icons-question
     %h5.title-header
       = t('aspects.index.help.need_help')
@@ -53,10 +39,36 @@
     != t('aspects.index.help.feature_suggestion', :link => link_to("#"+t('aspects.index.help.tag_feature'), tag_path(:name => t('aspects.index.help.tag_feature'))))
     %br
     %br
-    %p
-      != t('aspects.index.help.tutorials_and_wiki',
-           :tutorial => link_to(t('aspects.index.help.tutorial_link_text'), "https://diasporafoundation.org/tutorials", :target => '_blank'),
-           :wiki => link_to('Wiki','http://wiki.diasporafoundation.org', :target => '_blank'), :target => '_blank')
+    != t('aspects.index.help.tutorials_and_wiki',
+         :tutorial => link_to(t('aspects.index.help.tutorial_link_text'), "https://diasporafoundation.org/tutorials", :target => '_blank'),
+         :wiki => link_to('Wiki','http://wiki.diasporafoundation.org', :target => '_blank'), :target => '_blank')
+
+.section
+  .title
+    .icons-mail
+    %h5.title-header
+      = t('aspects.index.help.any_problem')
+  .content
+    - if AppConfig.admins.podmin_email.present?
+      = t('aspects.index.help.contact_podmin')
+      %br
+      %br
+      = link_to t('aspects.index.help.mail_podmin'), "mailto:#{AppConfig.admins.podmin_email}", :class => "button"
+      %br
+      %br
+    = 'nerdpol.ch "Team"-Account. Infos rund um diesen Pod (Updates, usw.):'
+    %a{:href => "https://nerdpol.ch/u/team"}
+      = 'team@nerdpol.ch'
+
+.section
+  .title
+    .icons-mumble
+    %h5.title-header
+      = 'Mumble'
+  .content
+    = 'nerdpol.ch Mumble-Server:'
+    %a{:href => "mumble://mumble.nerdpol.ch"}
+      = 'mumble.nerdpol.ch'
 
 - unless AppConfig.configured_services.blank? || all_services_connected?
   .section
@@ -94,18 +106,6 @@
       = t('aspects.index.keep_pod_running', :pod => AppConfig.pod_uri.host)
       %br
       = render 'shared/donatepod'
-
-- if AppConfig.admins.podmin_email.present?
-  .section
-    .title
-      .icons-mail
-      %h5.title-header
-        = t('aspects.index.help.any_problem')
-    .content
-      = t('aspects.index.help.contact_podmin')
-      %br
-      %br
-      = link_to t('aspects.index.help.mail_podmin'), "mailto:#{AppConfig.admins.podmin_email}", :class => "button"
 
 .section
   .title
