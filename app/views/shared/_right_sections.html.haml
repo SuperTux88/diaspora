@@ -39,9 +39,11 @@
     != t('aspects.index.help.feature_suggestion', :link => link_to("#"+t('aspects.index.help.tag_feature'), tag_path(:name => t('aspects.index.help.tag_feature'))))
     %br
     %br
-    != t('aspects.index.help.tutorials_and_wiki',
-         :tutorial => link_to(t('aspects.index.help.tutorial_link_text'), "https://diasporafoundation.org/tutorials", :target => '_blank'),
-         :wiki => link_to('Wiki','http://wiki.diasporafoundation.org', :target => '_blank'), :target => '_blank')
+    %p
+      != t('aspects.index.help.tutorials_and_wiki',
+           :faq => link_to(t('_help'), faq_getting_help_path),
+           :tutorial => link_to(t('aspects.index.help.tutorial_link_text'), "https://diasporafoundation.org/tutorials", :target => '_blank'),
+           :wiki => link_to('Wiki','http://wiki.diasporafoundation.org', :target => '_blank'), :target => '_blank')
 
 .section
   .title
@@ -102,7 +104,7 @@
     %a{:href => "http://flattr.com/thing/442886/Diaspora-at-nerdpol-ch", :target=> "_blank"}
       = image_tag('branding/flattr-badge-large.png')
       %br
-    - if AppConfig.settings.paypal_hosted_button_id.present? || AppConfig.settings.bitcoin_wallet_id.present?
+    - if AppConfig.settings.paypal_hosted_button_id.present? || AppConfig.bitcoin_donation_address
       = t('aspects.index.keep_pod_running', :pod => AppConfig.pod_uri.host)
       %br
       = render 'shared/donatepod'
