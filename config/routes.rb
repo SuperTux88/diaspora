@@ -5,9 +5,9 @@
 require 'sidekiq/web'
 
 Diaspora::Application.routes.draw do
-  if Rails.env.production?
-    mount RailsAdmin::Engine => '/admin_panel', :as => 'rails_admin'
-  end
+  #if Rails.env.production?
+  #  mount RailsAdmin::Engine => '/admin_panel', :as => 'rails_admin'
+  #end
 
   constraints ->(req) { req.env["warden"].authenticate?(scope: :user) &&
                         req.env['warden'].user.admin? } do
