@@ -538,17 +538,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6568542"
-     inkscape:cx="95.842231"
-     inkscape:cy="-42.563925"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="116.89387"
+     inkscape:cy="-70.844444"
      inkscape:document-units="px"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1918"
-     inkscape:window-height="1059"
-     inkscape:window-x="1920"
-     inkscape:window-y="539"
-     inkscape:window-maximized="1" />
+     inkscape:window-width="1721"
+     inkscape:window-height="875"
+     inkscape:window-x="4675"
+     inkscape:window-y="60"
+     inkscape:window-maximized="0" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -715,118 +715,270 @@
        inkscape:export-xdpi="89.953705"
        inkscape:export-ydpi="89.953705" />
     <g
-       transform="matrix(0.13247678,0,0,0.13247678,73.267752,1026.8714)"
-       id="layer1-7">
+       id="g3683"
+       transform="matrix(0.20298541,0,0,0.20298541,82.919258,1082.7883)"
+       inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/header-logo.png"
+       inkscape:export-xdpi="89.953705"
+       inkscape:export-ydpi="89.953705">
       <g
-         id="g4609"
-         style="stroke:#000000;stroke-linecap:square">
+         id="g3547">
+        <title
+           id="title3549">Layer 1</title>
         <path
-           d="m 348.54,677.75 c 0.98544,25.098 -17.329,41.763 -47.326,46.19 -12.652,1.867 -40.303,11.007 -44.504,-12.401 -3.9696,-22.117 11.057,-24.262 28.38,-27.398 34.509,-6.2472 24.365,-26.102 37.595,-26.947 7.7428,-0.49408 23.02,0.23701 25.855,20.555 z"
-           id="path3133-6-4-6-2-7-8"
+           d="m 374.99,81.022 c -12.6,17.314 -35.14,25.708 -50.35,18.743 -15.2,-6.963 -17.31,-26.644 -4.71,-43.958 12.6,-17.315 35.15,-25.706 50.35,-18.743 15.21,6.963 17.32,26.644 4.71,43.958 z"
+           id="imagebot_27"
            inkscape:connector-curvature="0"
-           style="stroke-width:9" />
+           style="fill:#698000;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round" />
+      </g>
+      <g
+         id="g3552">
+        <title
+           id="title3554">Layer 2</title>
         <path
-           d="m 24.048,805.62 c 0,21.516 -18.734,38.959 -41.844,38.959 -23.11,0 -41.844,-17.442 -41.844,-38.959 0,-21.516 18.734,-38.959 41.844,-38.959 23.11,0 41.844,17.442 41.844,38.959 z"
-           transform="matrix(0.47623,0.028668,-0.033539,0.5608,482.59,329.81)"
-           id="path3208-6-2"
+           d="m 379.66,45.109 c 0.56,7.739 -2.1,16.592 -8.15,24.906 -12.6,17.305 -35.18,25.709 -50.38,18.75 -4.07,-1.866 -7.18,-4.657 -9.34,-8.063 0.59,8.383 4.93,15.443 12.84,19.063 15.2,6.955 37.78,-1.445 50.38,-18.75 9.21,-12.663 10.55,-26.611 4.65,-35.906 z"
+           id="imagebot_26"
            inkscape:connector-curvature="0"
-           style="fill:#ffffff;stroke-width:17.38400078" />
+           style="fill-opacity:0.31373004;stroke-width:4;stroke-linecap:round;stroke-linejoin:round" />
+      </g>
+      <g
+         id="g3557">
+        <title
+           id="title3559">Layer 3</title>
         <path
-           d="m 348.27,776.78 c 0.41655,19.137 -10.687,18.472 -50.61,22.915 -27.96,3.1117 -35.594,2.3596 -37.997,-15.47 -2.7541,-20.435 7.0537,-27.374 22.933,-28.809 41.398,-3.7408 64.304,-11.08 65.673,21.364 z"
-           id="path3133-6-4-1-4"
+           d="M 95.192,81.022 C 107.8,98.336 130.34,106.73 145.54,99.765 160.75,92.802 162.86,73.121 150.26,55.807 137.65,38.492 115.11,30.101 99.904,37.064 84.698,44.027 82.589,63.708 95.192,81.022 z"
+           id="imagebot_25"
            inkscape:connector-curvature="0"
-           style="stroke-width:9" />
+           style="fill:#698000;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round" />
+      </g>
+      <g
+         id="g3562">
+        <title
+           id="title3564">Layer 4</title>
         <path
-           d="m 459.66,735.34 c -5.3364,46.32 -23.451,65.725 -77.433,66.236 -61.082,0.57812 -105.91,-10.277 -107.68,-50.396 -2.1954,-49.74 29.873,-73.586 44.101,-89.68 24.027,-27.18 70.606,-52.343 93.231,-44.566 17.247,5.9282 55.891,47.98 47.778,118.41 z"
-           id="path3133-6-8-5"
+           d="m 87.005,56.952 c -0.312,7.536 2.355,16.05 8.188,24.063 12.597,17.305 35.147,25.705 50.347,18.75 12.58,-5.762 16.18,-20.239 9.9,-34.875 -0.36,8.739 -4.74,16.138 -12.9,19.875 -15.2,6.959 -37.75,-1.445 -50.347,-18.75 -2.168,-2.979 -3.883,-6.019 -5.188,-9.063 z"
+           id="imagebot_24"
            inkscape:connector-curvature="0"
-           style="fill:url(#radialGradient4633);stroke-width:9" />
+           style="fill-opacity:0.31373004;stroke-width:4;stroke-linecap:round;stroke-linejoin:round" />
+      </g>
+      <g
+         id="g3567">
+        <title
+           id="title3569">Layer 5</title>
         <path
-           d="m 458.01,762.63 c 0.37639,25.115 -17.691,45.028 -48.432,45.021 -16.87,-0.004 -25.235,1.5747 -32.175,-0.33022 -6.031,-1.6553 -11.698,-6.229 -12.015,-13.153 -1.1892,-25.956 11.575,-30.179 27.508,-30.892 35.032,-1.5687 26.519,-21.304 39.766,-21.825 7.7526,-0.3049 23.008,0.79897 25.349,21.18 z"
-           id="path3133-6-4-6-9-5"
+           d="m 364.77,97.373 c 0,52.677 -57.07,95.377 -127.47,95.377 -70.41,0 -127.48,-42.7 -127.48,-95.377 C 109.82,44.7 166.89,2 237.3,2 307.7,2 364.77,44.7 364.77,97.373 z"
+           id="imagebot_23"
            inkscape:connector-curvature="0"
-           style="stroke-width:9" />
-        <g
-           id="g4016">
-          <path
-             d="m 122.86,105.22 c 0,59.173 -53.726,107.14 -120,107.14 -66.274,0 -120,-47.969 -120,-107.14 0,-59.173 53.726,-107.14 120,-107.14 66.274,0 120,47.969 120,107.14 z"
-             transform="matrix(0.41226,-0.11472,0.11545,0.41347,272.52,399.08)"
-             id="path4104-4"
-             inkscape:connector-curvature="0"
-             style="stroke-width:20.99799919" />
-          <path
-             d="M 538.02,590.06 C 527.07,671.25 421.05,707.88 327.6,686.53 238.1,666.08 195.46,606.96 216.96,527.91 c 22.02,-80.93 96.09,-136.75 187.05,-124.4 90.96,12.35 144.96,105.35 134.01,186.55 z"
-             id="path3133-8-5"
-             inkscape:connector-curvature="0"
-             style="fill:url(#radialGradient4635);stroke-width:9" />
-          <path
-             d="m -868.57,158.08 c 0,50.495 -51.167,91.429 -114.29,91.429 -63.118,0 -114.29,-40.934 -114.29,-91.429 0,-50.495 51.167,-91.429 114.29,-91.429 63.118,0 114.29,40.934 114.29,91.429 z"
-             transform="matrix(0.19558,0.41282,-0.4276,0.17203,799.53,862.6)"
-             id="path4106-8"
-             inkscape:connector-curvature="0"
-             style="stroke-width:19.63199997" />
-          <path
-             d="m 338.35,624.32 c -1.0739,7.964 -11.438,13.139 -23.133,11.552 -11.696,-1.5875 -20.316,-9.3394 -19.242,-17.303 1.0739,-7.964 11.892,-16.509 23.588,-14.922 11.696,1.5875 19.862,12.71 18.788,20.674 z"
-             id="path4134-2"
-             inkscape:connector-curvature="0"
-             style="stroke-width:9" />
-          <path
-             d="m 280.01,623.31 c 0,0 -12.402,24.091 11.895,28.161 11.502,1.9365 24.284,-15.225 24.284,-15.225 0,0 1.4939,16.029 15.596,24.959 12.582,7.9678 21.795,6.686 31.132,3.6516 12.801,-4.16 14.982,-15.913 14.982,-15.913"
-             id="path4137-4"
-             inkscape:connector-curvature="0"
-             style="fill:none;stroke-width:9" />
-          <g
-             transform="matrix(0.4063,0.19054,-0.18706,0.42577,397.04,339.17)"
-             id="g3073-1-1"
-             style="stroke-width:19.70400047">
-            <path
-               d="m -141.12,505.79 c -51.719,63.679 -41.909,136.03 2.8948,160.38 32.897,17.881 68.312,25.497 100.15,-2.5615 46.047,-40.59 19.283,-66.31 51.614,-111.81 28.411,-39.99 20.026,-86.7 -7.5369,-104.08 -32.957,-20.77 -95.401,-5.61 -147.12,58.07 z"
-               id="path4111-2-7"
-               inkscape:connector-curvature="0" />
-            <g
-               transform="translate(0,-12.379)"
-               id="g3110-3-1">
-              <path
-                 d="m 10.378,529.19 c 1.5579,29.341 -20.852,53.154 -50.022,53.154 -29.17,0 -54.108,-23.813 -55.666,-53.154 -1.5579,-29.341 20.852,-53.154 50.022,-53.154 29.17,0 54.108,23.813 55.666,53.154 z"
-                 id="path7046-3-1"
-                 inkscape:connector-curvature="0"
-                 style="fill:#ffffff" />
-              <path
-                 d="m -71.101,544.24 c -0.02051,-0.0202 15.062,-42.327 40.347,-36.442 18.695,4.3516 22.019,34.62 22.019,34.62"
-                 id="path8989-4-5"
-                 inkscape:connector-curvature="0"
-                 style="fill:none" />
-            </g>
-          </g>
-          <g
-             transform="matrix(0.65946,-0.068335,0.062348,0.70212,706.63,569.41)"
-             id="g3193-2"
-             style="stroke-width:13.16600037">
-            <path
-               d="m -394.82,-68.084 c 42.228,29.076 58.906,77.018 40.319,118.24 -20.967,46.494 -85.327,49.521 -117.24,27.464 -21.744,-15.03 -16.611,-53.074 -31.083,-73.954 -16.682,-24.068 -13.705,-47.448 1.928,-73.704 18.8,-31.575 63.845,-27.117 106.07,1.9589 z"
-               id="path4113-1-7"
-               inkscape:connector-curvature="0" />
-            <g
-               transform="matrix(0.99025,0.13929,-0.13929,0.99025,-733.65,-477.41)"
-               id="g3114-1-6">
-              <path
-                 d="m 383.04,397.1 c 0,20.891 -19.083,37.846 -42.597,37.846 -23.514,0 -42.597,-16.955 -42.597,-37.846 0,-20.891 19.083,-37.846 42.597,-37.846 23.514,0 42.597,16.955 42.597,37.846 z"
-                 id="path8987-3-1"
-                 inkscape:connector-curvature="0"
-                 style="fill:#ffffff" />
-              <path
-                 d="m 309.84,403.6 c 0,0 5.8307,-27.502 22.615,-26.594 20.8,1.1255 24.611,25.412 24.611,25.412"
-                 id="path9960-8-4"
-                 inkscape:connector-curvature="0"
-                 style="fill:none" />
-            </g>
-          </g>
-        </g>
+           style="fill:#004000;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round" />
+      </g>
+      <g
+         id="g3572">
+        <title
+           id="title3574">Layer 6</title>
         <path
-           d="m 445.77,706.18 c -10.212,22.933 -35.471,32.816 -64.242,21.953 -15.788,-5.9612 -24.172,-7.4374 -30,-11.671 -5.0643,-3.6791 -8.7641,-9.9614 -6.6318,-16.555 7.9932,-24.715 21.422,-24.16 36.586,-19.201 9.8494,3.2209 21.338,9.9462 26.369,8.7491 7.1491,-1.7012 10.324,-10.619 18.509,-15.135 4.7316,-2.6104 10.286,-5.2459 14.552,-4.3575 6.0609,1.2622 10.41,8.8098 14.574,12.669 -1.0672,4.5337 4.4425,7.3457 2.7719,11.036 -7.4517,0.90281 -10.949,9.0575 -12.488,12.512 z"
-           id="path3133-6-4-6-1-7-2"
+           d="m 110.16,90.625 c -0.21,2.229 -0.35,4.481 -0.35,6.75 0,52.675 57.07,95.375 127.47,95.375 70.41,0 127.5,-42.7 127.5,-95.375 0,-2.269 -0.13,-4.521 -0.34,-6.75 -4.63,49.525 -59.79,88.625 -127.16,88.625 -67.37,0 -122.5,-39.1 -127.12,-88.625 z"
+           id="imagebot_22"
            inkscape:connector-curvature="0"
-           style="stroke-width:9" />
+           style="fill:#808000;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round" />
+      </g>
+      <g
+         id="g3577">
+        <title
+           id="title3579">Layer 7</title>
+        <path
+           d="m 354.38,59.64 c 1.89,6.523 2.91,13.275 2.91,20.219 0,52.641 -57.14,95.371 -127.5,95.371 -52.45,0 -97.51,-23.73 -117.07,-57.62 12.43,42.93 63.49,75.12 124.57,75.12 70.36,0 127.5,-42.73 127.5,-95.371 0,-13.405 -3.73,-26.142 -10.41,-37.719 z"
+           id="imagebot_21"
+           inkscape:connector-curvature="0"
+           style="fill-opacity:0.31373004;stroke-width:4;stroke-linecap:round;stroke-linejoin:round" />
+      </g>
+      <g
+         id="g3582">
+        <title
+           id="title3584">Layer 8</title>
+        <path
+           d="m 336.22,147.63 c 20.5,15.5 95.5,-28.5 131.5,-14 36,14.5 -59.5,82.5 -113.5,74.5 -54,-8 -37,-50.5 -37,-50.5 7.56,-17 19,-10 19,-10 z"
+           id="imagebot_20"
+           inkscape:connector-curvature="0"
+           style="fill:#698000;fill-rule:evenodd;stroke:#000000;stroke-width:4" />
+      </g>
+      <g
+         id="g3587">
+        <title
+           id="title3589">Layer 9</title>
+        <path
+           d="m 298.68,164.73 c 0,33.19 -50.2,65.16 -60.12,65.16 -10.56,0 -60.12,-31.97 -60.12,-65.16 0,-33.18 26.93,-60.12 60.12,-60.12 33.18,0 60.12,26.94 60.12,60.12 z"
+           id="imagebot_19"
+           inkscape:connector-curvature="0"
+           style="fill:#698000;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round" />
+      </g>
+      <g
+         id="g3592">
+        <title
+           id="title3594">Layer 10</title>
+        <path
+           d="m 233.8,157.48 c 0,9.74 -7.89,17.63 -17.63,17.63 -9.73,0 -17.62,-7.89 -17.62,-17.63 0,-9.73 7.89,-17.62 17.62,-17.62 9.74,0 17.63,7.89 17.63,17.62 z"
+           id="imagebot_18"
+           inkscape:connector-curvature="0"
+           style="fill:#ffffff;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round" />
+      </g>
+      <g
+         id="g3597">
+        <title
+           id="title3599">Layer 11</title>
+        <path
+           d="m 226.88,163.12 c 0,3.13 -2.54,5.66 -5.67,5.66 -3.13,0 -5.67,-2.53 -5.67,-5.66 0,-3.13 2.54,-5.67 5.67,-5.67 3.13,0 5.67,2.54 5.67,5.67 z"
+           id="imagebot_17"
+           inkscape:connector-curvature="0"
+           style="stroke-width:4;stroke-linecap:round;stroke-linejoin:round" />
+      </g>
+      <g
+         id="g3602">
+        <title
+           id="title3604">Layer 12</title>
+        <path
+           d="m 297.1,151.14 c 0.04,0.86 0.06,1.72 0.06,2.59 0,33.19 -50.16,65.16 -60.09,65.16 -9.46,0 -50.23,-25.64 -58.63,-54.84 v 0.68 c 0,33.19 49.57,65.16 60.13,65.16 9.93,0 60.09,-31.97 60.09,-65.16 0,-4.67 -0.55,-9.22 -1.56,-13.59 z"
+           id="imagebot_16"
+           inkscape:connector-curvature="0"
+           style="fill-opacity:0.31373004;stroke-width:4;stroke-linecap:round;stroke-linejoin:round" />
+      </g>
+      <g
+         id="g3607">
+        <title
+           id="title3609">Layer 13</title>
+        <path
+           d="M 210.38,190.38 226,201 h 26 l 15,-11"
+           id="imagebot_36"
+           inkscape:connector-curvature="0"
+           style="fill:#808000;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round" />
+      </g>
+      <g
+         id="g3612">
+        <title
+           id="title3614">Layer 14</title>
+        <path
+           d="m 259.1,194.61 c -2.66,15.53 -12.48,28.29 -25.59,34.03 2.1,0.8 3.85,1.25 5.06,1.25 5.05,0 20.52,-8.28 34.5,-20.78 -2.81,-5.89 -7.97,-10.9 -13.97,-14.5 z"
+           id="imagebot_14"
+           inkscape:connector-curvature="0"
+           style="fill-opacity:0.31373004;stroke-width:4;stroke-linecap:round;stroke-linejoin:round" />
+      </g>
+      <g
+         id="g3617">
+        <title
+           id="title3619">Layer 15</title>
+        <path
+           d="m 473.69,137.76 c -12.08,24.85 -78,63.52 -119.47,57.38 -14.58,-2.16 -23.97,-6.85 -29.93,-12.53 -5.86,-14.24 0.48,-23.75 0.48,-23.75 5.21,-11.72 14.04,-7.44 17.92,-6.5 v -1.97 c -2.52,-0.52 -4.7,-1.41 -6.47,-2.75 0,0 -2.18,-1.35 -5.28,-1.44 -0.25,0 -0.49,-0.01 -0.75,0 -3.9,0.17 -8.98,2.48 -12.97,11.44 0,0 -1.25,3.18 -2,7.94 -0.05,0.37 -0.1,0.76 -0.15,1.15 -0.06,0.45 -0.11,0.88 -0.16,1.35 -0.09,0.88 -0.15,1.8 -0.19,2.75 -0.01,0.46 -0.03,0.93 -0.03,1.4 0,0.5 0.01,1 0.03,1.5 0.02,0.41 0.04,0.81 0.07,1.22 0.07,1.11 0.21,2.23 0.4,3.38 0.07,0.37 0.11,0.75 0.19,1.12 0.04,0.22 0.11,0.44 0.16,0.66 0.08,0.37 0.18,0.75 0.28,1.12 0.05,0.22 0.12,0.44 0.19,0.66 l 0.18,0.66 c 0.06,0.17 0.1,0.35 0.16,0.53 0.13,0.39 0.26,0.76 0.41,1.15 0.23,0.63 0.47,1.26 0.75,1.88 0.28,0.63 0.59,1.24 0.93,1.87 0.33,0.61 0.69,1.22 1.07,1.82 0.03,0.05 0.05,0.13 0.09,0.18 0.29,0.46 0.61,0.9 0.94,1.35 0.12,0.17 0.25,0.33 0.37,0.5 0.41,0.53 0.83,1.07 1.28,1.59 0.51,0.59 1.05,1.15 1.63,1.72 1.14,1.14 2.42,2.23 3.84,3.28 1.38,1.02 2.92,1.99 4.6,2.91 0.11,0.06 0.22,0.12 0.34,0.18 0.8,0.43 1.63,0.85 2.5,1.25 5.09,2.35 11.36,4.23 19.12,5.38 49.94,7.4 135.37,-50.2 119.47,-70.38 z"
+           id="imagebot_13"
+           inkscape:connector-curvature="0"
+           style="fill-opacity:0.31373004;fill-rule:evenodd;stroke-width:4" />
+      </g>
+      <g
+         id="g3622">
+        <title
+           id="title3624">Layer 16</title>
+        <path
+           d="m 141.41,147.63 c -20.5,15.5 -95.501,-28.5 -131.5,-14 -36.001,14.5 59.499,82.5 113.5,74.5 54,-8 37,-50.5 37,-50.5 -7.56,-17 -19,-10 -19,-10 z"
+           id="imagebot_12"
+           inkscape:connector-curvature="0"
+           style="fill:#698000;fill-rule:evenodd;stroke:#000000;stroke-width:4" />
+      </g>
+      <g
+         id="g3627">
+        <title
+           id="title3629">Layer 17</title>
+        <path
+           d="m 3.9403,137.76 c 12.081,24.85 78.006,63.52 119.47,57.38 28.01,-4.15 36.91,-17.59 39,-29.56 1.98,12.69 0.27,36.74 -39,42.56 -49.937,7.4 -135.36,-50.2 -119.47,-70.38 z"
+           id="imagebot_11"
+           inkscape:connector-curvature="0"
+           style="fill-opacity:0.31373004;fill-rule:evenodd;stroke-width:4" />
+      </g>
+      <g
+         id="g3632">
+        <title
+           id="title3634">Layer 18</title>
+        <path
+           d="m 221.22,86.627 65,-2 14,-31.5 -41.5,-28 -44,32 6.5,29.5 z"
+           id="imagebot_10"
+           inkscape:connector-curvature="0"
+           style="fill:#ffffff;fill-opacity:0.15685999;fill-rule:evenodd;stroke:#000000;stroke-width:4" />
+      </g>
+      <g
+         id="g3637">
+        <title
+           id="title3639">Layer 19</title>
+        <path
+           d="m 153.07,25.827 c -14.94,9.855 -26.8,22.269 -34.28,36.344 l 10.97,20 30.75,-13.906 -4.32,-42.281 -3.12,-0.157 z"
+           id="imagebot_9"
+           inkscape:connector-curvature="0"
+           style="fill:#ffffff;fill-opacity:0.19607999;fill-rule:evenodd;stroke:#000000;stroke-width:4" />
+      </g>
+      <g
+         id="g3642">
+        <title
+           id="title3644">Layer 20</title>
+        <path
+           d="m 273.22,35.127 26.5,17.5 14,-6.5 -8,-20 -25,-8 -7.5,17 z"
+           id="imagebot_8"
+           inkscape:connector-curvature="0"
+           style="fill:#ffffff;fill-opacity:0.07843;fill-rule:evenodd;stroke:#000000;stroke-width:4" />
+      </g>
+      <g
+         id="g3647">
+        <title
+           id="title3649">Layer 21</title>
+        <path
+           d="m 129.22,83.625 -14.5,16.995 4.4,19.04 c 1.47,2.71 3.1,5.35 4.88,7.93 l 28.72,8.53 -1,-27.5 -22.5,-24.995 z"
+           id="imagebot_7"
+           inkscape:connector-curvature="0"
+           style="fill:#ffffff;fill-opacity:0.07843;fill-rule:evenodd;stroke:#000000;stroke-width:4" />
+      </g>
+      <g
+         id="g3652">
+        <title
+           id="title3654">Layer 22</title>
+        <path
+           d="m 278.7,157.48 c 0,9.74 -7.89,17.63 -17.63,17.63 -9.73,0 -17.62,-7.89 -17.62,-17.63 0,-9.73 7.89,-17.62 17.62,-17.62 9.74,0 17.63,7.89 17.63,17.62 z"
+           id="imagebot_6"
+           inkscape:connector-curvature="0"
+           style="fill:#ffffff;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round" />
+      </g>
+      <g
+         id="g3657">
+        <title
+           id="title3659">Layer 23</title>
+        <path
+           d="m 261.88,163.12 c 0,3.13 -2.54,5.66 -5.67,5.66 -3.13,0 -5.66,-2.53 -5.66,-5.66 0,-3.13 2.53,-5.67 5.66,-5.67 3.13,0 5.67,2.54 5.67,5.67 z"
+           id="imagebot_5"
+           inkscape:connector-curvature="0"
+           style="stroke-width:4;stroke-linecap:round;stroke-linejoin:round" />
+      </g>
+      <g
+         id="g3662">
+        <title
+           id="title3664">Layer 24</title>
+        <path
+           d="m 318,127.89 28,-7 -11.5,-37 -24.5,-1.5 -16.5,20 24.5,25.5 z"
+           id="imagebot_4"
+           inkscape:connector-curvature="0"
+           style="fill:#ffffff;fill-opacity:0.07843;fill-rule:evenodd;stroke:#000000;stroke-width:4" />
+      </g>
+      <g
+         id="g3667">
+        <title
+           id="title3669">Layer 25</title>
+        <path
+           d="m 220,86.39 -27,19 -16,-12.5 13,-31.5 24.5,-4.5 5.5,29.5 z"
+           id="imagebot_3"
+           inkscape:connector-curvature="0"
+           style="fill:#ffffff;fill-opacity:0.07843;fill-rule:evenodd;stroke:#000000;stroke-width:4" />
+      </g>
+      <g
+         id="g3672">
+        <title
+           id="title3674">Layer 26</title>
+        <path
+           d="m 234,2.0312 c -17.05,0.3232 -33.25,3.1722 -48,8.0308 l -4,14.813 33.5,8 27,-23 -8.22,-7.8438 c -0.09,0.0017 -0.19,-0.0017 -0.28,0 z"
+           id="imagebot_2"
+           inkscape:connector-curvature="0"
+           style="fill:#ffffff;fill-opacity:0.11764999;fill-rule:evenodd;stroke:#000000;stroke-width:4" />
       </g>
     </g>
   </g>
