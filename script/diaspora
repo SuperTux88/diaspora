@@ -13,22 +13,21 @@
 
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 DIASPORA_DIR=/srv/diaspora
-if [[ "$DIASPORA_DIR" = /path/to/diapora/root ]]; then
-echo "Please configure this script for your diapora root"
-fi
+UNICORN_RUN_DIR=/var/run/diaspora
 USERNAME="diaspora"
-if [[ "$USERNAME" = user ]]; then
-echo "Please configure this script for the correct user"
-fi
 
 if [[ "$USERNAME" != "$LOGNAME" ]]; then
+  if [ $EUID -eq 0 -a ! -d "$UNICORN_RUN_DIR" ]; then
+    mkdir $UNICORN_RUN_DIR
+    chown $USERNAME:$USERNAME $UNICORN_RUN_DIR
+  fi
   echo "change user to $USERNAME"
   chown $USERNAME:$USERNAME -R $DIASPORA_DIR
   su - $USERNAME -c "$0 $1"
   exit $?
 fi
 
-PID=/var/run/diaspora/diaspora.pid
+PID=$UNICORN_RUN_DIR/diaspora.pid
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
@@ -148,14 +147,13 @@ function restart_services {
 }
 
 function service_status {
-  if status_of_proc -p log/diaspora.pid unicorn_rails > /dev/null; then
+  if status_of_proc -p $PID unicorn_rails > /dev/null; then
     echo "Unicorn is running"
   else
     echo "Unicorn is not running"
   fi
 
-  echo `pidof redis-server` > log/redis.pid
-  if status_of_proc -p log/redis.pid redis > /dev/null; then
+  if status_of_proc -p /var/run/redis/redis-server.pid redis > /dev/null; then
     echo "Redis is running"
   else
     echo "Redis is not running"
