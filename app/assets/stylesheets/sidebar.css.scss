@@ -163,6 +163,7 @@ $bluebg: #e7f2f7;
       .icons-monotone_wrench_settings,
       .icons-coffee,
       .icons-mail,
+      .icons-mumble,
       .icons-bookmark {
         position: absolute;
         margin-left: 3px;
@@ -197,6 +198,11 @@ $bluebg: #e7f2f7;
       .icons-mail {
         width:  16px;
         height: 13px;
+      }
+
+      .icons-mumble {
+        width:  16px;
+        height: 16px;
       }
 
 
