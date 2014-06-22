@@ -72,3 +72,5 @@ features/reports
 spec/reports
 spec/reports_fixtures
 
+#IDE
+diaspora.iml
