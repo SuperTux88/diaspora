@@ -1,0 +1,23 @@
+#xeyes {
+  position: absolute;
+  top: 7px;
+  left: 64px;
+}
+
+.eyeball {
+  width: 13px;
+  height: 15px;
+  background: #fff;
+  border-radius: 50%;
+  /* border: 2px solid rgba(0,0,0,1); */
+  float: left;
+  cursor: none;
+  margin-right: 6px;
+}
+
+.iris {
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  background: #000;
+}
