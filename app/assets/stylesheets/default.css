@@ -5,6 +5,7 @@
 *= require mentions
 *= require tags
 *= require hovercard
+*= require xeyes
 
 *= require vendor/interim-bootstrap
 *= require vendor/facebox
