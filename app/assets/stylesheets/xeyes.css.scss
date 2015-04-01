@@ -1,23 +1,23 @@
 #xeyes {
   position: absolute;
-  top: 7px;
-  left: 64px;
+  top: 5px;
+  left: 107px;
 }
 
 .eyeball {
-  width: 13px;
-  height: 15px;
+  width: 8px;
+  height: 8px;
   background: #fff;
-  border-radius: 50%;
-  /* border: 2px solid rgba(0,0,0,1); */
+  border-radius: 100%;
+  border: 1px solid rgba(0,0,0,1);
   float: left;
   cursor: none;
-  margin-right: 6px;
+  margin-right: 1px;
 }
 
 .iris {
-  width: 5px;
-  height: 5px;
+  width: 3px;
+  height: 3px;
   border-radius: 100%;
   background: #000;
 }
