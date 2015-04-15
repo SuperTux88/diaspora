@@ -1,3 +1,4 @@
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
 app.views.Hovercard = app.views.Base.extend({
   templateName: 'hovercard',
@@ -15,7 +16,7 @@ app.views.Hovercard = app.views.Base.extend({
       .on('mouseleave', '.hovercardable', _.bind(this._mouseleaveHandler, this));
 
     this.show_me = false;
-    this.parent = null;  // current 'hovercarable' element that caused HC to appear
+    this.parent = null;  // current 'hovercardable' element that caused HC to appear
 
     // cache some element references
     this.avatar = this.$('.avatar');
@@ -28,7 +29,7 @@ app.views.Hovercard = app.views.Base.extend({
   },
 
   postRenderTemplate: function() {
-    this.$el.appendTo($('body'))
+    this.$el.appendTo($('body'));
   },
 
   deactivate: function() {
@@ -40,7 +41,7 @@ app.views.Hovercard = app.views.Base.extend({
   },
 
   _mouseenterHandler: function(event) {
-    if( this.active == false ||
+    if( this.active === false ||
         $.contains(this.el, event.target) ) { return false; }
 
     var el = $(event.target);
@@ -48,7 +49,7 @@ app.views.Hovercard = app.views.Base.extend({
       el = el.parents('a');
     }
 
-    if( el.attr('href').indexOf('/people') == -1 ) {
+    if( el.attr('href').indexOf('/people') === -1 ) {
       // can't fetch data from that URL, aborting
       return false;
     }
@@ -59,8 +60,11 @@ app.views.Hovercard = app.views.Base.extend({
   },
 
   _mouseleaveHandler: function(event) {
-    if( this.active == false ||
-        $.contains(this.el, event.relatedTarget) ) { return false; }
+    if( this.active === false ||
+      $.contains(this.el, event.relatedTarget) ) { return false; }
+
+    if( this.mouseIsOverElement(this.parent, event) ||
+      this.mouseIsOverElement(this.$el, event) ) { return false; }
 
     this.show_me = false;
     if( this.$el.is(':visible') ) {
@@ -69,7 +73,7 @@ app.views.Hovercard = app.views.Base.extend({
       this.$el.hide();
     }
 
-    this.dropdown_container.empty();
+    this.dropdown_container.unbind().empty();
     return false;
   },
 
@@ -94,7 +98,7 @@ app.views.Hovercard = app.views.Base.extend({
 
     var self = this;
     $.get(href, function(person){
-      if( !person || person.length == 0 ) {
+      if( !person || person.length === 0 ) {
         throw new Error("received data is not a person object");
       }
 
@@ -119,15 +123,13 @@ app.views.Hovercard = app.views.Base.extend({
     })) );
 
     // set aspect dropdown
+    // TODO render me client side!!!
     var href = this.href();
     href += "/aspect_membership_button";
-    if(gon.bootstrap == true){
-      href += "?bootstrap=true";
-    }
     $.get(href, function(response) {
       self.dropdown_container.html(response);
     });
-    var aspect_membership = new app.views.AspectMembership({el: self.dropdown_container});
+    new app.views.AspectMembership({el: self.dropdown_container});
   },
 
   _positionHovercard: function() {
@@ -138,5 +140,14 @@ app.views.Hovercard = app.views.Base.extend({
       top: p_pos.top + p_height - 25,
       left: p_pos.left
     });
-  }
+  },
+  
+  mouseIsOverElement: function(element, event) {
+    var el_pos = element.offset();
+    return event.pageX >= el_pos.left && 
+      event.pageX <= el_pos.left + element.width() &&
+      event.pageY >= el_pos.top && 
+      event.pageY <= el_pos.top + element.height();
+  },
 });
+// @license-end
