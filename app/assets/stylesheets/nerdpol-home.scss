@@ -1,0 +1,39 @@
+#page {
+  margin-top: 60px;
+}
+
+.row {
+  margin-bottom: 40px;
+}
+
+h3 {
+  color: #777;
+}
+
+#steps,
+#start-links,
+#resources {
+  text-align: center;
+}
+
+#start-links {
+  font-size: 20px;
+}
+
+#links {
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style: none;
+  }
+
+  .section {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    vertical-align: top;
+    width: 24%;
+    max-width: 24%;
+  }
+}
