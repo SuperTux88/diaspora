@@ -1,0 +1,27 @@
+<% content_for(:page_title) do %>503: THE SYSTEM IS **DOWN**<% end %>
+
+<% content_for(:head) do %>
+<meta http-equiv="refresh" content="15">
+<% end %>
+
+<%= render :partial => "errors/header" %>
+
+<div class="container">
+  <div id="grey_header">
+    <h1>503: THE SYSTEM IS **DOWN**</h1>
+  </div>
+
+  <div class="container" style="text-align: center;">
+    <div class="cat-image">
+      <a href="http://www.flickr.com/photos/melyssa/482784800/" target="_blank"><%= image_tag "branding/cat_updating.jpg" %></a>
+    </div>
+
+    <h2 style="margin: 25px 0;">DIASPORA* (nerdpol.ch) is down right now,<br/>but we are probably <a href="https://github.com/SuperTux88/diaspora/commits" target="_blank">doing something awesome</a>.</h2>
+
+    <h2 style="margin: 25px 0;">We will be back shortly!</h2>
+
+    <h4>this site will automatically be refreshed, so you will be redirected to DIASPORA* (nerdpol.ch) when it is online!</h4>
+  </div>
+</div>
+
+<%= render :partial => "layouts/footer" %>

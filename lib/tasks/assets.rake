@@ -48,7 +48,7 @@ end
 namespace :assets do
   desc "Generate error pages"
   task :generate_error_pages do
-    renderer = ErrorPageRenderer.new codes: [404, 422, 500]
+    renderer = ErrorPageRenderer.new codes: [404, 422, 500, :updating]
     renderer.render
   end
 

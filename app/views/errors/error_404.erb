@@ -1,0 +1,21 @@
+<% content_for(:page_title) do %>404: The page you were looking for doesn't exist<% end %>
+
+<%= render :partial => "errors/header" %>
+
+<div class="container">
+  <div id="grey_header">
+    <h1>404: Not Found</h1>
+  </div>
+
+  <div class="container" style="text-align: center;">
+    <div class="cat-image">
+      <a href="http://www.flickr.com/photos/psd/413633614/" target="_blank"><%= image_tag "branding/cat_404.jpg" %></a>
+    </div>
+
+    <h1 style="margin: 25px 0;">The page you were looking for doesn't exist (404)</h1>
+
+    <h4><a href="javascript:history.go(-1)">Go Back</a></h4>
+  </div>
+</div>
+
+<%= render :partial => "layouts/footer" %>

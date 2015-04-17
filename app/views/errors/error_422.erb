@@ -1,0 +1,21 @@
+<% content_for(:page_title) do %>422: The change you wanted was rejected<% end %>
+
+<%= render :partial => "errors/header" %>
+
+<div class="container">
+  <div id="grey_header">
+    <h1>422: The change you wanted was rejected</h1>
+  </div>
+
+  <div class="container" style="text-align: center;">
+    <div class="cat-image">
+      <%= image_tag "branding/cat_422.jpg" %>
+    </div>
+
+    <p style="margin: 25px 0;">Maybe you tried to change something you didn't have access to.</p>
+
+    <h4><a href="javascript:history.go(-1)">Go Back</a></h4>
+  </div>
+</div>
+
+<%= render :partial => "layouts/footer" %>

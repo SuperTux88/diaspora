@@ -6,7 +6,9 @@
     %link{rel: "shortcut icon", href: image_path("favicon.png")}
     %link{rel: "apple-touch-icon", href: image_path("apple-touch-icon.png")}
 
-    = stylesheet_link_tag :error_pages, media: "all"
+    = stylesheet_link_tag :'bootstrap-complete', media: "screen"
+    = stylesheet_link_tag :application, media: "all"
+    = stylesheet_link_tag :nerdpol_error_pages, media: "all"
 
     = yield(:head)
 

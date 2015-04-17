@@ -84,7 +84,7 @@ module Diaspora
       bootstrap.css
       bootstrap-complete.css
       bootstrap-responsive.css
-      error_pages.css
+      nerdpol_error_pages.css
       admin.css
       mobile/mobile.css
       rtl.css
