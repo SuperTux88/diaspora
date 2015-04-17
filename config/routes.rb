@@ -218,9 +218,9 @@ Diaspora::Application.routes.draw do
     end
   end
 
-  post 'github-receive' => "commits#receive"
-
   get 'community_spotlight' => "contacts#spotlight", :as => 'community_spotlight'
+
+  post 'github-receive' => "commits#receive"
 
   # Mobile site
 
