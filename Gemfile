@@ -185,10 +185,6 @@ gem "minitest"
 gem "therubyracer", :platform => :ruby
 
 group :production do # we don"t install these on travis to speed up test runs
-  # Administration
-
-  gem "rails_admin", "0.6.7"
-
   # Analytics
 
   gem "rack-google-analytics", "1.2.0"

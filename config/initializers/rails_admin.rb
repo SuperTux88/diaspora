@@ -1,6 +1,6 @@
 # RailsAdmin config file. Generated on March 24, 2012 15:34
 # See github.com/sferik/rails_admin for more informations
-if Rails.env.production?
+if Rails.env.production? && Object.const_defined?('RailsAdmin')
   # Recommended way to deal with Kaminari vs. WillPaginate issues
   if defined?(WillPaginate)
     Kaminari.configure do |config|
