@@ -3,12 +3,22 @@
 -# the COPYRIGHT file.
 
 - content_for :head do
-  = stylesheet_link_tag :error_pages, :media => 'all'
+  = stylesheet_link_tag :nerdpol_error_pages, :media => 'all'
 
-#big-number.transparent
-  404
+= render :partial => "layouts/header"
 
-#content
-  = t('error_messages.post_not_public_or_not_exist')
-  %br
-  = t('error_messages.login_try_again', :login_link => new_user_session_path).html_safe
+.container{style: "text-align: center;"}
+  #grey_header
+    %h1
+      404: Not Found
+
+  .container
+    .cat-image
+      = image_tag "branding/cat_422.jpg"
+
+  %h2{style: "margin: 25px 0;"}
+    = t('error_messages.post_not_public_or_not_exist')
+  %h4
+    = t('error_messages.login_try_again', :login_link => new_user_session_path).html_safe
+
+= render :partial => "layouts/footer"
