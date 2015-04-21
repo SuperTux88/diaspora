@@ -96,9 +96,9 @@ describe("app.helpers.textFormatter", function(){
         "http://www.yahooligans.com",
         "http://obama.com",
         "http://japan.co.jp",
-        "www.mygreat-example-website.de",
-        "www.jenseitsderfenster.de",  // from issue #3468
-        "www.google.com",
+        "http://www.mygreat-example-website.de",
+        "http://www.jenseitsderfenster.de",  // from issue #3468
+        "mumble://mumble.coding4.coffee",
         "xmpp:podmin@pod.tld",
         "mailto:podmin@pod.tld"
       ];
@@ -119,7 +119,6 @@ describe("app.helpers.textFormatter", function(){
     it("adds a missing http://", function() {
       expect(this.formatter('[test](www.google.com)')).toContain('href="http://www.google.com"');
       expect(this.formatter('[test](http://www.google.com)')).toContain('href="http://www.google.com"');
-      expect(this.formatter('www.google.com')).toContain('href="http://www.google.com"');
     });
 
     it("respects code blocks", function() {
