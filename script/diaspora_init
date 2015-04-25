@@ -175,12 +175,12 @@ function start_sidekiq() {
 }
 
 function stop_sidekiq() {
-  if [ `get_sidekiq_pid | wc -l` > 0 ] ; then
+  if [ `get_sidekiq_pid | wc -l` -gt 0 ]; then
     echo -n "Stopping Sidekiq ."
     get_sidekiq_pid | while read line; do
       kill $line
     done
-    while [ `get_sidekiq_pid | wc -l` > 0 ]; do echo -n "."; sleep 1; done
+    while [ `get_sidekiq_pid | wc -l` -gt 0 ]; do echo -n "."; sleep 1; done
     echo
   fi
 }
