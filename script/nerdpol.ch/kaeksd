@@ -8,29 +8,25 @@ USERNAME="diaspora"
 export RAILS_ENV="production"
 export DB="mysql"
 
-function get_sidekiq_pid {
+function get_sidekiq_pid() {
   ps -o %p,%a -U $USERNAME | grep sidekiq | grep -v grep | cut -f1 -d,
 }
 
-function start_sidekiq {
+function start_sidekiq() {
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
   cd $DIASPORA_DIR
 
+  echo "Restart Sidekiq ... "
   echo "-------- Starting: $(date)" >>log/sidekiq.log &
   cgexec -g memory:limited bundle exec sidekiq &>> log/sidekiq.log &
   echo "Sidekiq started "
 }
 
-function restart_services {
-  echo "Restart ... "
-  start_sidekiq
-}
-
 function service_status {
   if [ `get_sidekiq_pid | wc -l` -eq "0" ] ; then
     echo "Sidekiq is not running"
-    restart_services
+    start_sidekiq
   fi
 }
 
