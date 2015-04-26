@@ -18,6 +18,8 @@ app.pages.Contacts = Backbone.View.extend({
     this.stream.render();
     $("#people_stream.contacts .header .entypo").tooltip({ 'placement': 'bottom'});
     $(document).on('ajax:success', 'form.edit_aspect', this.updateAspectName);
+
+    this.setupAspectSorting();
   },
 
   toggleChatPrivilege: function() {
@@ -69,6 +71,18 @@ app.pages.Contacts = Backbone.View.extend({
 
   searchContactList: function(e) {
     this.stream.search($(e.target).val());
+  },
+
+  setupAspectSorting: function() {
+    $("#aspect_nav .nav").sortable({
+      items: "li.aspect[data-aspect-id]",
+      update: function() {
+        var data = JSON.stringify({ ordered_aspect_ids: $(this).sortable("toArray", { attribute: "data-aspect-id" }) });
+        $.ajax("/aspects/order", { type: "put", dataType: "text", contentType: "application/json", data: data });
+      },
+      revert: true,
+      helper: "clone"
+    });
   }
 });
 // @license-end
