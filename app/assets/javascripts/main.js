@@ -45,4 +45,3 @@
 //= require bootstrap-dropdown
 //= require bootstrap-modal
 //= require osmlocator
-//= require jquery.xeyes-2.0.min

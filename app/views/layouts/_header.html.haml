@@ -7,14 +7,6 @@
     .container{style: "position:relative;"}
       = link_to root_path do
         .diaspora_header_logo.branding-header-logo
-        #xeyes
-          .eyeball
-            .iris
-          .eyeball
-            .iris
-
-      :javascript
-        $('.iris').xeyes();
 
       %ul#landing_nav
         - if AppConfig.settings.enable_registrations? && !current_page?(controller: '/registrations', action: :new)
