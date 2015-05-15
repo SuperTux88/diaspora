@@ -13,7 +13,7 @@ gem "responders", "2.1.0"
 
 # Appserver
 
-gem "unicorn", "4.8.3", require: false
+gem "puma", "2.11.2", require: false
 
 # API and JSON
 

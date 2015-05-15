@@ -13,14 +13,14 @@
 
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 DIASPORA_DIR=/srv/diaspora
-UNICORN_RUN_DIR=/var/run/diaspora
-PID=$UNICORN_RUN_DIR/diaspora.pid
+DIASPORA_RUN_DIR=/var/run/diaspora
+PID=$DIASPORA_RUN_DIR/diaspora.pid
 USERNAME="diaspora"
 
 if [[ "$USERNAME" != "$LOGNAME" ]]; then
-  if [ $EUID -eq 0 -a ! -d "$UNICORN_RUN_DIR" ]; then
-    mkdir $UNICORN_RUN_DIR
-    chown $USERNAME:$USERNAME $UNICORN_RUN_DIR
+  if [ $EUID -eq 0 -a ! -d "$DIASPORA_RUN_DIR" ]; then
+    mkdir $DIASPORA_RUN_DIR
+    chown $USERNAME:$USERNAME $DIASPORA_RUN_DIR
   fi
   echo "change user to $USERNAME"
   chown $USERNAME:$USERNAME -R $DIASPORA_DIR
@@ -189,14 +189,14 @@ function start_services() {
   echo "Start Services: "
   start_sidekiq
 
-  echo "Starting Unicorn ... "
-  bundle exec unicorn_rails -c config/unicorn.rb -D
+  echo "Starting Puma ... "
+  bundle exec pumactl -F config/puma.rb start &>> log/puma.log
 }
 
 function stop_services() {
   echo "Stop Services: "
-  echo -n "Stopping Unicorn ..."
-  kill -QUIT `cat $PID`
+  echo -n "Stopping Puma ..."
+  bundle exec pumactl -F config/puma.rb stop &>> log/puma.log
 
   stop_sidekiq
 }
@@ -207,15 +207,15 @@ function restart_services() {
   stop_sidekiq
   start_sidekiq
 
-  echo "Restart Unicorn ..."
-  kill -USR2 `cat $PID`
+  echo "Restart Puma ..."
+  bundle exec pumactl -F config/puma.rb restart &>> log/puma.log
 }
 
 function service_status() {
-  if status_of_proc -p $PID unicorn_rails > /dev/null; then
-    echo "Unicorn is running"
+  if status_of_proc -p $PID puma > /dev/null; then
+    echo "Puma is running"
   else
-    echo "Unicorn is not running"
+    echo "Puma is not running"
   fi
 
   if status_of_proc -p /var/run/redis/redis-server.pid redis > /dev/null; then
