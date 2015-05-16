@@ -13,6 +13,10 @@ module Diaspora; module Fetcher; class Public
   Status_Failed  = 5
   Status_Unfetchable = 6
 
+  def self.queue_for(person)
+    Workers::FetchPublicPosts.perform_async(person.diaspora_handle) unless person.fetch_status > Status_Initial
+  end
+
   # perform all actions necessary to fetch the public posts of a person
   # with the given diaspora_id
   def fetch! diaspora_id
@@ -75,7 +79,7 @@ module Diaspora; module Fetcher; class Public
 
       FEDERATION_LOGGER.info "fetching public posts for #{@person.diaspora_handle}"
 
-      resp = Faraday.get("#{@person.url}people/#{@person.guid}") do |req|
+      resp = Faraday.get("#{@person.url}people/#{@person.guid}/stream") do |req|
         req.headers['Accept'] = 'application/json'
         req.headers['User-Agent'] = 'diaspora-fetcher'
       end

@@ -17,12 +17,30 @@ describe Diaspora::Fetcher::Public do
                                 :url => "https://remote-testpod.net",
                                 :diaspora_handle => "testuser@remote-testpod.net"})
 
-    stub_request(:get, /remote-testpod.net\/people\/.*/)
+    stub_request(:get, /remote-testpod.net\/people\/.*\/stream/)
       .with(headers: {
             'Accept'=>'application/json',
             'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
             'User-Agent'=>'diaspora-fetcher'
       }).to_return(:body => @fixture)
+  end
+
+  describe "#queue_for" do
+    it "queues a new job" do
+      @person.fetch_status = Diaspora::Fetcher::Public::Status_Initial
+
+      expect(Workers::FetchPublicPosts).to receive(:perform_async).with(@person.diaspora_handle)
+
+      Diaspora::Fetcher::Public.queue_for(@person)
+    end
+
+    it "queues no job if the status is not initial" do
+      @person.fetch_status = Diaspora::Fetcher::Public::Status_Done
+
+      expect(Workers::FetchPublicPosts).not_to receive(:perform_async).with(@person.diaspora_handle)
+
+      Diaspora::Fetcher::Public.queue_for(@person)
+    end
   end
 
   describe "#retrieve_posts" do
