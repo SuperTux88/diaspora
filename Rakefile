@@ -8,19 +8,6 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-class Object
-  def optional_require(feature)
-    begin
-      require feature
-    rescue LoadError
-    end
-  end
-end
-
-# ci_reporter
-require 'rubygems'
-optional_require 'ci/reporter/rake/rspec'
-
 # for rake 0.9.0
 module Diaspora
   class Application

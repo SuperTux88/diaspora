@@ -18,9 +18,6 @@ begin
       t.binary = vendored_cucumber_bin # If nil, the gem's binary is used.
       t.fork = true # You may get faster startup if you set this to false
       t.profile = 'default'
-      cucumber_opts = ""
-      cucumber_opts << " --format junit --out features/reports" if ENV["JENKINS"]
-      t.cucumber_opts =  cucumber_opts
     end
 
     Cucumber::Rake::Task.new({:wip => 'db:test:prepare'}, 'Run features that are being worked on') do |t|

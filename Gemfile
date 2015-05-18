@@ -183,7 +183,7 @@ gem "minitest"
 #
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 
-gem "therubyracer", :platform => :ruby
+# gem "therubyracer", :platform => :ruby
 
 group :production do # we don"t install these on travis to speed up test runs
   # Analytics
@@ -260,7 +260,6 @@ group :test do
   gem "timecop",            "0.7.3"
   gem "webmock",            "1.20.4", require: false
   gem "shoulda-matchers",   "2.8.0", require: false
-  gem 'ci_reporter'
 end
 
 group :development, :test do
