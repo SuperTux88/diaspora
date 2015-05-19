@@ -8,8 +8,8 @@ bind 'unix:///var/run/diaspora/diaspora.sock'
 
 worker_timeout AppConfig.server.unicorn_timeout.to_i
 
-stdout_redirect AppConfig.server.stdout_log.present? ? AppConfig.server.stdout_log.get : '/dev/null',
-                AppConfig.server.stderr_log.present? ? AppConfig.server.stderr_log.get : '/dev/null'
+stdout_redirect AppConfig.server.stdout_log? ? AppConfig.server.stdout_log.get : '/dev/null',
+                AppConfig.server.stderr_log? ? AppConfig.server.stderr_log.get : '/dev/null'
 
 environment AppConfig.server.rails_environment
 
