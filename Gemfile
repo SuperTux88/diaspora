@@ -272,4 +272,7 @@ group :development, :test do
   gem "jasmine-jquery-rails",      "2.0.3"
   gem "rails-assets-jasmine-ajax", "3.1.0", source: "https://rails-assets.org"
   gem "sinon-rails",               "1.10.3"
+
+  # silence assets
+  gem "quiet_assets", "1.1.0"
 end
