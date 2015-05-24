@@ -46,6 +46,8 @@ end
 
 
 after_fork do |server, worker|
+  Logging.reopen # reopen logfiles to obtain a new file descriptor
+
   # If using preload_app, enable this line
   ActiveRecord::Base.establish_connection
 
