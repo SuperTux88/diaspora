@@ -1,0 +1,22 @@
+-# Copyright (c) 2010-2012, Diaspora Inc. This file is
+-# licensed under the Affero General Public License version 3 or later. See
+-# the COPYRIGHT file.
+
+- content_for :head do
+  = stylesheet_link_tag :nerdpol_error_pages, :media => "all"
+
+%header#main_nav.mobile
+  = link_to(image_tag("mobile/asterisk_white_mobile.png"), stream_path, id: "header_title")
+
+.container.mobile{style: "text-align: center;"}
+  %h2
+    404: Not Found
+
+  .container
+    .cat-image
+      = image_tag "branding/cat_not_public.jpg"
+
+  %h4{style: "margin: 25px 0;"}
+    = t('error_messages.post_not_public_or_not_exist')
+  %h5
+    = t('error_messages.login_try_again', :login_link => new_user_session_path).html_safe

@@ -14,3 +14,14 @@ body {
   text-align: center;
   border-bottom: 1px solid #DDD;
 }
+
+header.mobile {
+  position: absolute;
+  left: 0;
+}
+
+.container.mobile {
+  position: absolute;
+  top: 50px;
+  left: 0;
+}
