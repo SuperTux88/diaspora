@@ -801,3 +801,6 @@ DEPENDENCIES
   webmock (= 1.20.4)
   will_paginate (= 3.0.7)
   zip-zip
+
+BUNDLED WITH
+   1.10.2
