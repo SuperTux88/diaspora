@@ -9,15 +9,11 @@ require 'erb'
 require 'redcarpet/render_strip'
 require 'typhoeus'
 
-# Presenters
-require 'post_presenter'
-
 # Our libs
 require 'diaspora'
 require 'direction_detector'
 require 'email_inviter'
 require 'evil_query'
-require 'federation_logger'
 require 'h_card'
 require 'hydra_wrapper'
 require 'postzord'

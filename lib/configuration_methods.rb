@@ -34,6 +34,13 @@ module Configuration
     end
     attr_writer :configured_services
 
+    def show_service?(service, user)
+      return false unless self["services.#{service}.enable"]
+      # Return true only if 'authorized' is true or equal to user username
+      (user && self["services.#{service}.authorized"] == user.username) ||
+        self["services.#{service}.authorized"] == true
+    end
+
     def secret_token
       if heroku?
         return ENV['SECRET_TOKEN'] if ENV['SECRET_TOKEN']
@@ -114,7 +121,7 @@ module Configuration
 
     def sidekiq_log
       path = Pathname.new environment.sidekiq.log.get
-      path = Rails.root.join(path) unless pathname.absolute?
+      path = Rails.root.join(path) unless path.absolute?
       path.to_s
     end
 

@@ -13,6 +13,7 @@ gem "responders", "2.1.0"
 
 # Appserver
 
+gem "unicorn", "4.9.0", require: false
 gem "puma", "2.11.2", require: false
 
 # API and JSON
@@ -32,7 +33,7 @@ gem "simple_captcha2", "0.3.4", require: "simple_captcha"
 
 # Background processing
 
-gem "sidekiq", "3.3.3"
+gem "sidekiq", "3.3.4"
 gem "sinatra", "1.4.6"
 
 # Scheduled processing
@@ -45,18 +46,18 @@ gem "uglifier", "2.7.1"
 
 # Configuration
 
-gem "configurate", "0.2.0"
+gem "configurate", "0.3.1"
 
 # Cross-origin resource sharing
 
-gem "rack-cors", "0.3.1", require: "rack/cors"
+gem "rack-cors", "0.4.0", require: "rack/cors"
 
 # CSS
 
 gem "bootstrap-sass", "2.3.2.2"
 gem "compass-rails",  "2.0.4"
 gem "sass-rails",     "5.0.1"
-gem "autoprefixer-rails", "5.1.7.1"
+gem "autoprefixer-rails", "5.1.11"
 
 # Database
 
@@ -70,8 +71,8 @@ gem "activerecord-import", "0.7.0"
 # File uploading
 
 gem "carrierwave", "0.10.0"
-gem "fog",         "1.28.0"
-gem "mini_magick", "4.2.0"
+gem "fog",         "1.30.0"
+gem "mini_magick", "4.2.3"
 gem "remotipart",  "1.2.1"
 
 # GUID generation
@@ -79,36 +80,40 @@ gem "uuid", "2.3.7"
 
 # Icons
 
-gem "entypo-rails", "2.2.2"
+gem "entypo-rails", "2.2.3"
 
 # JavaScript
 
-gem "backbone-on-rails",                                "1.1.2"
+gem "backbone-on-rails",                                "1.1.2.1"
 gem "handlebars_assets",                                "0.20.1"
-gem "jquery-rails",                                     "3.1.2"
+gem "jquery-rails",                                     "4.0.3"
 gem "jquery-ui-rails",                                  "5.0.3"
 gem "js_image_paths",                                   "0.0.2"
-gem "js-routes",                                        "1.0.0"
+gem "js-routes",                                        "1.0.1"
 
 source "https://rails-assets.org" do
-  gem "rails-assets-jquery",                              "1.11.1" # Should be kept in sync with jquery-rails
+  gem "rails-assets-jquery",                              "1.11.2" # Should be kept in sync with jquery-rails
 
-  gem "rails-assets-markdown-it",                         "4.2.0"
-  gem "rails-assets-markdown-it-hashtag",                 "0.3.0"
+  gem "rails-assets-markdown-it",                         "4.2.1"
+  gem "rails-assets-markdown-it-hashtag",                 "0.3.1"
   gem "rails-assets-markdown-it-diaspora-mention",        "0.3.0"
-  gem "rails-assets-markdown-it-sanitizer",               "0.3.0"
-  gem "rails-assets-markdown-it--markdown-it-for-inline", "0.1.0"
+  gem "rails-assets-markdown-it-sanitizer",               "0.3.1"
+  gem "rails-assets-markdown-it--markdown-it-for-inline", "0.1.1"
   gem "rails-assets-markdown-it-sub",                     "1.0.0"
   gem "rails-assets-markdown-it-sup",                     "1.0.0"
+  gem "rails-assets-highlightjs",                         "8.5.0"
 
   # jQuery plugins
 
-  gem "rails-assets-jeresig--jquery.hotkeys", "0.2.0"
-  gem "rails-assets-jquery-idletimer",        "1.0.1"
-  gem "rails-assets-jquery-placeholder",      "2.1.1"
-  gem "rails-assets-jquery-textchange",       "0.2.3"
-  gem "rails-assets-perfect-scrollbar",       "0.5.9"
+  gem "rails-assets-jeresig--jquery.hotkeys",       "0.2.0"
+  gem "rails-assets-jquery-idletimer",              "1.0.1"
+  gem "rails-assets-jquery-placeholder",            "2.1.1"
+  gem "rails-assets-jquery-textchange",             "0.2.3"
+  gem "rails-assets-perfect-scrollbar",             "0.5.9"
+  gem "rails-assets-jakobmattsson--jquery-elastic", "1.6.11"
 end
+
+gem "facebox-rails", "0.2.0"
 
 # Localization
 
@@ -125,19 +130,19 @@ gem "messagebus_ruby_api", "1.0.3"
 
 gem "nokogiri",          "1.6.6.2"
 gem "redcarpet",         "3.2.3"
-gem "twitter-text",      "1.11.0"
+gem "twitter-text",      "1.12.0"
 gem "roxml",             "3.1.6"
-gem "ruby-oembed",       "0.8.12"
-gem "open_graph_reader", "0.5.0"
+gem "ruby-oembed",       "0.8.14"
+gem "open_graph_reader", "0.6.1"
 
 # Services
 
 gem "omniauth",           "1.2.2"
-gem "omniauth-facebook",  "1.6.0"
+gem "omniauth-facebook",  "2.0.1"
 gem "omniauth-tumblr",    "1.1"
-gem "omniauth-twitter",   "1.0.1"
-gem "twitter",            "4.8.1"
-gem "omniauth-wordpress", "0.2.1"
+gem "omniauth-twitter",   "1.2.0"
+gem "twitter",            "5.14.0"
+gem "omniauth-wordpress", "0.2.2"
 
 # Serializers
 
@@ -153,7 +158,7 @@ gem "acts-as-taggable-on", "3.5.0"
 
 # URIs and HTTP
 
-gem "addressable",        "2.3.7", require: "addressable/uri"
+gem "addressable",        "2.3.8", require: "addressable/uri"
 gem "faraday",            "0.9.1"
 gem "faraday_middleware", "0.9.1"
 gem "faraday-cookie_jar", "0.0.6"
@@ -171,9 +176,9 @@ gem "rails-timeago",           "2.11.0"
 
 gem "logging-rails", "0.5.0", require: "logging/rails"
 
-# Workarounds
-# https://github.com/rubyzip/rubyzip#important-note
-gem "zip-zip"
+# Reading and writing zip files
+
+gem "rubyzip", "1.1.7"
 
 # Prevent occasions where minitest is not bundled in
 # packaged versions of ruby. See following issues/prs:
@@ -201,7 +206,7 @@ group :production do # we don"t install these on travis to speed up test runs
 
   # Process management
 
-  gem "foreman", "0.62"
+  gem "eye", "0.7.pre"
 
   # Redirects
 
@@ -225,11 +230,11 @@ group :development do
 
   # Linters
   gem "jshintrb", "0.3.0"
-  gem "rubocop",  "0.29.1"
+  gem "rubocop",  "0.31.0"
 
   # Preloading environment
 
-  gem "spring", "1.3.3"
+  gem "spring", "1.3.5"
   gem "spring-commands-rspec", "1.0.4"
   gem "spring-commands-cucumber", "1.0.1"
 
@@ -237,12 +242,15 @@ group :development do
   gem "pry"
   gem "pry-debundle"
   gem "pry-byebug"
+
+  # test coverage
+  gem "simplecov", "0.10.0", require: false
 end
 
 group :test do
   # RSpec (unit tests, some integration tests)
 
-  gem "fixture_builder",   "0.3.6"
+  gem "fixture_builder",   "0.4.1"
   gem "fuubar",            "2.0.0"
   gem "rspec-instafail",   "0.2.6", require: false
   gem "test_after_commit", "0.4.1"
@@ -262,7 +270,7 @@ group :test do
 
   gem "factory_girl_rails", "4.5.0"
   gem "timecop",            "0.7.3"
-  gem "webmock",            "1.20.4", require: false
+  gem "webmock",            "1.21.0", require: false
   gem "shoulda-matchers",   "2.8.0", require: false
 end
 
@@ -276,7 +284,7 @@ group :development, :test do
   # Jasmine (client side application tests (JS))
   gem "jasmine",                   "2.2.0"
   gem "jasmine-jquery-rails",      "2.0.3"
-  gem "rails-assets-jasmine-ajax", "3.1.0", source: "https://rails-assets.org"
+  gem "rails-assets-jasmine-ajax", "3.1.1", source: "https://rails-assets.org"
   gem "sinon-rails",               "1.10.3"
 
   # silence assets

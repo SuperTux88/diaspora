@@ -61,6 +61,37 @@ then
   fatal "config/diaspora.yml is missing! Copy over config/diaspora.yml.example to config/diaspora.yml and edit it properly!"
 fi
 
+command -v git > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+  # Check if git merge is in progress
+  if [ -f .git/MERGE_MODE ]; then
+    fatal "A git merge is in progress!"
+  fi
+
+  # Check if detached head state
+  git_branch_name="$(git symbolic-ref HEAD 2>/dev/null)"
+  if [ -z "$git_branch_name" ];
+  then
+    warning "You are in detached HEAD state!"
+  fi
+fi
+
+# Do RVM checks if RVM is being used
+command -v rvm > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+  rvm_gemset="$(rvm current | cut -d"@" -f2)"
+  project_gemset="$(cat .ruby-gemset | tr -d " \t\n\r")"
+  if [ "$rvm_gemset" != "$project_gemset" ]; then
+    warning "Project gemset is $project_gemset but you are using $rvm_gemset"
+  fi
+fi
+
+# Check if bundle is complete
+if ! bundle check > /dev/null
+then
+  fatal "Your bundle is not up to date, run the command \"bundle install\""
+fi
+
 # Setup environment
 if [ -z "$RAILS_ENV" ]
 then
@@ -88,17 +119,28 @@ then
   export DB
 fi
 
+if [ -z "$PORT" -a -n "$port" ]
+then
+  warning "Setting port via configuration is deprecated, set listen instead. See the updated config/diaspora.yml.example."
+  PORT="$port"
+fi
+
 args="$@"
 for arg in $(echo $args | awk '{ for (i = 1; i <= NF; i++) print $i}')
 do
-  [ "$prev_arg" = '-p' ] && port="$arg"
+  [ "$prev_arg" = '-p' ] && PORT="$arg"
   prev_arg="$arg"
 done
 
-services=$(chk_service $port )
-if [ -n "$services" ]
+if [ -n "$PORT" ]
 then
-  fatal "Port $port is already in use.\n\t$services"
+  export PORT
+
+  services=$(chk_service $PORT)
+  if [ -n "$services" ]
+  then
+    fatal "Port $port is already in use.\n\t$services"
+  fi
 fi
 
 # Force AGPL
@@ -106,8 +148,8 @@ if [ -w "public" -a ! -e  "public/source.tar.gz" ]
 then
   if command -v git > /dev/null 2>&1 && git rev-parse --is-inside-work-tree > /dev/null 2>&1
   then
-    branch=$(git branch | awk '/^[*]/ {print $2}')
-    tar czf public/source.tar.gz  $(git ls-tree -r $branch | awk '{print $4}')
+    commit_sha=$(git rev-parse HEAD)
+    tar czf public/source.tar.gz  $(git ls-tree -r $commit_sha | awk '{print $4}')
   else
     fatal "Can't generate public/source.tar.gz for you.
 Please tar up a copy of your Diaspora installation and place it there."
@@ -120,7 +162,7 @@ then
 fi
 
 # Check if assets are precompiled
-if [ "$RAILS_ENV" = "production" -a -z "$(find public/assets -maxdepth 1 -name 'home-*.css' -print -quit)" ]
+if [ "$RAILS_ENV" = "production" -a -z "$(find public/assets -maxdepth 1 -name 'home-*.css' -print -quit 2>/dev/null)" ]
 then
   fatal "You're running in production mode without having assets
 precompiled. Now and after each update before you restart the
@@ -140,13 +182,9 @@ https://github.com/diaspora/diaspora/issues/4202 for details
 "
 fi
 
-vines=0
-if [ "$chat" = "true" ] && [ "$chat_server" = "true" ]
+if [ "$chat" = "true" -a "$chat_server" = "true" -a  "$chat_bosh_proxy" = "false" ]
 then
-  vines=1
-  if [ "$chat_bosh_proxy" = "false" ]
-  then
-    warning "
+  warning "
 *****************************************************************
 You enabled the chat feature but haven't configured BOSH! That
 could lead to mixed-content problems with the http clients. Please
@@ -155,11 +193,14 @@ think about editing your proxy configuration as described in:
 diaspora.yml.example
 *****************************************************************
 "
-  fi
 fi
 
 # Start Diaspora
-echo -n "Starting Diaspora in $RAILS_ENV mode on port $port "
+printf "Starting Diaspora in $RAILS_ENV mode "
+if [ -n "$PORT" ]
+then
+  printf "on port $PORT "
+fi
 if [ "$embed_sidekiq_worker" = "true" ]
 then
   echo "with a Sidekiq worker embedded into Unicorn."
@@ -173,4 +214,4 @@ else
 fi
 echo ""
 
-exec bin/bundle exec foreman start -m "xmpp=$vines,web=1,sidekiq=$workers" -p $port
+exec bin/bundle exec loader_eye -st -c config/eye.rb

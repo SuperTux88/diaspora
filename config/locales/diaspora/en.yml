@@ -120,7 +120,6 @@ en:
       account_closing_scheduled: "The account of %{name} is scheduled to be closed. It will be processed in a few moments..."
       account_locking_scheduled: "The account of %{name} is scheduled to be locked. It will be processed in a few moments..."
       account_unlocking_scheduled: "The account of %{name} is scheduled to be unlocked. It will be processed in a few moments..."
-      email_to: "Email to Invite"
       email_to: "Email to invite"
       under_13: "Show users that are under 13 (COPPA)"
       users:
@@ -215,7 +214,8 @@ en:
       failure: "Aspect creation failed."
     destroy:
       success: "%{name} was successfully removed."
-      failure: "%{name} is not empty and could not be removed."
+      success_auto_follow_back: "%{name} was successfully removed. You used this aspect to automatically follow back users. Check your user settings to select a new auto follow back aspect."
+      failure: "%{name} could not be removed."
     update:
       success: "Your aspect, %{name}, has been successfully edited."
       failure: "Your aspect, %{name}, had too long name to be saved."
@@ -717,7 +717,7 @@ en:
       mark_unread: "Mark unread"
       show_all: "Show all"
       show_unread: "Show unread"
-      all_notifications: "All Notifications"
+      all_notifications: "All notifications"
       also_commented: "Also commented"
       comment_on_post: "Comment on post"
       liked: "Liked"
@@ -753,7 +753,10 @@ en:
         sharing: "has started sharing with you!"
         view_profile: "View %{name}’s profile"
     comment_on_post:
+        limited_subject: "There's a new comment on one of your posts"
         reply: "Reply or view %{name}’s post >"
+    also_commented:
+        limited_subject: "There's a new comment on a post you commented"
     mentioned:
         subject: "%{name} has mentioned you on diaspora*"
         mentioned: "mentioned you in a post:"
@@ -849,7 +852,10 @@ en:
 
         The diaspora* email robot!
 
+        P.S.: Just in case you don't know (yet) what diaspora* is, [here][2] is the answer!
+
         [1]: %{invite_url}
+        [2]: %{diasporafoundation_url}
     remove_old_user:
       subject: "Your diaspora* account has been flagged for removal due to inactivity"
       body: |-
@@ -1085,16 +1091,19 @@ en:
       failure: "There was an error resharing this post."
     comment_email_subject: "%{resharer}’s reshare of %{author}’s post"
   services:
+    provider:
+      facebook: "Facebook"
+      tumblr: "Tumblr"
+      twitter: "Twitter"
+      wordpress: "WordPress"
     index:
-      logged_in_as: "Logged in as"
+      connect: "Connect"
       disconnect: "Disconnect"
+      logged_in_as: "Logged in as %{nickname}."
+      no_services_available: "There are no services on this pod available."
+      not_logged_in: "Currently not logged in."
       really_disconnect: "Disconnect %{service}?"
-      connect_to_twitter: "Connect to Twitter"
-      connect_to_facebook: "Connect to Facebook"
-      connect_to_tumblr: "Connect to Tumblr"
-      connect_to_wordpress: "Connect to WordPress"
       edit_services: "Edit services"
-      no_services: "You have not connected any services yet."
       services_explanation: "Connecting to services gives you the ability to publish your posts to them as you write them in diaspora*."
     create:
       success: "Authentication successful."
@@ -1252,6 +1261,9 @@ en:
     destroy:
       success: "Alas! You aren’t following #%{name} any more."
       failure: "Failed to stop following #%{name}. Maybe you already stopped following it?"
+    manage:
+      title: "Manage followed tags"
+      no_tags: "You aren't following any tags."
 
   streams:
     community_spotlight_stream: "Community spotlight"
@@ -1300,6 +1312,7 @@ en:
       change: "Change"
       your_handle: "Your diaspora* ID"
       your_email: "Your email"
+      your_email_private: "Your email will never be seen by other users"
       change_email: "Change email"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Until you follow this link and activate the new address, we will continue to use your original address %{email}."
       change_password: "Change password"

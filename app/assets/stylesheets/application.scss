@@ -47,7 +47,7 @@
 
 /* conversations */
 @import 'conversations';
-@import 'vendor/facebox';
+@import 'jquery.facebox';
 @import 'facebox';
 
 /* publisher */
@@ -92,6 +92,7 @@
 
 /* code */
 @import 'new_styles/code';
+@import 'highlightjs/github';
 
 /* statistics */
 @import 'new_styles/statistics';

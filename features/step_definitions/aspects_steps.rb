@@ -82,6 +82,12 @@ When /^I press the aspect dropdown$/ do
   click_aspect_dropdown
 end
 
+When /^(.*) in the aspect creation modal$/ do |action|
+  within("#newAspectModal") do
+    step action
+  end
+end
+
 When /^I drag "([^"]*)" (up|down) (\d+) pixels?$/ do |aspect_name, direction, distance|
   distance = distance.to_i * -1 if direction == "up"
   page.execute_script %{

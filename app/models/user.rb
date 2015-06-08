@@ -67,8 +67,8 @@ class User < ActiveRecord::Base
   has_many :blocks
   has_many :ignored_people, :through => :blocks, :source => :person
 
-  has_many :conversation_visibilities, -> { order 'updated_at DESC' }, through: :person
-  has_many :conversations, -> { order 'updated_at DESC' }, through: :conversation_visibilities
+  has_many :conversation_visibilities, through: :person
+  has_many :conversations, through: :conversation_visibilities
 
   has_many :notifications, :foreign_key => :recipient_id
 
@@ -232,7 +232,7 @@ class User < ActiveRecord::Base
   end
 
   def dispatch_post(post, opts={})
-    FEDERATION_LOGGER.info("user:#{self.id} dispatching #{post.class}:#{post.guid}")
+    logger.info "user:#{id} dispatching #{post.class}:#{post.guid}"
     Postzord::Dispatcher.defer_build_and_post(self, post, opts)
   end
 
@@ -325,7 +325,7 @@ class User < ActiveRecord::Base
   def perform_export_photos!
     temp_zip = Tempfile.new([username, '_photos.zip'])
     begin
-      Zip::ZipOutputStream.open(temp_zip.path) do |zos|
+      Zip::OutputStream.open(temp_zip.path) do |zos|
         photos.each do |photo|
           begin
             photo_file = photo.unprocessed_image.file
@@ -361,10 +361,9 @@ class User < ActiveRecord::Base
     end
   end
 
-  def mail_confirm_email
-    return false if unconfirmed_email.blank?
+  def send_confirm_email
+    return if unconfirmed_email.blank?
     Workers::Mail::ConfirmEmail.perform_async(id)
-    true
   end
 
   ######### Posts and Such ###############

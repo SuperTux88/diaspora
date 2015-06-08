@@ -45,9 +45,10 @@ describe Postzord::Receiver::Public do
       @receiver.perform!
     end
 
-    it 'returns false if signature is not verified' do
+    it "does not save the object if signature is not verified" do
       expect(@receiver).to receive(:verified_signature?).and_return(false)
-      expect(@receiver.perform!).to be false
+      expect(@receiver).not_to receive(:parse_and_receive)
+      @receiver.perform!
     end
 
     context 'if signature is valid' do
@@ -57,7 +58,7 @@ describe Postzord::Receiver::Public do
       end
 
       it 'saves the parsed object' do
-        expect(@receiver).to receive(:save_object)
+        expect(@receiver).to receive(:parse_and_receive).and_call_original
         @receiver.perform!
       end
 
@@ -119,14 +120,15 @@ describe Postzord::Receiver::Public do
     end
   end
 
-  describe "#save_object" do
+  describe "#parse_and_receive" do
     before do
       @receiver = Postzord::Receiver::Public.new(@xml)
+      @parsed_salmon = Salmon::Slap.from_xml(@xml)
     end
 
     it "should raise a Diaspora::XMLNotParseable when the parsed object is nil" do
       expect(Diaspora::Parser).to receive(:from_xml).and_return(nil)
-      expect { @receiver.save_object }.to raise_error(Diaspora::XMLNotParseable)
+      expect { @receiver.parse_and_receive(@parsed_salmon.parsed_data) }.to raise_error(Diaspora::XMLNotParseable)
     end
   end
 end

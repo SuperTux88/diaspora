@@ -4,7 +4,7 @@
 
 defaults:
   version:
-    number: "0.5.0.42" # Do not touch unless doing a release, do not backport the version number that's in master but keep develop to always say "head"
+    number: "0.5.0.99" # Do not touch unless doing a release, do not backport the version number that's in master
   heroku: false
   environment:
     url: "http://localhost:3000/"
@@ -36,7 +36,8 @@ defaults:
         enable: true
         days: 7
   server:
-    port: 3000
+    port:
+    listen: '0.0.0.0:3000'
     rails_environment: 'development'
     stderr_log:
     stdout_log:
@@ -105,6 +106,7 @@ defaults:
       paypal_hosted_button_id:
       paypal_unhosted_button_encrypted:
     bitcoin_address:
+    bitcoin_wallet_id: # DEPRECATED: Remove with 0.6
     community_spotlight:
       enable: false
       suggest_email:
@@ -148,18 +150,22 @@ defaults:
       app_id:
       secret:
       open_graph_namespace: 'joindiaspora'
+      authorized: false
     twitter:
       enable: false
       key:
       secret:
+      authorized: true
     tumblr:
       enable: false
       key:
       secret:
+      authorized: true
     wordpress:
       enable: false
       key:
       secret:
+      authorized: true
   mail:
     enable: false
     sender_address: 'no-reply@example.org'
@@ -180,6 +186,8 @@ defaults:
   admins:
     account:
     podmin_email:
+  # List valid environment variables
+  redistogo_url:
 
 development:
   environment:
@@ -211,6 +219,7 @@ test:
       enable: true
       app_id: 'fake'
       secret: 'sdoigjosdfijg'
+      authorized: true
   mail:
     enable: true
 integration1:

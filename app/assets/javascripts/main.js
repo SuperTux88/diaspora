@@ -12,10 +12,10 @@
 //= require jquery.charcount
 //= require jquery-placeholder
 //= require rails-timeago
-//= require facebox
+//= require jquery.facebox
 //= require browser_detection
 //= require jquery.events.input
-//= require jquery.elastic
+//= require jakobmattsson-jquery-elastic
 //= require jquery.mentionsInput
 //= require jquery-idletimer/dist/idle-timer
 //= require jquery.infinitescroll-custom
@@ -35,6 +35,7 @@
 //= require markdown-it-sanitizer
 //= require markdown-it-sub
 //= require markdown-it-sup
+//= require highlightjs
 //= require clear-form
 //= require app/app
 //= require diaspora

@@ -9,8 +9,6 @@ class Postzord::Receiver::Public < Postzord::Receiver
   def initialize(xml)
     @salmon = Salmon::Slap.from_xml(xml)
     @author = Webfinger.new(@salmon.author_id).fetch
-
-    FEDERATION_LOGGER.info("Receiving public object from person:#{@author.id}")
   end
 
   # @return [Boolean]
@@ -20,12 +18,12 @@ class Postzord::Receiver::Public < Postzord::Receiver
 
   # @return [void]
   def receive!
-    return false unless verified_signature?
+    return unless verified_signature?
     # return false unless account_deletion_is_from_author
 
-    return false unless save_object
+    parse_and_receive(@salmon.parsed_data)
 
-    FEDERATION_LOGGER.info("received a #{@object.inspect}")
+    logger.info "received a #{@object.inspect}"
     if @object.is_a?(SignedRetraction) # feels like a hack
       self.recipient_user_ids.each do |user_id|
         user = User.where(id: user_id).first
@@ -37,11 +35,10 @@ class Postzord::Receiver::Public < Postzord::Receiver
       #nothing
     else
       Workers::ReceiveLocalBatch.perform_async(@object.class.to_s, @object.id, self.recipient_user_ids)
-      true
     end
   end
 
-  # @return [Object]
+  # @return [void]
   def receive_relayable
     if @object.parent_author.local?
       # receive relayable object only for the owner of the parent object
@@ -50,18 +47,25 @@ class Postzord::Receiver::Public < Postzord::Receiver
     # notify everyone who can see the parent object
     receiver = Postzord::Receiver::LocalBatch.new(@object, self.recipient_user_ids)
     receiver.notify_users
-    @object
   end
 
-  # @return [Object]
-  def save_object
-    @object = Diaspora::Parser.from_xml(@salmon.parsed_data)
-    raise Diaspora::XMLNotParseable if @object.nil?
-    raise Diaspora::NonPublic if object_can_be_public_and_it_is_not?
-    raise Diaspora::RelayableObjectWithoutParent if object_must_have_parent_and_does_not?
-    raise Diaspora::AuthorXMLAuthorMismatch if author_does_not_match_xml_author?
-    @object.save! if @object.respond_to?(:save!)
-    @object
+  # @return [void]
+  def parse_and_receive(xml)
+    @object = Diaspora::Parser.from_xml(xml)
+
+    logger.info "starting public receive from person:#{@author.guid}"
+
+    validate_object
+    receive_object
+  end
+
+  # @return [void]
+  def receive_object
+    if @object.respond_to?(:receive_public)
+      @object.receive_public
+    elsif @object.respond_to?(:save!)
+      @object.save!
+    end
   end
 
   # @return [Array<Integer>] User ids
@@ -80,6 +84,15 @@ class Postzord::Receiver::Public < Postzord::Receiver
 
   private
 
+  # validations
+
+  def validate_object
+    raise Diaspora::XMLNotParseable if @object.nil?
+    raise Diaspora::NonPublic if object_can_be_public_and_it_is_not?
+    raise Diaspora::RelayableObjectWithoutParent if relayable_without_parent?
+    raise Diaspora::AuthorXMLAuthorMismatch if author_does_not_match_xml_author?
+  end
+
   def account_deletion_is_from_author
     return true unless @object.is_a?(AccountDeletion)
     return false if @object.diaspora_handle != @author.diaspora_handle
@@ -89,13 +102,5 @@ class Postzord::Receiver::Public < Postzord::Receiver
   # @return [Boolean]
   def object_can_be_public_and_it_is_not?
     @object.respond_to?(:public) && !@object.public?
-  end
-
-  def object_must_have_parent_and_does_not?
-    if @object.respond_to?(:relayable?) # comment, like
-      @object.parent.nil?
-    else
-      false
-    end
   end
 end

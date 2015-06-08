@@ -4,6 +4,7 @@
 [![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=SuperTux88&url=https://github.com/SuperTux88/diaspora&title=Diaspora at nerdpol.ch&language=en_GB&tags=github&category=software)
 
 **master:** [![Build Status master](https://secure.travis-ci.org/diaspora/diaspora.png?branch=master)](http://travis-ci.org/diaspora/diaspora)
+**stable:** [![Build Status stable](https://secure.travis-ci.org/diaspora/diaspora.png?branch=stable)](http://travis-ci.org/diaspora/diaspora) |
 **develop:** [![Build Status develop](https://secure.travis-ci.org/diaspora/diaspora.png?branch=develop)](http://travis-ci.org/diaspora/diaspora) |
 [![Dependency Status](https://gemnasium.com/diaspora/diaspora.png?travis)](https://gemnasium.com/diaspora/diaspora)
 [![Code Climate](https://codeclimate.com/github/diaspora/diaspora.png)](https://codeclimate.com/github/diaspora/diaspora)

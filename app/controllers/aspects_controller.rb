@@ -11,47 +11,33 @@ class AspectsController < ApplicationController
 
   def create
     @aspect = current_user.aspects.build(aspect_params)
-    aspecting_person_id = params[:aspect][:person_id]
+    aspecting_person_id = params[:person_id]
 
     if @aspect.save
-      flash[:notice] = I18n.t('aspects.create.success', :name => @aspect.name)
-
-      if current_user.getting_started || request.referer.include?("contacts")
-        redirect_to :back
-      elsif aspecting_person_id.present?
+      if aspecting_person_id.present?
         connect_person_to_aspect(aspecting_person_id)
-      else
-        redirect_to contacts_path(:a_id => @aspect.id)
       end
+      render json: {id: @aspect.id, name: @aspect.name}
     else
-      respond_to do |format|
-        format.js { render :text => I18n.t('aspects.create.failure'), :status => 422 }
-        format.html do
-          flash[:error] = I18n.t('aspects.create.failure')
-          redirect_to :back
-        end
-      end
-    end
-  end
-
-  def new
-    @aspect = Aspect.new
-    @person_id = params[:person_id]
-    @remote = params[:remote] == "true"
-    respond_to do |format|
-      format.html { render :layout => false }
+      render nothing: true, status: 422
     end
   end
 
   def destroy
-    @aspect = current_user.aspects.where(:id => params[:id]).first
+    @aspect = current_user.aspects.where(id: params[:id]).first
 
     begin
+      if current_user.auto_follow_back && @aspect.id == current_user.auto_follow_back_aspect.id
+        current_user.update(auto_follow_back: false, auto_follow_back_aspect: nil)
+        flash[:notice] = I18n.t "aspects.destroy.success_auto_follow_back", name: @aspect.name
+      else
+        flash[:notice] = I18n.t "aspects.destroy.success", name: @aspect.name
+      end
       @aspect.destroy
-      flash[:notice] = I18n.t 'aspects.destroy.success', :name => @aspect.name
     rescue ActiveRecord::StatementInvalid => e
-      flash[:error] = I18n.t 'aspects.destroy.failure', :name => @aspect.name
+      flash[:error] = I18n.t "aspects.destroy.failure", name: @aspect.name
     end
+
     if request.referer.include?('contacts')
       redirect_to contacts_path
     else

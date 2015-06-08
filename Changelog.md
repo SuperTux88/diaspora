@@ -1,3 +1,91 @@
+# 0.5.1.0
+
+## Configuration changes
+
+Please note that the default listen parameter for production setups got
+changed. diaspora\* will no longer listen on `0.0.0.0:3000` as it will now
+bind to an UNIX socket at `unix:tmp/diaspora.sock`. Please change your local
+`diaspora.yml` if necessary.
+
+## Refactor
+* Use Bootstrap modal for new aspect pane [#5850](https://github.com/diaspora/diaspora/pull/5850)
+* Use asset helper instead of .css.erb [#5886](https://github.com/diaspora/diaspora/pull/5886)
+* Dropped db/seeds.rb [#5896](https://github.com/diaspora/diaspora/pull/5896)
+* Drop broken install scripts [#5907](https://github.com/diaspora/diaspora/pull/5907)
+* Improve invoking mobile site in the testsuite [#5915](https://github.com/diaspora/diaspora/pull/5915)
+* Do not retry a couple of unrecoverable job failures [#5938](https://github.com/diaspora/diaspora/pull/5938) [#5942](https://github.com/diaspora/diaspora/pull/5943)
+* Remove some old temporary workarounds [#5964](https://github.com/diaspora/diaspora/pull/5964)
+* Remove unused `hasPhotos` and `hasText` functions [#5969](https://github.com/diaspora/diaspora/pull/5969)
+* Replace foreman with eye [#5966](https://github.com/diaspora/diaspora/pull/5966)
+* Improved handling of reshares with deleted roots [#5968](https://github.com/diaspora/diaspora/pull/5968)
+* Remove two unused methods [#5970](https://github.com/diaspora/diaspora/pull/5970)
+* Refactored the Logger to add basic logrotating and more useful timestamps [#5975](https://github.com/diaspora/diaspora/pull/5975)
+* Gracefully handle mailer failures if a like is already deleted again [#5983](https://github.com/diaspora/diaspora/pull/5983)
+* Ensure posts have an author [#5986](https://github.com/diaspora/diaspora/pull/5986)
+* Improve the logging messages of Sidekiq messages [#5988](https://github.com/diaspora/diaspora/pull/5988)
+* Improve the logging of Eyes output [#5989](https://github.com/diaspora/diaspora/pull/5989)
+* Gracefully handle XML parse errors within federation [#5991](https://github.com/diaspora/diaspora/pull/5991)
+* Remove zip-zip workaround gem [#6001](https://github.com/diaspora/diaspora/pull/6001)
+* Cleanup and reorganize image assets [#6004](https://github.com/diaspora/diaspora/pull/6004)
+* Replace vendored assets for facebox by gem [#6005](https://github.com/diaspora/diaspora/pull/6005)
+* Improve styling of horizontal ruler in posts [#6016](https://github.com/diaspora/diaspora/pull/6016)
+* Increase post titles length to 50 and use configured pod name as title in the atom feed [#6020](https://github.com/diaspora/diaspora/pull/6020)
+* Remove deprecated Facebook permissions [#6019](https://github.com/diaspora/diaspora/pull/6019)
+* Make used post title lengths more consistent [#6022](https://github.com/diaspora/diaspora/pull/6022)
+* Improved logging source [#6041](https://github.com/diaspora/diaspora/pull/6041)
+* Gracefully handle duplicate entry while receiving share-visibility in parallel [#6068](https://github.com/diaspora/diaspora/pull/6068)
+* Update twitter gem to get rid of deprecation warnings [#6083](https://github.com/diaspora/diaspora/pull/6083)
+* Refactor photos federation to get rid of some hacks [#6082](https://github.com/diaspora/diaspora/pull/6082)
+
+## Bug fixes
+* Disable auto follow back on aspect deletion [#5846](https://github.com/diaspora/diaspora/pull/5846)
+* Fix only sharing flag for contacts that are receiving [#5848](https://github.com/diaspora/diaspora/pull/5848)
+* Return 406 when requesting a JSON representation of people/:guid/contacts [#5849](https://github.com/diaspora/diaspora/pull/5849)
+* Hide manage services link in the publisher on certain pages [#5854](https://github.com/diaspora/diaspora/pull/5854)
+* Fix notification mails for limited posts [#5877](https://github.com/diaspora/diaspora/pull/5877)
+* Fix medium and small avatar URLs when using Camo [#5883](https://github.com/diaspora/diaspora/pull/5883)
+* Improve output of script/server [#5885](https://github.com/diaspora/diaspora/pull/5885)
+* Fix CSS for bold links [#5887](https://github.com/diaspora/diaspora/pull/5887)
+* Correctly handle IE8 in the chrome frame middleware [#5878](https://github.com/diaspora/diaspora/pull/5878)
+* Fix code reloading for PostPresenter [#5888](https://github.com/diaspora/diaspora/pull/5888)
+* Fix closing account from mobile view [#5913](https://github.com/diaspora/diaspora/pull/5913)
+* Allow using common custom template for desktop & mobile landing page [#5915](https://github.com/diaspora/diaspora/pull/5915)
+* Use correct branding in Atom feed [#5929](https://github.com/diaspora/diaspora/pull/5929)
+* Update the configurate gem to avoid issues by missed missing settings keys [#5934](https://github.com/diaspora/diaspora/pull/5934)
+* ContactPresenter#full_hash_with_person did not contain relationship information [#5936](https://github.com/diaspora/diaspora/pull/5936)
+* Fix inactive user removal not respecting configuration for daily limits [#5953](https://github.com/diaspora/diaspora/pull/5953)
+* Fix missing localization of inactive user removal warning emails [#5950](https://github.com/diaspora/diaspora/issues/5950)
+* Fix fetching for public post while Webfingering [#5958](https://github.com/diaspora/diaspora/pull/5958)
+* Handle empty searchable in HCard gracefully [#5962](https://github.com/diaspora/diaspora/pull/5962)
+* Fix a freeze in new post parsing [#5965](https://github.com/diaspora/diaspora/pull/5965)
+* Add case insensitive unconfirmed email addresses as authentication key [#5967](https://github.com/diaspora/diaspora/pull/5967)
+* Fix liking on single post views when accessed via GUID [#5978](https://github.com/diaspora/diaspora/pull/5978)
+* Only return the current_users participation for post interactions [#6007](https://github.com/diaspora/diaspora/pull/6007)
+* Fix tag rendering in emails [#6009](https://github.com/diaspora/diaspora/pull/6009)
+* Fix the logo in emails [#6013](https://github.com/diaspora/diaspora/pull/6013)
+* Disable autocorrect for username on mobile sign in [#6028](https://github.com/diaspora/diaspora/pull/6028)
+* Fix broken default avatars in the database [#6014](https://github.com/diaspora/diaspora/pull/6014)
+* Only strip text direction codepoints around hashtags [#6067](https://github.com/diaspora/diaspora/issues/6067)
+* Fix selected week on admin weekly stats page [#6079](https://github.com/diaspora/diaspora/pull/6079)
+* Fix that some unread conversations may be hidden [#6060](https://github.com/diaspora/diaspora/pull/6060)
+* Fix photo links in the mobile interface [#6082](https://github.com/diaspora/diaspora/pull/6082)
+
+## Features
+* Hide post title of limited post in comment notification email [#5843](https://github.com/diaspora/diaspora/pull/5843)
+* More and better environment checks in script/server [#5891](https://github.com/diaspora/diaspora/pull/5891)
+* Enable aspect sorting again [#5559](https://github.com/diaspora/diaspora/pull/5559)
+* Submit messages in conversations with Ctrl+Enter [#5910](https://github.com/diaspora/diaspora/pull/5910)
+* Support syntax highlighting for fenced code blocks [#5908](https://github.com/diaspora/diaspora/pull/5908)
+* Added link to diasporafoundation.org to invitation email [#5893](https://github.com/diaspora/diaspora/pull/5893)
+* Gracefully handle missing `og:url`s [#5926](https://github.com/diaspora/diaspora/pull/5926)
+* Remove private post content from "also commented" mails [#5931](https://github.com/diaspora/diaspora/pull/5931)
+* Add a button to follow/unfollow tags to the mobile interface [#5941](https://github.com/diaspora/diaspora/pull/5941)
+* Add a "Manage followed tags" page to mass unfollow tags in the mobile interface [#5945](https://github.com/diaspora/diaspora/pull/5945)
+* Add popover/tooltip about email visibility to registration/settings page [#5956](https://github.com/diaspora/diaspora/pull/5956)
+* Fetch person posts on sharing request [#5960](https://github.com/diaspora/diaspora/pull/5960)
+* Introduce 'authorized' configuration option for services [#5985](https://github.com/diaspora/diaspora/pull/5985)
+* Added configuration options for log rotating [#5994](https://github.com/diaspora/diaspora/pull/5994)
+
 # 0.5.0.1
 
 Use the correct setting for captcha length instead of defaulting to 1 always.

@@ -6,6 +6,7 @@
 @import "_flash_messages";
 
 @import "header";
+@import "mobile/tags";
 
 a {
   color: #2489ce;
@@ -1205,3 +1206,10 @@ select#aspect_ids_ {
     background-color: $light-green;
   }
 }
+
+/* --- Tag page --- */
+#app #main h1 {
+  word-wrap: break-word;
+}
+
+.tag_following_action { margin: 5px 0 10px 0; }
