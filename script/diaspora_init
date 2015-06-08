@@ -63,7 +63,6 @@ fi
 
 os=`uname -s`
 eval $(bundle exec ruby ./script/get_config.rb \
-  port=server.port \
   single_process_mode=environment.single_process_mode? \
   embed_sidekiq_worker=server.embed_sidekiq_worker \
   workers=server.sidekiq_workers
@@ -74,32 +73,11 @@ if [ -z "$DB" ]; then
   export DB
 fi
 
-# Check if already running/port blocked
-function chk_service() {
-  port=${1:?Missing port}
-  case $os in
-  *[Bb][Ss][Dd]*|Darwin)
-      ## checks ipv[46]
-      netstat -anL | awk '{print $2}' | grep "\.$1$"
-  ;;
-  *)
-      # Is someone listening on the ports already? (ipv4 only test ?)
-      netstat -nl | grep '[^:]:'$port'[ \t]'
-  ;;
-  esac
-}
-
 function get_sidekiq_pid() {
   ps -o %p,%a -U $USERNAME | grep sidekiq | grep -v grep | cut -f1 -d,
 }
 
 function start_checks() {
-
-  # Is someone listening on the ports already? (ipv4 only test ?)
-  services=$( chk_service $port )
-  if [ -n "$services" ]; then
-    fatal "Port $port is already in use.\n\t$services"
-  fi
 
   # Check if database.yml exists
   if [ ! -e "config/database.yml" ]
