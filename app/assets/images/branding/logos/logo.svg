@@ -1303,10 +1303,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="4.0000001"
-     inkscape:cx="39.267155"
-     inkscape:cy="22.104526"
+     inkscape:cx="104.78493"
+     inkscape:cy="-39.453877"
      inkscape:document-units="px"
-     inkscape:current-layer="layer4"
+     inkscape:current-layer="layer1-50"
      showgrid="false"
      inkscape:window-width="2558"
      inkscape:window-height="1579"
@@ -1337,7 +1337,7 @@
        height="40"
        x="-5.9360046"
        y="57.231071"
-       inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo_hover.png"
+       inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
        inkscape:export-xdpi="89.953705"
        inkscape:export-ydpi="89.953705" />
     <rect
@@ -1347,7 +1347,7 @@
        height="50.25"
        x="-5.9147525"
        y="57.278107"
-       inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo_hover.png"
+       inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
        inkscape:export-xdpi="89.953705"
        inkscape:export-ydpi="89.953705" />
   </g>
@@ -1356,7 +1356,8 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-1020.3622)"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <image
        y="860.93365"
        x="-5.7142739"
@@ -1398,7 +1399,7 @@
          sodipodi:role="line">Nerdp l.ch</tspan></text>
     <path
        transform="matrix(1.183694,0,0,1.1050611,-242.05841,471.54479)"
-       d="m 297.48992,512.30939 c 0,3.13814 -2.37437,5.68211 -5.30331,5.68211 -2.92893,0 -5.3033,-2.54397 -5.3033,-5.68211 0,-3.13814 2.37437,-5.68211 5.3033,-5.68211 2.92894,0 5.30331,2.54397 5.30331,5.68211 z"
+       d="m 297.48992,512.30939 a 5.3033009,5.6821079 0 1 1 -10.60661,0 5.3033009,5.6821079 0 1 1 10.60661,0 z"
        sodipodi:ry="5.6821079"
        sodipodi:rx="5.3033009"
        sodipodi:cy="512.30939"
@@ -1431,7 +1432,7 @@
        d="m 77.094749,1084.6394 0,7.8579 c -0.476612,-0.8174 -1.01719,-1.4425 -1.652648,-1.8469 -0.626653,-0.4132 -1.330507,-0.6045 -2.124834,-0.6045 -1.756369,0 -3.127831,0.6788 -4.08103,2.0148 -0.944382,1.3362 -1.416555,3.246 -1.416555,5.7424 0,2.4612 0.481001,4.3553 1.416555,5.7089 0.935553,1.3535 2.251529,2.0485 3.946119,2.0485 0.891411,0 1.640344,-0.2411 2.29347,-0.6717 0.661934,-0.4308 1.20409,-1.0616 1.618923,-1.9141 l 0,2.1827 3.878663,0 0,-20.518 -3.878663,0 z m 45.768241,0 0,2.9886 3.94612,0 0,11.3841 c 0,2.2062 0.37729,3.7856 1.18047,4.735 0.80315,0.9493 2.13519,1.4103 3.97985,1.4103 l 4.18221,0 0,-2.9551 -3.10293,0 c -0.86496,0 -1.45945,-0.2554 -1.8213,-0.7388 -0.36188,-0.4835 -0.53965,-1.2911 -0.53964,-2.4514 l 0,-14.3727 -7.82478,0 z m 56.12259,0 0,20.518 3.87867,0 0,-8.4288 c -2e-5,-1.0988 0.1762,-1.9706 0.57335,-2.5858 0.39719,-0.6239 0.94658,-0.9402 1.65267,-0.9402 0.68842,0 1.18391,0.2481 1.48401,0.7053 0.30889,0.4569 0.47216,1.1862 0.47217,2.2499 l 0,8.9996 3.84495,0 0,-9.5705 c -1e-5,-1.8372 -0.36441,-3.2076 -1.07929,-4.1306 -0.7149,-0.9318 -1.76707,-1.4104 -3.17038,-1.4104 -0.93558,0 -1.73272,0.2234 -2.39465,0.6717 -0.66197,0.4484 -1.10924,1.0631 -1.38283,1.8806 l 0,-7.9588 -3.87867,0 z m -165.838209,0.8395 0,19.6785 3.440207,0 0,-14.3055 5.565041,14.3055 4.148486,0 0,-19.6785 -3.440208,0 0,14.3056 -5.497586,-14.3056 -4.21594,0 z m 154.775599,4.5336 c -2.28593,0 -4.099,0.7019 -5.39641,2.0819 -1.29742,1.3712 -1.92248,3.2739 -1.92248,5.7087 0,2.4261 0.63388,4.304 1.92248,5.6753 1.28859,1.3712 3.07673,2.0821 5.36267,2.0821 0.86493,0 1.67817,-0.109 2.42838,-0.3022 0.7502,-0.1847 1.43797,-0.4616 2.09111,-0.8396 l 0,-3.5597 c -0.58253,0.5098 -1.20192,0.8868 -1.85503,1.1418 -0.65312,0.246 -1.34091,0.3694 -2.0911,0.3694 -1.2621,0 -2.22097,-0.3842 -2.90056,-1.1753 -0.6796,-0.7911 -1.04556,-1.915 -1.04555,-3.3918 -1e-5,-1.4767 0.36595,-2.6253 1.04555,-3.4252 0.67959,-0.7999 1.63846,-1.2089 2.90056,-1.2089 0.72373,0 1.42033,0.1394 2.0911,0.4029 0.67961,0.2549 1.29016,0.6247 1.85503,1.1083 l 0,-3.526 c -0.73259,-0.3869 -1.45091,-0.6887 -2.19229,-0.8732 -0.73257,-0.1846 -1.49913,-0.2685 -2.29346,-0.2685 z m -129.716051,0.033 c -2.180019,0 -3.8982,0.6844 -5.160311,2.082 -1.262111,1.3976 -1.888741,3.3002 -1.888741,5.7087 0,2.4875 0.649954,4.4151 1.956196,5.7425 1.31506,1.3186 3.21985,1.9814 5.699951,1.9814 1.041452,0 2.032458,-0.1178 2.968021,-0.3023 0.935543,-0.1846 1.831669,-0.4368 2.731931,-0.8059 l 0,-3.5598 c -0.944394,0.5539 -1.833268,0.9543 -2.698203,1.2089 -0.864957,0.255 -1.739336,0.4031 -2.630747,0.4031 -1.350375,0 -2.389614,-0.3018 -3.069203,-0.8731 -0.679602,-0.5714 -1.003009,-1.4254 -1.011827,-2.5858 l 10.050801,0 0,-1.5783 c -1.1e-5,-2.3556 -0.603317,-4.1816 -1.821286,-5.4737 -1.209172,-1.301 -2.928929,-1.9477 -5.126582,-1.9477 z m 22.293889,0 c -1.050302,0 -1.946427,0.2394 -2.731928,0.7051 -0.785523,0.4573 -1.374323,1.104 -1.753833,1.9478 l 0,-2.2837 -3.878663,0 0,14.7422 3.878663,0 0,-6.7833 c -1.1e-5,-0.9668 0.02169,-1.708 0.10113,-2.1828 0.08829,-0.4747 0.260355,-0.8749 0.472186,-1.2089 0.335375,-0.5449 0.80756,-0.9612 1.416557,-1.2425 0.617799,-0.2901 1.337735,-0.4364 2.15856,-0.4364 0.679591,0 1.290139,0.1088 1.855013,0.3021 0.573671,0.1933 1.06035,0.4864 1.484011,0.8731 l 0,-3.6939 c -0.458964,-0.2463 -0.938391,-0.4144 -1.450284,-0.5374 -0.503095,-0.1317 -1.021916,-0.2014 -1.551466,-0.2014 z m 34.267157,0 c -0.891431,0 -1.665266,0.2072 -2.327198,0.638 -0.661956,0.4307 -1.212928,1.0615 -1.618921,1.9142 l 0,-2.183 -3.844938,0 0,20.3839 3.844938,0 0,-7.7236 c 0.476599,0.8261 1.025997,1.4673 1.652648,1.8806 0.635458,0.4042 1.364222,0.6045 2.15856,0.6045 1.756357,0 3.102913,-0.679 4.0473,-2.0148 0.953192,-1.3362 1.416546,-3.2463 1.416556,-5.7427 -10e-6,-2.4611 -0.447289,-4.3885 -1.382827,-5.7424 -0.935562,-1.3535 -2.25155,-2.0147 -3.946118,-2.0147 z m 17.605765,1.0746 c -3.74182,0 -6.77923,3.0232 -6.77923,6.7497 0,3.7267 3.03741,6.75 6.77923,6.75 3.74182,0 6.77923,-3.0233 6.77923,-6.75 0,-3.7265 -3.03741,-6.7497 -6.77923,-6.7497 z m -74.166811,1.9141 c 0.988502,0 1.722931,0.2785 2.226017,0.8059 0.51189,0.5187 0.791791,1.264 0.809459,2.2835 l -6.104681,0.034 c 0.09702,-0.9932 0.41481,-1.7811 0.944371,-2.3172 0.529548,-0.5449 1.233402,-0.8059 2.124834,-0.8059 z m 55.346856,0.168 c 0.838462,0 1.479586,0.4002 1.956197,1.2088 0.476588,0.8088 0.708266,1.9343 0.708278,3.3581 -1.2e-5,1.424 -0.23169,2.5495 -0.708278,3.3582 -0.476611,0.8087 -1.117735,1.2089 -1.956197,1.2089 -0.838472,0 -1.504507,-0.4002 -1.989924,-1.2089 -0.485439,-0.8087 -0.742016,-1.9342 -0.742005,-3.3582 -1.1e-5,-1.4238 0.256566,-2.5493 0.742005,-3.3581 0.485417,-0.8086 1.151452,-1.2088 1.989924,-1.2088 z m -19.157229,0.067 c 0.838461,0 1.504487,0.4002 1.989925,1.2089 0.485417,0.8086 0.708267,1.9343 0.708278,3.3581 -1.1e-5,1.4239 -0.222861,2.5158 -0.708278,3.3246 -0.485438,0.8086 -1.151464,1.2088 -1.989925,1.2088 -0.838471,0 -1.513323,-0.4002 -1.989922,-1.2088 -0.47661,-0.8088 -0.708279,-1.9007 -0.708279,-3.3246 0,-1.4238 0.231669,-2.5495 0.708279,-3.3581 0.476599,-0.8087 1.151451,-1.2089 1.989922,-1.2089 z m 71.569794,7.052 0,4.8357 4.41831,0 0,-4.8357 -4.41831,0 z"
        id="text2998-6"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo_hover.png"
+       inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
        inkscape:export-xdpi="89.953705"
        inkscape:export-ydpi="89.953705" />
     <path
@@ -1439,7 +1440,7 @@
        d="m 71.116072,1086.8884 0,7.3125 c -0.4416,-0.7607 -0.94247,-1.3425 -1.53125,-1.7188 -0.58062,-0.3844 -1.23277,-0.5625 -1.96875,-0.5625 -1.62735,0 -2.89807,0.6317 -3.78125,1.875 -0.87501,1.2433 -1.3125,3.0207 -1.3125,5.3438 0,2.2903 0.44567,4.0528 1.3125,5.3125 0.86683,1.2596 2.08614,1.9062 3.65625,1.9062 0.82593,0 1.51985,-0.2242 2.125,-0.625 0.61331,-0.4008 1.11564,-0.9878 1.5,-1.7812 l 0,2.0312 3.59375,0 0,-19.0937 -3.59375,0 z m 42.406248,0 0,2.7812 3.65625,0 0,10.5938 c 0,2.0531 0.34958,3.5228 1.09375,4.4062 0.74416,0.8834 1.97837,1.3125 3.6875,1.3125 l 3.875,0 0,-2.75 -2.875,0 c -0.80142,0 -1.35223,-0.2376 -1.6875,-0.6875 -0.33529,-0.4499 -0.50001,-1.2015 -0.5,-2.2812 l 0,-13.375 -7.25,0 z m 52,0 0,19.0937 3.59375,0 0,-7.8437 c -1e-5,-1.0225 0.16325,-1.8337 0.53125,-2.4063 0.36799,-0.5807 0.87703,-0.875 1.53125,-0.875 0.63785,0 1.09695,0.2309 1.375,0.6563 0.28621,0.4253 0.43749,1.104 0.4375,2.0937 l 0,8.375 3.5625,0 0,-8.9062 c -1e-5,-1.7096 -0.33763,-2.9849 -1,-3.8438 -0.6624,-0.867 -1.63727,-1.3125 -2.9375,-1.3125 -0.86684,0 -1.60544,0.2079 -2.21875,0.625 -0.61333,0.4172 -1.02775,0.9893 -1.28125,1.75 l 0,-7.4062 -3.59375,0 z m -153.656248,0.7812 0,18.3125 3.1875,0 0,-13.3125 5.15625,13.3125 3.84375,0 0,-18.3125 -3.1875,0 0,13.3125 -5.09375,-13.3125 -3.90625,0 z m 143.406248,4.2188 c -2.11801,0 -3.79789,0.6533 -5,1.9375 -1.20211,1.276 -1.78125,3.0467 -1.78125,5.3125 0,2.2576 0.58731,4.0052 1.78125,5.2812 1.19393,1.276 2.85074,1.9375 4.96875,1.9375 0.8014,0 1.55489,-0.1013 2.25,-0.2812 0.69509,-0.1718 1.33234,-0.4296 1.9375,-0.7813 l 0,-3.3125 c -0.53974,0.4744 -1.11362,0.8253 -1.71875,1.0625 -0.60516,0.229 -1.24241,0.3438 -1.9375,0.3438 -1.16941,0 -2.05783,-0.3576 -2.6875,-1.0938 -0.62968,-0.7362 -0.96876,-1.782 -0.96875,-3.1562 -1e-5,-1.3742 0.33907,-2.4432 0.96875,-3.1875 0.62967,-0.7444 1.51809,-1.125 2.6875,-1.125 0.67056,0 1.31599,0.1296 1.9375,0.375 0.62967,0.2372 1.19537,0.5813 1.71875,1.0312 l 0,-3.2812 c -0.67876,-0.3599 -1.34434,-0.6407 -2.03125,-0.8125 -0.67875,-0.1718 -1.38902,-0.25 -2.125,-0.25 z m -120.187498,0.031 c -2.01988,0 -3.61185,0.6369 -4.78125,1.9375 -1.1694,1.3005 -1.75,3.0712 -1.75,5.3125 0,2.3148 0.60221,4.1086 1.8125,5.3437 1.21846,1.227 2.98333,1.8438 5.28125,1.8438 0.96495,0 1.88316,-0.1095 2.75,-0.2813 0.86682,-0.1718 1.69712,-0.4064 2.53125,-0.75 l 0,-3.3125 c -0.87502,0.5153 -1.6986,0.8878 -2.5,1.125 -0.80142,0.2372 -1.61157,0.375 -2.4375,0.375 -1.25118,0 -2.21408,-0.2808 -2.84375,-0.8125 -0.62968,-0.5317 -0.92933,-1.3265 -0.9375,-2.4062 l 9.3125,0 0,-1.4688 c -1e-5,-2.1921 -0.559,-3.8913 -1.6875,-5.0937 -1.12035,-1.2106 -2.71378,-1.8125 -4.75,-1.8125 z m 20.65625,0 c -0.97315,0 -1.80345,0.2227 -2.53125,0.6562 -0.72782,0.4254 -1.27337,1.0273 -1.625,1.8125 l 0,-2.125 -3.59375,0 0,13.7188 3.59375,0 0,-6.3125 c -1e-5,-0.8998 0.0201,-1.5896 0.0937,-2.0313 0.0818,-0.4417 0.24123,-0.8141 0.4375,-1.125 0.31074,-0.5071 0.74824,-0.8945 1.3125,-1.1562 0.57242,-0.27 1.23947,-0.4063 2,-0.4063 0.62967,0 1.19537,0.1013 1.71875,0.2813 0.53153,0.1799 0.98246,0.4526 1.375,0.8125 l 0,-3.4375 c -0.42525,-0.2291 -0.86946,-0.3855 -1.34375,-0.5 -0.46614,-0.1227 -0.94685,-0.1875 -1.4375,-0.1875 z m 31.749997,0 c -0.82595,0 -1.54294,0.1929 -2.15625,0.5937 -0.61333,0.4008 -1.12383,0.9878 -1.5,1.7813 l 0,-2.0313 -3.5625,0 0,18.9688 3.5625,0 0,-7.1875 c 0.44159,0.7689 0.95063,1.3655 1.53125,1.75 0.58878,0.3762 1.26401,0.5625 2,0.5625 1.62734,0 2.87498,-0.6317 3.75,-1.875 0.883172,-1.2433 1.312492,-3.0207 1.312502,-5.3438 -1e-5,-2.2903 -0.41444,-4.0841 -1.281252,-5.3437 -0.86684,-1.2597 -2.08616,-1.875 -3.65625,-1.875 z m 16.312501,1 c -3.46696,0 -6.28125,2.8134 -6.28125,6.2812 0,3.4679 2.81429,6.2813 6.28125,6.2813 3.46696,0 6.28125,-2.8134 6.28125,-6.2813 0,-3.4678 -2.81429,-6.2812 -6.28125,-6.2812 z m -68.718748,1.7812 c 0.91589,0 1.59637,0.2592 2.0625,0.75 0.47429,0.4826 0.73363,1.1762 0.75,2.125 l -5.65625,0.031 c 0.0899,-0.9243 0.38434,-1.6573 0.875,-2.1562 0.49065,-0.5072 1.1428,-0.75 1.96875,-0.75 z m 51.281247,0.1563 c 0.77687,0 1.3709,0.3725 1.8125,1.125 0.44158,0.7526 0.65624,1.7999 0.65625,3.125 -10e-6,1.3251 -0.21467,2.3725 -0.65625,3.125 -0.4416,0.7526 -1.03563,1.125 -1.8125,1.125 -0.77688,0 -1.39399,-0.3724 -1.84375,-1.125 -0.44978,-0.7525 -0.68751,-1.7999 -0.6875,-3.125 -10e-6,-1.3251 0.23772,-2.3724 0.6875,-3.125 0.44976,-0.7525 1.06687,-1.125 1.84375,-1.125 z m -17.749997,0.062 c 0.77687,0 1.39397,0.3725 1.84375,1.125 0.44976,0.7526 0.65624,1.7999 0.65625,3.125 -1e-5,1.3251 -0.20649,2.3412 -0.65625,3.0938 -0.44978,0.7525 -1.06688,1.125 -1.84375,1.125 -0.77688,0 -1.40216,-0.3725 -1.84375,-1.125 -0.4416,-0.7526 -0.65625,-1.7687 -0.65625,-3.0938 0,-1.3251 0.21465,-2.3724 0.65625,-3.125 0.44159,-0.7525 1.06687,-1.125 1.84375,-1.125 z m 66.312498,6.5625 0,4.5 4.09375,0 0,-4.5 -4.09375,0 z"
        style="font-size:25.12485313px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:1.88850689px;word-spacing:0px;fill:#9adcff;fill-opacity:1;stroke:none;filter:url(#filter4076-3);font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono Bold"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo_hover.png"
+       inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
        inkscape:export-xdpi="89.953705"
        inkscape:export-ydpi="89.953705"
        transform="matrix(1.0792806,0,0,1.0745985,0.34054962,-83.3292)" />
@@ -1448,7 +1449,8 @@
      inkscape:groupmode="layer"
      id="layer5"
      inkscape:label="White"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <text
        transform="matrix(1.0020493,0,0,0.99795492,0,-1020.3622)"
        sodipodi:linespacing="125%"
@@ -1457,7 +1459,7 @@
        x="11.560812"
        style="font-size:27.05788422px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:2.03380299px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono Bold"
        xml:space="preserve"
-       inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo_hover.png"
+       inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
        inkscape:export-xdpi="89.953705"
        inkscape:export-ydpi="89.953705"><tspan
          y="1107.431"
@@ -1474,7 +1476,7 @@
        id="path4044-2"
        style="fill:none;stroke:#ffffff;stroke-width:1.34563017;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
        sodipodi:type="arc"
-       inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo_hover.png"
+       inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
        inkscape:export-xdpi="89.953705"
        inkscape:export-ydpi="89.953705" />
     <path
@@ -1483,7 +1485,7 @@
        id="path4046-9"
        d="m 111.20775,1093.4312 0,3.0249 -2.72681,-0.8811 -0.69147,2.1179 2.77116,0.8966 -1.77176,2.4272 1.81089,1.3071 1.7535,-2.4037 1.74307,2.3906 1.81092,-1.3096 -1.75089,-2.3986 2.71897,-0.8809 -0.69148,-2.118 -2.73986,0.8861 0,-3.0585 -2.23624,0 z"
        style="fill:#ffffff;fill-opacity:1;stroke:none;display:inline"
-       inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo_hover.png"
+       inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
        inkscape:export-xdpi="89.953705"
        inkscape:export-ydpi="89.953705" />
   </g>
@@ -1491,7 +1493,8 @@
      inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="Black"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <text
        inkscape:export-ydpi="89.953705"
        inkscape:export-xdpi="89.953705"
@@ -1540,19 +1543,206 @@
      inkscape:label="Dia"
      style="display:inline">
     <g
+       transform="matrix(0.12441493,0,0,0.12441493,93.404267,-23.564441)"
        inkscape:label="Layer 1"
-       id="layer1-4"
-       transform="matrix(0.04736249,0,0,0.04736249,112.10805,58.431735)"
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:6.33412644;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo_hover.png"
-       inkscape:export-xdpi="89.953705"
-       inkscape:export-ydpi="89.953705">
+       id="layer1-50">
+      <g
+         transform="matrix(1.2202,0,0,1.1898,-135.26434,-223.48087)"
+         style="fill:#c2701d"
+         id="g3847"
+         inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
+         inkscape:export-xdpi="89.953705"
+         inkscape:export-ydpi="89.953705">
+        <path
+           d="m 259.54,1021.2 c 5.1725,4.4367 80.919,16.572 63.233,4.9991 -5.9786,-3.9121 5.2898,-10.518 -3.2895,-11.091 -11.555,-0.7714 0.89693,-9.5651 -3.4913,-10.007 -16.116,-1.6225 -37.364,2.4529 -46.982,4.743 -12.229,2.9116 -13.867,7.5844 -9.4696,11.356 z"
+           style="fill:#c2701d;stroke:#000000;stroke-width:0.74119002px"
+           sodipodi:nodetypes="csssss"
+           id="path3849"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m 263.02,1017 c 2.984,-20.707 10.347,-53.072 5.0067,-72.902 1.2194,-7.7879 28.92,-4.4491 26.535,6.1463 l -0.16689,0.66756 c -15.563,12.45 -13.695,43.579 -20.027,62.75004 l -0.16689,1.1682 c 0.38307,4.5294 -12.533,4.4217 -11.182,2.1696"
+           style="fill:#c2701d;stroke:#000000;stroke-width:1px"
+           sodipodi:nodetypes="ccccccc"
+           id="path3851"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m 279.92,363.42 c 10.167,2.3054 27.1,2.152 36.819,3.5403"
+           transform="translate(0,652.36)"
+           style="fill:#c2701d;stroke:#482600;stroke-width:1px"
+           sodipodi:nodetypes="cc"
+           id="path3853"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m 285.11,360.11 c 7.4014,-2.185 20.819,-0.42626 27.614,-4.9564"
+           transform="translate(0,652.36)"
+           style="fill:#c2701d;stroke:#482600;stroke-width:1px"
+           sodipodi:nodetypes="cc"
+           id="path3855"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m 284.16,369.55 c 12.988,-0.22246 25.059,4.2205 35.167,5.6644"
+           transform="translate(0,652.36)"
+           style="fill:#c2701d;stroke:#482600;stroke-width:1px"
+           sodipodi:nodetypes="cc"
+           id="path3857"
+           inkscape:connector-curvature="0" />
+      </g>
       <path
-         d="M 363.23,984.94 C 226.79,941.31 151.35,806.64 207.49,670.59 c 27.98,-59.67 -52.96,-14.8 -80.6,-14.24 12.29,-22.97 15.52,-32.92 9.24,-42.3 -6.28,-9.38 -33.36,-7.91 -56.638,-15.68 16.432,-14.52 53.798,-12.87 56.948,-36.12 3.05,-22.44 -40.006,-13.03 -58.16,-29.5 16.047,-8.74 57.94,-4.57 65.84,-30.77 6.01,-19.92 -32.32,-39.87 -32.92,-54.15 49.58,24.46 85.45,21.97 118.36,-10.39 1.48,0.09 3.76,4.47 9.51,27.63 5.76,23.16 16.04,39.29 41.26,28.95 25.21,-10.34 31.66,-15.5 -0.74,-46.37 -67.21,-69.8 -50.3,-154.82 13.78,-232.22 12.63,-12.48 -14.5,-27.72 -26.9,-35.35 -12.4,-7.63 -11.5,-10.08 -10.44,-14.8 28.12,-19.9 41.97,-27.27 25.85,-67.767 13.37,-6.676 28.85,-1.388 41.85,-10.136 16.09,-7.656 4.06,-35.225 12.64,-44.137 15.33,1.41 22.24,19.366 38.23,18.038 19.89,-3.768 40.86,-36.362 54.7,-27.622 -1.43,9.437 -4.58,19.297 2.5,20.819 11.72,2.52 39.69,-14.674 43.57,-9.997 3.19,3.842 -21.36,27.286 7.46,27.167 28.82,-0.119 55.63,30.755 62.7,61.515 12.96,65.42 56.34,105.48 107.36,145.71 22.31,14.88 20.73,27.21 6.86,38.3 -13.87,11.08 -36.86,11.27 -56.72,-2.81 -19.86,-14.09 -29.22,-15.52 -75.2,-19.44 -45.98,-3.92 -59.57,-8.52 -71.08,-16.95 -11.51,-8.43 -19.9,-34.04 -19.97,-40.69 -0.08,-6.64 -11.28,13.01 -19.44,29.9 -8.17,16.9 -3.29,32.18 62.84,70.36 66.02,34.35 120.53,77.53 123.14,154.13 -0.05,52.18 -27.13,106.03 -136.32,145.95 -123.93,45.31 -179.82,146.99 -90.46,249.66 61.07,57.18 150.99,25.57 152.25,-58.26 -3.27,-54.83 -58.59,-78.35 -94.98,-26.71 -18.05,25.59 -28.34,22.74 -22.71,-5.2 6.99,-34.68 50.55,-59.84 93.35,-57.61 73.42,3.83 97.55,73.17 77.81,134.4 -31.21,96.85 -127.22,131.1 -219.03,111.04 z"
-         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:6.33412644;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-         sodipodi:nodetypes="ccczcscscczzcczccccccsszcczzzzczccsccssssc"
-         id="path2170"
-         inkscape:connector-curvature="0" />
+         d="m 360.28866,808.08913 c 32.758,91.467 -10.317,127.83 -122.81,140.2 -52.656,5.7936 -103.26,6.9716 -153.320002,-5.4222 -31.174,-7.7173 -62.663,-14.905 -89.1759996,-37.956 -26.9410004,-23.423 -123.1799984,-152.74 -75.0950004,-134.01 72.7920004,28.363 119.85,32.479 142.37,25.562 48.209002,-14.807 105.110002,-12.71 156.450002,-2e-5 45.588,11.286 127.45,-27.859 141.59,11.619 z"
+         style="fill:#946326;stroke:#000000;stroke-width:2.35870004"
+         sodipodi:nodetypes="csssssss"
+         id="path3641"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
+         inkscape:export-xdpi="89.953705"
+         inkscape:export-ydpi="89.953705" />
+      <path
+         d="m 357.32866,747.88913 c 0,42.561 -45.497,73.784 -97.97,73.784 -52.473,0 -79.619,-24.367 -79.619,-66.928 0,-42.561 10.276,-78.852 95.01,-77.064 52.461,1.1074 82.579,27.646 82.579,70.207 z"
+         style="fill:#30732b;stroke:#000000;stroke-width:1.54659998"
+         sodipodi:nodetypes="csssc"
+         id="path2816"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
+         inkscape:export-xdpi="89.953705"
+         inkscape:export-ydpi="89.953705" />
+      <path
+         d="m 260.61866,691.18913 c -2.4542,-8.5004 4.8149,-20.767 -9.0716,-35.62 m 8.889,34.896 c 1.5311,-10.147 13.149,-27.375 23.736,-29.293 m -22.49,31.041 c -9.7142,-14.095 -10.124,-32.738 -30.783,-26.083"
+         style="fill:none;stroke:#808080;stroke-width:3.06209993;stroke-opacity:1"
+         sodipodi:nodetypes="cccccc"
+         id="path3634"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
+         inkscape:export-xdpi="89.953705"
+         inkscape:export-ydpi="89.953705" />
+      <path
+         d="m 262.82866,850.90913 c -60.32,-10.685 -260.0700016,-11.441 -265.8400016,3.0777 -6.34,15.974 164.7600016,116.3 283.8600016,41.084"
+         style="fill:#968672;stroke:#000000;stroke-width:2.20440006"
+         sodipodi:nodetypes="csc"
+         id="path3645"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
+         inkscape:export-xdpi="89.953705"
+         inkscape:export-ydpi="89.953705" />
+      <path
+         d="m 162.58866,860.59913 c -27.119,-0.12522 -56.061,-2.6272 -79.472002,-10.355 m 126.530002,59.022 c -36.524,6.3784 -66.805,-4.7931 -96.203,-14.497 m 102.48,-1.0355 c -53.092,8.7607 -96.493,-3.2022 -140.120002,-17.603 m 145.340002,-10.34 c -54.932,18.977 -118.42,-2.071 -172.540002,-2.071"
+         style="fill:none;stroke:#171716;stroke-width:1.65330005"
+         id="path3680"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
+         inkscape:export-xdpi="89.953705"
+         inkscape:export-ydpi="89.953705" />
+      <path
+         d="m 33.968658,906.67913 c -18.22,-12.2 -52.541,-39.76 -62.739,-55.91 m 38.6890004,-12.95 c -12.657,-2.36 -43.4570004,-14.92 -53.3290004,-25.88 m 96.726,0 c -31.029,0.55301 -93.779,-13.773 -115.03,-26.922 m 50.716,69.377 c -28.8,-18.87 -48.364,-45.57 -58.557,-59.03 m 48.102,75.59 c -30.082,-19.99 -43.773,-54.56 -56.467,-82.84 m 139.08,35.21 c -50.48,10.3 -113.98,-16.57 -146.4,-48.67"
+         style="fill:none;stroke:#371e03;stroke-width:1.65330005"
+         sodipodi:nodetypes="cccccccccccc"
+         id="path3695"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
+         inkscape:export-xdpi="89.953705"
+         inkscape:export-ydpi="89.953705" />
+      <path
+         d="m 160.64866,798.82913 c -34.936,-7.4112 -70.162002,-2.6514 -87.986002,6.893 m 81.152002,6.4426 c -29.008,6.8144 -40.396,2.1966 -78.680002,5.1254 m 113.600002,14.319 c -32.184,3.2795 -67.296,7.3151 -99.340002,4.1419 m -26.142,84.909 c -7.8154,0.29985 -13.497,-3.7432 -19.868,-7.2483 m 139.080002,24.851 c -31.483,4.9031 -57.916,0.37146 -87.838002,-6.2128 m 204.950002,-88.016 c 0.40476,16.631 -11.9,22.798 -19.689,31.796 m 68.477,18.617 c -3.4367,13.671 -12.003,17.85 -16.372,18.963 m 20.914,-89.051 c 5.7512,17.106 4.0559,47.811 -1.8594,56.47 m -25.254,-41.263 c 1.8428,25.841 -7.8273,30.635 -7.8273,38.157 m -34.635,23.846 c -5.2229,20.717 -16.494,24.052 -27.674,27.373 m 63.017,-9.8738 c -15.726,9.3416 -59.791,22.371 -75.639,21.745 m 66.998,-70.893 c 0.23492,22.875 -9.77,33.724 -15.506,36.619 m 45.831,-69.754 c 2.0641,28.599 -0.78782,57.502 -40.012,81.699"
+         style="fill:none;stroke:#392303;stroke-width:1.98399997"
+         sodipodi:nodetypes="cccccccccccccccccccccccccc"
+         id="path3726"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
+         inkscape:export-xdpi="89.953705"
+         inkscape:export-ydpi="89.953705" />
+      <path
+         d="m 358.63866,724.93913 c 0,12.611 -3.7109,22.109 -21.906,22.109 -18.1951,0 -32.946,-10.223 -32.946,-22.833 0,-12.611 14.75,-22.833 32.946,-22.833 18.195,0 21.906,10.948 21.906,23.558 z"
+         style="fill:#ffffff;stroke:#000000;stroke-width:1.20369995"
+         sodipodi:nodetypes="csssc"
+         id="path3603"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
+         inkscape:export-xdpi="89.953705"
+         inkscape:export-ydpi="89.953705" />
+      <path
+         inkscape:transform-center-x="-12.233093"
+         inkscape:transform-center-y="6.6360758"
+         sodipodi:nodetypes="css"
+         d="m 357.48866,733.21913 c -5.2746,20.36 -21.135,3.2041 -17.15,-4.2577 3.9851,-7.4618 20.903,-10.227 17.15,4.2577 z"
+         style="fill:#000000;stroke:#000000;stroke-width:0.85058999px"
+         id="path3594-0"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
+         inkscape:export-xdpi="89.953705"
+         inkscape:export-ydpi="89.953705" />
+      <path
+         d="m 385.42866,754.54913 c -29.025,6.42 -75.883,2.5282 -88.792,1.6754 m 0.8756,-21.196 c 32.779,6.774 87.628,10.084 88.004,18.168 0.72191,15.499 -32.383,20.31 -89.958,22.005"
+         style="fill:#fea906;stroke:#000000;stroke-width:1.67739999"
+         sodipodi:nodetypes="cccsc"
+         id="path3617"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
+         inkscape:export-xdpi="89.953705"
+         inkscape:export-ydpi="89.953705" />
+      <path
+         d="m 327.14866,727.36913 c 0,14.754 -4.577,25.866 -27.019,25.866 -22.442,0 -40.635,-11.96 -40.635,-26.714 0,-14.754 18.193,-26.714 40.635,-26.714 22.442,0 27.019,12.808 27.019,27.562 z"
+         style="fill:#ffffff;stroke:#000000;stroke-width:1.44599998"
+         sodipodi:nodetypes="csssc"
+         id="path3591"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
+         inkscape:export-xdpi="89.953705"
+         inkscape:export-ydpi="89.953705" />
+      <path
+         inkscape:transform-center-x="-12.233092"
+         inkscape:transform-center-y="6.6360778"
+         sodipodi:nodetypes="css"
+         d="m 326.22866,736.37913 c -5.2746,20.36 -21.135,3.2042 -17.15,-4.2577 3.9851,-7.4618 20.902,-10.227 17.15,4.2577 z"
+         style="fill:#000000;stroke:#000000;stroke-width:0.85058999px"
+         id="path3594"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
+         inkscape:export-xdpi="89.953705"
+         inkscape:export-ydpi="89.953705" />
+      <path
+         d="m 151.28866,1021.9792 c 5.5818,6.0099 95.419,31.654 75.782,15.35 -6.638,-5.5112 8.0157,-11.625 -2.2824,-13.583 -13.87,-2.6377 2.5517,-11.157 -2.6929,-12.334 -19.261,-4.3234 -45.608,-2.6879 -57.603,-1.4221 -15.251,1.6094 -17.949,6.8804 -13.204,11.99 z"
+         style="fill:#e07b16;stroke:#000000;stroke-width:0.89309001px"
+         sodipodi:nodetypes="csssss"
+         id="path3792"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
+         inkscape:export-xdpi="89.953705"
+         inkscape:export-ydpi="89.953705" />
+      <path
+         d="m 159.18866,1020.2792 c 2.081,-24.81007 8.6209,-63.78307 0.62908,-86.94207 0.90092,-9.3379 34.889,-7.399 32.779,5.3582 l -0.15318,0.80499 c -18.021,15.924 -13.41,52.755 -19.684,75.98508 l -0.11568,1.3994 c 0.80632,5.351 -14.932,6.1678 -13.456,3.3945"
+         style="fill:#e07b16;stroke:#000000;stroke-width:1.20490003px"
+         sodipodi:nodetypes="ccccccc"
+         id="path3815"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
+         inkscape:export-xdpi="89.953705"
+         inkscape:export-ydpi="89.953705" />
+      <path
+         d="m 176.77866,1018.5792 c 11.955,4.2406 32.477,6.5898 44.029,9.6808"
+         style="fill:none;stroke:#482600;stroke-width:1.20490003px"
+         sodipodi:nodetypes="cc"
+         id="path3834"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
+         inkscape:export-xdpi="89.953705"
+         inkscape:export-ydpi="89.953705" />
+      <path
+         d="m 183.56866,1015.4792 c 9.2948,-1.4732 25.268,2.6079 34.188,-1.7241"
+         style="fill:none;stroke:#482600;stroke-width:1.20490003px"
+         sodipodi:nodetypes="cc"
+         id="path3836"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
+         inkscape:export-xdpi="89.953705"
+         inkscape:export-ydpi="89.953705" />
+      <path
+         d="m 180.97866,1026.4792 c 15.757,1.6783 29.689,8.7265 41.704,11.941"
+         style="fill:none;stroke:#482600;stroke-width:1.20490003px"
+         sodipodi:nodetypes="cc"
+         id="path3838"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/benjamin/workspaces/ruby/diaspora/app/assets/images/branding/logos/header-logo.png"
+         inkscape:export-xdpi="89.953705"
+         inkscape:export-ydpi="89.953705" />
     </g>
   </g>
 </svg>
