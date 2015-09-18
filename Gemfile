@@ -13,7 +13,7 @@ gem "puma", "2.11.2", require: false
 
 # Federation
 
-gem "diaspora_federation-rails", "0.0.6"
+gem "diaspora_federation-rails", "0.0.7"
 
 # API and JSON
 
