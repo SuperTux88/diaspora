@@ -158,7 +158,20 @@ function stop_sidekiq() {
     get_sidekiq_pid | while read line; do
       kill $line
     done
-    while [ `get_sidekiq_pid | wc -l` -gt 0 ]; do echo -n "."; sleep 1; done
+
+    timeout="0"
+    while [ `get_sidekiq_pid | wc -l` -gt 0 ]; do
+      if [ "$timeout" -gt "30" ]; then
+        echo -n "#"
+        get_sidekiq_pid | while read line; do
+          kill -9 $line
+        done
+      else
+        timeout=$[$timeout+1]
+        echo -n "."
+        sleep 1
+      fi
+    done
     echo
   fi
 }
