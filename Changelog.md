@@ -1,3 +1,25 @@
+# 0.5.4.0
+
+## Refactor
+*  Improve infinite scroll triggering [#6451](https://github.com/diaspora/diaspora/pull/6451)
+
+## Bug fixes
+* Skip first getting started step if it looks done already [#6456](https://github.com/diaspora/diaspora/pull/6456)
+* Normalize new followed tags and insert them alphabetically [#6454](https://github.com/diaspora/diaspora/pull/6454)
+* Add avatar fallback for notification dropdown [#6463](https://github.com/diaspora/diaspora/pull/6463)
+* Improve handling of j/k hotkeys [#6462](https://github.com/diaspora/diaspora/pull/6462)
+* Fix JS error caused by hovercards [6480](https://github.com/diaspora/diaspora/pull/6480)
+
+## Features
+* Show spinner on initial stream load [#6384](https://github.com/diaspora/diaspora/pull/6384)
+* Add new moderator role. Moderators can view and act on reported posts [#6351](https://github.com/diaspora/diaspora/pull/6351)
+* Only post to the primary tumblr blog [#6386](https://github.com/diaspora/diaspora/pull/6386)
+* Always show public photos on profile page [#6398](https://github.com/diaspora/diaspora/pull/6398)
+* Expose Unicorn's pid option to our configuration system [#6411](https://github.com/diaspora/diaspora/pull/6411)
+* Add stream of all public posts [#6465](https://github.com/diaspora/diaspora/pull/6465)
+* Reload stream when clicking on already active one [#6466](https://github.com/diaspora/diaspora/pull/6466)
+* Sign in user before evaluating post visibility [#6490](https://github.com/diaspora/diaspora/pull/6490)
+
 # 0.5.3.1
 
 Fix a leak of potentially private profile data to unauthorized users who were sharing with the person

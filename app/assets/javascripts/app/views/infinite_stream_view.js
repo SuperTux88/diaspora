@@ -13,6 +13,7 @@ app.views.InfScroll = app.views.Base.extend({
     this.postViews = this.postViews || [];
     this._resetPostFragments();
 
+    this.showLoader();
     this.bind("loadMore", this.fetchAndshowLoader, this);
     this.stream.bind("fetched", this.finishedLoading, this);
     this.stream.bind("allItemsLoaded", this.unbindInfScroll, this);
@@ -97,12 +98,12 @@ app.views.InfScroll = app.views.Base.extend({
   },
 
   infScroll : function() {
-    var $window = $(window)
-      , distFromTop = $window.height() + $window.scrollTop()
-      , distFromBottom = $(document).height() - distFromTop
-      , bufferPx = 500;
+    var $window = $(window),
+        distFromBottom = $(document).height() - $window.height() - $window.scrollTop(),
+        lastElOffset = this.$el.children().last().offset(),
+        elementDistance = lastElOffset ? lastElOffset.top - $window.scrollTop() - 500 : 1;
 
-    if(distFromBottom < bufferPx) {
+    if(elementDistance <= 0 || distFromBottom < 500) {
       this.trigger("loadMore");
     }
   }

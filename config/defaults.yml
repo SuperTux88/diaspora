@@ -4,7 +4,7 @@
 
 defaults:
   version:
-    number: "0.5.3.1" # Do not touch unless doing a release, do not backport the version number that's in master
+    number: "0.5.4.0" # Do not touch unless doing a release, do not backport the version number that's in master
   heroku: false
   environment:
     url: "http://localhost:3000/"
@@ -42,6 +42,7 @@ defaults:
     port:
     listen: '0.0.0.0:3000'
     rails_environment: 'development'
+    pid:
     stderr_log:
     stdout_log:
     unicorn_worker: 2
@@ -202,6 +203,9 @@ development:
       serve: true
     single_process_mode: true
     require_ssl: false
+    logging:
+      debug:
+        sql: true
   server:
     unicorn_worker: 1
   settings:
