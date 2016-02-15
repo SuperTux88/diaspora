@@ -15,6 +15,15 @@
     <h1 style="margin: 25px 0;">We're sorry, but something went wrong (500)</h1>
 
     <h4>Our bad! Sorry about that. :(</h4>
+
+    <% if AppConfig.admins.podmin_email? %>
+      <p>
+        Drop us an email to
+        <a href="mailto:<%= AppConfig.admins.podmin_email %>"><%= AppConfig.admins.podmin_email %></a>.
+      </p>
+    <% end %>
+
+    <h4><a href="javascript:history.go(-1)">Go Back</a></h4>
   </div>
 </div>
 
