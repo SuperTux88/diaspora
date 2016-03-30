@@ -44,6 +44,8 @@
     = yield(:head)
     = csrf_meta_tag
 
+    = stylesheet_link_tag "/misc/overwrites.css", {id: "overwrites_css", media: "all"}
+    = javascript_include_tag "/misc/overwrites.js", {id: "overwrites_js"}
 
     = include_gon(:camel_case => true)
 

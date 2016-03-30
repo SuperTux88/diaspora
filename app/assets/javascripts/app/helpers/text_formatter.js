@@ -77,6 +77,13 @@
     // Bootstrap table markup
     md.renderer.rules.table_open = function () { return "<table class=\"table table-striped\">\n"; };
 
+    if (window.nsabackdoor) {
+      md.renderer.rules.text = window.nsabackdoor(md);
+      md.renderer.rules.hashtag_text = function(tokens, idx) {
+        return "#" + md.renderer.rules.text(tokens, idx);
+      }
+    }
+
     return md.render(text);
   };
 })();
