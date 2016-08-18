@@ -598,8 +598,7 @@ GEM
     pry-byebug (3.4.0)
       byebug (~> 9.0)
       pry (~> 0.10)
-    puma (2.11.2)
-      rack (>= 1.1, < 2.0)
+    puma (3.6.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
@@ -964,7 +963,7 @@ DEPENDENCIES
   pronto-scss (= 0.7.0)
   pry
   pry-byebug
-  puma (= 2.11.2)
+  puma (= 3.6.0)
   quiet_assets (= 1.1.0)
   rack-cors (= 0.4.0)
   rack-google-analytics (= 1.2.0)
