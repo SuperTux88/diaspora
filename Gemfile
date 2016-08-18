@@ -8,8 +8,6 @@ gem "responders", "2.2.0"
 
 # Appserver
 
-gem "unicorn", "5.1.0", require: false
-gem "unicorn-worker-killer", "0.4.4"
 gem "puma", "3.6.0", require: false
 
 # Federation
@@ -259,6 +257,11 @@ group :development do
   gem "simplecov", "0.12.0", require: false
 
   gem "turbo_dev_assets", "0.0.2"
+
+  # Appserver
+
+  gem "unicorn", "5.1.0", require: false
+  gem "unicorn-worker-killer", "0.4.4"
 end
 
 group :test do
