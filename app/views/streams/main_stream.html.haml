@@ -96,6 +96,34 @@
                   target: "_blank"),
                 target: "_blank")
 
+        .section.collapsed
+          .title
+            %h5.title-header
+              .entypo-triangle-right
+              .entypo-triangle-down
+              = t("aspects.index.help.any_problem")
+          .content
+            - if AppConfig.admins.podmin_email.present?
+              %p
+                = t("aspects.index.help.contact_podmin")
+              %p
+                = link_to t("aspects.index.help.mail_podmin"), "mailto:#{AppConfig.admins.podmin_email}"
+            %p
+              = 'nerdpol.ch "Team"-Account. Infos rund um diesen Pod (Updates, usw.):'
+              %a{:href => "https://nerdpol.ch/u/team"}
+                = "team@nerdpol.ch"
+
+        .section.collapsed
+          .title
+            %h5.title-header
+              .entypo-triangle-right
+              .entypo-triangle-down
+              = "Mumble"
+          .content
+            = "nerdpol.ch Mumble-Server:"
+            %a{:href => "mumble://mumble.nerdpol.ch"}
+              = "mumble.nerdpol.ch"
+
         - unless AppConfig.configured_services.blank? || all_services_connected?
           .section.collapsed
             .title
@@ -135,19 +163,6 @@
               %p
                 = t("aspects.index.keep_pod_running", pod: AppConfig.pod_uri.host)
               = render "shared/donatepod"
-
-        - if AppConfig.admins.podmin_email.present?
-          .section.collapsed
-            .title
-              %h5.title-header
-                .entypo-triangle-right
-                .entypo-triangle-down
-                = t("aspects.index.help.any_problem")
-            .content
-              %p
-                = t("aspects.index.help.contact_podmin")
-              %p
-                = link_to t("aspects.index.help.mail_podmin"), "mailto:#{AppConfig.admins.podmin_email}"
 
         .excellence-box
           .content
