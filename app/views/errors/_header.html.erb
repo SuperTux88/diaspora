@@ -1,14 +1,27 @@
 <header>
-  <div class="container" style="position:relative;">
-    <a href="/">
-      <div alt="Logo" class="diaspora_header_logo logos-header-logo">
+  <div class="dark-header">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="/"><div class="diaspora_header_logo">
+                <img alt="nerdpol.ch*" src="<%= image_path("branding/logos/header-logo.png") %>">
+              </div>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="https://twitter.com/nerdpol_ch">@nerdpol_ch</a></li>
+                <li><a href="https://github.com/SuperTux88/diaspora">github</a></li>
+                <li><a href="https://blog.diasporafoundation.org">Blog</a></li>
+                <li><a class="login" href="/users/sign_up">Create account</a></li>
+                <li><a class="login" href="/users/sign_in">Sign in</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-    </a>
-    <ul id='landing_nav'>
-      <li><a href="https://twitter.com/nerdpol_ch">@nerdpol_ch</a></li>
-      <li><a href="https://github.com/SuperTux88/diaspora">github</a></li>
-      <li><a href="https://blog.diasporafoundation.org">Blog</a></li>
-      <li><a href="/users/sign_in" class="login">Anmelden</a></li>
-    </ul>
+    </nav>
   </div>
 </header>
