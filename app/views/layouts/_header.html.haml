@@ -16,7 +16,9 @@
                   %span.icon-bar
                   %span.icon-bar
                   %span.icon-bar
-                = link_to AppConfig.settings.pod_name, root_path, class: "navbar-brand"
+                = link_to root_path, class: "navbar-brand" do
+                  .diaspora_header_logo
+                    = image_tag "branding/logos/header-logo.png", alt: AppConfig.settings.pod_name
 
               .collapse.navbar-collapse#navbar-collapse
                 = render "layouts/header_not_connected"
