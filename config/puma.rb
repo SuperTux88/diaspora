@@ -1,7 +1,5 @@
 require_relative "load_config"
 
-daemonize
-
 state_path "/var/run/diaspora/diaspora.state"
 pidfile "/var/run/diaspora/diaspora.pid"
 bind AppConfig.server.listen.get

@@ -1,0 +1,13 @@
+[Unit]
+Wants=nginx.service
+
+[Service]
+EnvironmentFile=/etc/camo.conf
+ExecStart=/usr/bin/node /srv/camo/node_modules/.bin/coffee server.coffee
+KillMode=control-group
+Restart=always
+User=camo
+WorkingDirectory=/srv/camo
+
+[Install]
+WantedBy=multi-user.target

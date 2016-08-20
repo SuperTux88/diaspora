@@ -1,0 +1,14 @@
+[Unit]
+Wants=redis-server.service
+
+[Service]
+EnvironmentFile=/etc/diaspora.conf
+ExecStart=/home/diaspora/.rvm/bin/systemd_bundle exec sidekiq
+TimeoutStopSec=20
+KillMode=control-group
+Restart=always
+User=diaspora
+WorkingDirectory=/srv/diaspora
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,17 @@
+[Unit]
+Wants=redis-server.service
+
+[Service]
+EnvironmentFile=/etc/diaspora.conf
+ExecStart=/home/diaspora/.rvm/bin/systemd_pumactl -F config/puma.rb start
+ExecReload=/home/diaspora/.rvm/bin/systemd_pumactl -F config/puma.rb restart
+ExecStop=/home/diaspora/.rvm/bin/systemd_pumactl -F config/puma.rb stop
+TimeoutStopSec=5
+Restart=on-failure
+User=diaspora
+RuntimeDirectory=diaspora
+RuntimeDirectoryMode=0755
+WorkingDirectory=/srv/diaspora
+
+[Install]
+WantedBy=multi-user.target
