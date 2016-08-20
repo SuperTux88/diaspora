@@ -1011,6 +1011,7 @@ DEPENDENCIES
   spring (= 1.7.2)
   spring-commands-cucumber (= 1.0.1)
   spring-commands-rspec (= 1.0.4)
+  terminal-table
   test_after_commit (= 1.1.0)
   timecop (= 0.8.1)
   turbo_dev_assets (= 0.0.2)
