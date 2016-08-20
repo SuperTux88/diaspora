@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 ENV['RAILS_ENV'] ||= "production"
-require_relative "../..config/environment"
+require_relative "../../config/environment"
 require "terminal-table"
 
 def count_errors(set)
