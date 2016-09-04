@@ -1,3 +1,13 @@
+# 0.6.1.0
+
+## Refactor
+* Indicate proper way to report bugs in the sidebar [#7039](https://github.com/diaspora/diaspora/pull/7039)
+* Remove text color from notification mails and fix sender avatar [#7054](https://github.com/diaspora/diaspora/pull/7054)
+
+## Bug fixes
+
+## Features
+
 # 0.6.0.0
 
 ## Warning: This release contains long migrations
