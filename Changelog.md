@@ -3,10 +3,20 @@
 ## Refactor
 * Indicate proper way to report bugs in the sidebar [#7039](https://github.com/diaspora/diaspora/pull/7039)
 * Remove text color from notification mails and fix sender avatar [#7054](https://github.com/diaspora/diaspora/pull/7054)
+* Make the session cookies HttpOnly again [#7041](https://github.com/diaspora/diaspora/pull/7041)
+* Invalidate sessions with invalid CSRF tokens [#7050](https://github.com/diaspora/diaspora/pull/7050)
+* Liking a post will no longer update its interacted timestamp [#7030](https://github.com/diaspora/diaspora/pull/7030)
 
 ## Bug fixes
+* Post comments no longer get collapsed when interacting with a post [#7040](https://github.com/diaspora/diaspora/pull/7040)
+* Closed accounts will no longer show up in the account search [#7042](https://github.com/diaspora/diaspora/pull/7042)
+* Code blocks in conversations no longer overflow the content [#7055](https://github.com/diaspora/diaspora/pull/7055)
+* More buttons in mobile streams are fixed [#7036](https://github.com/diaspora/diaspora/pull/7036)
 
 ## Features
+* Deleted comments will be removed when loading more comments [#7045](https://github.com/diaspora/diaspora/pull/7045)
+* The "subscribe" indicator on a post now gets toggled when you like or rehsare a post [#7040](https://github.com/diaspora/diaspora/pull/7040)
+* Add OpenGraph video support [#7043](https://github.com/diaspora/diaspora/pull/7043)
 
 # 0.6.0.0
 
