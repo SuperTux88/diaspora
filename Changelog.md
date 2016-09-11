@@ -6,17 +6,25 @@
 * Make the session cookies HttpOnly again [#7041](https://github.com/diaspora/diaspora/pull/7041)
 * Invalidate sessions with invalid CSRF tokens [#7050](https://github.com/diaspora/diaspora/pull/7050)
 * Liking a post will no longer update its interacted timestamp [#7030](https://github.com/diaspora/diaspora/pull/7030)
+* Improve W3C compliance [#7068](https://github.com/diaspora/diaspora/pull/7068) [#7082](https://github.com/diaspora/diaspora/pull/7082)
+* Load jQuery in the head on mobile [#7086](https://github.com/diaspora/diaspora/pull/7086)
 
 ## Bug fixes
 * Post comments no longer get collapsed when interacting with a post [#7040](https://github.com/diaspora/diaspora/pull/7040)
 * Closed accounts will no longer show up in the account search [#7042](https://github.com/diaspora/diaspora/pull/7042)
 * Code blocks in conversations no longer overflow the content [#7055](https://github.com/diaspora/diaspora/pull/7055)
 * More buttons in mobile streams are fixed [#7036](https://github.com/diaspora/diaspora/pull/7036)
+* Fixed missing sidebar background in the contacts tab [#7064](https://github.com/diaspora/diaspora/pull/7064)
+* Fix tags URLs in hovercards [#7075](https://github.com/diaspora/diaspora/pull/7075)
+* Fix 500 in html requests for post interactions [#7085](https://github.com/diaspora/diaspora/pull/7085)
+* Remove whitespaces next to like link in stream [#7088](https://github.com/diaspora/diaspora/pull/7088)
+* Prevent overflow of interaction avatars in the single post view [#7070](https://github.com/diaspora/diaspora/pull/7070)
 
 ## Features
 * Deleted comments will be removed when loading more comments [#7045](https://github.com/diaspora/diaspora/pull/7045)
 * The "subscribe" indicator on a post now gets toggled when you like or rehsare a post [#7040](https://github.com/diaspora/diaspora/pull/7040)
 * Add OpenGraph video support [#7043](https://github.com/diaspora/diaspora/pull/7043)
+* You'll now get redirected to the invites page if you follow an invitation but you're already logged in [#7061](https://github.com/diaspora/diaspora/pull/7061)
 
 # 0.6.0.0
 
