@@ -6,8 +6,9 @@
 * Make the session cookies HttpOnly again [#7041](https://github.com/diaspora/diaspora/pull/7041)
 * Invalidate sessions with invalid CSRF tokens [#7050](https://github.com/diaspora/diaspora/pull/7050)
 * Liking a post will no longer update its interacted timestamp [#7030](https://github.com/diaspora/diaspora/pull/7030)
-* Improve W3C compliance [#7068](https://github.com/diaspora/diaspora/pull/7068) [#7082](https://github.com/diaspora/diaspora/pull/7082)
+* Improve W3C compliance [#7068](https://github.com/diaspora/diaspora/pull/7068) [#7082](https://github.com/diaspora/diaspora/pull/7082) [#7091](https://github.com/diaspora/diaspora/pull/7091) [#7092](https://github.com/diaspora/diaspora/pull/7092)
 * Load jQuery in the head on mobile [#7086](https://github.com/diaspora/diaspora/pull/7086)
+* Use translation for NodeInfo services [#7102](https://github.com/diaspora/diaspora/pull/7102)
 
 ## Bug fixes
 * Post comments no longer get collapsed when interacting with a post [#7040](https://github.com/diaspora/diaspora/pull/7040)
@@ -19,12 +20,22 @@
 * Fix 500 in html requests for post interactions [#7085](https://github.com/diaspora/diaspora/pull/7085)
 * Remove whitespaces next to like link in stream [#7088](https://github.com/diaspora/diaspora/pull/7088)
 * Prevent overflow of interaction avatars in the single post view [#7070](https://github.com/diaspora/diaspora/pull/7070)
+* Fix moving publisher on first click after page load [#7094](https://github.com/diaspora/diaspora/pull/7094)
+* Fix link to comment on report page [#7105](https://github.com/diaspora/diaspora/pull/7105)
+* Fix duplicate flash message on mobile profile edit [#7107](https://github.com/diaspora/diaspora/pull/7107)
+* Clicking photos on mobile should no longer cause 404s [#7071](https://github.com/diaspora/diaspora/pull/7071)
 
 ## Features
 * Deleted comments will be removed when loading more comments [#7045](https://github.com/diaspora/diaspora/pull/7045)
 * The "subscribe" indicator on a post now gets toggled when you like or rehsare a post [#7040](https://github.com/diaspora/diaspora/pull/7040)
 * Add OpenGraph video support [#7043](https://github.com/diaspora/diaspora/pull/7043)
 * You'll now get redirected to the invites page if you follow an invitation but you're already logged in [#7061](https://github.com/diaspora/diaspora/pull/7061)
+* Add support for setting BOSH access protocol via chat configuration [#7100](https://github.com/diaspora/diaspora/pull/7100)
+* Add number of unreviewed reports to admin dashboard and admin sidebar [#7109](https://github.com/diaspora/diaspora/pull/7109)
+
+# 0.6.0.1
+
+Fixes an issue with installing an running diaspora\*, caused by a recent bundler update that fixes a bundler bug on which we depended on.
 
 # 0.6.0.0
 
