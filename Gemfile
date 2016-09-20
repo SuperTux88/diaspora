@@ -9,6 +9,7 @@ gem "responders", "2.2.0"
 # Appserver
 
 gem "puma", "3.6.0", require: false
+gem "puma_worker_killer", "0.0.6"
 
 # Federation
 
