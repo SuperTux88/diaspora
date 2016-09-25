@@ -1,5 +1,7 @@
 # 0.6.1.0
 
+Note: Although this is a minor release, the configuration file changed because the old Mapbox implementation is no longer valid, and the current implementation requires additional fields. Chances are high that if you're using the old integration, it will be broken anyway. If you do use Mapbox, please check out the `diaspora.yml.example` for new parameters.
+
 ## Refactor
 * Indicate proper way to report bugs in the sidebar [#7039](https://github.com/diaspora/diaspora/pull/7039)
 * Remove text color from notification mails and fix sender avatar [#7054](https://github.com/diaspora/diaspora/pull/7054)
@@ -9,6 +11,8 @@
 * Improve W3C compliance [#7068](https://github.com/diaspora/diaspora/pull/7068) [#7082](https://github.com/diaspora/diaspora/pull/7082) [#7091](https://github.com/diaspora/diaspora/pull/7091) [#7092](https://github.com/diaspora/diaspora/pull/7092)
 * Load jQuery in the head on mobile [#7086](https://github.com/diaspora/diaspora/pull/7086)
 * Use translation for NodeInfo services [#7102](https://github.com/diaspora/diaspora/pull/7102)
+* Adopt new Mapbox tile URIs [#7066](https://github.com/diaspora/diaspora/pull/7066)
+* Refactored post interactions on the single post view [#7089](https://github.com/diaspora/diaspora/pull/7089)
 
 ## Bug fixes
 * Post comments no longer get collapsed when interacting with a post [#7040](https://github.com/diaspora/diaspora/pull/7040)
@@ -32,6 +36,7 @@
 * You'll now get redirected to the invites page if you follow an invitation but you're already logged in [#7061](https://github.com/diaspora/diaspora/pull/7061)
 * Add support for setting BOSH access protocol via chat configuration [#7100](https://github.com/diaspora/diaspora/pull/7100)
 * Add number of unreviewed reports to admin dashboard and admin sidebar [#7109](https://github.com/diaspora/diaspora/pull/7109)
+* Don't federate to pods that have been offline for an extended period of time [#7120](https://github.com/diaspora/diaspora/pull/7120)
 
 # 0.6.0.1
 
