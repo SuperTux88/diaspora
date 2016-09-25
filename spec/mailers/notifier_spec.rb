@@ -94,6 +94,11 @@ describe Notifier, type: :mailer do
       expect(@mail.subject).to include(@post.author.name)
     end
 
+    it "IN-REPLY-TO and REFERENCES: references the mentioning post" do
+      expect(@mail.in_reply_to).to eq("#{@post.guid}@#{AppConfig.pod_uri.host}")
+      expect(@mail.references).to eq("#{@post.guid}@#{AppConfig.pod_uri.host}")
+    end
+
     it "has the post text in the body" do
       expect(@mail.body.encoded).to include(@post.text)
     end
@@ -170,6 +175,11 @@ describe Notifier, type: :mailer do
       expect(@mail.to).to eq([alice.email])
     end
 
+    it "IN-REPLY-TO and REFERENCES: references the reshared post" do
+      expect(@mail.in_reply_to).to eq("#{@post.guid}@#{AppConfig.pod_uri.host}")
+      expect(@mail.references).to eq("#{@post.guid}@#{AppConfig.pod_uri.host}")
+    end
+
     it "BODY: contains the truncated original post" do
       expect(@mail.body.encoded).to include(@post.message.plain_text)
     end
@@ -216,6 +226,11 @@ describe Notifier, type: :mailer do
       expect(@mail.subject).not_to include(@cnv.subject)
     end
 
+    it "IN-REPLY-TO and REFERENCES: references the containing conversation" do
+      expect(@mail.in_reply_to).to eq("#{@cnv.guid}@#{AppConfig.pod_uri.host}")
+      expect(@mail.references).to eq("#{@cnv.guid}@#{AppConfig.pod_uri.host}")
+    end
+
     it "BODY: does not contain the message text" do
       expect(@mail.body.encoded).not_to include(@cnv.messages.first.text)
     end
@@ -254,8 +269,8 @@ describe Notifier, type: :mailer do
           expect(comment_mail.body.encoded).to include(comment.text)
         end
 
-        it "contains the original post's link" do
-          expect(comment_mail.body.encoded.include?("#{comment.post.id}")).to be true
+        it "contains the original post's link with comment anchor" do
+          expect(comment_mail.body.encoded).to include("#{comment.post.id}##{comment.guid}")
         end
 
         it "should not include translation fallback" do
@@ -290,13 +305,18 @@ describe Notifier, type: :mailer do
         expect(comment_mail.subject).to eq("Re: Headline")
       end
 
+      it "IN-REPLY-TO and REFERENCES: references the commented post" do
+        expect(comment_mail.in_reply_to).to eq("#{comment.parent.guid}@#{AppConfig.pod_uri.host}")
+        expect(comment_mail.references).to eq("#{comment.parent.guid}@#{AppConfig.pod_uri.host}")
+      end
+
       context "BODY" do
         it "contains the comment" do
           expect(comment_mail.body.encoded).to include(comment.text)
         end
 
-        it "contains the original post's link" do
-          expect(comment_mail.body.encoded).to include("#{comment.post.id}")
+        it "contains the original post's link with comment anchor" do
+          expect(comment_mail.body.encoded).to include("#{comment.post.id}##{comment.guid}")
         end
 
         it "should not include translation fallback" do
@@ -365,6 +385,11 @@ describe Notifier, type: :mailer do
           expect(mail.subject).not_to include("Limited headline")
         end
 
+        it "IN-REPLY-TO and REFERENCES: references the commented post" do
+          expect(mail.in_reply_to).to eq("#{comment.parent.guid}@#{AppConfig.pod_uri.host}")
+          expect(mail.references).to eq("#{comment.parent.guid}@#{AppConfig.pod_uri.host}")
+        end
+
         it "BODY: does not show the limited post" do
           expect(mail.body.encoded).not_to include("Limited headline")
         end
@@ -389,6 +414,11 @@ describe Notifier, type: :mailer do
 
       it "SUBJECT: does not show the limited post" do
         expect(mail.subject).not_to include("Limited headline")
+      end
+
+      it "IN-REPLY-TO and REFERENCES: references the liked post" do
+        expect(mail.in_reply_to).to eq("#{like.parent.guid}@#{AppConfig.pod_uri.host}")
+        expect(mail.references).to eq("#{like.parent.guid}@#{AppConfig.pod_uri.host}")
       end
 
       it "BODY: does not show the limited post" do
