@@ -18,6 +18,12 @@ Diaspora::Application.routes.draw do
     mount Sidekiq::Web => '/sidekiq', :as => 'sidekiq'
   end
 
+  # sidekiq monitoring
+  require "sidekiq/api"
+  get "/sidekiq-process" => proc {
+    [200, {"Content-Type" => "text/plain"}, [Sidekiq::ProcessSet.new.size >= 1 ? "OK" : "UHOH"]]
+  }
+
   # Federation
   mount DiasporaFederation::Engine => "/"
 
