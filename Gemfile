@@ -13,7 +13,7 @@ gem "puma_worker_killer", "0.0.6"
 
 # Federation
 
-gem "diaspora_federation-rails", "0.1.4"
+gem "diaspora_federation-rails", "0.1.5"
 
 # API and JSON
 
@@ -34,7 +34,6 @@ gem "simple_captcha2", "0.4.0", require: "simple_captcha"
 # Background processing
 
 gem "sidekiq", "4.2.2"
-gem "sinatra", "1.4.7"
 gem "terminal-table"
 
 # Scheduled processing
@@ -140,7 +139,7 @@ gem "open_graph_reader", "0.6.1"
 
 # Security Headers
 
-gem "secure_headers", "3.4.1"
+gem "secure_headers", "3.5.0"
 
 # Services
 
@@ -288,7 +287,7 @@ group :test do
   gem "webmock",            "2.1.0", require: false
   gem "shoulda-matchers",   "3.1.1"
 
-  gem "diaspora_federation-test", "0.1.4"
+  gem "diaspora_federation-test", "0.1.5"
 
   # Coverage
   gem 'coveralls', require: false
