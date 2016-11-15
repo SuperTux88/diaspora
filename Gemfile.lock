@@ -796,6 +796,8 @@ GEM
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
     state_machine (1.2.0)
+    string-direction (1.2.0)
+      yard (~> 0.8)
     swd (1.0.1)
       activesupport (>= 3)
       attr_required (>= 0.0.5)
@@ -1009,6 +1011,7 @@ DEPENDENCIES
   spring (= 2.0.0)
   spring-commands-cucumber (= 1.0.1)
   spring-commands-rspec (= 1.0.4)
+  string-direction (= 1.2.0)
   terminal-table
   test_after_commit (= 1.1.0)
   timecop (= 0.8.1)
@@ -1025,4 +1028,4 @@ DEPENDENCIES
   will_paginate (= 3.1.5)
 
 BUNDLED WITH
-   1.13.5
+   1.13.6
