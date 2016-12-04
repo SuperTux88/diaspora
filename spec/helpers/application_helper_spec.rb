@@ -2,30 +2,10 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe ApplicationHelper, :type => :helper do
   before do
     @user = alice
     @person = FactoryGirl.create(:person)
-  end
-
-  describe "#contacts_link" do
-    before do
-      def current_user
-        @current_user
-      end
-    end
-
-    it 'links to community spotlight' do
-      @current_user = FactoryGirl.create(:user)
-      expect(contacts_link).to eq(community_spotlight_path)
-    end
-
-    it 'links to contacts#index' do
-      @current_user = alice
-      expect(contacts_link).to eq(contacts_path)
-    end
   end
 
   describe "#all_services_connected?" do

@@ -73,8 +73,8 @@ gem "activerecord-import", "0.15.0"
 
 # File uploading
 
+gem "fog",         "1.38.0", require: "fog/aws"
 gem "carrierwave", "0.11.2"
-gem "fog",         "1.38.0"
 gem "mini_magick", "4.5.1"
 
 # GUID generation
@@ -105,6 +105,7 @@ source "https://rails-assets.org" do
   gem "rails-assets-markdown-it-sup",                     "1.0.0"
   gem "rails-assets-highlightjs",                         "9.7.0"
   gem "rails-assets-bootstrap-markdown",                  "2.10.0"
+  gem "rails-assets-corejs-typeahead",                    "1.0.1"
 
   # jQuery plugins
 

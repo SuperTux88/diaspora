@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe ResharesController, :type => :controller do
   describe '#create' do
     let(:post_request!) {
@@ -46,7 +44,7 @@ describe ResharesController, :type => :controller do
         it 'doesn\'t allow the user to reshare the post again' do
           post_request!
           expect(response.code).to eq('422')
-          expect(response.body.strip).to be_empty
+          expect(response.body).to eq(I18n.t("reshares.create.error"))
         end
       end
 

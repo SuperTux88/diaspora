@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe ConversationsController, :type => :controller do
   before do
     sign_in alice, scope: :user
@@ -199,15 +197,11 @@ describe ConversationsController, :type => :controller do
         end
 
         it "does not create a conversation" do
-          count = Conversation.count
-          post :create, @hash
-          expect(Conversation.count).to eq(count)
+          expect { post :create, @hash }.not_to change(Conversation, :count)
         end
 
         it "does not create a message" do
-          count = Message.count
-          post :create, @hash
-          expect(Message.count).to eq(count)
+          expect { post :create, @hash }.not_to change(Message, :count)
         end
 
         it "responds with an error message" do
@@ -227,15 +221,11 @@ describe ConversationsController, :type => :controller do
         end
 
         it "does not create a conversation" do
-          count = Conversation.count
-          post :create, @hash
-          expect(Conversation.count).to eq(count)
+          expect { post :create, @hash }.not_to change(Conversation, :count)
         end
 
         it "does not create a message" do
-          count = Message.count
-          post :create, @hash
-          expect(Message.count).to eq(count)
+          expect { post :create, @hash }.not_to change(Message, :count)
         end
 
         it "responds with an error message" do
@@ -255,15 +245,11 @@ describe ConversationsController, :type => :controller do
         end
 
         it "does not create a conversation" do
-          count = Conversation.count
-          post :create, @hash
-          expect(Conversation.count).to eq(count)
+          expect { post :create, @hash }.not_to change(Conversation, :count)
         end
 
         it "does not create a message" do
-          count = Message.count
-          post :create, @hash
-          expect(Message.count).to eq(count)
+          expect { post :create, @hash }.not_to change(Message, :count)
         end
 
         it "responds with an error message" do
@@ -288,15 +274,11 @@ describe ConversationsController, :type => :controller do
         end
 
         it "does not create a conversation" do
-          count = Conversation.count
-          post :create, @hash
-          expect(Conversation.count).to eq(count)
+          expect { post :create, @hash }.not_to change(Conversation, :count)
         end
 
         it "does not create a message" do
-          count = Message.count
-          post :create, @hash
-          expect(Message.count).to eq(count)
+          expect { post :create, @hash }.not_to change(Message, :count)
         end
 
         it "responds with an error message" do
@@ -385,15 +367,11 @@ describe ConversationsController, :type => :controller do
         end
 
         it "does not create a conversation" do
-          count = Conversation.count
-          post :create, @hash
-          expect(Conversation.count).to eq(count)
+          expect { post :create, @hash }.not_to change(Conversation, :count)
         end
 
         it "does not create a message" do
-          count = Message.count
-          post :create, @hash
-          expect(Message.count).to eq(count)
+          expect { post :create, @hash }.not_to change(Message, :count)
         end
 
         it "responds with an error message" do
@@ -413,15 +391,11 @@ describe ConversationsController, :type => :controller do
         end
 
         it "does not create a conversation" do
-          count = Conversation.count
-          post :create, @hash
-          expect(Conversation.count).to eq(count)
+          expect { post :create, @hash }.not_to change(Conversation, :count)
         end
 
         it "does not create a message" do
-          count = Message.count
-          post :create, @hash
-          expect(Message.count).to eq(count)
+          expect { post :create, @hash }.not_to change(Message, :count)
         end
 
         it "responds with an error message" do
@@ -441,15 +415,11 @@ describe ConversationsController, :type => :controller do
         end
 
         it "does not create a conversation" do
-          count = Conversation.count
-          post :create, @hash
-          expect(Conversation.count).to eq(count)
+          expect { post :create, @hash }.not_to change(Conversation, :count)
         end
 
         it "does not create a message" do
-          count = Message.count
-          post :create, @hash
-          expect(Message.count).to eq(count)
+          expect { post :create, @hash }.not_to change(Message, :count)
         end
 
         it "responds with an error message" do
@@ -471,15 +441,11 @@ describe ConversationsController, :type => :controller do
         end
 
         it "does not create a conversation" do
-          count = Conversation.count
-          post :create, @hash
-          expect(Conversation.count).to eq(count)
+          expect { post :create, @hash }.not_to change(Conversation, :count)
         end
 
         it "does not create a message" do
-          count = Message.count
-          post :create, @hash
-          expect(Message.count).to eq(count)
+          expect { post :create, @hash }.not_to change(Message, :count)
         end
 
         it "responds with an error message" do
