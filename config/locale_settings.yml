@@ -11,6 +11,7 @@ available:
   de: "Deutsch"
   de_formal: "Deutsch (Sie)"
   de_moo: "Deutsch (Muh)"
+  de-CH: "Deutsch (Schwiizerdütsch)"
   el: "Ελληνικά"
   en: "English"
   en_1337: "3n6l15h (English 1337)"
@@ -31,6 +32,7 @@ available:
   fr: "Français"
   fy: "Frysk"
   ga: "Gaeilge"
+  gd: "Gàidhlig"
   gl: "Galego"
   he: "עברית"
   hu: "magyar nyelv"
@@ -50,6 +52,7 @@ available:
   nds: "Niederdeutsch"
   nl: "Nederlands"
   nn: "Nynorsk"
+  oc: "Occitan"
   pa: "ਪੰਜਾਬੀ"
   pl: "polski"
   pt-PT: "Português (Portugal)"
@@ -117,6 +120,8 @@ fallbacks:
   de_formal:
     - "de"
   de_moo:
+    - "de"
+  de-CH:
     - "de"
   nds:
     - "de"

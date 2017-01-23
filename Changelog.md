@@ -1,3 +1,14 @@
+# 0.6.4.0
+
+## Refactor
+
+## Bug fixes
+* Fix path to `bundle` in `script/server` [#7281](https://github.com/diaspora/diaspora/pull/7281)
+* Update comment in database example config [#7282](https://github.com/diaspora/diaspora/pull/7282)
+
+## Features
+* Add support for [Liberapay](https://liberapay.com) donations [#7290](https://github.com/diaspora/diaspora/pull/7290)
+
 # 0.6.3.0
 
 ## Refactor
@@ -17,6 +28,7 @@
 
 ## Features
 * Add links to the aspects and followed tags pages on mobile [#7265](https://github.com/diaspora/diaspora/pull/7265)
+* diaspora\* is now available in Gàidhlig, Occitan, and Schwiizerdütsch
 
 # 0.6.2.0
 
