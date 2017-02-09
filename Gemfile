@@ -73,7 +73,7 @@ gem "activerecord-import", "0.15.0"
 
 # File uploading
 
-gem "fog",         "1.38.0", require: "fog/aws"
+gem "fog-aws",     "1.2.0"
 gem "carrierwave", "0.11.2"
 gem "mini_magick", "4.5.1"
 
@@ -97,7 +97,7 @@ source "https://rails-assets.org" do
 
   gem "rails-assets-markdown-it",                         "8.2.2"
   gem "rails-assets-markdown-it-hashtag",                 "0.4.0"
-  gem "rails-assets-markdown-it-diaspora-mention",        "1.1.0"
+  gem "rails-assets-markdown-it-diaspora-mention",        "1.1.1"
   gem "rails-assets-markdown-it-sanitizer",               "0.4.3"
   gem "rails-assets-markdown-it--markdown-it-for-inline", "0.1.1"
   gem "rails-assets-markdown-it-sub",                     "1.0.0"
@@ -228,7 +228,7 @@ group :production do # we don"t install these on travis to speed up test runs
 
   # Third party asset hosting
 
-  gem "asset_sync", "1.1.0", require: false
+  gem "asset_sync", "2.0.0", require: false
 end
 
 group :development do
