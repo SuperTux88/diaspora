@@ -8,8 +8,8 @@ gem "responders", "2.3.0"
 
 # Appserver
 
-gem "puma", "3.6.0", require: false
-gem "puma_worker_killer", "0.0.6"
+gem "puma", "3.7.0", require: false
+gem "puma_worker_killer", "0.0.7"
 
 # Federation
 

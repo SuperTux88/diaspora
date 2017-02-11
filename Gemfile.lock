@@ -464,8 +464,8 @@ GEM
     pry-byebug (3.4.0)
       byebug (~> 9.0)
       pry (~> 0.10)
-    puma (3.6.0)
-    puma_worker_killer (0.0.6)
+    puma (3.7.0)
+    puma_worker_killer (0.0.7)
       get_process_mem (~> 0.2)
       puma (>= 2.7, < 4)
     quiet_assets (1.1.0)
@@ -833,8 +833,8 @@ DEPENDENCIES
   pronto-scss (= 0.7.0)
   pry
   pry-byebug
-  puma (= 3.6.0)
-  puma_worker_killer (= 0.0.6)
+  puma (= 3.7.0)
+  puma_worker_killer (= 0.0.7)
   quiet_assets (= 1.1.0)
   rack-cors (= 0.4.0)
   rack-google-analytics (= 1.2.0)
