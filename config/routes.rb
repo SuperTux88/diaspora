@@ -38,6 +38,7 @@ Diaspora::Application.routes.draw do
   resources :posts, only: %i(show destroy) do
     member do
       get :interactions
+      get :mentionable
     end
 
     resource :participation, only: %i(create destroy)

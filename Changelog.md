@@ -1,11 +1,31 @@
+# 0.7.0.0
+
+## Refactor
+
+* Make the mention syntax more flexible [#7305](https://github.com/diaspora/diaspora/pull/7305)
+* Display @ before mentions [#7324](https://github.com/diaspora/diaspora/pull/7324)
+* Simplify mentions in the publisher [#7302](https://github.com/diaspora/diaspora/pull/7302)
+
+## Bug fixes
+
+## Features
+* Add support for mentions in comments to the backend [#6818](https://github.com/diaspora/diaspora/pull/6818)
+* Add support for new mention syntax [#7300](https://github.com/diaspora/diaspora/pull/7300)
+* Render mentions as links in comments [#7327](https://github.com/diaspora/diaspora/pull/7327)
+
 # 0.6.4.0
 
 ## Refactor
+* Unify link colors [#7318](https://github.com/diaspora/diaspora/pull/7318)
+* Increase time to wait before showing the hovercard [#7319](https://github.com/diaspora/diaspora/pull/7319)
+* Remove some unused color-theme overrides [#7325](https://github.com/diaspora/diaspora/pull/7325)
+* Change color of author-name on hover [#7326](https://github.com/diaspora/diaspora/pull/7326)
 
 ## Bug fixes
 * Fix path to `bundle` in `script/server` [#7281](https://github.com/diaspora/diaspora/pull/7281)
 * Update comment in database example config [#7282](https://github.com/diaspora/diaspora/pull/7282)
 * Make the \#newhere post public again [#7311](https://github.com/diaspora/diaspora/pull/7311)
+* Remove whitespace from author link [#7330](https://github.com/diaspora/diaspora/pull/7330)
 
 ## Features
 * Add support for [Liberapay](https://liberapay.com) donations [#7290](https://github.com/diaspora/diaspora/pull/7290)
