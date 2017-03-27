@@ -46,7 +46,7 @@
 
   .comment.new-comment-form-wrapper { padding-bottom: 0; }
 
-  .submit_button {
+  .submit-button {
     margin-top: 10px;
     input {
       float: right;
@@ -60,8 +60,16 @@
   }
   textarea.comment_box:focus, textarea.comment_box:valid, textarea.comment_box:active {
     border-color: $border-dark-grey;
-    & + .submit_button { display: block; }
+    ~ .submit-button { display: block; }
     min-height: 35px;
     box-shadow: none;
+  }
+
+  .twitter-typeahead {
+    // typeahead sets this to `display: inline-block` which adds additional space between
+    // the comment textarea and the submit button.
+    // scss-lint:disable ImportantRule
+    display: block !important;
+    // scss-lint:enable ImportantRule
   }
 }
