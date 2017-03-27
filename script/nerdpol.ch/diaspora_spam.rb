@@ -42,4 +42,9 @@ Comment.where(author_id: remote_spammers.map(&:id)).each do |comment|
 end
 
 # Close accounts of remote users if wanted
-remote_spammers.each {|spammer| AccountDeleter.new(spammer.diaspora_handle).perform! } if always_delete
+if always_delete
+  remote_spammers.each do |spammer|
+    AccountDeleter.new(spammer.diaspora_handle).perform!
+    spammer.update_column(:serialized_public_key, "")
+  end
+end
