@@ -8,6 +8,7 @@
 * Remove chartbeat and mixpanel support [#7280](https://github.com/diaspora/diaspora/pull/7280)
 * Upgrade to jQuery 3 [#7303](https://github.com/diaspora/diaspora/pull/7303)
 * Add i18n for color themes [#7369](https://github.com/diaspora/diaspora/pull/7369)
+* Remove deprecated statistics.json [#7399](https://github.com/diaspora/diaspora/pull/7399)
 
 ## Bug fixes
 
@@ -26,15 +27,21 @@
 * Increase maximal height of large thumbnail on mobile [#7383](https://github.com/diaspora/diaspora/pull/7383)
 * Reduce conversation recipient size [#7376](https://github.com/diaspora/diaspora/pull/7376)
 * Cleanup rtl css [#7374](https://github.com/diaspora/diaspora/pull/7374)
+* Increase visual spacing between list items [#7401](https://github.com/diaspora/diaspora/pull/7401)
 
 ## Bug fixes
 * Don't hide posts when blocking someone from the profile [#7379](https://github.com/diaspora/diaspora/pull/7379)
 * Disable autocomplete for the conversation form recipient input [#7375](https://github.com/diaspora/diaspora/pull/7375)
 * Fix sharing indicator on profile page for blocked users [#7382](https://github.com/diaspora/diaspora/pull/7382)
 * Remove post only after a successful deletion on the server [#7385](https://github.com/diaspora/diaspora/pull/7385)
+* Fix an issue where pod admins could get logged out when using sidekiq-web [#7395](https://github.com/diaspora/diaspora/pull/7395)
 
 ## Features
 * Add links to liked and commented pages [#5502](https://github.com/diaspora/diaspora/pull/5502)
+
+# 0.6.4.1
+
+Fixes a possible Remote Code Execution ([CVE-2016-4658](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-4658)) and a possible DoS ([CVE-2016-5131](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5131)) by updating Nokogiri, which in turn updates libxml2.
 
 # 0.6.4.0
 
