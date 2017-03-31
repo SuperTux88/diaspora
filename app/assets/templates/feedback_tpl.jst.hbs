@@ -13,6 +13,14 @@
   –
 </span>
 
+{{#if isAprilFools}}
+  {{#if preview}}
+    <span>{{t "stream.comment"}}</span>
+  {{else}}
+    <a href="#" class="focus_comment_textarea" rel="nofollow">{{t "stream.comment"}}</a>
+  {{/if}}
+  ·
+{{/if}}
 
 {{#if preview}}
   <span>{{t "stream.like"}}</span>
@@ -25,17 +33,20 @@
     {{~/if~}}
   </a>
 {{/if}}
-·
 {{#if preview}}
+  ·
   <span>{{t "stream.reshare"}}</span>
   ·
 {{else if userCanReshare}}
-  <a href="#" class="reshare" rel='nofollow'>{{t "stream.reshare"}}</a>
   ·
+  <a href="#" class="reshare" rel='nofollow'>{{t "stream.reshare"}}</a>
 {{/if}}
 
-{{#if preview}}
-  <span>{{t "stream.comment"}}</span>
-{{else}}
-  <a href="#" class="focus_comment_textarea" rel="nofollow">{{t "stream.comment"}}</a>
-{{/if}}
+{{#unless isAprilFools}}
+  ·
+  {{#if preview}}
+    <span>{{t "stream.comment"}}</span>
+  {{else}}
+    <a href="#" class="focus_comment_textarea" rel="nofollow">{{t "stream.comment"}}</a>
+  {{/if}}
+{{/unless}}

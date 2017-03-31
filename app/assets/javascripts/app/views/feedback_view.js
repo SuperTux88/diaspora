@@ -20,13 +20,24 @@ app.views.Feedback = app.views.Base.extend({
   presenter : function() {
     var interactions = this.model.interactions;
 
+    var isAprilFools = (function() {
+      if (typeof window.AprilFoolsEnabled !== "undefined") {
+        return window.AprilFoolsEnabled;
+      }
+
+      var isFirstOfApril = (new Date()).getDate() == 1;
+      window.AprilFoolsEnabled = isFirstOfApril;
+      return isFirstOfApril;
+    })();
+
     return _.extend(this.defaultPresenter(),{
       commentsCount : interactions.commentsCount(),
       likesCount : interactions.likesCount(),
       resharesCount : interactions.resharesCount(),
       userCanReshare : interactions.userCanReshare(),
       userLike : interactions.userLike(),
-      userReshare : interactions.userReshare()
+      userReshare : interactions.userReshare(),
+      isAprilFools : isAprilFools
     });
   },
 
