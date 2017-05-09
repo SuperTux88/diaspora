@@ -44,7 +44,9 @@ end
 # Close accounts of remote users if wanted
 if always_delete
   remote_spammers.each do |spammer|
+    puts "close account #{spammer.diaspora_handle}"
     AccountDeleter.new(spammer.diaspora_handle).perform!
-    spammer.update_column(:serialized_public_key, "")
+    spammer.update_column(:serialized_public_key, "BLOCKED")
+    puts "closed account #{spammer.diaspora_handle}"
   end
 end
