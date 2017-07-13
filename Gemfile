@@ -13,7 +13,7 @@ gem "puma_worker_killer", "0.0.7"
 
 # Federation
 
-gem "diaspora_federation-rails", "0.1.9"
+gem "diaspora_federation-rails", "0.2.0"
 
 # API and JSON
 
@@ -299,7 +299,7 @@ group :test do
   gem "webmock",            "2.3.2", require: false
   gem "shoulda-matchers",   "3.1.1"
 
-  gem "diaspora_federation-test", "0.1.9"
+  gem "diaspora_federation-test", "0.2.0"
 
   # Coverage
   gem 'coveralls', require: false
