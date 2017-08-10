@@ -5,6 +5,11 @@
 This release recommends using Ruby 2.4, while retaining Ruby 2.3 as an officially supported version.
 Ruby 2.1 is no longer officially supported.
 
+## Delete public/.well-known/
+
+Before upgrading, please check if your `public/` folder contains a hidden `.well-known/` folder.
+If so, please delete it since it will prevent the federation from working properly.
+
 ## Refactor
 
 * Make the mention syntax more flexible [#7305](https://github.com/diaspora/diaspora/pull/7305)
@@ -18,17 +23,25 @@ Ruby 2.1 is no longer officially supported.
 * Switch to new federation protocol [#7436](https://github.com/diaspora/diaspora/pull/7436)
 * Send public profiles publicly [#7501](https://github.com/diaspora/diaspora/pull/7501)
 * Change sender for mails [#7495](https://github.com/diaspora/diaspora/pull/7495)
+* Move back to top to the right to avoid misclicks [#7516](https://github.com/diaspora/diaspora/pull/7516)
+* Include count in mobile post action link [#7520](https://github.com/diaspora/diaspora/pull/7520)
 
 ## Bug fixes
 
 * Fix height too high on mobile SPV [#7480](https://github.com/diaspora/diaspora/pull/7480)
 * Improve stream when ignoring a person who posts a lot of tagged posts [#7503](https://github.com/diaspora/diaspora/pull/7503)
+* Fix order of comments across pods [#7436](https://github.com/diaspora/diaspora/pull/7436)
+* Prevent publisher from closing in preview mode [#7518](https://github.com/diaspora/diaspora/pull/7518)
+* Increase reshare counter after reshare on mobile [#7520](https://github.com/diaspora/diaspora/pull/7520)
 
 ## Features
 * Add support for mentions in comments to the backend [#6818](https://github.com/diaspora/diaspora/pull/6818)
 * Add support for new mention syntax [#7300](https://github.com/diaspora/diaspora/pull/7300) [#7394](https://github.com/diaspora/diaspora/pull/7394)
 * Render mentions as links in comments [#7327](https://github.com/diaspora/diaspora/pull/7327)
 * Add support for mentions in comments to the front-end [#7386](https://github.com/diaspora/diaspora/pull/7386)
+* Support direct links to comments on mobile [#7508](https://github.com/diaspora/diaspora/pull/7508)
+* Add inviter first and last name in the invitation e-mail [#7484](https://github.com/diaspora/diaspora/pull/7484)
+* Add markdown editor for comments and conversations [#7482](https://github.com/diaspora/diaspora/pull/7482)
 
 # 0.6.8.0
 
