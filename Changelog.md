@@ -25,6 +25,7 @@ If so, please delete it since it will prevent the federation from working proper
 * Change sender for mails [#7495](https://github.com/diaspora/diaspora/pull/7495)
 * Move back to top to the right to avoid misclicks [#7516](https://github.com/diaspora/diaspora/pull/7516)
 * Include count in mobile post action link [#7520](https://github.com/diaspora/diaspora/pull/7520)
+* Update the user data export archive format [#6726](https://github.com/diaspora/diaspora/pull/6726)
 
 ## Bug fixes
 
@@ -42,6 +43,7 @@ If so, please delete it since it will prevent the federation from working proper
 * Support direct links to comments on mobile [#7508](https://github.com/diaspora/diaspora/pull/7508)
 * Add inviter first and last name in the invitation e-mail [#7484](https://github.com/diaspora/diaspora/pull/7484)
 * Add markdown editor for comments and conversations [#7482](https://github.com/diaspora/diaspora/pull/7482)
+* Improve responsive header in desktop version [#7509](https://github.com/diaspora/diaspora/pull/7509)
 
 # 0.6.8.0
 
