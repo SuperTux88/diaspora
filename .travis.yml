@@ -7,8 +7,6 @@ rvm:
 env:
   - DB=postgresql BUILD_TYPE=cucumber
   - DB=mysql BUILD_TYPE=cucumber
-  - DB=postgresql BUILD_TYPE=other
-  - DB=mysql BUILD_TYPE=other
 
 sudo: false
 cache:
@@ -19,9 +17,7 @@ cache:
 
 branches:
   only:
-    - 'master'
-    - 'next-minor'
-    - 'develop'
+    - 'travis-test'
 
 before_install:
   - script/ci/prepare.sh
@@ -31,10 +27,3 @@ before_install:
   - export PATH=$PWD/travis-phantomjs/phantomjs-2.1.1-linux-x86_64/bin:$PATH
 
 script: "bin/rake --trace ci:travis:${BUILD_TYPE}"
-
-notifications:
-  irc:
-    channels:
-      - secure: YvYkeTAw+5oOl/RaXVwu7JkKGNWPoFosNQRmLvJkBFbWzZ1s5LZD1u3+Qj819bT3lGzJu9pxmJg765IRYrGWmBi4mcAV3dpO6qowVdFTcorf0JsnLw3Kvkga9rrDunsRNr21KTAQqHOO5mKUzw9DtMzd52BiWuZwIj3xcl72gQI=
-    template:
-      - "%{repository_slug}#%{commit} (%{branch} - %{commit_subject}): %{message} %{build_url}"

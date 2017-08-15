@@ -76,4 +76,15 @@ Before do |scenario|
 
   # Reset overridden settings
   AppConfig.reset_dynamic!
+
+  puts "Time start: #{Time.now.utc}"
+end
+
+After do |scenario|
+  if scenario.failed?
+    puts "Time failed: #{Time.now.utc}"
+    puts page.driver.render_base64(:png, full: true)
+    sleep 5
+    system("tail -n 300 log/test.log")
+  end
 end
