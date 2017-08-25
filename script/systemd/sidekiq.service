@@ -3,7 +3,7 @@ Wants=redis-server.service
 
 [Service]
 EnvironmentFile=/etc/diaspora.conf
-ExecStart=/home/diaspora/.rvm/bin/systemd_bundle exec sidekiq
+ExecStart=/home/diaspora/.rvm/wrappers/ruby-2.4.1@diaspora/bundle exec sidekiq
 TimeoutStopSec=20
 KillMode=control-group
 Restart=always
