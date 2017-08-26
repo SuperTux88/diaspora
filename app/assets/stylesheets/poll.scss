@@ -18,12 +18,17 @@
     box-shadow: 0 0 0;
     height: 10px;
     margin-bottom: 5px;
+    clear: both;
 
     .bar {
       background: $border-dark-grey none;
       color: $text-dark-grey;
       height: 100%;
       text-align: left;
+    }
+
+    .users-vote {
+      background-color: $brand-primary;
     }
   }
 
@@ -46,6 +51,7 @@
     font-weight: normal;
     margin-bottom: 5px;
     vertical-align: middle;
+    display: inline;
   }
 
   [type=radio],
