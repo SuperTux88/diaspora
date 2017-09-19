@@ -18,6 +18,8 @@
 * Remove auto detection of languages with highlightjs [#7591](https://github.com/diaspora/diaspora/pull/7591)
 * Move enable/disable notification icon [#7592](https://github.com/diaspora/diaspora/pull/7592)
 * Use Bootstrap 3 progress-bar for polls [#7600](https://github.com/diaspora/diaspora/pull/7600)
+* Enable frozen string literals [#7595](https://github.com/diaspora/diaspora/pull/7595)
+* Remove `rails_admin_histories` table [#7597](https://github.com/diaspora/diaspora/pull/7597)
 
 ## Bug fixes
 * Fix displaying polls with long answers [#7579](https://github.com/diaspora/diaspora/pull/7579)
@@ -26,11 +28,16 @@
 * Prevent users from zooming in IE Mobile [#7589](https://github.com/diaspora/diaspora/pull/7589)
 * Fix recipient prefill on contacts and profile page [#7599](https://github.com/diaspora/diaspora/pull/7599)
 * Display likes and reshares without login [#7583](https://github.com/diaspora/diaspora/pull/7583)
+* Fix invalid data in the database for user data export [#7614](https://github.com/diaspora/diaspora/pull/7614)
 
 ## Features
 * Ask for confirmation when leaving a submittable comment field [#7530](https://github.com/diaspora/diaspora/pull/7530)
 * Show users vote in polls [#7550](https://github.com/diaspora/diaspora/pull/7550)
 * Add explanation of ignore function to in-app help section [#7585](https://github.com/diaspora/diaspora/pull/7585)
+
+# 0.7.0.1
+
+Update nokogiri to fix [multiple libxml2 vulnerabilities](https://usn.ubuntu.com/usn/usn-3424-1/).
 
 # 0.7.0.0
 
