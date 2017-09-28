@@ -249,6 +249,20 @@ FactoryGirl.define do
     association(:post, factory: :status_message)
   end
 
+  factory :signed_comment, parent: :comment do
+    association(:parent, factory: :status_message)
+
+    after(:build) do |comment|
+      order = SignatureOrder.first || FactoryGirl.create(:signature_order)
+      comment.signature = FactoryGirl.build(:comment_signature, comment: comment, signature_order: order)
+    end
+  end
+
+  factory :reference do
+    association :source, factory: :status_message
+    association :target, factory: :status_message
+  end
+
   factory(:notification, class: Notifications::AlsoCommented) do
     association :recipient, :factory => :user
     association :target, :factory => :comment
