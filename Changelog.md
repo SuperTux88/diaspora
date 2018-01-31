@@ -11,13 +11,17 @@
 ## Refactor
 * Work on the data downloads: Fixed general layout of buttons, added a timestamp and implemented auto-deletion of old exports [#7684](https://github.com/diaspora/diaspora/pull/7684)
 * Increase Twitter character limit to 280 [#7694](https://github.com/diaspora/diaspora/pull/7694)
+* Improve password autocomplete with password managers [#7642](https://github.com/diaspora/diaspora/pull/7642)
 
 ## Bug fixes
-* Fix notifications when people remove their birthday date [#7691](https://github.com/diaspora/diaspora/pull/7691)
-* Fix invite link on the contacts page when the user has now contacts [#7690](https://github.com/diaspora/diaspora/pull/7690)
+* Fix invite link on the contacts page when the user has no contacts [#7690](https://github.com/diaspora/diaspora/pull/7690)
 
 ## Features
 * Check if redis is running in script/server [#7685](https://github.com/diaspora/diaspora/pull/7685)
+
+# 0.7.2.1
+
+Fixes notifications when people remove their birthday date [#7691](https://github.com/diaspora/diaspora/pull/7691)
 
 # 0.7.2.0
 
