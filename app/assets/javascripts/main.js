@@ -26,6 +26,7 @@
 //= require markdown-it-sanitizer
 //= require markdown-it-sub
 //= require markdown-it-sup
+//= require markdown-it-html5-embed
 //= require highlightjs
 //= require clear-form
 //= require corejs-typeahead
@@ -44,3 +45,4 @@
 //= require bootstrap-markdown/bootstrap-markdown
 //= require helpers/markdown_editor
 //= require jquery.are-you-sure
+//= require cropperjs/dist/cropper.js
