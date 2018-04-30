@@ -10,6 +10,14 @@
 * Add client-side cropping of profile image uploads [#7581](https://github.com/diaspora/diaspora/pull/7581)
 * Add client-site rescaling of post images if they exceed the maximum possible size [#7734](https://github.com/diaspora/diaspora/pull/7734)
 
+# 0.7.6.0
+
+## Refactor
+
+## Bug fixes
+
+## Features
+
 # 0.7.5.0
 
 ## Refactor
@@ -23,9 +31,11 @@
 * Show error message when creating posts with invalid aspects [#7742](https://github.com/diaspora/diaspora/pull/7742)
 * Fix mention syntax backport for two immediately consecutive mentions [#7777](https://github.com/diaspora/diaspora/pull/7777)
 * Fix link to 'make yourself an admin' [#7783](https://github.com/diaspora/diaspora/pull/7783)
+* Fix calculation of content lengths when cross-posting to twitter [#7791](https://github.com/diaspora/diaspora/pull/7791)
 
 ## Features
 * Make public stream accessible for logged out users [#7775](https://github.com/diaspora/diaspora/pull/7775)
+* Add account-merging support when receiving an account migration [#7803](https://github.com/diaspora/diaspora/pull/7803)
 
 # 0.7.4.1
 
