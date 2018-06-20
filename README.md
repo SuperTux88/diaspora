@@ -1,4 +1,4 @@
-# diaspora*
+# diaspora\*
 ### A privacy-aware, distributed, open source social network
 
 [![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=SuperTux88&url=https://github.com/SuperTux88/diaspora&title=Diaspora at nerdpol.ch&language=en_GB&tags=github&category=software)
@@ -8,7 +8,6 @@
 [![Coverage Status next-minor](https://coveralls.io/repos/github/diaspora/diaspora/badge.svg?branch=next-minor)](https://coveralls.io/github/diaspora/diaspora?branch=next-minor)|
 **develop:** [![Build Status develop](https://secure.travis-ci.org/diaspora/diaspora.svg?branch=develop)](http://travis-ci.org/diaspora/diaspora)
 [![Coverage Status develop](https://coveralls.io/repos/github/diaspora/diaspora/badge.svg?branch=develop)](https://coveralls.io/github/diaspora/diaspora?branch=develop) |
-[![Dependency Status](https://gemnasium.com/badges/github.com/diaspora/diaspora.svg)](https://gemnasium.com/diaspora/diaspora)
 [![Code Climate](https://codeclimate.com/github/diaspora/diaspora/badges/gpa.svg)](https://codeclimate.com/github/diaspora/diaspora)
 
 [Project site](https://diasporafoundation.org) |
@@ -20,9 +19,9 @@
 
 ## Installation
 
-You don't have to install diaspora* to use the network. There are many servers connected to diaspora*s network which are open to anyone, and you can create an account on one of these servers. Have a look at our [tips for finding a home](https://wiki.diasporafoundation.org/Choosing_a_pod), or you can just go straight to the [list of open servers](http://podupti.me) to sign up.
+You don't have to install diaspora\* to use the network. There are many servers connected to diaspora\*s network which are open to anyone, and you can create an account on one of these servers. Have a look at our [tips for finding a home](https://wiki.diasporafoundation.org/Choosing_a_pod), or you can just go straight to the [list of open servers](http://podupti.me) to sign up.
 
-Want to own your data and install diaspora*? Whether you just want to try it out, want to install it on your server or want to contribute and need a development setup, our [installation guides](https://wiki.diasporafoundation.org/Installation) will get you started!
+Want to own your data and install diaspora\*? Whether you just want to try it out, want to install it on your server or want to contribute and need a development setup, our [installation guides](https://wiki.diasporafoundation.org/Installation) will get you started!
 
 ## Questions?
 
