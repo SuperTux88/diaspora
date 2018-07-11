@@ -6,6 +6,7 @@
 * Enable Content-Security-Policy header by default [#7781](https://github.com/diaspora/diaspora/pull/7781)
 
 ## Bug fixes
+* Fix multiple photos upload progress bar [#7655](https://github.com/diaspora/diaspora/pull/7655)
 
 ## Features
 * Add client-side cropping of profile image uploads [#7581](https://github.com/diaspora/diaspora/pull/7581)
@@ -19,6 +20,7 @@
 * Add compatibility with macOS to `script/configure_bundler` [#7830](https://github.com/diaspora/diaspora/pull/7830)
 
 ## Features
+* Add `web+diaspora://` link handler [#7826](https://github.com/diaspora/diaspora/pull/7826)
 
 # 0.7.6.0
 
