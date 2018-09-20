@@ -5,4 +5,5 @@ SimpleCaptcha.setup do |sc|
   sc.length = [1, [AppConfig.settings.captcha.captcha_length.to_i, 12].min].max
   sc.image_style = AppConfig.settings.captcha.image_style
   sc.distortion = AppConfig.settings.captcha.distortion
+  sc.font = "DejaVu-Sans"
 end
