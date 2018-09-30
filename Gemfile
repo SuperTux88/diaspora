@@ -168,7 +168,7 @@ gem "omniauth-wordpress", "0.2.2"
 gem "twitter",            "6.2.0"
 
 # OpenID Connect
-gem "openid_connect", "1.1.5"
+gem "openid_connect", "1.1.6"
 
 # Serializers
 
@@ -284,7 +284,7 @@ end
 group :test do
   # RSpec (unit tests, some integration tests)
 
-  gem "fixture_builder",   "0.5.1"
+  gem "fixture_builder",   "0.5.2.rc3"
   gem "fuubar",            "2.3.1"
   gem "json-schema-rspec", "0.0.4"
   gem "rspec-json_expectations", "~> 2.1"
