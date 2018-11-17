@@ -24,15 +24,6 @@ before_fork do
   unless AppConfig.environment.single_process_mode?
     Sidekiq.redis {|redis| redis.client.disconnect }
   end
-
-  # start puma worker killer
-  PumaWorkerKiller.config do |config|
-    config.ram           = 1536 # mb
-    config.frequency     = 60   # seconds
-    config.percent_usage = 1
-    config.rolling_restart_frequency = false
-  end
-  PumaWorkerKiller.start
 end
 
 on_worker_boot do
