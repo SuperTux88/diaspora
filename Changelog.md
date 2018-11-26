@@ -12,6 +12,14 @@
 * Add client-side cropping of profile image uploads [#7581](https://github.com/diaspora/diaspora/pull/7581)
 * Add client-site rescaling of post images if they exceed the maximum possible size [#7734](https://github.com/diaspora/diaspora/pull/7734)
 
+# 0.7.9.0
+
+## Refactor
+
+## Bug fixes
+
+## Features
+
 # 0.7.8.0
 
 ## Refactor
@@ -23,7 +31,7 @@
 
 ## Bug fixes
 * Ignore invalid URLs for camo [#7922](https://github.com/diaspora/diaspora/pull/7922)
-* Unlinking a post did not update the participation icon without a reload [#7882](https://github.com/diaspora/diaspora/pull/7882)
+* Unliking a post did not update the participation icon without a reload [#7882](https://github.com/diaspora/diaspora/pull/7882)
 * Fix broken Instagram embedding [#7920](https://github.com/diaspora/diaspora/pull/7920)
 
 ## Features
