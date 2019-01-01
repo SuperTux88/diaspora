@@ -21,11 +21,11 @@
   .navbar-brand {
     font-weight: bold;
     font-size: $font-size-h3;
-    margin-left: 0;
+    margin-left: -15px;
   }
 
   .nerdpol-header-logo {
-    margin: (($navbar-height - 40px - 2 * $navbar-padding-vertical) / 2) 0;
+    margin: (($navbar-height - 36px - 2 * $navbar-padding-vertical) / 2) 0;
   }
 
   .header-title {
