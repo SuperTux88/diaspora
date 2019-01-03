@@ -1,0 +1,259 @@
+// Main color(s)
+$color-fresh: #0084b0;
+$color-hope: #00a356;
+$color-glint: #f9b000;
+$color-beat: #e40429;
+$color-tenacity: #44357e;
+$color-base: #18386b;
+$color-reboot: #4d4d4c;
+
+$green: $color-hope;
+$red: $color-beat;
+$blue: $color-fresh;
+$yellow: $color-glint;
+$orange: $color-tenacity;
+
+$light-blue: lighten($blue, 5%);
+
+$brand-primary: $blue;
+$brand-success: $green;
+$brand-info: darken(adjust-hue($brand-primary, -30), 15%);
+$brand-danger: lighten($red, 10%);
+
+// Bootstrap Variables
+//== Scaffolding
+$body-bg: $black;
+$link-color: $color-fresh;
+$link-hover-color: lighten($link-color, 15%);
+
+//== Buttons
+$btn-default-color: $white;
+$btn-default-bg: $color-reboot;
+$btn-default-border: $color-reboot;
+
+$btn-primary-color: $white;
+$btn-primary-border: $color-fresh;
+
+$btn-success-color: $white;
+
+$btn-info-bg: $color-base;
+$btn-info-border: $color-base;
+
+$btn-border-radius-base: 0;
+
+//== Forms
+$input-bg: $black;
+
+$input-border: $gray;
+
+$input-border-radius: 0;
+
+//== Navbar
+$navbar-inverse-bg: $black;
+
+//== Pagination
+$pagination-color: $blue;
+$pagination-hover-bg: $light-blue;
+
+//== Form states and alerts
+$state-success-text: $white;
+$state-success-bg: $green;
+$state-success-border: $state-success-bg;
+
+$state-info-text: $white;
+$state-info-bg: $blue;
+$state-info-border: $state-info-bg;
+
+$state-warning-text: $white;
+$state-warning-bg: darken($yellow, 10%);
+$state-warning-border: $state-warning-bg;
+
+$state-danger-text: $white;
+$state-danger-bg: $red;
+$state-danger-border: $state-danger-bg;
+
+//== List group
+$list-group-bg: $black;
+
+//== Type
+$hr-border: transparent;
+$blockquote-border-color: transparent;
+
+// Variables
+$background-blue: desaturate(darken($blue, 25%), 15%);
+
+$main-background: $black;
+$framed-background: $black;
+$left-navbar-drawer-background: $main-background;
+$hovercard-background: $gray;
+
+// Borders
+
+$border-gradient: 2px solid transparent;
+$border-gradient-image: linear-gradient(to right, $color-hope, $color-fresh) 1 round;
+$border-vertical-gradient-image: linear-gradient(to bottom, $color-hope, $color-fresh) 1 round;
+$card-shadow: none;
+
+@import 'color_themes/color_theme_override_dark';
+
+// 35C3 overrides
+body {
+  .navbar.navbar-inverse.navbar-fixed-top {
+    border-bottom: $border-gradient;
+    border-image: $border-gradient-image;
+    box-shadow: none;
+
+    [type="search"]:not(.active) {
+      border-image: none;
+      border-width: 1px;
+    }
+  }
+
+  .sidebar,
+  .framed-content {
+    border: $border-gradient;
+    border-image: $border-gradient-image;
+  }
+
+  .info-bar {
+    .excellence-box,
+    .info-links,
+    .powered-box {
+      border-image: $border-gradient-image;
+    }
+  }
+
+  #main-stream .stream-element {
+    border: $border-gradient;
+    border-image: $border-gradient-image;
+
+    &.highlighted {
+      border-left-width: 6px
+    }
+  }
+
+  .stream-element {
+    .collapsible .expander {
+      @include linear-gradient(transparent, $gray, 0%, 95%);
+      border-bottom: 2px solid $gray;
+    }
+
+    div.reshare {
+      border-left: 2px solid transparent;
+      border-image: $border-vertical-gradient-image;
+    }
+  }
+
+  #people-stream {
+    .stream-element.media {
+      border-image: $border-gradient-image;
+    }
+  }
+
+  &.page-contacts {
+    .stream.contacts .header {
+      border-image: $border-gradient-image;
+    }
+  }
+
+  #contacts_container #people-stream.contacts .stream-element.in_aspect {
+    background-color: darken($state-success-bg, 20%);
+  }
+
+  #single-post-content {
+    .head {
+      border-image: $border-gradient-image;
+    }
+  }
+
+  .comment_stream {
+    .show_comments {
+      border-image: $border-gradient-image;
+    }
+
+    .comments > .comment,
+    .comment.new-comment-form-wrapper {
+      border-image: $border-gradient-image;
+    }
+  }
+
+  .opengraph-container {
+    border-image: $border-gradient-image;
+  }
+
+  &.page-conversations {
+    .pagination-container > .pagination {
+      border-image: $border-gradient-image;
+    }
+
+    .stream-element.message,
+    .stream-element.new-message {
+      border: $border-gradient;
+      border-image: $border-gradient-image;
+    }
+
+    .stream-element.conversation {
+      border-image: $border-gradient-image;
+    }
+  }
+
+  .flash-body .flash-message {
+    box-shadow: none;
+    &.alert-danger { border: none; }
+    &.alert-success { border: none; }
+    &.alert-warning { border: none; }
+  }
+
+  .md-editor {
+    border: 1px solid $border-grey;
+  }
+
+  #hovercard {
+    box-shadow: none;
+  }
+
+  footer.footer {
+    background-color: $black;
+    border-image: $border-gradient-image;
+  }
+
+  &.page-home .landing-info-card {
+    border: $border-gradient;
+    border-image: $border-gradient-image;
+  }
+  &.page-node_info.action-statistics .statistic {
+    border: $border-gradient;
+    border-image: $border-gradient-image;
+  }
+
+  hr {
+    border-image: $border-gradient-image;
+  }
+
+  blockquote {
+    border-image: $border-vertical-gradient-image;
+  }
+
+  .form-control {
+    border: $border-gradient;
+    border-image: $border-gradient-image;
+  }
+
+  input:invalid.form-control,
+  textarea:invalid.form-control {
+    border-image: linear-gradient(to right, $color-beat, $color-tenacity) 1 round;
+  }
+
+  input:disabled.form-control,
+  textarea:disabled.form-control {
+    border-image: linear-gradient(to right, $color-reboot, $color-base) 1 round;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: inherit;
+    opacity: 0.8;
+    font-size: 0.9em;
+    font-style: italic;
+  }
+}
