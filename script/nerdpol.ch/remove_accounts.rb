@@ -17,5 +17,5 @@ Person.where(diaspora_handle: accounts).each do |person|
     end
   end
 
-  AccountDeletion.new(person: person).perform!
+  AccountDeletion.create!(person: person) unless AccountDeletion.where(person: person).exists?
 end
