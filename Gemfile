@@ -14,19 +14,22 @@ gem "puma", "3.12.1", require: false
 
 # Federation
 
-gem "diaspora_federation-json_schema", "0.2.5"
-gem "diaspora_federation-rails", "0.2.5"
+gem "diaspora_federation-json_schema", "0.2.6"
+gem "diaspora_federation-rails", "0.2.6"
 
 # API and JSON
 
 gem "acts_as_api", "1.0.1"
 gem "json",        "2.2.0"
 gem "json-schema", "2.8.1"
+gem "yajl-ruby",   "1.4.1"
 
 # Authentication
 
 gem "devise", "4.6.1"
+gem "devise-two-factor", "3.0.3"
 gem "devise_lastseenable", "0.0.6"
+gem "rqrcode", "0.10.1"
 
 # Captcha
 
@@ -301,7 +304,7 @@ group :test do
   gem "timecop",            "0.9.1"
   gem "webmock",            "3.5.1", require: false
 
-  gem "diaspora_federation-test", "0.2.5"
+  gem "diaspora_federation-test", "0.2.6"
 
   # Coverage
   gem "coveralls", "0.8.22", require: false
