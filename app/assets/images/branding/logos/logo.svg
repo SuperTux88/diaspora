@@ -6157,7 +6157,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8284271"
-     inkscape:cx="109.59193"
+     inkscape:cx="97.705855"
      inkscape:cy="-33.190567"
      inkscape:document-units="px"
      inkscape:current-layer="layer4"
@@ -6412,12 +6412,12 @@
        transform="matrix(0.19186822,0,0,0.19186822,49.757476,43.892798)"
        inkscape:label="Layer 1"
        id="layer1-6"
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:3.6066421;stroke-miterlimit:4;stroke-dasharray:none"
        inkscape:export-xdpi="95.990555"
        inkscape:export-ydpi="95.990555">
       <path
          d="m 261.03,177.92 c 0,0 22.43,52.36 97.23,67.31 l -6.12,38.42 c -13.93,1.53 -33.43,6.21 -31.69,24.77 4.6,-7.68 11.96,-9.35 20.13,-11.17 -0.37,4.63 -0.46,9.22 -0.12,13.84 4.38,-8.08 10.66,-13.16 17.8,-14.18 4.32,-0.61 9.5,0.55 10.71,-1.55 1.29,-2.23 -2.89,-2.96 -2.89,-5.25 0,-5.78 2.04,-28.22 11.9,-38.76 0,0 22.78,-2.38 25.84,20.06 3.06,22.44 -3.4,25.16 -6.46,26.52 -10.74,5.02 -31.41,5.3 -36.99,17.89 8.78,-2.24 17.74,-2.94 26.79,-3.27 -1.1,4.07 -2.31,8.09 -2.71,12.3 4.76,-2.38 15.29,-9.92 25.83,-10.94 4.81,-0.46 10.32,0.84 11.66,-1.47 1.02,-1.77 -5.48,-3.56 -6.22,-10.77 -1.36,-13.26 2.72,-26.52 19.04,-42.5 16.31,-15.98 40.12,-21.74 46.57,-62.41 7.16,-45.07 -1.5,-69.56 -21.82,-89.35 -20.36,-19.812 -62.49,-31.486 -86.97,-32.166 -24.48,-0.68 -40.8,2.04 -65.96,14.28 -25.16,12.236 -27.88,27.196 -47.59,25.156 -47.7,-7.05 -64.48,5.79 -68,52.02 l 0.34,21.08 c 0,0 -29.98,35.28 -34.34,84.31 0,0 -2.57,14.41 1.5,20.51 7.04,-24.48 15.3,-67.15 45.11,-97.44 0,0 30.77,4.32 57.43,-17.24 z"
-         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-opacity:1"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-opacity:1;stroke-width:3.6066421;stroke-miterlimit:4;stroke-dasharray:none"
          sodipodi:nodetypes="ccccccszscsccccssssssssccccccc"
          id="path2233"
          inkscape:connector-curvature="0" />
