@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "5.1.7"
+gem "rails", "5.2.4.1"
 
 # Legacy Rails features, remove me!
 # responders (class level)
@@ -26,7 +26,7 @@ gem "yajl-ruby",   "1.4.1"
 
 # Authentication
 
-gem "devise", "4.6.1"
+gem "devise", "4.7.1"
 gem "devise-two-factor", "3.0.3"
 gem "devise_lastseenable", "0.0.6"
 gem "rqrcode", "0.10.1"
@@ -55,7 +55,7 @@ gem "configurate", "0.3.1"
 
 # Cross-origin resource sharing
 
-gem "rack-cors", "1.0.3", require: "rack/cors"
+gem "rack-cors", "1.1.1", require: "rack/cors"
 
 # CSS
 
@@ -82,7 +82,7 @@ gem "activerecord-import", "1.0.2"
 
 gem "carrierwave", "1.3.1"
 gem "fog-aws",     "3.5.1"
-gem "mini_magick", "4.9.3"
+gem "mini_magick", "4.10.1"
 
 # GUID generation
 gem "uuid", "2.3.9"
@@ -99,7 +99,7 @@ gem "js-routes",         "1.4.7"
 gem "js_image_paths",    "0.1.1"
 gem "sprockets-es6",     "0.9.2"
 
-source "https://rails-assets.org" do
+source "https://gems.diasporafoundation.org" do
   gem "rails-assets-jquery",                              "3.4.1" # Should be kept in sync with jquery-rails
   gem "rails-assets-jquery.ui",                           "1.11.4"
 
@@ -146,8 +146,8 @@ gem "leaflet-rails",       "1.5.1"
 
 # Parsing
 
-gem "nokogiri",          "1.10.3"
-gem "open_graph_reader", "0.6.2" # also update User-Agent in features/support/webmock.rb
+gem "nokogiri",          "1.10.8"
+gem "open_graph_reader", "0.7.0" # also update User-Agent in features/support/webmock.rb
 gem "redcarpet",         "3.4.0"
 gem "ruby-oembed",       "0.12.0"
 gem "twitter-text",      "3.0.0"
@@ -158,7 +158,7 @@ gem "string-direction", "1.2.1"
 
 # Security Headers
 
-gem "secure_headers", "6.1.1"
+gem "secure_headers", "6.3.0"
 
 # Services
 
@@ -174,10 +174,6 @@ gem "openid_connect", "1.1.8"
 # Serializers
 
 gem "active_model_serializers", "0.9.7"
-
-# XMPP chat dependencies
-gem "diaspora-prosody-config",    "0.0.7"
-gem "rails-assets-diaspora_jsxc", "0.1.5.develop.7", source: "https://rails-assets.org"
 
 # Tags
 
@@ -205,7 +201,7 @@ gem "logging-rails", "0.6.0", require: "logging/rails"
 
 # Reading and writing zip files
 
-gem "rubyzip", "1.2.2", require: "zip"
+gem "rubyzip", "1.3.0", require: "zip"
 
 # Prevent occasions where minitest is not bundled in
 # packaged versions of ruby. See following issues/prs:
@@ -286,7 +282,7 @@ group :test do
   # RSpec (unit tests, some integration tests)
 
   gem "fixture_builder",   "0.5.2.rc3"
-  gem "fuubar",            "2.4.0"
+  gem "fuubar",            "2.4.1"
   gem "json-schema-rspec", "0.0.4"
   gem "rspec-json_expectations", "~> 2.1"
 
@@ -321,7 +317,7 @@ group :development, :test do
   # Jasmine (client side application tests (JS))
   gem "jasmine",                   "3.4.0"
   gem "jasmine-jquery-rails",      "2.0.3"
-  gem "rails-assets-jasmine-ajax", "4.0.0", source: "https://rails-assets.org"
+  gem "rails-assets-jasmine-ajax", "4.0.0", source: "https://gems.diasporafoundation.org"
   gem "sinon-rails",               "1.15.0"
 
   # For `assigns` in controller specs
