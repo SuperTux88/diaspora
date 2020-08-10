@@ -1,8 +1,6 @@
 # diaspora\*
 ### A privacy-aware, distributed, open source social network
 
-[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=SuperTux88&url=https://github.com/SuperTux88/diaspora&title=Diaspora at nerdpol.ch&language=en_GB&tags=github&category=software)
-
 **master:** [![Build Status master](https://secure.travis-ci.org/diaspora/diaspora.svg?branch=master)](http://travis-ci.org/diaspora/diaspora)
 **next-minor:** [![Build Status next-minor](https://secure.travis-ci.org/diaspora/diaspora.svg?branch=next-minor)](http://travis-ci.org/diaspora/diaspora)
 [![Coverage Status next-minor](https://coveralls.io/repos/github/diaspora/diaspora/badge.svg?branch=next-minor)](https://coveralls.io/github/diaspora/diaspora?branch=next-minor)|

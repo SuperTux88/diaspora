@@ -22,12 +22,6 @@
           alt: t("aspects.index.donate"),
           title: t("aspects.index.donate_liberapay")
 
-%p
-  Flattr:
-  %br
-  %a{href: "http://flattr.com/thing/442886/Diaspora-at-nerdpol-ch", target: "_blank"}
-    = image_tag("branding/flattr-badge-large.png")
-
 - if AppConfig.bitcoin_donation_address
   %p
     Bitcoin:
