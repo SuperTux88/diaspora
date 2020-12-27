@@ -44,14 +44,14 @@ $font-headings: 'rc3-font-headings';
 
 @font-face {
   font-family: $font-regular;
-  src: image-url('fonts/rc3_montserrat-regular-webfont.woff2') format('woff2'), image-url('fonts/rc3_montserrat-regular-webfont.woff') format('woff');
+  src: image-url('fonts/rc3_montserrat-regular-webfont.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: $font-headings;
-  src: image-url('fonts/rc3_orbitron-variablefont_wght-webfont.woff2') format('woff2'), image-url('fonts/rc3_orbitron-variablefont_wght-webfont.woff') format('woff');
+  src: image-url('fonts/rc3_orbitron-variablefont_wght-webfont.woff2') format('woff2');
   font-weight: bold;
   font-style: normal;
 }
@@ -190,6 +190,7 @@ body {
   }
   .sidebar {
     margin-top: 20px;
+    padding-bottom: 10px;
     border-radius: 5px;
 
     hr {
@@ -198,6 +199,8 @@ body {
   }
 
   .left-navbar {
+    padding-top: 10px;
+
     .hoverable {
       color: $text-color;
 
@@ -205,9 +208,12 @@ body {
         background-color: transparent;
         border-color: $brand-primary;
         color: $link-color;
+      }
+      &:hover {
         border-right: 2px solid $primary-c3;
       }
     }
+
     .nested-list .hoverable.selected,
     .selected > .hoverable {
       color: $text-color;
@@ -247,6 +253,13 @@ body {
     div.reshare {
       border-left: $border-c1;
     }
+
+    & > .media {
+      .nsfw-shield {
+        background-color: $primary-c2-s2;
+        border: $border-c2;
+      }
+    }
   }
 
   #people-stream {
@@ -278,6 +291,10 @@ body {
   #single-post-content {
     .head {
       border-bottom: $border-c3;
+
+      .reshare.row {
+        border-top: $border-c3;
+      }
     }
   }
 
@@ -300,6 +317,7 @@ body {
   &.page-conversations {
     .sidebar {
       border-radius: 0;
+      padding: 0;
     }
 
     .pagination-container > .pagination {
