@@ -196,6 +196,11 @@ body {
     hr {
       border-top: $border-c3;
     }
+
+    #people-stream .stream-element.media {
+      border-style: none;
+      border-top: $border-c3;
+    }
   }
 
   .left-navbar {
