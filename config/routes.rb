@@ -58,6 +58,7 @@ Rails.application.routes.draw do
   get "activity" => "streams#activity", :as => "activity_stream"
   get "stream" => "streams#multi", :as => "stream"
   get "public" => "streams#public", :as => "public_stream"
+  get "local_public" => "streams#local_public", :as => "local_public_stream"
   get "followed_tags" => "streams#followed_tags", :as => "followed_tags_stream"
   get "mentions" => "streams#mentioned", :as => "mentioned_stream"
   get "liked" => "streams#liked", :as => "liked_stream"
@@ -228,9 +229,6 @@ Rails.application.routes.draw do
   if AppConfig.settings.terms.enable? || Rails.env.test?
     get 'terms' => 'terms#index'
   end
-
-  # Relay
-  get ".well-known/x-social-relay" => "social_relay#well_known"
 
   # Startpage
   root :to => 'home#show'
