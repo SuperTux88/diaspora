@@ -16,13 +16,14 @@
 //= require jquery-ui/sortable
 //= require keycodes
 //= require jquery.autoSuggest.custom
-//= require fine-uploader/fine-uploader.core
+//= require fine-uploader/fine-uploader
 //= require handlebars.runtime
 //= require_tree ../templates
 //= require posix-bracket-expressions
 //= require markdown-it
 //= require markdown-it-diaspora-mention
 //= require markdown-it-for-inline
+//= require markdown-it-footnote
 //= require markdown-it-hashtag
 //= require markdown-it-sanitizer
 //= require markdown-it-sub

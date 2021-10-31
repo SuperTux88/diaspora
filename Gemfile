@@ -14,8 +14,8 @@ gem "puma", "5.2.2", require: false
 
 # Federation
 
-gem "diaspora_federation-json_schema", "0.2.6"
-gem "diaspora_federation-rails", "0.2.6"
+gem "diaspora_federation-json_schema", "0.2.7"
+gem "diaspora_federation-rails", "0.2.7"
 
 # API and JSON
 
@@ -47,7 +47,7 @@ gem "sidekiq-cron", "1.2.0"
 
 # Compression
 
-gem "uglifier", "4.2.0"
+gem "terser", "1.1.5"
 
 # Configuration
 
@@ -105,10 +105,11 @@ source "https://gems.diasporafoundation.org" do
 
   gem "rails-assets-highlightjs",                         "9.12.0"
   gem "rails-assets-markdown-it",                         "8.4.2"
-  gem "rails-assets-markdown-it-hashtag",                 "0.4.0"
   gem "rails-assets-markdown-it-diaspora-mention",        "1.2.0"
-  gem "rails-assets-markdown-it-sanitizer",               "0.4.3"
+  gem "rails-assets-markdown-it-footnote",                "3.0.3"
+  gem "rails-assets-markdown-it-hashtag",                 "0.4.0"
   gem "rails-assets-markdown-it--markdown-it-for-inline", "0.1.1"
+  gem "rails-assets-markdown-it-sanitizer",               "0.4.3"
   gem "rails-assets-markdown-it-sub",                     "1.0.0"
   gem "rails-assets-markdown-it-sup",                     "1.0.0"
 
@@ -147,7 +148,7 @@ gem "leaflet-rails",       "1.7.0"
 # Parsing
 
 gem "nokogiri",          "1.11.7"
-gem "open_graph_reader", "0.7.1" # also update User-Agent in features/support/webmock.rb and open_graph_cache_spec.rb
+gem "open_graph_reader", "0.7.2" # also update User-Agent in features/support/webmock.rb and open_graph_cache_spec.rb
 gem "redcarpet",         "3.5.1"
 gem "ruby-oembed",       "0.15.0"
 gem "twitter-text",      "3.1.0"
@@ -182,7 +183,7 @@ gem "acts-as-taggable-on", "8.1.0"
 # URIs and HTTP
 
 gem "addressable",        "2.7.0", require: "addressable/uri"
-gem "faraday",            "0.15.4"
+gem "faraday",            "0.17.4"
 gem "faraday_middleware", "0.13.1"
 gem "faraday-cookie_jar", "0.0.6"
 gem "typhoeus",           "1.4.0"
@@ -289,7 +290,7 @@ group :test do
   gem "timecop",           "0.9.4"
   gem "webmock",           "3.13.0", require: false
 
-  gem "diaspora_federation-test", "0.2.6"
+  gem "diaspora_federation-test", "0.2.7"
 end
 
 group :development, :test do
