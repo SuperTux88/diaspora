@@ -374,48 +374,11 @@ describe Diaspora::Federation::Receive do
   describe ".photo" do
     let(:photo_entity) { Fabricate(:photo_entity, author: sender.diaspora_handle) }
 
-    it "saves the photo if it does not already exist" do
-      received = Diaspora::Federation::Receive.perform(photo_entity)
+    it "does not save the photo" do
+      expect { Diaspora::Federation::Receive.perform(photo_entity) }
+        .to raise_error(DiasporaFederation::Entity::UnknownEntity)
 
-      photo = Photo.find_by!(guid: photo_entity.guid)
-
-      expect(received).to eq(photo)
-      expect(photo.author).to eq(sender)
-      expect(photo.remote_photo_name).to eq(photo_entity.remote_photo_name)
-      expect(photo.created_at.iso8601).to eq(photo_entity.created_at.iso8601)
-    end
-
-    it "updates the photo if it is already persisted" do
-      Diaspora::Federation::Receive.perform(photo_entity)
-
-      photo = Photo.find_by!(guid: photo_entity.guid)
-      photo.remote_photo_name = "foobar.jpg"
-      photo.save
-
-      received = Diaspora::Federation::Receive.perform(photo_entity)
-      photo.reload
-
-      expect(received).to eq(photo)
-      expect(photo.author).to eq(sender)
-      expect(photo.remote_photo_name).to eq(photo_entity.remote_photo_name)
-    end
-
-    it "does not update the photo if the author mismatches" do
-      Diaspora::Federation::Receive.perform(photo_entity)
-
-      photo = Photo.find_by!(guid: photo_entity.guid)
-      photo.remote_photo_name = "foobar.jpg"
-      photo.author = bob.person
-      photo.save
-
-      expect {
-        Diaspora::Federation::Receive.perform(photo_entity)
-      }.to raise_error Diaspora::Federation::InvalidAuthor
-
-      photo.reload
-
-      expect(photo.author).to eq(bob.person)
-      expect(photo.remote_photo_name).to eq("foobar.jpg")
+      expect(Photo.exists?(guid: photo_entity.guid)).to be_falsey
     end
   end
 
@@ -461,31 +424,11 @@ describe Diaspora::Federation::Receive do
   describe ".reshare" do
     let(:reshare_entity) { Fabricate(:reshare_entity, author: sender.diaspora_handle, root_guid: post.guid) }
 
-    it "saves the reshare" do
-      received = Diaspora::Federation::Receive.perform(reshare_entity)
+    it "does not save the reshare" do
+      expect { Diaspora::Federation::Receive.perform(reshare_entity) }
+        .to raise_error(DiasporaFederation::Entity::UnknownEntity)
 
-      reshare = Reshare.find_by!(guid: reshare_entity.guid)
-
-      expect(received).to eq(reshare)
-      expect(reshare.author).to eq(sender)
-    end
-
-    it "attaches the reshare to the post" do
-      Diaspora::Federation::Receive.perform(reshare_entity)
-
-      reshare = Reshare.find_by!(guid: reshare_entity.guid)
-
-      expect(post.reshares).to include(reshare)
-      expect(reshare.root).to eq(post)
-      expect(reshare.created_at.iso8601).to eq(reshare_entity.created_at.iso8601)
-    end
-
-    it_behaves_like "it ignores existing object received twice", Reshare do
-      let(:entity) { reshare_entity }
-    end
-
-    it_behaves_like "it sends a participation to the author" do
-      let(:entity) { reshare_entity }
+      expect(Reshare.exists?(guid: reshare_entity.guid)).to be_falsey
     end
   end
 
@@ -578,152 +521,13 @@ describe Diaspora::Federation::Receive do
   end
 
   describe ".status_message" do
-    context "basic status message" do
-      let(:status_message_entity) { Fabricate(:status_message_entity, author: sender.diaspora_handle) }
+    let(:status_message_entity) { Fabricate(:status_message_entity, author: sender.diaspora_handle) }
 
-      it "saves the status message" do
-        received = Diaspora::Federation::Receive.perform(status_message_entity)
+    it "does not save the status message" do
+      expect { Diaspora::Federation::Receive.perform(status_message_entity) }
+        .to raise_error(DiasporaFederation::Entity::UnknownEntity)
 
-        status_message = StatusMessage.find_by!(guid: status_message_entity.guid)
-
-        expect(received).to eq(status_message)
-        expect(status_message.author).to eq(sender)
-        expect(status_message.text).to eq(status_message_entity.text)
-        expect(status_message.public).to eq(status_message_entity.public)
-        expect(status_message.created_at.iso8601).to eq(status_message_entity.created_at.iso8601)
-        expect(status_message.provider_display_name).to eq(status_message_entity.provider_display_name)
-
-        expect(status_message.location).to be_nil
-        expect(status_message.poll).to be_nil
-        expect(status_message.photos).to be_empty
-      end
-
-      it "returns the status message if it already exists" do
-        first = Diaspora::Federation::Receive.perform(status_message_entity)
-        second = Diaspora::Federation::Receive.perform(status_message_entity)
-
-        expect(second).not_to be_nil
-        expect(first).to eq(second)
-      end
-
-      it "does not change anything if the status message already exists" do
-        Diaspora::Federation::Receive.perform(status_message_entity)
-
-        expect_any_instance_of(StatusMessage).not_to receive(:create_or_update)
-
-        Diaspora::Federation::Receive.perform(status_message_entity)
-      end
-    end
-
-    context "with poll" do
-      let(:poll_entity) { Fabricate(:poll_entity) }
-      let(:status_message_entity) {
-        Fabricate(:status_message_entity, author: sender.diaspora_handle, poll: poll_entity)
-      }
-
-      it "saves the status message" do
-        received = Diaspora::Federation::Receive.perform(status_message_entity)
-
-        status_message = StatusMessage.find_by!(guid: status_message_entity.guid)
-
-        expect(received).to eq(status_message)
-        expect(status_message.author).to eq(sender)
-
-        expect(status_message.poll.question).to eq(poll_entity.question)
-        expect(status_message.poll.guid).to eq(poll_entity.guid)
-        expect(status_message.poll.poll_answers.count).to eq(poll_entity.poll_answers.count)
-        expect(status_message.poll.poll_answers.map(&:answer)).to eq(poll_entity.poll_answers.map(&:answer))
-      end
-    end
-
-    context "with location" do
-      let(:location_entity) { Fabricate(:location_entity) }
-      let(:status_message_entity) {
-        Fabricate(:status_message_entity, author: sender.diaspora_handle, location: location_entity)
-      }
-
-      it "saves the status message" do
-        received = Diaspora::Federation::Receive.perform(status_message_entity)
-
-        status_message = StatusMessage.find_by!(guid: status_message_entity.guid)
-
-        expect(received).to eq(status_message)
-        expect(status_message.author).to eq(sender)
-
-        expect(status_message.location.address).to eq(location_entity.address)
-        expect(status_message.location.lat).to eq(location_entity.lat)
-        expect(status_message.location.lng).to eq(location_entity.lng)
-      end
-    end
-
-    context "with photos" do
-      let(:status_message_guid) { Fabricate.sequence(:guid) }
-      let(:photo1) {
-        Fabricate(:photo_entity, author: sender.diaspora_handle, status_message_guid: status_message_guid)
-      }
-      let(:photo2) {
-        Fabricate(:photo_entity, author: sender.diaspora_handle, status_message_guid: status_message_guid)
-      }
-      let(:status_message_entity) {
-        Fabricate(
-          :status_message_entity,
-          author: sender.diaspora_handle,
-          guid:   status_message_guid,
-          photos: [photo1, photo2]
-        )
-      }
-
-      it "saves the status message and photos" do
-        received = Diaspora::Federation::Receive.perform(status_message_entity)
-
-        status_message = StatusMessage.find_by!(guid: status_message_entity.guid)
-
-        expect(received).to eq(status_message)
-        expect(status_message.author).to eq(sender)
-
-        expect(status_message.photos.map(&:guid)).to include(photo1.guid, photo2.guid)
-      end
-
-      it "receives a status message only with photos and without text" do
-        entity = DiasporaFederation::Entities::StatusMessage.new(status_message_entity.to_h.merge(text: nil))
-        received = Diaspora::Federation::Receive.perform(entity)
-
-        status_message = StatusMessage.find_by!(guid: status_message_entity.guid)
-
-        expect(received).to eq(status_message)
-        expect(status_message.author).to eq(sender)
-
-        expect(status_message.text).to be_nil
-        expect(status_message.photos.map(&:guid)).to include(photo1.guid, photo2.guid)
-      end
-
-      it "does not overwrite the photos if they already exist" do
-        received_photo = Diaspora::Federation::Receive.perform(photo1)
-        received_photo.text = "foobar"
-        received_photo.save!
-
-        received = Diaspora::Federation::Receive.perform(status_message_entity)
-
-        status_message = StatusMessage.find_by!(guid: status_message_entity.guid)
-
-        expect(received).to eq(status_message)
-        expect(status_message.author).to eq(sender)
-
-        expect(status_message.photos.map(&:guid)).to include(photo1.guid, photo2.guid)
-        expect(status_message.photos.map(&:text)).to include(received_photo.text, photo2.text)
-      end
-
-      it_behaves_like "it sends a participation to the author" do
-        let(:entity) { status_message_entity }
-      end
-
-      it "doesn't send participations for a private post" do
-        status_message_entity = Fabricate(:status_message_entity, author: sender.diaspora_handle, public: false)
-
-        expect(Diaspora::Federation::Dispatcher).not_to receive(:build)
-
-        Diaspora::Federation::Receive.perform(status_message_entity)
-      end
+      expect(StatusMessage.exists?(guid: status_message_entity.guid)).to be_falsey
     end
   end
 end

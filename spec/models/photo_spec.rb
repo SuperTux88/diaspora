@@ -185,26 +185,6 @@ describe Photo, :type => :model do
 
   end
 
-  describe "remote photos" do
-    it "should set the remote_photo on marshalling" do
-      url = @saved_photo.url
-      thumb_url = @saved_photo.url :thumb_medium
-
-      @saved_photo.height = 42
-      @saved_photo.width = 23
-
-      federation_photo = Diaspora::Federation::Entities.photo(@saved_photo)
-
-      @saved_photo.destroy
-
-      Diaspora::Federation::Receive.perform(federation_photo)
-
-      new_photo = Photo.find_by(guid: @saved_photo.guid)
-      expect(new_photo.url).to eq(url)
-      expect(new_photo.url(:thumb_medium)).to eq(thumb_url)
-    end
-  end
-
   describe '#queue_processing_job' do
     it 'should queue a job to process the images' do
       expect(Workers::ProcessPhoto).to receive(:perform_async).with(@photo.id)

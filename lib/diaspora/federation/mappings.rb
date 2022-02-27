@@ -15,11 +15,8 @@ module Diaspora
         when DiasporaFederation::Entities::Like              then :like
         when DiasporaFederation::Entities::Message           then :message
         when DiasporaFederation::Entities::Participation     then :participation
-        when DiasporaFederation::Entities::Photo             then :photo
         when DiasporaFederation::Entities::PollParticipation then :poll_participation
         when DiasporaFederation::Entities::Profile           then :profile
-        when DiasporaFederation::Entities::Reshare           then :reshare
-        when DiasporaFederation::Entities::StatusMessage     then :status_message
         else not_found(federation_entity.class)
         end
       end

@@ -157,46 +157,6 @@ describe "mentioning", type: :request do
     expect(status_msg).not_to be_in_streams_of(user3)
   end
 
-  context "in private post via federation" do
-    let(:status_msg) {
-      receive_status_message_via_federation(text_mentioning(user2, user3), user3)
-    }
-
-    it "receiver is mentioned in status message" do
-      expect(user3).to be_mentioned_in(status_msg)
-    end
-
-    it "receiver can see status message in streams" do
-      expect(status_msg).to be_in_streams_of(user3)
-    end
-
-    it "non-receiver is not mentioned in status message" do
-      expect(user2).not_to be_mentioned_in(status_msg)
-    end
-
-    it "non-receiver can't see status message in streams" do
-      expect(status_msg).not_to be_in_streams_of(user2)
-    end
-  end
-
-  context "in private post via federation with multiple recipients" do
-    let(:status_msg) {
-      receive_status_message_via_federation(text_mentioning(user3, user2), user3, user2)
-    }
-
-    it "mentions all recipients in the status message" do
-      [user2, user3].each do |user|
-        expect(user).to be_mentioned_in(status_msg)
-      end
-    end
-
-    it "all recipients can see status message in streams" do
-      [user2, user3].each do |user|
-        expect(status_msg).to be_in_streams_of(user)
-      end
-    end
-  end
-
   it "mentions people in public posts" do
     status_msg = nil
     expect {

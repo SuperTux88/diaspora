@@ -100,35 +100,27 @@ describe "Receive federation messages feature" do
     end
 
     context "reshare" do
-      it "reshare of public post passes" do
+      it "reshare of public post are ignored" do
         post = FactoryBot.create(:status_message, author: alice.person, public: true)
         reshare = Fabricate(
           :reshare_entity, root_author: alice.diaspora_handle, root_guid: post.guid, author: sender_id
         )
 
-        expect(Participation::Generator).to receive(:new).with(
-          alice, instance_of(Reshare)
-        ).and_return(double(create!: true))
-
-        expect(Diaspora::Federation::Dispatcher).to receive(:build) do |_user, participation, _opts|
-          expect(participation.target.guid).to eq(reshare.guid)
-          instance_double(:dispatch)
-        end
+        expect(Participation::Generator).not_to receive(:new)
+        expect(Diaspora::Federation::Dispatcher).not_to receive(:build)
 
         post_message(generate_payload(reshare, sender))
 
-        expect(Reshare.exists?(root_guid: post.guid)).to be_truthy
-        expect(Reshare.where(root_guid: post.guid).last.diaspora_handle).to eq(sender_id)
+        expect(Reshare.exists?(root_guid: post.guid)).to be_falsey
       end
 
-      it "reshare of private post fails" do
+      it "reshare of private post are ignored" do
         post = FactoryBot.create(:status_message, author: alice.person, public: false)
         reshare = Fabricate(
           :reshare_entity, root_author: alice.diaspora_handle, root_guid: post.guid, author: sender_id
         )
-        expect {
-          post_message(generate_payload(reshare, sender))
-        }.to raise_error ActiveRecord::RecordInvalid, "Validation failed: Only posts which are public may be reshared."
+
+        post_message(generate_payload(reshare, sender))
 
         expect(Reshare.exists?(root_guid: post.guid)).to be_falsey
       end

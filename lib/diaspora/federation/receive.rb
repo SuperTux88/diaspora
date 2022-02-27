@@ -110,28 +110,6 @@ module Diaspora
         end
       end
 
-      def self.photo(entity, _opts)
-        author = author_of(entity)
-        persisted_photo = load_from_database(Photo, entity.guid, author)
-
-        if persisted_photo
-          persisted_photo.tap do |photo|
-            photo.update_attributes(
-              text:                entity.text,
-              public:              entity.public,
-              created_at:          entity.created_at,
-              remote_photo_path:   entity.remote_photo_path,
-              remote_photo_name:   entity.remote_photo_name,
-              status_message_guid: entity.status_message_guid,
-              height:              entity.height,
-              width:               entity.width
-            )
-          end
-        else
-          save_photo(entity)
-        end
-      end
-
       def self.poll_participation(entity, _opts)
         receive_relayable(PollParticipation, entity) do
           PollParticipation.new(
@@ -163,18 +141,6 @@ module Diaspora
         end
       end
 
-      def self.reshare(entity, _opts)
-        author = author_of(entity)
-        ignore_existing_guid(Reshare, entity.guid, author) do
-          Reshare.create!(
-            author:     author,
-            guid:       entity.guid,
-            created_at: entity.created_at,
-            root_guid:  entity.root_guid
-          ).tap {|reshare| send_participation_for(reshare) }
-        end
-      end
-
       def self.retraction(entity, recipient_id)
         model_class = Diaspora::Federation::Mappings.model_class_for(entity.target_type)
         object = model_class.where(guid: entity.target_guid).take!
@@ -193,27 +159,6 @@ module Diaspora
           end
         else
           object.destroy!
-        end
-      end
-
-      def self.status_message(entity, _opts) # rubocop:disable Metrics/AbcSize
-        try_load_existing_guid(StatusMessage, entity.guid, author_of(entity)) do
-          StatusMessage.new(
-            author:                author_of(entity),
-            guid:                  entity.guid,
-            text:                  entity.text,
-            public:                entity.public,
-            created_at:            entity.created_at,
-            provider_display_name: entity.provider_display_name
-          ).tap do |status_message|
-            status_message.location = build_location(entity.location) if entity.location
-            status_message.poll = build_poll(entity.poll) if entity.poll
-            status_message.photos = save_or_load_photos(entity.photos)
-
-            status_message.save!
-
-            send_participation_for(status_message)
-          end
         end
       end
 
@@ -237,42 +182,6 @@ module Diaspora
           created_at:        entity.created_at,
           conversation_guid: entity.conversation_guid
         )
-      end
-
-      private_class_method def self.build_poll(entity)
-        Poll.new(
-          guid:     entity.guid,
-          question: entity.question
-        ).tap do |poll|
-          poll.poll_answers = entity.poll_answers.map do |answer|
-            PollAnswer.new(
-              guid:   answer.guid,
-              answer: answer.answer,
-              poll:   poll
-            )
-          end
-        end
-      end
-
-      private_class_method def self.save_photo(entity)
-        Photo.create!(
-          author:              author_of(entity),
-          guid:                entity.guid,
-          text:                entity.text,
-          public:              entity.public,
-          created_at:          entity.created_at,
-          remote_photo_path:   entity.remote_photo_path,
-          remote_photo_name:   entity.remote_photo_name,
-          status_message_guid: entity.status_message_guid,
-          height:              entity.height,
-          width:               entity.width
-        )
-      end
-
-      private_class_method def self.save_or_load_photos(photos)
-        photos.map do |photo|
-          try_load_existing_guid(Photo, photo.guid, author_of(photo)) { save_photo(photo) }
-        end
       end
 
       private_class_method def self.receive_relayable(klass, entity)
