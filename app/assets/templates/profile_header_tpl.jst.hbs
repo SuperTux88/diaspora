@@ -43,13 +43,6 @@
 <div id="profile-horizontal-bar">
   {{#if show_profile_btns}}
     <div id="profile_buttons" class="pull-right">
-      {{#if is_receiving}}
-        {{!-- create status message with mention --}}
-        <span class="profile_button">
-          <span id="mention_button" class="profile-header-icon" title="{{t 'people.mention'}}" data-placement="bottom" data-toggle="modal">@</span>
-        </span>
-      {{/if}}
-
       {{#if is_mutual}}
         {{!-- create private conversation with person --}}
         <span class="profile_button">
@@ -65,22 +58,4 @@
       {{/unless}}
     </div>
   {{/if}}
-
-  <ul id="profile_nav">
-    <li {{#isCurrentProfilePage guid diaspora_id}} class="active" {{/isCurrentProfilePage}}>
-      <a href="{{urlTo 'person' guid}}" id="posts_link">
-        <i class="entypo-docs"></i>
-        {{t 'profile.posts'}}
-      </a>
-    </li>
-    {{#if show_photos}}
-      <li {{#isCurrentPage 'personPhotos' guid}} class="active" {{/isCurrentPage}}>
-        <a href="{{urlTo 'personPhotos' guid}}" id="photos_link">
-          <i class="entypo-picture"></i>
-          {{t 'profile.photos'}}
-          <div class="badge badge-default">{{photos}}</div>
-        </a>
-      </li>
-    {{/if}}
-  </div>
 </div>

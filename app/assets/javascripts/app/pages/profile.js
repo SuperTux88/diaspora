@@ -11,7 +11,6 @@ app.pages.Profile = app.views.Base.extend({
   subviews: {
     "#profile": "sidebarView",
     ".profile_header": "headerView",
-    "#main-stream": "streamView"
   },
 
   tooltipSelector: ".profile_button .profile-header-icon, .sharing_message_container",
@@ -24,9 +23,6 @@ app.pages.Profile = app.views.Base.extend({
     if (app.hasPreload("photos_count")) {
       this.photos = app.parsePreload("photos_count");
     }
-
-    this.streamCollection = _.has(opts, "streamCollection") ? opts.streamCollection : null;
-    this.streamViewClass = _.has(opts, "streamView") ? opts.streamView : null;
 
     this.model.on("sync", this._done, this);
 
@@ -68,29 +64,6 @@ app.pages.Profile = app.views.Base.extend({
       model: this.model,
       photos: this.photos,
     });
-  },
-
-  streamView: function() {
-    if(!this.model.has("profile")){
-      return false;
-    }
-
-    // a collection is set, this means we want to view photos
-    var route = this.streamCollection ? "personPhotos" : "personStream";
-    var view = this.streamViewClass ? this.streamViewClass : app.views.Stream;
-
-    app.stream = new app.models.Stream(null, {
-      basePath: Routes[route](app.page.model.get("guid")),
-      collection: this.streamCollection
-    });
-    app.stream.fetch();
-
-    if( this.model.get("is_own_profile") && route !== "personPhotos" ) {
-      app.publisher = new app.views.Publisher({collection : app.stream.items});
-    }
-    app.shortcuts = app.shortcuts || new app.views.StreamShortcuts({el: $(document)});
-
-    return new view({model: app.stream});
   },
 
   blockPerson: function() {

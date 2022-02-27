@@ -82,7 +82,6 @@ class PeopleController < ApplicationController
 
       format.mobile do
         @post_type = :all
-        person_stream
         respond_with @presenter
       end
 
@@ -161,9 +160,5 @@ class PeopleController < ApplicationController
     Notification.where(recipient_id: current_user.id, target_type: "Person", target_id: @person.id, unread: true).each do |n|
       n.set_read_state( true )
     end
-  end
-
-  def person_stream
-    @stream ||= Stream::Person.new(current_user, @person, max_time: max_time)
   end
 end
