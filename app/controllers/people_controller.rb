@@ -7,7 +7,7 @@
 class PeopleController < ApplicationController
   include GonHelper
 
-  before_action :authenticate_user!, except: %i(show stream hovercard)
+  before_action :authenticate_user!
   before_action :find_person, only: %i(show stream hovercard)
   before_action :authenticate_if_remote_profile!, only: %i(show stream)
 

@@ -7,9 +7,7 @@
 class HomeController < ApplicationController
   def show
     partial_dir = Rails.root.join("app", "views", "home")
-    if user_signed_in?
-      redirect_to stream_path
-    elsif request.format == :mobile
+    if request.format == :mobile
       if partial_dir.join("_show.mobile.haml").exist? ||
          partial_dir.join("_show.mobile.erb").exist? ||
          partial_dir.join("_show.haml").exist?
@@ -21,15 +19,9 @@ class HomeController < ApplicationController
           partial_dir.join("_show.html.erb").exist? ||
           partial_dir.join("_show.haml").exist?
       render :show
-    elsif Role.admins.any?
-      render :default
     else
-      redirect_to podmin_path
+      render :default
     end
-  end
-
-  def podmin
-    render :podmin
   end
 
   def toggle_mobile

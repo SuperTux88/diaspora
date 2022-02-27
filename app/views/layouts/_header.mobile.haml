@@ -22,11 +22,6 @@
                 %span.badge.badge-important#conversation
                   = current_user.unread_message_count
 
-          -# Publisher
-          %li
-            = link_to new_status_message_path, class: "badge-link", id: "compose-badge" do
-              %i.diaspora-custom-compose
-
           -# Menu
           %li
             %button.navbar-toggle#menu-badge{type: "button"}

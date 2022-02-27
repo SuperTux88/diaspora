@@ -22,41 +22,19 @@ Rails.application.routes.draw do
 
   get "/atom.xml" => redirect('http://blog.diasporafoundation.org/feed/atom') #too many stupid redirects :()
 
-  get 'oembed' => 'posts#oembed', :as => 'oembed'
-  # Posting and Reading
-  resources :reshares, only: %i(create)
-
-  resources :status_messages, :only => [:new, :create]
-
-  resources :posts, only: %i(show destroy) do
-    member do
-      get :mentionable
-    end
-
-    resource :participation, only: %i(create destroy)
-    resources :poll_participations, only: :create
-    resources :likes, only: %i(create destroy index)
-    resources :comments, only: %i(new create destroy index)
-    resources :reshares, only: :index
-  end
-
-  get 'p/:id' => 'posts#show', :as => 'short_post'
-
-  # roll up likes into a nested resource above
-  resources :comments, :only => [:create, :destroy] do
-    resources :likes, :only => [:create, :destroy, :index]
-  end
+  get "posts/:id" => "redirects#redirect", :as => "post"
+  get "p/:id" => "redirects#redirect", :as => "short_post"
 
   # Streams
-  get "activity" => "streams#activity", :as => "activity_stream"
-  get "stream" => "streams#multi", :as => "stream"
-  get "public" => "streams#public", :as => "public_stream"
-  get "local_public" => "streams#local_public", :as => "local_public_stream"
-  get "followed_tags" => "streams#followed_tags", :as => "followed_tags_stream"
-  get "mentions" => "streams#mentioned", :as => "mentioned_stream"
-  get "liked" => "streams#liked", :as => "liked_stream"
-  get "commented" => "streams#commented", :as => "commented_stream"
-  get "aspects" => "streams#aspects", :as => "aspects_stream"
+  get "activity" => redirect("/user/edit"), :as => "activity_stream"
+  get "stream" => redirect("/user/edit"), :as => "stream"
+  get "public" => "redirects#redirect", :as => "public_stream"
+  get "local_public" => "redirects#redirect", :as => "local_public_stream"
+  get "followed_tags" => redirect("/user/edit"), :as => "followed_tags_stream"
+  get "mentions" => redirect("/user/edit"), :as => "mentioned_stream"
+  get "liked" => redirect("/user/edit"), :as => "liked_stream"
+  get "commented" => redirect("/user/edit"), :as => "commented_stream"
+  get "aspects" => redirect("/user/edit"), :as => "aspects_stream"
 
   resources :aspects, except: %i(index new edit) do
     collection do
@@ -64,16 +42,12 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'bookmarklet' => 'status_messages#bookmarklet'
-
   resources :photos, only: %i(destroy create) do
     put :make_profile_photo
   end
 
 	#Search
 	get 'search' => "search#search"
-
-  get "link" => "links#resolve"
 
   resources :conversations, except: %i(edit update destroy)  do
     resources :messages, only: %i(create)
@@ -87,16 +61,7 @@ Rails.application.routes.draw do
     end
   end
 
-
-  resources :tags, :only => [:index]
-
-  resources "tag_followings", only: %i(create destroy index) do
-    collection do
-      get :manage
-    end
-  end
-
-  get 'tags/:name' => 'tags#show', :as => 'tag'
+  get "tags/:name" => "redirects#redirect", :as => "tag"
 
   # Users and people
 
@@ -109,12 +74,11 @@ Rails.application.routes.draw do
   end
 
   controller :users do
-    get "public/:username"          => :public,                  :as => :users_public
-    get "getting_started"           => :getting_started,         :as => :getting_started
+    get "getting_started"           => redirect("/user/edit"),         :as => :getting_started
     get "confirm_email/:token"      => :confirm_email,           :as => :confirm_email
     get "privacy"                   => :privacy_settings,        :as => :privacy_settings
     put "privacy"                   => :update_privacy_settings, :as => :update_privacy_settings
-    get "getting_started_completed" => :getting_started_completed
+    get "getting_started_completed" => redirect("/user/edit")
   end
 
   resource :two_factor_authentication, only: %i[show create destroy] do
@@ -129,9 +93,6 @@ Rails.application.routes.draw do
     post "/users"        => "registrations#create", :as => :user_registration
     get "/registrations_closed" => "registrations#registrations_closed", :as => :registrations_closed
   end
-
-  get "users/invitations"  => "invitations#new",    :as => "new_user_invitation"
-  post "users/invitations" => "invitations#create", :as => "user_invitation"
 
   get 'login' => redirect('/users/sign_in')
 
@@ -163,48 +124,36 @@ Rails.application.routes.draw do
   end
 
   resource :profile, :only => [:edit, :update]
-  resources :profiles, :only => [:show]
 
 
   resources :contacts, only: %i(index)
   resources :aspect_memberships, :only  => [:destroy, :create]
-  resources :share_visibilities,  :only => [:update]
   resources :blocks, :only => [:create, :destroy]
 
-  get 'i/:id' => 'invitation_codes#show', :as => 'invite_code'
+  get "i/:id" => redirect("/"), :as => "invite_code"
 
   get 'people/refresh_search' => "people#refresh_search"
   resources :people, only: %i(show index) do
-    resources :status_messages, only: %i(new create)
-    resources :photos, except:  %i(new update)
-    get :stream
     get :hovercard
   end
 
   # Note: The contraint for this route's username parameter cannot be removed.
   # This constraint turns off the format parameter, so that an username
   # doctor.example would not try to render the user `doctor` in `example` format.
-  get "/u/:username" => "people#show", :as => "user_profile", :constraints => {username: %r{[^/]+}}
+  get "/u/:username" => "redirects#redirect", :as => "user_profile", :constraints => {username: %r{[^/]+}}
 
   # External
 
-  resources :services, :only => [:index, :destroy]
-  controller :services do
-    scope "/auth", :as => "auth" do
-      get ':provider/callback' => :create
-      get :failure
-    end
-  end
 
-  get 'community_spotlight' => "contacts#spotlight", :as => 'community_spotlight'
+  get "community_spotlight" => "redirects#redirect", :as => "community_spotlight"
   # Mobile site
 
   get 'mobile/toggle', :to => 'home#toggle_mobile', :as => 'toggle_mobile'
   get "/m", to: "home#force_mobile", as: "force_mobile"
 
   # Help
-  get 'help' => 'help#faq', :as => 'help'
-  get 'help/:topic' => 'help#faq'
+  get "help" => redirect("/"), :as => "help"
+  get "help/:topic" => redirect("/")
 
   #Protocol Url
   get "protocol" => redirect("https://diaspora.github.io/diaspora_federation/")
@@ -221,69 +170,7 @@ Rails.application.routes.draw do
 
   # Startpage
   root :to => 'home#show'
-  get "podmin", to: "home#podmin"
+  get "podmin" => redirect("/")
 
-  api_version(module: "Api::V1", path: {value: "api/v1"}) do
-    resources :aspects, only: %i[show index create destroy update] do
-      resources :contacts, only: %i[index create destroy]
-    end
-    resources :photos, only: %i[show index create destroy]
-    resources :posts, only: %i[show create destroy] do
-      resources :comments, only: %i[create index destroy] do
-        post "report" => "comments#report"
-      end
-      resource :reshares, only: %i[show create]
-      resource :likes, only: %i[show create destroy]
-      post "subscribe" => "post_interactions#subscribe"
-      post "mute" => "post_interactions#mute"
-      post "hide" => "post_interactions#hide"
-      post "report" => "post_interactions#report"
-      post "vote" => "post_interactions#vote"
-    end
-    resources :conversations do
-      resources :messages, only: %i[index create]
-    end
-    resources :notifications, only: %i[index show update]
-
-    patch "user" => "users#update"
-    get "user" => "users#show"
-    resources :users, only: %i[show] do
-      get :contacts
-      get :photos
-      get :posts
-      post :block
-      delete :block
-    end
-    resources :tag_followings, only: %i[index create destroy]
-    get "search/users" => "search#user_index", :as => "user_index"
-    get "search/posts" => "search#post_index", :as => "post_index"
-    get "search/tags" => "search#tag_index", :as => "tag_index"
-    get "streams/activity" => "streams#activity", :as => "activity_stream"
-    get "streams/main" => "streams#multi", :as => "stream"
-    get "streams/tags" => "streams#followed_tags", :as => "followed_tags_stream"
-    get "streams/mentions" => "streams#mentions", :as => "mentions_stream"
-    get "streams/liked" => "streams#liked", :as => "liked_stream"
-    get "streams/commented" => "streams#commented", :as => "commented_stream"
-    get "streams/aspects" => "streams#aspects", :as => "aspects_stream"
-  end
-
-  namespace :api do
-    namespace :openid_connect do
-      resources :clients, only: :create
-      get "clients/find", to: "clients#find"
-
-      post "access_tokens", to: "token_endpoint#create"
-
-      # Authorization Servers MUST support the use of the HTTP GET and POST methods at the Authorization Endpoint
-      # See http://openid.net/specs/openid-connect-core-1_0.html#AuthResponseValidation
-      resources :authorizations, only: %i(new create destroy)
-      post "authorizations/new", to: "authorizations#new"
-      get "user_applications", to: "user_applications#index"
-      get "jwks.json", to: "id_tokens#jwks"
-      match "user_info", to: "user_info#show", via: %i(get post)
-    end
-  end
-
-  get ".well-known/openid-configuration", to: "api/openid_connect/discovery#configuration"
   get "manifest.json", to: "manifest#show"
 end
