@@ -234,19 +234,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def upload_export_files(user_data)
-    logger.info "Start importing account"
-    @user.export = user_data[:export] if user_data[:export]
-    @user.exported_photos_file = user_data[:exported_photos_file] if user_data[:exported_photos_file]
-    if @user.save
-      flash.now[:notice] = "Your account migration has been scheduled"
-    else
-      flash.now[:error] = "Your account migration could not be scheduled for the following reason:"\
-                          " #{@user.errors.full_messages}"
-    end
-    Workers::ImportUser.perform_async(@user.id)
-  end
-
   def change_settings(user_data, successful="users.update.settings_updated", error="users.update.settings_not_updated")
     if @user.update_attributes(user_data)
       flash.now[:notice] = t(successful)
