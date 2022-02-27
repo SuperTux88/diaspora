@@ -97,7 +97,7 @@ describe RegistrationsController, type: :controller do
       it "redirects to the home path" do
         get :create, params: valid_params
         expect(response).to be_redirect
-        expect(response.location).to match(/^#{getting_started_url}$/)
+        expect(response.location).to match(/^#{edit_user_url}$/)
       end
 
       context "with invite code" do

@@ -101,12 +101,12 @@ class ApplicationController < ActionController::Base
 
   def redirect_unless_admin
     return if current_user.admin?
-    redirect_to stream_url, notice: "you need to be an admin to do that"
+    redirect_to edit_user_url, notice: "you need to be an admin to do that"
   end
 
   def redirect_unless_moderator
     return if current_user.moderator?
-    redirect_to stream_url, notice: "you need to be an admin or moderator to do that"
+    redirect_to edit_user_url, notice: "you need to be an admin or moderator to do that"
   end
 
   def set_grammatical_gender
@@ -144,20 +144,11 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    stored_location_for(:user) || current_user_redirect_path
+    stored_location_for(:user) || edit_user_path
   end
 
   def max_time
     params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now + 1
-  end
-
-  def current_user_redirect_path
-    # If getting started is active AND the user has not completed the getting_started page
-    if current_user.getting_started? && !current_user.basic_profile_present?
-      getting_started_path
-    else
-      stream_path
-    end
   end
 
   def gon_set_appconfig

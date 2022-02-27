@@ -15,7 +15,7 @@ describe ReportController, type: :controller do
     context "admin not signed in" do
       it "is behind redirect_unless_admin" do
         get :index
-        expect(response).to redirect_to stream_path
+        expect(response).to redirect_to edit_user_path
       end
     end
 
@@ -66,14 +66,14 @@ describe ReportController, type: :controller do
     context "mark post report as user" do
       it "is behind redirect_unless_admin_or_moderator" do
         put :update, params: {id: @message.id, type: "post"}
-        expect(response).to redirect_to stream_path
+        expect(response).to redirect_to edit_user_path
         expect(Report.where(reviewed: false, item_id: @message.id, item_type: "Post")).to be_truthy
       end
     end
     context "mark comment report as user" do
       it "is behind redirect_unless_admin_or_moderator" do
         put :update, params: {id: @comment.id, type: "comment"}
-        expect(response).to redirect_to stream_path
+        expect(response).to redirect_to edit_user_path
         expect(Report.where(reviewed: false, item_id: @comment.id, item_type: "Comment")).to be_truthy
       end
     end
@@ -127,14 +127,14 @@ describe ReportController, type: :controller do
     context "destroy post as user" do
       it "is behind redirect_unless_admin_or_moderator" do
         delete :destroy, params: {id: @message.id, type: "post"}
-        expect(response).to redirect_to stream_path
+        expect(response).to redirect_to edit_user_path
         expect(Report.where(reviewed: false, item_id: @message.id, item_type: "Post")).to be_truthy
       end
     end
     context "destroy comment as user" do
       it "is behind redirect_unless_admin_or_moderator" do
         delete :destroy, params: {id: @comment.id, type: "comment"}
-        expect(response).to redirect_to stream_path
+        expect(response).to redirect_to edit_user_path
         expect(Report.where(reviewed: false, item_id: @comment.id, item_type: "Comment")).to be_truthy
       end
     end

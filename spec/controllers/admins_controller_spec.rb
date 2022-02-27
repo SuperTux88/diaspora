@@ -14,7 +14,7 @@ describe AdminsController, type: :controller do
     context "admin not signed in" do
       it "is behind redirect_unless_admin" do
         get :dashboard
-        expect(response).to redirect_to stream_path
+        expect(response).to redirect_to edit_user_path
       end
     end
 
@@ -51,7 +51,7 @@ describe AdminsController, type: :controller do
     context "admin not signed in" do
       it "is behind redirect_unless_admin" do
         get :user_search
-        expect(response).to redirect_to stream_path
+        expect(response).to redirect_to edit_user_path
       end
     end
 
@@ -102,7 +102,7 @@ describe AdminsController, type: :controller do
     context "admin not signed in" do
       it "is behind redirect_unless_admin" do
         get :admin_inviter
-        expect(response).to redirect_to stream_path
+        expect(response).to redirect_to edit_user_path
       end
     end
 

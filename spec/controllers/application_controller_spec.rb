@@ -87,7 +87,7 @@ describe ApplicationController, :type => :controller do
       end
 
       it "redirects to getting started if the user has getting started set to true and a blank profile" do
-        expect(@controller.send(:after_sign_in_path_for, alice)).to eq(getting_started_path)
+        expect(@controller.send(:after_sign_in_path_for, alice)).to eq(edit_user_path)
       end
     end
 
@@ -100,7 +100,7 @@ describe ApplicationController, :type => :controller do
       end
 
       it "redirects to stream if the user has getting started set to true and has already added tags" do
-        expect(@controller.send(:after_sign_in_path_for, alice)).to eq(stream_path)
+        expect(@controller.send(:after_sign_in_path_for, alice)).to eq(edit_user_path)
       end
     end
 
@@ -113,7 +113,7 @@ describe ApplicationController, :type => :controller do
       end
 
       it "redirects to stream if the user has getting started set to true and has already added a photo" do
-        expect(@controller.send(:after_sign_in_path_for, alice)).to eq(stream_path)
+        expect(@controller.send(:after_sign_in_path_for, alice)).to eq(edit_user_path)
       end
     end
   end

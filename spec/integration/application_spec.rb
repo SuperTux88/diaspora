@@ -20,7 +20,7 @@ describe ApplicationController, type: :request do
       it "doesn't redirect to the new session page if the validation succeeded" do
         expect_any_instance_of(SessionsController).to receive(:verified_request?).and_return(true)
         post "/users/sign_in", params: {user: {remember_me: 0, username: @user.username, password: "evankorth"}}
-        expect(response).to redirect_to stream_path
+        expect(response).to redirect_to edit_user_path
         expect(flash[:error]).to be_blank
       end
     end

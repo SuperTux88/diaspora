@@ -76,8 +76,8 @@ class NotificationsController < ApplicationController
         format.html { redirect_to notifications_path }
         format.mobile { redirect_to notifications_path }
       else
-        format.html { redirect_to stream_path }
-        format.mobile { redirect_to stream_path }
+        format.html { redirect_to edit_user_path }
+        format.mobile { redirect_to edit_user_path }
       end
       format.xml { render :xml => {}.to_xml }
       format.json { render :json => {}.to_json }

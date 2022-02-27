@@ -201,16 +201,16 @@ describe NotificationsController, type: :controller do
       expect(response).to redirect_to(notifications_path)
     end
 
-    it "should redirect to stream in the html version if it has 0 notifications" do
+    it "should redirect to user edit page in the html version if it has 0 notifications" do
       FactoryBot.create(:notification, recipient: alice, type: "Notifications::StartedSharing")
       get :read_all, params: {type: "started_sharing"}, format: :html
-      expect(response).to redirect_to(stream_path)
+      expect(response).to redirect_to(edit_user_path)
     end
 
     it "should redirect back in the mobile version if it has 0 notifications" do
       FactoryBot.create(:notification, recipient: alice, type: "Notifications::StartedSharing")
       get :read_all, params: {type: "started_sharing"}, format: :mobile
-      expect(response).to redirect_to(stream_path)
+      expect(response).to redirect_to(edit_user_path)
     end
 
     it "should return a dummy value in the json version" do
