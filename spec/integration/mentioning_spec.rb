@@ -277,18 +277,6 @@ describe "mentioning", type: :request do
           it { is_expected.to be_mentioned_in(comment) }
         end
       end
-
-      context "when comment is received via federation" do
-        context "when mentioned user is remote" do
-          it "relays the comment to the mentioned user" do
-            mentioned_person = FactoryBot.create(:person)
-            expect_any_instance_of(Diaspora::Federation::Dispatcher::Public)
-              .to receive(:deliver_to_remote).with([mentioned_person])
-
-            receive_comment_via_federation(text_mentioning(mentioned_person), status_msg)
-          end
-        end
-      end
     end
 
     context "with private post" do
@@ -314,43 +302,6 @@ describe "mentioning", type: :request do
 
           subject { mentioned_user }
           it { is_expected.to be_mentioned_in(comment) }
-        end
-      end
-
-      context "when comment is received via federation" do
-        let(:parent) { FactoryBot.create(:status_message_in_aspect, author: user2.person) }
-
-        before do
-          user3.like!(parent)
-          user1.like!(parent)
-        end
-
-        let(:comment_text) { text_mentioning(user2, user3, user1) }
-        let(:comment) { receive_comment_via_federation(comment_text, parent) }
-
-        it "mentions all the recepients" do
-          [user1, user2, user3].each do |user|
-            expect(user).to be_mentioned_in(comment)
-          end
-        end
-
-        context "with only post author mentioned" do
-          let(:post_author) { parent.author.owner }
-          let(:comment_text) { text_mentioning(post_author) }
-
-          it "makes only one notification for each recipient" do
-            expect {
-              comment
-            }.to change { Notifications::MentionedInComment.for(post_author).count }.by(1)
-              .and change { Notifications::AlsoCommented.for(user1).count }.by(1)
-              .and change { Notifications::AlsoCommented.for(user3).count }.by(1)
-
-            expect(mentioning_mail_notification(post_author, comment).count).to eq(1)
-
-            [user1, user3].each do |user|
-              expect(also_commented_mail_notification(user, parent).count).to eq(1)
-            end
-          end
         end
       end
 

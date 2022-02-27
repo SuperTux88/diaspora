@@ -35,34 +35,6 @@ shared_examples_for "messages which are indifferent about sharing fact" do
     let(:local_parent) { FactoryBot.create(:status_message, author: alice.person, public: public) }
     let(:remote_parent) { FactoryBot.create(:status_message, author: remote_user_on_pod_b.person, public: public) }
 
-    describe "notifications are sent where required" do
-      it "for comment on local post" do
-        entity = create_relayable_entity(:comment_entity, local_parent, remote_user_on_pod_b.diaspora_handle)
-        post_message(generate_payload(entity, sender, recipient), recipient)
-
-        expect(
-          Notifications::CommentOnPost.exists?(
-            recipient_id: alice.id,
-            target_type:  "Post",
-            target_id:    local_parent.id
-          )
-        ).to be_truthy
-      end
-
-      it "for like on local post" do
-        entity = create_relayable_entity(:like_entity, local_parent, remote_user_on_pod_b.diaspora_handle)
-        post_message(generate_payload(entity, sender, recipient), recipient)
-
-        expect(
-          Notifications::Liked.exists?(
-            recipient_id: alice.id,
-            target_type:  "Post",
-            target_id:    local_parent.id
-          )
-        ).to be_truthy
-      end
-    end
-
     %w[comment like].each do |entity|
       context "with #{entity}" do
         let(:entity_name) { "#{entity}_entity".to_sym }
@@ -153,7 +125,7 @@ shared_examples_for "messages which can't be send without sharing" do
             target_type:  "Post",
             target_id:    remote_parent.id
           )
-        ).to be_truthy
+        ).to be_falsey
       end
     end
 

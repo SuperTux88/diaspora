@@ -5,12 +5,22 @@ shared_examples_for "it deals correctly with a relayable" do
     let(:entity) { create_relayable_entity(entity_name, local_parent, sender_id) }
 
     it "treats upstream receive correctly" do
-      expect(Workers::ReceiveLocal).to receive(:perform_async)
+      expect(Workers::ReceiveLocal).not_to receive(:perform_async)
+
+      expect(Diaspora::Federation::Dispatcher).to receive(:build) do |root_author, retraction, opts|
+        expect(root_author).to eq(local_parent.author.owner)
+        expect(retraction).to be_a(Retraction)
+        expect(retraction.data[:target_guid]).to eq(entity.guid)
+        expect(opts[:subscribers].map(&:diaspora_handle)).to eq([sender_id])
+
+        dispatcher = double
+        expect(dispatcher).to receive(:dispatch)
+        dispatcher
+      end
+
       post_message(generate_payload(entity, sender, recipient), recipient)
 
-      received_entity = klass.find_by(guid: entity.guid)
-      expect(received_entity).not_to be_nil
-      expect(received_entity.author.diaspora_handle).to eq(remote_user_on_pod_b.diaspora_handle)
+      expect(klass.exists?(guid: entity.guid)).to be_falsey
     end
 
     # Checks when a remote pod wants to send us a relayable without having a key for declared diaspora ID
@@ -28,13 +38,10 @@ shared_examples_for "it deals correctly with a relayable" do
     let(:entity) { create_relayable_entity(entity_name, remote_parent, author_id) }
 
     it "treats downstream receive correctly" do
-      expect(Workers::ReceiveLocal).to receive(:perform_async)
-
+      expect(Workers::ReceiveLocal).not_to receive(:perform_async)
       post_message(generate_payload(entity, sender, recipient), recipient)
 
-      received_entity = klass.find_by(guid: entity.guid)
-      expect(received_entity).not_to be_nil
-      expect(received_entity.author.diaspora_handle).to eq(remote_user_on_pod_c.diaspora_handle)
+      expect(klass.exists?(guid: entity.guid)).to be_falsey
     end
 
     # Checks when a remote pod B wants to send us a relayable with authorship from a remote pod C user

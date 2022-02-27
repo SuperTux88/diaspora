@@ -136,7 +136,7 @@ describe Diaspora::Federation::Receive do
   end
 
   describe ".comment" do
-    let(:comment_entity) {
+    let(:entity) {
       build_relayable_federation_entity(
         :comment,
         {
@@ -148,42 +148,7 @@ describe Diaspora::Federation::Receive do
       )
     }
 
-    it "saves the comment" do
-      received = Diaspora::Federation::Receive.perform(comment_entity)
-
-      comment = Comment.find_by!(guid: comment_entity.guid)
-
-      expect(received).to eq(comment)
-      expect(comment.author).to eq(sender)
-      expect(comment.text).to eq(comment_entity.text)
-      expect(comment.created_at.iso8601).to eq(comment_entity.created_at.iso8601)
-    end
-
-    it "attaches the comment to the post" do
-      Diaspora::Federation::Receive.perform(comment_entity)
-
-      comment = Comment.find_by!(guid: comment_entity.guid)
-
-      expect(post.comments).to include(comment)
-      expect(comment.post).to eq(post)
-    end
-
-    it "saves the signature data" do
-      Diaspora::Federation::Receive.perform(comment_entity)
-
-      comment = Comment.find_by!(guid: comment_entity.guid)
-
-      expect(comment.signature).not_to be_nil
-      expect(comment.signature.author_signature).to eq("aa")
-      expect(comment.signature.additional_data["new_property"]).to eq("data")
-      expect(comment.signature.additional_data["edited_at"]).to be_within(1.second).of(comment_entity.edited_at)
-      expect(comment.signature.order).to eq(comment_entity.signature_order.map(&:to_s))
-    end
-
-    let(:entity) { comment_entity }
-    it_behaves_like "it ignores existing object received twice", Comment
-    it_behaves_like "it rejects if the root author ignores the author", Comment
-    it_behaves_like "it relays relayables", Comment
+    it_behaves_like "it rejects relayables", Comment
   end
 
   describe ".contact" do
@@ -305,7 +270,7 @@ describe Diaspora::Federation::Receive do
   end
 
   describe ".like" do
-    let(:like_entity) {
+    let(:entity) {
       build_relayable_federation_entity(
         :like,
         {
@@ -317,44 +282,11 @@ describe Diaspora::Federation::Receive do
       )
     }
 
-    it "saves the like" do
-      received = Diaspora::Federation::Receive.perform(like_entity)
-
-      like = Like.find_by!(guid: like_entity.guid)
-
-      expect(received).to eq(like)
-      expect(like.author).to eq(sender)
-      expect(like.positive).to be_truthy
-    end
-
-    it "attaches the like to the post" do
-      Diaspora::Federation::Receive.perform(like_entity)
-
-      like = Like.find_by!(guid: like_entity.guid)
-
-      expect(post.likes).to include(like)
-      expect(like.target).to eq(post)
-    end
-
-    it "saves the signature data" do
-      Diaspora::Federation::Receive.perform(like_entity)
-
-      like = Like.find_by!(guid: like_entity.guid)
-
-      expect(like.signature).not_to be_nil
-      expect(like.signature.author_signature).to eq("aa")
-      expect(like.signature.additional_data).to eq("new_property" => "data")
-      expect(like.signature.order).to eq(like_entity.signature_order.map(&:to_s))
-    end
-
-    let(:entity) { like_entity }
-    it_behaves_like "it ignores existing object received twice", Like
-    it_behaves_like "it rejects if the root author ignores the author", Like
-    it_behaves_like "it relays relayables", Like
+    it_behaves_like "it rejects relayables", Like
 
     context "like for a comment" do
       let(:comment) { FactoryBot.create(:comment, post: post) }
-      let(:like_entity) {
+      let(:entity) {
         build_relayable_federation_entity(
           :like,
           {
@@ -367,30 +299,7 @@ describe Diaspora::Federation::Receive do
         )
       }
 
-      it "attaches the like to the comment" do
-        Diaspora::Federation::Receive.perform(like_entity)
-
-        like = Like.find_by!(guid: like_entity.guid)
-
-        expect(comment.likes).to include(like)
-        expect(like.target).to eq(comment)
-      end
-
-      it "saves the signature data" do
-        Diaspora::Federation::Receive.perform(like_entity)
-
-        like = Like.find_by!(guid: like_entity.guid)
-
-        expect(like.signature).not_to be_nil
-        expect(like.signature.author_signature).to eq("aa")
-        expect(like.signature.additional_data).to eq("new_property" => "data")
-        expect(like.signature.order).to eq(like_entity.signature_order.map(&:to_s))
-      end
-
-      let(:entity) { like_entity }
-      it_behaves_like "it ignores existing object received twice", Like
-      it_behaves_like "it rejects if the root author ignores the author", Like
-      it_behaves_like "it relays relayables", Like
+      it_behaves_like "it rejects relayables", Like
     end
   end
 
@@ -512,7 +421,7 @@ describe Diaspora::Federation::Receive do
 
   describe ".poll_participation" do
     let(:post_with_poll) { FactoryBot.create(:status_message_with_poll, author: alice.person) }
-    let(:poll_participation_entity) {
+    let(:entity) {
       build_relayable_federation_entity(
         :poll_participation,
         {
@@ -525,40 +434,7 @@ describe Diaspora::Federation::Receive do
       )
     }
 
-    it "saves the poll participation" do
-      received = Diaspora::Federation::Receive.perform(poll_participation_entity)
-
-      poll_participation = PollParticipation.find_by!(guid: poll_participation_entity.guid)
-
-      expect(received).to eq(poll_participation)
-      expect(poll_participation.author).to eq(sender)
-      expect(poll_participation.poll_answer).to eq(post_with_poll.poll.poll_answers.first)
-    end
-
-    it "attaches the poll participation to the poll" do
-      Diaspora::Federation::Receive.perform(poll_participation_entity)
-
-      poll_participation = PollParticipation.find_by!(guid: poll_participation_entity.guid)
-
-      expect(post_with_poll.poll.poll_participations).to include(poll_participation)
-      expect(poll_participation.poll).to eq(post_with_poll.poll)
-    end
-
-    it "saves the signature data" do
-      Diaspora::Federation::Receive.perform(poll_participation_entity)
-
-      poll_participation = PollParticipation.find_by!(guid: poll_participation_entity.guid)
-
-      expect(poll_participation.signature).not_to be_nil
-      expect(poll_participation.signature.author_signature).to eq("aa")
-      expect(poll_participation.signature.additional_data).to eq("new_property" => "data")
-      expect(poll_participation.signature.order).to eq(poll_participation_entity.signature_order.map(&:to_s))
-    end
-
-    let(:entity) { poll_participation_entity }
-    it_behaves_like "it ignores existing object received twice", PollParticipation
-    it_behaves_like "it rejects if the root author ignores the author", PollParticipation
-    it_behaves_like "it relays relayables", PollParticipation
+    it_behaves_like "it rejects relayables", PollParticipation
   end
 
   describe ".profile" do

@@ -46,8 +46,8 @@ module Diaspora
         nil
       end
 
-      def self.comment(entity, opts)
-        receive_relayable(Comment, entity, opts) do
+      def self.comment(entity, _opts)
+        receive_relayable(Comment, entity) do
           Comment.new(
             author:      author_of(entity),
             guid:        entity.guid,
@@ -82,8 +82,8 @@ module Diaspora
         end
       end
 
-      def self.like(entity, opts)
-        receive_relayable(Like, entity, opts) do
+      def self.like(entity, _opts)
+        receive_relayable(Like, entity) do
           Like.new(
             author:   author_of(entity),
             guid:     entity.guid,
@@ -132,8 +132,8 @@ module Diaspora
         end
       end
 
-      def self.poll_participation(entity, opts)
-        receive_relayable(PollParticipation, entity, opts) do
+      def self.poll_participation(entity, _opts)
+        receive_relayable(PollParticipation, entity) do
           PollParticipation.new(
             author:           author_of(entity),
             guid:             entity.guid,
@@ -275,20 +275,18 @@ module Diaspora
         end
       end
 
-      private_class_method def self.receive_relayable(klass, entity, opts)
-        save_relayable(klass, entity) { yield }
-          .tap {|relayable| relay_relayable(relayable) if relayable && !opts[:skip_relaying] }
-      end
-
-      private_class_method def self.save_relayable(klass, entity)
+      private_class_method def self.receive_relayable(klass, entity)
         ignore_existing_guid(klass, entity.guid, author_of(entity)) do
           yield.tap do |relayable|
-            retract_if_author_ignored(relayable)
+            root_author = relayable.root.author.owner
+            break unless root_author # don't do anything with other relayables
 
-            relayable.signature = build_signature(klass, entity) if relayable.root.author.local?
-            relayable.save!
+            retraction = Retraction.for(relayable)
+            Diaspora::Federation::Dispatcher.build(root_author, retraction, subscribers: [relayable.author]).dispatch
           end
         end
+
+        nil # don't do anything after receive
       end
 
       # This are property names that are known by the +diaspora_federation+ library as properties but not
@@ -306,16 +304,6 @@ module Diaspora
           additional_data:  entity.additional_data.merge(special_additional_data),
           signature_order:  SignatureOrder.find_or_create_by!(order: entity.signature_order.join(" "))
         )
-      end
-
-      private_class_method def self.retract_if_author_ignored(relayable)
-        root_author = relayable.root.author.owner
-        return unless root_author && root_author.ignored_people.include?(relayable.author)
-
-        retraction = Retraction.for(relayable)
-        Diaspora::Federation::Dispatcher.build(root_author, retraction, subscribers: [relayable.author]).dispatch
-
-        raise Diaspora::Federation::AuthorIgnored
       end
 
       private_class_method def self.relay_relayable(relayable)
