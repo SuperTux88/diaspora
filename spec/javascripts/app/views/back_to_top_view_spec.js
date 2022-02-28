@@ -1,6 +1,6 @@
 describe("app.views.BackToTop", function() {
   beforeEach(function() {
-    spec.loadFixture("aspects_index");
+    spec.loadFixture("aspects_manage");
     this.view = new app.views.BackToTop({el: $(document)});
   });
 

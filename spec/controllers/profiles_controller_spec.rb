@@ -9,19 +9,6 @@ describe ProfilesController, :type => :controller do
     sign_in eve, scope: :user
   end
 
-  describe '#show' do
-    let(:mock_person) { FactoryBot.create(:user) }
-    let(:mock_presenter) { double(:as_json => {:rock_star => "Jamie Cai"})}
-
-    it "returns a post Presenter" do
-      expect(Person).to receive(:find_by_guid!).with("12345").and_return(mock_person)
-      expect(PersonPresenter).to receive(:new).with(mock_person, eve).and_return(mock_presenter)
-
-      get :show, params: {id: 12_345}, format: :json
-      expect(response.body).to eq({:rock_star => "Jamie Cai"}.to_json)
-    end
-  end
-
   describe '#edit' do
     it 'succeeds' do
       get :edit

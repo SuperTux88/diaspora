@@ -129,18 +129,4 @@ describe ContactsController, :type => :controller do
       end
     end
   end
-
-  describe '#spotlight' do
-    it 'succeeds' do
-      get :spotlight
-      expect(response).to be_successful
-    end
-
-    it 'gets queries for users in the app config' do
-      Role.add_spotlight(alice.person)
-
-      get :spotlight
-      expect(assigns[:people]).to eq([alice.person])
-    end
-  end
 end

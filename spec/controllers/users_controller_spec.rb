@@ -48,72 +48,6 @@ describe UsersController, :type => :controller do
     end
   end
 
-  describe '#public' do
-    context "entry xml contents" do
-      before do
-        @sm = FactoryBot.create(
-          :status_message,
-          public: true,
-          author: @user.person,
-          text:   "Go to http://diasporafoundation.org/ now!"
-        )
-      end
-
-      it "contains the text" do
-        get :public, params: {username: @user.username}, format: :atom
-        doc = Nokogiri::XML(response.body)
-        expect(doc.css("entry content")[0].content).to eq(@sm.message.markdownified(disable_hovercards: true))
-      end
-
-      it "contains the title" do
-        get :public, params: {username: @user.username}, format: :atom
-        doc = Nokogiri::XML(response.body)
-        expect(doc.css("entry title")[0].content).to eq(post_page_title(@sm))
-      end
-
-      it "contains the author" do
-        get :public, params: {username: @user.username}, format: :atom
-        doc = Nokogiri::XML(response.body)
-        expect(doc.css("entry author name")[0].content).to eq(@sm.author_name)
-      end
-
-      it "contains the original author for reshares" do
-        FactoryBot.create(:reshare, root: @sm, author: bob.person)
-        get :public, params: {username: bob.username}, format: :atom
-        doc = Nokogiri::XML(response.body)
-        expect(doc.css("entry author name")[0].content).to eq(@sm.author_name)
-      end
-    end
-
-    it "includes reshares in the atom feed" do
-      reshare = FactoryBot.create(:reshare, author: @user.person)
-
-      get :public, params: {username: @user.username}, format: :atom
-
-      expect(response.body).to include reshare.root.text
-    end
-
-    it "do not show reshares in atom feed if origin post is deleted" do
-      post = FactoryBot.create(:status_message, public: true)
-      FactoryBot.create(:reshare, root: post, author: @user.person)
-      post.delete
-
-      get :public, params: {username: @user.username}, format: :atom
-
-      expect(response.code).to eq("200")
-    end
-
-    it 'redirects to a profile page if html is requested' do
-      get :public, params: {username: @user.username}
-      expect(response).to be_redirect
-    end
-
-    it 'redirects to a profile page if mobile is requested' do
-      get :public, params: {username: @user.username}, format: :mobile
-      expect(response).to be_redirect
-    end
-  end
-
   describe '#update' do
     before do
       @params  = { :id => @user.id,
@@ -318,32 +252,6 @@ describe UsersController, :type => :controller do
       expect(@user.email).not_to eql('my@newemail.com')
       expect(request.flash[:error]).to eql(I18n.t('users.confirm_email.email_not_confirmed'))
       expect(request.flash[:notice]).to be_blank
-    end
-  end
-
-  describe 'getting_started' do
-    it 'does not fail miserably' do
-      get :getting_started
-      expect(response).to be_successful
-    end
-
-    it 'does not fail miserably on mobile' do
-      get :getting_started, format: :mobile
-      expect(response).to be_successful
-    end
-
-    context "with inviter" do
-      it "preloads data using gon for the aspect memberships dropdown when sharing with the inviter" do
-        alice.invited_by = bob
-        get :getting_started
-        expect_gon_preloads_for_aspect_membership_dropdown(:inviter, true)
-      end
-
-      it "preloads data using gon for the aspect memberships dropdown when not sharing with the inviter" do
-        alice.invited_by = eve
-        get :getting_started
-        expect_gon_preloads_for_aspect_membership_dropdown(:inviter, false)
-      end
     end
   end
 end

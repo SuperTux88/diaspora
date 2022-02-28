@@ -5,43 +5,6 @@
 #   the COPYRIGHT file.
 
 describe HomeController, type: :controller do
-  describe "#show" do
-    it "does not redirect for :html if there is at least one admin" do
-      expect(Role).to receive_message_chain(:admins, :any?).and_return(true)
-      get :show
-      expect(response).not_to be_redirect
-    end
-
-    it "redirects to the podmin page for :html if there is no admin" do
-      expect(Role).to receive_message_chain(:admins, :any?).and_return(false)
-      get :show
-      expect(response).to redirect_to(podmin_path)
-    end
-
-    it "redirects to the sign in page for :mobile" do
-      get :show, format: :mobile
-      expect(response).to redirect_to(user_session_path)
-    end
-
-    it "redirects to the stream if the user is signed in" do
-      sign_in alice
-      get :show
-      expect(response).to redirect_to(stream_path)
-    end
-  end
-
-  describe "#podmin" do
-    it "succeeds" do
-      get :podmin
-      expect(response).to be_successful
-    end
-
-    it "succeeds on mobile" do
-      get :podmin, format: :mobile
-      expect(response).to be_successful
-    end
-  end
-
   describe "#toggle_mobile" do
     it "changes :mobile to :html" do
       session[:mobile_view] = true

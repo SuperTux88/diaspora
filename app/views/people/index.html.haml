@@ -30,11 +30,3 @@
           = will_paginate @people, renderer: WillPaginate::ActionView::BootstrapLinkRenderer
 
     .col-md-4
-      - if AppConfig.settings.invitations.open?
-        %h4
-          = t('.couldnt_find_them')
-        %p
-          = t('.search_handle')
-        %h4
-          = t('.send_invite')
-        = render "shared/invitations"

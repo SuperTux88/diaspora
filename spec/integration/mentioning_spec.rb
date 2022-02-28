@@ -48,20 +48,6 @@ module MentioningSpecHelpers
     stream.posts
   end
 
-  def post_status_message(mentioned_user, aspects=nil)
-    aspects = user1.aspects.first.id.to_s if aspects.nil?
-    sign_in user1
-    status_msg = nil
-    inlined_jobs do
-      post "/status_messages.json", params: {
-        status_message: {text: text_mentioning(mentioned_user)},
-        aspect_ids:     aspects
-      }
-      status_msg = StatusMessage.find(JSON.parse(response.body)["id"])
-    end
-    status_msg
-  end
-
   def receive_each(entity, recipients)
     inlined_jobs do
       recipients.each do |recipient|
@@ -75,21 +61,6 @@ module MentioningSpecHelpers
       expect(status_msg).not_to be_nil
       expect(status_msg.public?).to be false
     end
-  end
-
-  def receive_status_message_via_federation(text, *recipients)
-    entity = Fabricate(
-      :status_message_entity,
-      author: remote_raphael.diaspora_handle,
-      text:   text,
-      public: false
-    )
-
-    expect {
-      receive_each(entity, recipients)
-    }.to change(Post, :count).by(1).and change(ShareVisibility, :count).by(recipients.count)
-
-    find_private_message(entity.guid)
   end
 
   def receive_comment_via_federation(text, parent)
@@ -141,49 +112,6 @@ describe "mentioning", type: :request do
   let(:user1) { FactoryBot.create(:user_with_aspect) }
   let(:user2) { FactoryBot.create(:user_with_aspect, friends: [user1, user3]) }
   let(:user3) { FactoryBot.create(:user_with_aspect) }
-
-  # see: https://github.com/diaspora/diaspora/issues/4160
-  it "only mentions people that are in the target aspect" do
-    status_msg = nil
-    expect {
-      status_msg = post_status_message(user3)
-    }.to change(Post, :count).by(1).and change(AspectVisibility, :count).by(1)
-
-    expect(status_msg).not_to be_nil
-    expect(status_msg.public?).to be false
-    expect(status_msg.text).to include(user3.name)
-
-    expect(user3).not_to be_mentioned_in(status_msg)
-    expect(status_msg).not_to be_in_streams_of(user3)
-  end
-
-  it "mentions people in public posts" do
-    status_msg = nil
-    expect {
-      status_msg = post_status_message(user3, "public")
-    }.to change(Post, :count).by(1)
-
-    expect(status_msg).not_to be_nil
-    expect(status_msg.public?).to be true
-    expect(status_msg.text).to include(user3.diaspora_handle)
-
-    expect(user3).to be_mentioned_in(status_msg)
-    expect(status_msg).to be_in_streams_of(user3)
-  end
-
-  it "mentions people that are in the target aspect" do
-    status_msg = nil
-    expect {
-      status_msg = post_status_message(user2)
-    }.to change(Post, :count).by(1).and change(AspectVisibility, :count).by(1)
-
-    expect(status_msg).not_to be_nil
-    expect(status_msg.public?).to be false
-    expect(status_msg.text).to include(user2.diaspora_handle)
-
-    expect(user2).to be_mentioned_in(status_msg)
-    expect(status_msg).to be_in_streams_of(user2)
-  end
 
   context "in comments" do
     let(:author) { FactoryBot.create(:user_with_aspect) }

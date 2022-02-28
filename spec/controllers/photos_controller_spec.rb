@@ -77,132 +77,11 @@ describe PhotosController, :type => :controller do
     end
   end
 
-  describe '#index' do
-    it "succeeds without any available pictures" do
-      get :index, params: {person_id: FactoryBot.create(:person).guid}
-
-      expect(response).to be_successful
-    end
-
-    it "succeeds on mobile devices without any available pictures" do
-      get :index, params: {person_id: FactoryBot.create(:person).guid}, format: :mobile
-      expect(response).to be_successful
-    end
-
-    it "succeeds on mobile devices with available pictures" do
-      get :index, params: {person_id: bob.person.guid}, format: :mobile
-      expect(response).to be_successful
-    end
-
-    it "displays the logged in user's pictures" do
-      get :index, params: {person_id: alice.person.guid}
-      expect(assigns[:person]).to eq(alice.person)
-      expect(assigns[:posts]).to eq([@alices_photo])
-    end
-
-    it "displays another person's pictures" do
-      get :index, params: {person_id: bob.person.guid}
-      expect(assigns[:person]).to eq(bob.person)
-      expect(assigns[:posts]).to eq([@bobs_photo])
-    end
-
-    it "displays the correct number of photos" do
-      16.times do |i|
-        eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => true)
-      end
-      get :index, params: {person_id: eve.person.to_param}
-      expect(response.body).to include ',"photos_count":16'
-
-      eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => false)
-      get :index, params: {person_id: eve.person.to_param}
-      expect(response.body).to include ',"photos_count":16' # eve is not sharing with alice
-    end
-
-    it "returns json when requested" do
-      request.env['HTTP_ACCEPT'] = 'application/json'
-      get :index, params: {person_id: alice.person.guid}
-
-      expect(response.headers['Content-Type']).to match 'application/json.*'
-    end
-
-    it 'displays by date of creation' do
-      max_time = bob.photos.first.created_at - 1.day
-      get :index, params: {person_id: bob.person.guid, max_time: max_time.to_i}
-
-      expect(assigns[:posts]).to be_empty
-    end
-
-    context "with no user signed in" do
-      before do
-        sign_out :user
-        @person = bob.person
-      end
-
-      it "succeeds" do
-        get :index, params: {person_id: @person.to_param}
-        expect(response.status).to eq(200)
-      end
-
-      it "succeeds on the mobile site" do
-        get :index, params: {person_id: @person.to_param}, format: :mobile
-        expect(response).to be_successful
-      end
-
-      it "forces to sign in if the person is remote" do
-        p = FactoryBot.create(:person)
-
-        get :index, params: {person_id: p.to_param}
-        expect(response).to be_redirect
-        expect(response).to redirect_to new_user_session_path
-      end
-
-      it "displays the correct number of photos" do
-        16.times do
-          eve.post(:photo, user_file: uploaded_photo, to: eve.aspects.first.id, public: true)
-        end
-        get :index, params: {person_id: eve.person.to_param}
-        expect(response.body).to include ',"photos_count":16'
-
-        eve.post(:photo, user_file: uploaded_photo, to: eve.aspects.first.id, public: false)
-        get :index, params: {person_id: eve.person.to_param}
-        expect(response.body).to include ',"photos_count":16'
-      end
-
-      it "displays a person's pictures" do
-        get :index, params: {person_id: bob.person.guid}
-        expect(assigns[:person]).to eq(bob.person)
-        expect(assigns[:posts]).to eq([@bobs_photo])
-      end
-    end
-  end
-
   describe '#destroy' do
-    it "lets a user delete their message" do
-      delete :destroy, params: {id: @alices_photo.id}
-      expect(Photo.find_by_id(@alices_photo.id)).to be_nil
-    end
-
     it 'will let you delete your profile picture' do
       get :make_profile_photo, params: {photo_id: @alices_photo.id}, xhr: true, format: :js
       delete :destroy, params: {id: @alices_photo.id}, format: :json
       expect(Photo.find_by_id(@alices_photo.id)).to be_nil
-    end
-
-    it 'sends a retraction on delete' do
-      allow(@controller).to receive(:current_user).and_return(alice)
-      expect(alice).to receive(:retract).with(@alices_photo)
-      delete :destroy, params: {id: @alices_photo.id}
-    end
-
-    it 'will not let you destroy posts visible to you' do
-      delete :destroy, params: {id: @bobs_photo.id}
-      expect(Photo.find_by_id(@bobs_photo.id)).to be_truthy
-    end
-
-    it 'will not let you destroy posts you do not own' do
-      eves_photo = eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => true)
-      delete :destroy, params: {id: eves_photo.id}
-      expect(Photo.find_by_id(eves_photo.id)).to be_truthy
     end
   end
 
@@ -217,25 +96,4 @@ describe PhotosController, :type => :controller do
       expect(response.code).to eq("422")
     end
   end
-
-  describe "#show" do
-    it 'should return 404 for nonexistent stuff on mobile devices' do
-      expect {
-        get :show, params: {person_id: bob.person.guid, id: 772_831}, format: :mobile
-      }.to raise_error ActiveRecord::RecordNotFound
-    end
-
-    it 'should return 200 for existing stuff on mobile devices' do
-      get :show, params: {person_id: alice.person.guid, id: @alices_photo.id}, format: :mobile
-      expect(response).to be_successful
-    end
-
-    it "doesn't leak private photos to the public" do
-      sign_out :user
-      expect {
-        get :show, params: {person_id: alice.person.guid, id: @alices_photo.id}, format: :mobile
-      }.to raise_error ActiveRecord::RecordNotFound
-    end
-  end
-
 end

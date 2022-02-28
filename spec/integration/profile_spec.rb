@@ -6,31 +6,18 @@ describe PeopleController, type: :request do
       sign_in alice
     end
 
-    it "displays the publisher for user profile path" do
+    it "redirects to user export" do
       get "/u/#{alice.username}"
 
-      expect(response.status).to eq(200)
-      # make sure we are signed in
-      expect(response.body).not_to match(/a class="login"/)
-      expect(response.body).to match(/div class='publisher-textarea-wrapper' id='publisher-textarea-wrapper'/)
+      expect(response).to redirect_to edit_user_path
     end
 
-    it "displays the publisher for people path" do
+    it "displays the profile" do
       get "/people/#{alice.person.guid}"
 
       expect(response.status).to eq(200)
       # make sure we are signed in
       expect(response.body).not_to match(/a class="login"/)
-      expect(response.body).to match(/div class='publisher-textarea-wrapper' id='publisher-textarea-wrapper'/)
-    end
-
-    it "doesn't display the publisher for people photos path" do
-      get "/people/#{alice.person.guid}/photos"
-
-      expect(response.status).to eq(200)
-      # make sure we are signed in
-      expect(response.body).not_to match(/a class="login"/)
-      expect(response.body).not_to match(/div class='publisher-textarea-wrapper' id='publisher-textarea-wrapper'/)
     end
   end
 
@@ -39,13 +26,10 @@ describe PeopleController, type: :request do
       sign_in bob
     end
 
-    it "doesn't display the publisher for user profile path" do
+    it "redirects to user export" do
       get "/u/#{alice.username}"
 
-      expect(response.status).to eq(200)
-      # make sure we are signed in
-      expect(response.body).not_to match(/a class="login"/)
-      expect(response.body).not_to match(/div class='publisher-textarea-wrapper' id='publisher-textarea-wrapper'/)
+      expect(response).to redirect_to edit_user_path
     end
 
     it "doesn't display the publisher for people path" do
@@ -62,19 +46,13 @@ describe PeopleController, type: :request do
     it "doesn't display the publisher for user profile path" do
       get "/u/#{alice.username}"
 
-      expect(response.status).to eq(200)
-      # make sure we aren't signed in
-      expect(response.body).to match(/a class="login"/)
-      expect(response.body).not_to match(/div class='publisher-textarea-wrapper' id='publisher-textarea-wrapper'/)
+      expect(response).to redirect_to root_path
     end
 
     it "doesn't display the publisher for people path" do
       get "/people/#{alice.person.guid}"
 
-      expect(response.status).to eq(200)
-      # make sure we aren't signed in
-      expect(response.body).to match(/a class="login"/)
-      expect(response.body).not_to match(/div class='publisher-textarea-wrapper' id='publisher-textarea-wrapper'/)
+      expect(response).to redirect_to new_user_session_path
     end
   end
 end

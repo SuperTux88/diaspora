@@ -4,7 +4,6 @@ describe("app.views.Header", function() {
 
     loginAs(this.userAttrs);
 
-    spec.loadFixture("aspects_index");
     app.notificationsCollection = new app.collections.Notifications();
     this.view = new app.views.Header().render();
   });

@@ -2,7 +2,6 @@ describe('app.Router', function () {
   describe('followed_tags', function() {
     beforeEach(function() {
       factory.preloads({tagFollowings: []});
-      spec.loadFixture("aspects_index");
     });
 
     it('decodes name before passing it into TagFollowingAction', function () {
@@ -72,24 +71,6 @@ describe('app.Router', function () {
     });
   });
 
-  describe("aspects", function() {
-    it("calls _initializeStreamView", function() {
-      spyOn(app.router, "_initializeStreamView");
-      app.router.aspects();
-      expect(app.router._initializeStreamView).toHaveBeenCalled();
-    });
-  });
-
-  describe("bookmarklet", function() {
-    it('routes to bookmarklet even if params have linefeeds', function()  {
-      var router = new app.Router();
-      var route = jasmine.createSpy('bookmarklet route');
-      router.on('route:bookmarklet', route);
-      router.navigate("/bookmarklet?\n\nfeefwefwewef\n", {trigger: true});
-      expect(route).toHaveBeenCalled();
-    });
-  });
-
   describe("conversations", function() {
     beforeEach(function() {
       this.router = new app.Router();
@@ -121,14 +102,6 @@ describe('app.Router', function () {
     });
   });
 
-  describe("stream", function() {
-    it("calls _initializeStreamView", function() {
-      spyOn(app.router, "_initializeStreamView");
-      app.router.stream();
-      expect(app.router._initializeStreamView).toHaveBeenCalled();
-    });
-  });
-
   describe("gettingStarted", function() {
     beforeEach(function() {
       spec.content().append($("<div id='hello-there'>"));
@@ -150,19 +123,12 @@ describe('app.Router', function () {
       delete app.page;
       delete app.publisher;
       delete app.shortcuts;
-      spec.loadFixture("aspects_index");
     });
 
     it("sets app.page", function() {
       expect(app.page).toBeUndefined();
       app.router._initializeStreamView();
       expect(app.page).toBeDefined();
-    });
-
-    it("sets app.publisher", function() {
-      expect(app.publisher).toBeUndefined();
-      app.router._initializeStreamView();
-      expect(app.publisher).toBeDefined();
     });
 
     it("doesn't set app.publisher if already defined", function() {
