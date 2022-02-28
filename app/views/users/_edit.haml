@@ -8,6 +8,51 @@
 .row
   .col-md-12
     .row
+      .col-md-12
+        TODO: write some text about joindiaspora
+
+    .row
+      .col-md-6.account-data
+        %h3= t(".export_data")
+        %h4= t("profile")
+        .form-group
+          - if current_user.exporting
+            .export-in-progress= t(".export_in_progress")
+          - elsif current_user.export.present?
+            = link_to t(".download_export"), download_profile_user_path,
+              class: "btn btn-success"
+            = link_to t(".request_export_update"), export_profile_user_path, method: :post,
+              class: "btn btn-default"
+            %h6
+              = t(".last_exported_html", timeago: timeago(current_user.exported_at))
+          - else
+            = link_to t(".request_export"), export_profile_user_path, method: :post,
+              class: "btn btn-default"
+
+        %h4= t("javascripts.profile.photos")
+        .form-group
+          - if current_user.exporting_photos
+            .export-in-progress= t(".export_photos_in_progress")
+          - elsif current_user.exported_photos_file.present?
+            = link_to t(".download_export_photos"), download_photos_user_path, class: "btn btn-success"
+            = link_to t(".request_export_photos_update"), export_photos_user_path, method: :post,
+              class: "btn btn-default"
+            %h6
+              = t(".last_exported_html", timeago: timeago(current_user.exported_photos_at))
+          - else
+            = link_to t(".request_export_photos"), export_photos_user_path, method: :post,
+              class: "btn btn-default"
+
+      .col-md-6
+        %h3
+          = t(".close_account_text")
+        .form-group
+          .btn.btn-danger{id: "close_account", data: {toggle: "modal", target: "#closeAccountModal"}}
+            = t(".close_account_text")
+          = render "close_account_modal"
+    %hr
+
+    .row
       .col-md-6
         %h3= t(".your_handle")
 
@@ -77,26 +122,6 @@
 
     .row
       .col-md-12
-        %h3#stream-preferences
-          = t(".stream_preferences")
-        = form_for current_user, url: edit_user_path, html: {method: :put} do |f|
-
-          = f.fields_for :stream_preferences do
-            #stream_prefs
-              - if AppConfig.settings.community_spotlight.enable?
-                = f.label :show_community_spotlight_in_stream, class: "checkbox-inline" do
-                  = f.check_box :show_community_spotlight_in_stream
-                  = t(".show_community_spotlight")
-
-              = f.label :getting_started, class: "checkbox-inline" do
-                = f.check_box :getting_started
-                = t(".show_getting_started")
-
-            .clearfix= f.submit t(".change"), class: "btn btn-primary pull-right"
-    %hr
-
-    .row
-      .col-md-12
         %h3#auto-follow-back-preferences
           = t(".following")
         = form_for current_user, url: edit_user_path, html: {method: :put, class: "form-horizontal"} do |f|
@@ -114,11 +139,9 @@
 
           .small-horizontal-spacer
           .clearfix= f.submit t(".change"), class: "btn btn-primary pull-right"
-    %hr
-
-    = render partial: "post_default"
 
     - if AppConfig.mail.enable?
+      %hr
       .row
         .col-md-12
           %h3
@@ -138,96 +161,9 @@
                   = t(".started_sharing")
                 .small-horizontal-spacer
 
-                = type.label :mentioned, class: "checkbox-inline" do
-                  = type.check_box :mentioned, {checked: email_prefs["mentioned"]}, false, true
-                  = t(".mentioned")
-                .small-horizontal-spacer
-
-                = type.label :mentioned_in_comment, class: "checkbox-inline" do
-                  = type.check_box :mentioned_in_comment, {checked: email_prefs["mentioned_in_comment"]}, false, true
-                  = t(".mentioned_in_comment")
-                .small-horizontal-spacer
-
-                = type.label :liked, class: "checkbox-inline" do
-                  = type.check_box :liked, {checked: email_prefs["liked"]}, false, true
-                  = t(".liked")
-                .small-horizontal-spacer
-
-                = type.label :reshared, class: "checkbox-inline" do
-                  = type.check_box :reshared, {checked: email_prefs["reshared"]}, false, true
-                  = t(".reshared")
-                .small-horizontal-spacer
-
-                = type.label :comment_on_post, class: "checkbox-inline" do
-                  = type.check_box :comment_on_post, {checked: email_prefs["comment_on_post"]}, false, true
-                  = t(".comment_on_post")
-                .small-horizontal-spacer
-
-                = type.label :also_commented, class: "checkbox-inline" do
-                  = type.check_box :also_commented, {checked: email_prefs["also_commented"]}, false, true
-                  = t(".also_commented")
-                .small-horizontal-spacer
-
                 = type.label :private_message, class: "checkbox-inline" do
                   = type.check_box :private_message, {checked: email_prefs["private_message"]}, false, true
                   = t(".private_message")
                 .small-horizontal-spacer
-
-                = type.label :contacts_birthday, class: "checkbox-inline" do
-                  = type.check_box :contacts_birthday, {checked: email_prefs["contacts_birthday"]}, false, true
-                  = t(".birthday")
-                .small-horizontal-spacer
-
-            .clearfix= f.submit t(".change"), class: "btn btn-primary pull-right", id: "change_email_preferences"
-      %hr
-
-    .row
-      .col-md-12
-        %h3#protocol-handler
-          = t(".protocol_handler.title")
-        %p= t(".protocol_handler.description", pod_url: AppConfig.pod_uri.site)
-        %p= t(".protocol_handler.browser")
-        .form-group
-          %button.btn.btn-default#register-protocol-handler
-            = t(".protocol_handler.register")
-    %hr
-
-    .row
-      .col-md-6.account-data
-        %h3= t(".export_data")
-        %h4= t("profile")
-        .form-group
-          - if current_user.exporting
-            .export-in-progress= t(".export_in_progress")
-          - elsif current_user.export.present?
-            = link_to t(".download_export"), download_profile_user_path,
-              class: "btn btn-success"
-            = link_to t(".request_export_update"), export_profile_user_path, method: :post,
-              class: "btn btn-default"
-            %h6
-              = t(".last_exported_html", timeago: timeago(current_user.exported_at))
-          - else
-            = link_to t(".request_export"), export_profile_user_path, method: :post,
-              class: "btn btn-default"
-
-        %h4= t("javascripts.profile.photos")
-        .form-group
-          - if current_user.exporting_photos
-            .export-in-progress= t(".export_photos_in_progress")
-          - elsif current_user.exported_photos_file.present?
-            = link_to t(".download_export_photos"), download_photos_user_path, class: "btn btn-success"
-            = link_to t(".request_export_photos_update"), export_photos_user_path, method: :post,
-              class: "btn btn-default"
-            %h6
-              = t(".last_exported_html", timeago: timeago(current_user.exported_photos_at))
-          - else
-            = link_to t(".request_export_photos"), export_photos_user_path, method: :post,
-              class: "btn btn-default"
-
-      .col-md-6
-        %h3
-          = t(".close_account_text")
-        .form-group
-          .btn.btn-danger{id: "close_account", data: {toggle: "modal", target: "#closeAccountModal"}}
-            = t(".close_account_text")
-          = render "close_account_modal"
+            .form-group
+              .clearfix= f.submit t(".change"), class: "btn btn-primary pull-right", id: "change_email_preferences"
