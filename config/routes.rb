@@ -169,7 +169,7 @@ Rails.application.routes.draw do
   end
 
   # Startpage
-  root :to => 'home#show'
+  root :to => 'redirects#redirect'
   get "podmin" => redirect("/")
 
   get "manifest.json", to: "manifest#show"
