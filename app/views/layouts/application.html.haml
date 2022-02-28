@@ -18,6 +18,8 @@
   %body{class: "page-#{controller_name} action-#{action_name}"}
     = yield :before_content
 
+    = render partial: "shared/sunset_message"
+
     %noscript
       .noscript
         %h3= t("error_messages.need_javascript")
