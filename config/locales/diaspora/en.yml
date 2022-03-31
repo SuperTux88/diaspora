@@ -832,7 +832,7 @@ en:
         Hello %{name}
 
         We’ve encountered an issue while processing your personal data for download.
-        Please try again!
+        If this issue persists, please contact your podmin for help.
 
         Sorry,
 
@@ -853,7 +853,7 @@ en:
         Hello %{name}
 
         We’ve encountered an issue while processing your photos for download.
-        Please try again!
+        If this issue persists, please contact your podmin for help.
 
         Sorry,
 
