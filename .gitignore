@@ -79,4 +79,9 @@ diaspora.iml
 
 # WebTranslateIt
 .wti
+
+# MacOS
 /__MACOSX/
+
+# yarn
+node_modules

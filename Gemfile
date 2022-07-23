@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "5.2.8"
+gem "rails", "6.1.6.1"
 
 # Legacy Rails features, remove me!
 # responders (class level)
@@ -14,15 +14,15 @@ gem "puma", "5.6.4", require: false
 
 # Federation
 
-gem "diaspora_federation-json_schema", "0.2.7"
-gem "diaspora_federation-rails", "0.2.7"
+gem "diaspora_federation-json_schema", "1.0.1"
+gem "diaspora_federation-rails",       "1.0.1"
 
 # API and JSON
 
 gem "acts_as_api", "1.0.1"
 gem "json",        "2.6.2"
 gem "json-schema", "3.0.0"
-gem "yajl-ruby",   "1.4.1"
+gem "yajl-ruby",   "1.4.3"
 
 # Authentication
 
@@ -38,12 +38,12 @@ gem "simple_captcha2", "0.5.0", require: "simple_captcha"
 # Background processing
 
 gem "redis", "4.7.0"
-gem "sidekiq", "6.4.2"
+gem "sidekiq", "6.5.1"
 gem "terminal-table"
 
 # Scheduled processing
 
-gem "sidekiq-cron", "1.4.0"
+gem "sidekiq-cron", "1.6.0"
 
 # Compression
 
@@ -91,55 +91,22 @@ gem "uuid", "2.3.9"
 gem "handlebars_assets", "0.23.9"
 gem "jquery-rails",      "4.5.0"
 gem "jquery-ui-rails",   "5.0.5"
+gem "js_image_paths",    "0.2.0"
 gem "js-routes",         "2.2.4"
-gem "js_image_paths",    "0.1.1"
 gem "sprockets-es6",     "0.9.2"
-
-source "https://gems.diasporafoundation.org" do
-  gem "rails-assets-jquery",                              "3.6.0" # Should be kept in sync with jquery-rails
-
-  gem "rails-assets-highlightjs",                         "9.12.0"
-  gem "rails-assets-markdown-it",                         "8.4.2"
-  gem "rails-assets-markdown-it-diaspora-mention",        "1.2.0"
-  gem "rails-assets-markdown-it-footnote",                "3.0.3"
-  gem "rails-assets-markdown-it-hashtag",                 "0.4.0"
-  gem "rails-assets-markdown-it--markdown-it-for-inline", "0.1.1"
-  gem "rails-assets-markdown-it-sanitizer",               "0.4.3"
-  gem "rails-assets-markdown-it-sub",                     "1.0.0"
-  gem "rails-assets-markdown-it-sup",                     "1.0.0"
-
-  gem "rails-assets-backbone",                            "1.3.3"
-  gem "rails-assets-bootstrap",                           "3.4.1"
-  gem "rails-assets-bootstrap-markdown",                  "2.10.0"
-  gem "rails-assets-corejs-typeahead",                    "1.2.1"
-  gem "rails-assets-cropperjs",                           "1.4.3"
-  gem "rails-assets-fine-uploader",                       "5.13.0"
-  gem "rails-assets-pica",                                "5.0.0"
-
-  # jQuery plugins
-
-  gem "rails-assets-autosize",                            "4.0.2"
-  gem "rails-assets-blueimp-gallery",                     "2.33.0"
-  gem "rails-assets-jquery.are-you-sure",                 "1.9.0"
-  gem "rails-assets-jquery-placeholder",                  "2.3.1"
-  gem "rails-assets-jquery-textchange",                   "0.2.3"
-  gem "rails-assets-utatti-perfect-scrollbar",            "1.4.0"
-end
-
-gem "markdown-it-html5-embed", "1.0.0"
 
 # Localization
 
 gem "http_accept_language", "2.1.1"
 gem "i18n-inflector-rails", "1.0.7"
-gem "rails-i18n",           "5.1.3"
+gem "rails-i18n",           "6.0.0"
 
 # Map
 gem "leaflet-rails",       "1.7.0"
 
 # Parsing
 
-gem "nokogiri",          "1.12.5"
+gem "nokogiri",          "1.13.7"
 gem "open_graph_reader", "0.7.2" # also update User-Agent in features/support/webmock.rb and open_graph_cache_spec.rb
 gem "redcarpet",         "3.5.1"
 gem "ruby-oembed",       "0.16.1"
@@ -171,15 +138,15 @@ gem "active_model_serializers", "0.9.8"
 
 # Tags
 
-gem "acts-as-taggable-on", "8.1.0"
+gem "acts-as-taggable-on", "9.0.1"
 
 # URIs and HTTP
 
-gem "addressable",        "2.8.0", require: "addressable/uri"
-gem "faraday",            "0.17.5"
-gem "faraday-cookie_jar", "0.0.7"
-gem "faraday_middleware", "0.14.0"
-gem "typhoeus",           "1.4.0"
+gem "addressable",              "2.8.0", require: "addressable/uri"
+gem "faraday",                  "1.10.0"
+gem "faraday-cookie_jar",       "0.0.7"
+gem "faraday-follow_redirects", "0.3.0"
+gem "typhoeus",                 "1.4.0"
 
 # Views
 
@@ -277,12 +244,12 @@ group :test do
 
   # General helpers
 
-  gem "factory_bot_rails", "6.1.0"
+  gem "factory_bot_rails", "6.2.0"
   gem "shoulda-matchers",  "4.5.1"
   gem "timecop",           "0.9.5"
   gem "webmock",           "3.14.0", require: false
 
-  gem "diaspora_federation-test", "0.2.7"
+  gem "diaspora_federation-test", "1.0.1"
 end
 
 group :development, :test do
@@ -296,7 +263,6 @@ group :development, :test do
   gem "chrome_remote",             "0.3.0"
   gem "jasmine",                   "3.10.0"
   gem "jasmine-jquery-rails",      "2.0.3"
-  gem "rails-assets-jasmine-ajax", "4.0.0", source: "https://gems.diasporafoundation.org"
   gem "sinon-rails",               "1.15.0"
 
   # For `assigns` in controller specs

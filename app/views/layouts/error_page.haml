@@ -12,5 +12,9 @@
 
     = yield(:head)
 
-  %body{class: "error-#{@code}", id: "error_#{@code}"}
+  %body{class: "error-#{local_assigns[:code]}", id: "error_#{local_assigns[:code]}"}
+    = render partial: "errors/header"
+
     = yield
+
+    = render partial: "layouts/footer"

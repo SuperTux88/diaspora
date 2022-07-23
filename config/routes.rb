@@ -8,7 +8,7 @@ require "sidekiq/web"
 require "sidekiq/cron/web"
 
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :report, except: %i(edit new show)
 
@@ -222,6 +222,7 @@ Rails.application.routes.draw do
   get ".well-known/nodeinfo", to: "node_info#jrd"
   get "nodeinfo/:version",    to: "node_info#document", as: "node_info", constraints: {version: /\d+\.\d+/}
   get "statistics",           to: "node_info#statistics"
+  get ".well-known/host-meta", to: "node_info#host_meta"
 
   # Terms
   if AppConfig.settings.terms.enable? || Rails.env.test?
