@@ -1,4 +1,4 @@
-# 0.8.0.0
+# 1.0.0 (unreleased)
 
 ## New configuration file!
 
@@ -6,7 +6,7 @@ We already recommended you to move to our new TOML based configuration file. Wit
 
 ## API!
 
-With the release of diaspora\* Version 0.8.0.0, we now officially support building applications on top of the diaspora\* API! Please check out [the official API documentation](https://diaspora.github.io/api-documentation/) for instructions, and please do file bugs if you notice something that could be improved!
+With the release of diaspora\* Version 1.0, we now officially support building applications on top of the diaspora\* API! Please check out [the official API documentation](https://diaspora.github.io/api-documentation/) for instructions, and please do file bugs if you notice something that could be improved!
 
 We are looking forward to seeing many creative applications!
 
@@ -15,6 +15,20 @@ We are looking forward to seeing many creative applications!
 After [a discussion with our community on Discourse](https://discourse.diasporafoundation.org/t/2718), we decided to remove the pieces of XMPP chat integration that were put in place a while ago. When we first added the chat support, we merged the implementation in an unfinished state in the hopes that the open issues will be addressed eventually, and the implementation would end up more polished. This ended up not being the case. After careful consideration and discussion, we did not manage to come up with clear reasons why we need a chat implementation, so we decided that the best way forward would be to remove it.
 
 Although the chat was never enabled per default and was marked as experimental, some production pods did set up the integration and offered an XMPP service to their users. After this release, diaspora\* will no longer contain a chat applet, so users will no longer be able to use the webchat inside diaspora\*. The existing module that is used to enable users to authenticate to Prosody using their diaspora\* credentials will continue to work, but contact list synchronization might not work without further changes to the Prosody module, which is developed independently from this project.
+
+## Changes around the appserver and related configuration
+
+With this release, we switched from `unicorn` to `puma` to run our applications. For podmins running the default setup, this should significantly reduce memory usage, with similar or even better frontend performance! However, as great as this change is, some configuration changes are required.
+
+- The `single_process_mode` and `embed_sidekiq_worker` configurations have been removed. This mode was never truly a "single-process" mode, as it just spawned the Background Workers inside the runserver. If you're using `script/server` to start your pod, this change does not impact you, but if you're running diaspora\* using other means, and you relied on this "single"-process mode, please ensure that Sidekiq workers get started.
+- The format of the `listen` configuration has changed. If you have not set that field in your configuration, you can skip this. Otherwise, make sure to adjust your configuration accordingly:
+  - Listening to Unix sockets with a relative path has changed from `unix:tmp/diaspora.sock` into `unix://tmp/diaspora.sock`.
+  - Listening to Unix sockets with an absolute path has changed from `unix:/run/diaspora/diaspora.sock` to `unix:///run/diaspora/diaspora.sock`.
+  - Listening to a local port has changed from `127.0.0.1:3000` to `tcp://127.0.0.1:3000`.
+- The `PORT` environment variable and the `-p` parameter to `script/server` have been removed. If you used that to run diaspora\* on a non-standard port, please use the `listen` configuration.
+- The `unicorn_worker` configuration has been dropped. With Puma, there should not be a need to increase the number of workers above a single worker in any pod of any size.
+- The `unicorn_timeout` configuration has been renamed to `web_timeout`.
+- **If you don't run your pod with `script/server`**, you have to update your setup. If you previously called `bin/bundle exec unicorn -c config/unicorn.rb` to run diaspora\*, you now have to run `bin/puma -C config/puma.rb`! Please update your systemd-Units or similar accordingly.
 
 ## Yarn for frontend dependencies
 
@@ -31,11 +45,13 @@ We use yarn to install the frontend dependencies now, so you need to have that i
 * Use yarn to manage the frontend dependencies [#8364](https://github.com/diaspora/diaspora/pull/8364)
 * Upgrade to latest `diaspora_federation`, remove support for old federation protocol [#8368](https://github.com/diaspora/diaspora/pull/8368)
 * Remove support for `therubyracer` [#8337](https://github.com/diaspora/diaspora/issues/8337)
+* Replace `unicorn` with `puma` [#8392](https://github.com/diaspora/diaspora/pull/8392)
 
 ## Bug fixes
 * Fix multiple photos upload progress bar [#7655](https://github.com/diaspora/diaspora/pull/7655)
 * Photo-upload file picker now correctly restricts possible file types [#8205](https://github.com/diaspora/diaspora/pull/8205)
 * Make inline code inside links show the link color [#8387](https://github.com/diaspora/diaspora/pull/8387)
+* Fix fetching public posts on first account search was missing some data [#8390](https://github.com/diaspora/diaspora/pull/8390)
 
 ## Features
 * Add client-side cropping of profile image uploads [#7581](https://github.com/diaspora/diaspora/pull/7581)
@@ -46,6 +62,11 @@ We use yarn to install the frontend dependencies now, so you need to have that i
 * Add support for directly paste images to upload them [#8237](https://github.com/diaspora/diaspora/pull/8237)
 * Add support for webp images and convert new png/jpg to webp to save space and bandwidth [#8358](https://github.com/diaspora/diaspora/pull/8358)
 * Show total and active pods count in the pods list for podmins [#8383](https://github.com/diaspora/diaspora/pull/8383)
+
+# 0.7.18.1
+
+## Bug fixes
+* Update binstubs to fix diaspora\* being unable to start when multiple bundler versions were available [#8392](https://github.com/diaspora/diaspora/pull/8392/commits/bfd42a1914a99ac9c71ecb16bbf6fa5bb118148a)
 
 # 0.7.18.0
 
