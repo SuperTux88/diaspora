@@ -214,10 +214,6 @@ group :development do
   gem "turbo_dev_assets", "0.0.2"
 
   gem "listen", "3.7.1"
-
-  # Appserver
-  gem "unicorn", "6.1.0", require: false
-  gem "unicorn-worker-killer", "0.4.5"
 end
 
 group :test do
