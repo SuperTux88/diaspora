@@ -46,6 +46,9 @@ We use yarn to install the frontend dependencies now, so you need to have that i
 * Upgrade to latest `diaspora_federation`, remove support for old federation protocol [#8368](https://github.com/diaspora/diaspora/pull/8368)
 * Remove support for `therubyracer` [#8337](https://github.com/diaspora/diaspora/issues/8337)
 * Replace `unicorn` with `puma` [#8392](https://github.com/diaspora/diaspora/pull/8392)
+* Drop `strip_exif` flag and always remove exif data from uploaded images [#8417](https://github.com/diaspora/diaspora/pull/8417)
+* Replace `apparition` with `cuprite` [#8418](https://github.com/diaspora/diaspora/pull/8418)
+* Remove `i18n-inflector-rails` for translations [#8420](https://github.com/diaspora/diaspora/pull/8420)
 
 ## Bug fixes
 * Fix multiple photos upload progress bar [#7655](https://github.com/diaspora/diaspora/pull/7655)
@@ -56,6 +59,7 @@ We use yarn to install the frontend dependencies now, so you need to have that i
 * Escape mentions before markdown parsing in mobile UI [#8398](https://github.com/diaspora/diaspora/pull/8398)
 * Cleanup duplicate pods in database [#8403](https://github.com/diaspora/diaspora/pull/8403)
 * Fix scrolling issue after closing photo viewer on photos page [#8404](https://github.com/diaspora/diaspora/pull/8404)
+* Filter unicode emojis from email headers [#8421](https://github.com/diaspora/diaspora/pull/8421)
 
 ## Features
 * Add client-side cropping of profile image uploads [#7581](https://github.com/diaspora/diaspora/pull/7581)
@@ -69,6 +73,7 @@ We use yarn to install the frontend dependencies now, so you need to have that i
 * Allow to select multiple aspects when posting on mobile [#8217](https://github.com/diaspora/diaspora/pull/8217)
 * Add info links to drawer in mobile UI [#8405](https://github.com/diaspora/diaspora/pull/8405)
 * Tell users that there is no help in mobile version, allow to switch to desktop [#8407](https://github.com/diaspora/diaspora/pull/8407)
+* Add Smart App Banner on iOS devices [#8409](https://github.com/diaspora/diaspora/pull/8409)
 
 # 0.7.18.1
 
@@ -146,7 +151,7 @@ We use yarn to install the frontend dependencies now, so you need to have that i
 * Testing: Replaced phantomjs with headless Chrome/Chromium [#8234](https://github.com/diaspora/diaspora/pull/8234)
 
 ## Bug fixes
-* Update comment counter when weleting a comment in the Single Post View [#7938](https://github.com/diaspora/diaspora/pull/7938)
+* Update comment counter when deleting a comment in the Single Post View [#7938](https://github.com/diaspora/diaspora/pull/7938)
 * Link diaspora only poduptime list [#8174](https://github.com/diaspora/diaspora/pull/8174)
 * Delete a user's invitation code during account deletion [#8202](https://github.com/diaspora/diaspora/pull/8202)
 * Bump mimemagic [#8231](https://github.com/diaspora/diaspora/pull/8231)

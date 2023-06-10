@@ -98,7 +98,6 @@ gem "js-routes",         "2.2.4"
 # Localization
 
 gem "http_accept_language", "2.1.1"
-gem "i18n-inflector-rails", "1.0.7"
 gem "rails-i18n",           "6.0.0"
 
 # Map
@@ -225,8 +224,8 @@ group :test do
 
   # Cucumber (integration tests)
 
-  gem "apparition",       "0.6.0"
   gem "capybara",         "3.35.3"
+  gem "cuprite",          "0.14.3"
   gem "database_cleaner-active_record", "2.0.1"
 
   gem "cucumber-api-steps", "0.14", require: false
