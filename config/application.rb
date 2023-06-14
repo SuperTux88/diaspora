@@ -4,8 +4,6 @@ require_relative "boot"
 
 require "rails/all"
 
-puts "hello world"
-
 require_relative "bundler_helper"
 
 # Require the gems listed in Gemfile, including any gems
