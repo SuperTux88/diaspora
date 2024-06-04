@@ -34,9 +34,9 @@ With this release, we switched from `unicorn` to `puma` to run our applications.
 
 We use yarn to install the frontend dependencies now, so you need to have that installed. See here for how to install it: https://yarnpkg.com/en/docs/install
 
-## Suggested Ruby version: 3.1
+## Suggested Ruby version: 3.3
 
-We recommend setting up new pods using Ruby 3.1, and updating existing pods to this version as well. Ruby 2.7 is EOL and no longer supported.
+We recommend setting up new pods using Ruby 3.3, and updating existing pods to this version as well. Ruby 2.7 is EOL and no longer supported.
 
 ## Refactor
 * Add bootstrapping for using ECMAScript 6 with automatic transpiling for compatibility [#7581](https://github.com/diaspora/diaspora/pull/7581) [#8397](https://github.com/diaspora/diaspora/pull/8397)
@@ -53,7 +53,7 @@ We recommend setting up new pods using Ruby 3.1, and updating existing pods to t
 * Drop `strip_exif` flag and always remove exif data from uploaded images [#8417](https://github.com/diaspora/diaspora/pull/8417)
 * Replace `apparition` with `cuprite` [#8418](https://github.com/diaspora/diaspora/pull/8418)
 * Remove `i18n-inflector-rails` for translations [#8420](https://github.com/diaspora/diaspora/pull/8420)
-* Add ruby 3.0 and 3.1 support [#8423](https://github.com/diaspora/diaspora/pull/8423) [#8426](https://github.com/diaspora/diaspora/pull/8426) [#8427](https://github.com/diaspora/diaspora/pull/8427)
+* Add ruby 3 support [#8423](https://github.com/diaspora/diaspora/pull/8423) [#8426](https://github.com/diaspora/diaspora/pull/8426) [#8427](https://github.com/diaspora/diaspora/pull/8427) [#8448](https://github.com/diaspora/diaspora/pull/8448)
 * Add CORS headers to nodeinfo endpoints to allow for client-side fetching [#8436](https://github.com/diaspora/diaspora/pull/8436)
 
 ## Bug fixes
@@ -66,6 +66,8 @@ We recommend setting up new pods using Ruby 3.1, and updating existing pods to t
 * Cleanup duplicate pods in database [#8403](https://github.com/diaspora/diaspora/pull/8403)
 * Fix scrolling issue after closing photo viewer on photos page [#8404](https://github.com/diaspora/diaspora/pull/8404)
 * Filter unicode emojis from email headers [#8421](https://github.com/diaspora/diaspora/pull/8421)
+* Do not show disabled services anymore [#8406](https://github.com/diaspora/diaspora/pull/8406)
+* Update search endpoint to be aware of ignored users [#8363](https://github.com/diaspora/diaspora/pull/8363)
 
 ## Features
 * Add client-side cropping of profile image uploads [#7581](https://github.com/diaspora/diaspora/pull/7581)
@@ -81,7 +83,7 @@ We recommend setting up new pods using Ruby 3.1, and updating existing pods to t
 * Tell users that there is no help in mobile version, allow to switch to desktop [#8407](https://github.com/diaspora/diaspora/pull/8407)
 * Add Smart App Banner on iOS devices [#8409](https://github.com/diaspora/diaspora/pull/8409)
 * Add a more detailed modal when reporting a post or a comment [#8035](https://github.com/diaspora/diaspora/pull/8035)
-* Re-introduce likes on comments [#8203](https://github.com/diaspora/diaspora/pull/8203)
+* Re-introduce likes on comments [#8203](https://github.com/diaspora/diaspora/pull/8203) [#8439](https://github.com/diaspora/diaspora/pull/8439) [#8442](https://github.com/diaspora/diaspora/pull/8442)
 * New redesigned registration page [#8285](https://github.com/diaspora/diaspora/pull/8285)
 * Allow comments to be fetched [#8441](https://github.com/diaspora/diaspora/pull/8441)
 
