@@ -115,6 +115,10 @@ gem "redcarpet",         "3.6.0"
 gem "ruby-oembed",       "0.17.0"
 gem "twitter-text",      "3.1.0"
 
+# Rate limitting
+
+gem "rack-attack", "6.7.0"
+
 # RTL support
 
 gem "string-direction", "1.2.2"
@@ -185,7 +189,7 @@ group :production do # we don"t install these on travis to speed up test runs
 
   # Process management
 
-  gem "eye", "0.10.0"
+  gem "foreman", "0.88.1", require: false
 
   # Redirects
 
